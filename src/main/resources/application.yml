@@ -1,0 +1,17 @@
+
+spring:
+    datasource:
+        password:
+        url: jdbc:mariadb://localhost:3306/tarot
+        username: root
+    jpa:
+        properties:
+            hibernate:
+                show_sql: true
+                format_sql: true
+                ddl_auto: true
+logging:
+    level:
+        org:
+            hibernate:
+                type: trace
