@@ -21,13 +21,13 @@ mvn clean install
 
 java -jar target/tarot-0.0.1-SNAPSHOT.jar
 
-## tarot emdpoints
+## tarot endpoints
 
 ### card by id
 
 localhost:8080/api/card/{id}
 
-### spread of drawn cards
+### spread of cards
 
 localhost:8080/api/spread/{number between 0 and 78}
 
@@ -35,7 +35,14 @@ localhost:8080/api/spread/{number between 0 and 78}
 
 localhost:8080/api/draw
 
-### draw a card, weighted to have 70% probability to not be reversed
+## Weighted endpoints
+
+weighted to have 70% probability to not be reversed
+
+### draw a card - weighted
 
 localhost:8080/draw/weighted
+
+### draw a spread - weighted
+
 localhost:8080/spread/weighted/{number of cards}
