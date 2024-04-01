@@ -1,10 +1,10 @@
-CREATE TABLE IF NOT EXISTS `minor_arcana`
+CREATE TABLE IF NOT EXISTS `minorarcana`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `card_value` VARCHAR(255) NOT NULL,
     `title` VARCHAR(255) NOT NULL,
     `suit` VARCHAR(255) NOT NULL,
     `card_description` VARCHAR(5000) NOT NULL,
-    `story` VARCHAR(2000) NOT NULL 
-    `major` BOOLEAN NOT NULL,
+    `story` VARCHAR(2000) NOT NULL,
+    `major` BOOLEAN NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=UTF8;

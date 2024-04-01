@@ -1,5 +1,8 @@
 package com.mercy.tarot.config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.sql.DataSource;
 
 import org.hibernate.jpa.HibernatePersistenceProvider; // Import the Hibernate Persistence Provider
@@ -27,6 +30,10 @@ public class JpaConfig {
         em.setPackagesToScan("com.mercy.tarot.models");
         em.setPersistenceProviderClass(HibernatePersistenceProvider.class); // Specify Hibernate as the persistence
         // provider
+
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("hibernate.physical_naming_strategy", CustomPhysicalNamingStrategy.class.getName());
+        em.setJpaPropertyMap(properties);
         return em;
     }
 

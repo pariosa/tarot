@@ -3,15 +3,12 @@ package com.mercy.tarot.models;
 import org.hibernate.annotations.DynamicUpdate;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 @DynamicUpdate
 public class MajorArcana {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private long id;
     public String card_value;

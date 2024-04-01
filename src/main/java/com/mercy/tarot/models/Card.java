@@ -3,8 +3,6 @@ package com.mercy.tarot.models;
 import org.hibernate.annotations.DynamicUpdate;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
@@ -12,21 +10,21 @@ import jakarta.persistence.Id;
 
 public class Card {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private long id;
-    public String card_value;
-    public String title;
-    public String suit;
     public String card_description;
+    public String card_value;
+    public Boolean major;
+    public String suit;
+    public String title;
     public String story;
-    public String major;
 
     public Card() {
         // Default constructor
     }
 
-    public Card(String card_value, String title, String suit, String card_description, String story, Boolean major) {
+    public Card(String card_description, String card_value, Boolean major, String story, String suit,
+            String title) {
         super();
         this.card_value = card_value;
         this.title = title;

@@ -1,4 +1,0 @@
-CREATE TABLE card_seq (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    sequence_value BIGINT NOT NULL
-);
