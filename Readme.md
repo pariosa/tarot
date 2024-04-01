@@ -1,6 +1,6 @@
 # Tarot
 
-Java package for reading tarot cards, complete with database seeders, model, controller, migrations, seecders and several endpoints.
+Java package for reading tarot cards, complete with database seeders, model, controller, migrations, DataTransferObject and several endpoints.
 
 ## JDBC:
 
