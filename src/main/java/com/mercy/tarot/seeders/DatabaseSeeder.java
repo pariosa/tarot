@@ -317,6 +317,9 @@ public class DatabaseSeeder {
                                 theHangedMan, Death, Temperance, theDevil, theTower, theStar, theMoon,
                                 theSun,
                                 Judgement, theWorld));
+                tarotDeck.addAll(Arrays.asList(aceOfWands, twoOfWands, threeOfWands, fourOfWands,
+                                fiveOfWands, sixOfWands, sevenOfWands, eightOfWands, nineOfWands,
+                                tenOfWands, pageOfWands, knightOfWands, queenOfWands, kingOfWands));
                 tarotDeck.addAll(Arrays.asList(aceOfCups, twoOfCups, threeOfCups, fourOfCups,
                                 fiveOfCups, sixOfCups,
                                 sevenOfCups, eightOfCups, nineOfCups, tenOfCups, pageOfCups, knightOfCups,
@@ -330,21 +333,11 @@ public class DatabaseSeeder {
                                 fourOfSwords, fiveOfSwords, sixOfSwords, sevenOfSwords, eightOfSwords,
                                 nineOfSwords, tenOfSwords, pageOfSwords, knightOfSwords, queenOfSwords,
                                 kingOfSwords));
-                // cardRepository.save(new Card("Nine of Pentacles", "Nine of Pentacles",
-                // "Pentacles",
-                // "The Nine of Pentacles represents luxury, self-sufficiency, and financial
-                // independence.",
-                // "This card signifies enjoying the fruits of your labor and feeling secure and
-                // independent.",
-                // false));
-                // cardRepository.save(new Card("Nine of Pentacles", "Nine of Pentacles", false,
-                // "The Nine of Pentacles represents luxury, self-sufficiency, and financial
-                // independence.",
-                // "This card signifies enjoying the fruits of your labor and feeling secure and
-                // independent.",
-                // "Pentacles"));
-                for (Card card : tarotDeck) {
-                        cardRepository.save(card); // Save each card to the database
+
+                if (cardRepository.count() == 0) {
+                        for (Card card : tarotDeck) {
+                                cardRepository.save(card); // Save each card to the database
+                        }
                 }
         }
 }
