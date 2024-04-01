@@ -39,35 +39,57 @@ public class CardController {
         }
     }
 
+    public void shuffleALot(List<Card> allCards) {
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+        shuffle(allCards);
+    }
+
     public List<CardDTO> getRandomCards(@PathVariable int count) {
         List<Card> allCards = cardRepository.findAll();
         List<CardDTO> selectedCards = new ArrayList<>();
 
         // Shuffle the list of cards a few times :)
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-        shuffle(allCards);
-
+        shuffleALot(allCards);
         // Select random cards
         for (int i = 0; i < count; i++) {
             Card card = allCards.get(i);
             // Simulate random orientation
             boolean reversed = new Random().nextBoolean();
+            CardDTO cardDTO = new CardDTO(card.getTitle(), card.getDescription(), reversed, card.getStory());
+            selectedCards.add(cardDTO);
+        }
+
+        return selectedCards;
+    }
+
+    public List<CardDTO> getRandomWeightedReversalCards(@PathVariable int count) {
+        List<Card> allCards = cardRepository.findAll();
+        List<CardDTO> selectedCards = new ArrayList<>();
+
+        // Shuffle the list of cards a few times :)
+        shuffleALot(allCards);
+
+        // Select random cards
+        for (int i = 0; i < count; i++) {
+            Card card = allCards.get(i);
+            // Simulate random orientation
+            boolean reversed = CardDrawHelpers.drawCardWithWeightedProbability();
             CardDTO cardDTO = new CardDTO(card.getTitle(), card.getDescription(), reversed, card.getStory());
             selectedCards.add(cardDTO);
         }
@@ -91,6 +113,20 @@ public class CardController {
     @ResponseBody
     public List<CardDTO> draw() {
         List<CardDTO> cards = getRandomCards(1); // Fetch 3 random cards
+        return cards;
+    }
+
+    @GetMapping("/draw/weighted")
+    @ResponseBody
+    public List<CardDTO> drawWeighted() {
+        List<CardDTO> cards = getRandomWeightedReversalCards(1); // Fetch 3 random cards
+        return cards;
+    }
+
+    @GetMapping("/sporead/weighted/{numCards}")
+    @ResponseBody
+    public List<CardDTO> drawCardWithWeightedProbability(@PathVariable int numCards) {
+        List<CardDTO> cards = getRandomWeightedReversalCards(numCards); // Fetch 5 random cards
         return cards;
     }
 

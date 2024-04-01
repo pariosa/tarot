@@ -33,4 +33,9 @@ localhost:8080/api/spread/{number between 0 and 78}
 
 ### draw a single card
 
-localhost:8080/api/draw -
+localhost:8080/api/draw
+
+### draw a card, weighted to have 70% probability to not be reversed
+
+localhost:8080/draw/weighted
+localhost:8080/spread/weighted/{number of cards}

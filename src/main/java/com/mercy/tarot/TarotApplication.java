@@ -10,7 +10,7 @@ import com.mercy.tarot.seeders.DatabaseSeeder;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = { "com.mercy.tarot.repositories", "com.mercy.tarot.models",
-		"com.mercy.tarot.runners", "com.mercy.tarot.seeders", "com.mercy.tarot.config" })
+		"com.mercy.tarot.runners", "com.mercy.tarot.seeders", "com.mercy.tarot.config", "com.mercy.tarot.helpers" })
 @EntityScan(basePackages = "com.mercy.tarot.models")
 
 public class TarotApplication {
