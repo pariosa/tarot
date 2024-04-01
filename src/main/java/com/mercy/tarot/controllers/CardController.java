@@ -123,7 +123,7 @@ public class CardController {
         return cards;
     }
 
-    @GetMapping("/sporead/weighted/{numCards}")
+    @GetMapping("/spread/weighted/{numCards}")
     @ResponseBody
     public List<CardDTO> drawCardWithWeightedProbability(@PathVariable int numCards) {
         List<CardDTO> cards = getRandomWeightedReversalCards(numCards); // Fetch 5 random cards
