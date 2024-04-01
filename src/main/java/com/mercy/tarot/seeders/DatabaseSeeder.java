@@ -19,292 +19,665 @@ public class DatabaseSeeder {
         private List<Card> tarotDeck = new ArrayList<>(); // Define your Tarot card deck here
 
         // Major Arcana
-        Card theFool = new Card("The Fool", "The Fool", true,
+        Card theFool = new Card("This card encourages you to embrace the unknown and trust in the journey ahead.",
+                        "The Fool",
+                        true,
                         "The Fool represents new beginnings, innocence, and spontaneity.",
-                        "This card encourages you to embrace the unknown and trust in the journey ahead.",
-                        "Major Arcana");
-        Card theMagician = new Card("The Magician", "The Magician", true,
-                        "The Magician represents manifestation, power, and resourcefulness.",
+                        "Major Arcana",
+                        "0 - The Fool");
+        Card theMagician = new Card(
                         "This card reminds you of your ability to create your reality and harness your skills.",
-                        "Major Arcana");
-        Card theHighPriestess = new Card("The High Priestess", "The High Priestess", true,
-                        "The High Priestess represents intuition, mystery, and understanding the subconscious mind.",
+                        "The Magician",
+                        true,
+                        "The Magician represents manifestation, power, and resourcefulness.",
+                        "Major Arcana",
+                        "I -The Magician");
+        Card theHighPriestess = new Card(
                         "This card encourages you to trust your inner wisdom and explore the depths of your subconscious.",
-                        "Major Arcana");
-        Card theEmpress = new Card("The Empress", "The Empress", true,
+                        "The High Priestess",
+                        true,
+                        "The High Priestess represents intuition, mystery, and understanding the subconscious mind.",
+                        "Major Arcana",
+                        "II - The High Priestess");
+        Card theEmpress = new Card("This card symbolizes creativity, fertility, and the power of nurturing and growth.",
+                        "The Empress",
+                        true,
                         "The Empress represents nurturing, abundance, and fertility.",
-                        "This card symbolizes creativity, fertility, and the power of nurturing and growth.",
-                        "Major Arcana");
-        Card theEmperor = new Card("The Emperor", "The Emperor", true,
-                        "The Emperor represents authority, structure, and stability.",
+                        "Major Arcana",
+                        "III - The Empress");
+        Card theEmperor = new Card(
                         "This card reminds you to take charge of your life and establish a solid foundation for success.",
-                        "Major Arcana");
-        Card theHierophant = new Card("The Hierophant", "The Hierophant", true,
+                        "The Emperor",
+                        true,
+                        "The Emperor represents authority, structure, and stability.",
+                        "Major Arcana",
+                        "IV - The Emperor");
+        Card theHierophant = new Card(
+                        "This card encourages you to seek wisdom from spiritual teachings and traditional valuest",
+                        "The Hierophant",
+                        true,
                         "The Hierophant represents tradition, spirituality, and guidance.",
-                        "This card encourages you to seek wisdom from spiritual teachings and traditional values.",
-                        "Major Arcana");
-        Card theLovers = new Card("The Lovers", "The Lovers", true,
-                        "The Lovers represents love, relationships, and choices.",
+                        "Major Arcana",
+                        "V - The Hierophant");
+        Card theLovers = new Card(
                         "This card signifies important decisions regarding love, relationships, and personal values.",
-                        "Major Arcana");
-        Card theChariot = new Card("The Chariot", "The Chariot", true,
-                        "The Chariot represents determination, willpower, and control.",
+                        "The Lovers",
+                        true,
+                        "The Lovers represents love, relationships, and choices.",
+                        "Major Arcana",
+                        "VI - The Lovers");
+        Card theChariot = new Card(
                         "This card reminds you to stay focused on your goals and overcome obstacles through determination.",
-                        "Major Arcana");
-        Card Strength = new Card("Strength", "Strength", true,
-                        "Strength represents courage, inner strength, and resilience.",
+                        "The Chariot",
+                        true,
+                        "The Chariot represents determination, willpower, and control.",
+                        "Major Arcana",
+                        "VII - The Chariot");
+        Card Strength = new Card(
                         "This card encourages you to tap into your inner strength and overcome challenges with grace.",
-                        "Major Arcana");
-        Card theHermit = new Card("The Hermit", "The Hermit", true,
+                        "Strength",
+                        true,
+                        "Strength represents courage, inner strength, and resilience.",
+                        "Major Arcana",
+                        "VIII - Strength");
+        Card theHermit = new Card(
+                        "This card signifies a period of self-reflection and inner wisdom.",
+                        "The Hermit",
+                        true,
                         "The Hermit represents introspection, soul-searching, and inner guidance.",
-                        "This card signifies a period of self-reflection and inner wisdom.", "Major Arcana");
-        Card wheelOfFortune = new Card("Wheel of Fortune", "Wheel of Fortune", true,
+                        "Major Arcana",
+                        "IX - The Hermit");
+        Card wheelOfFortune = new Card(
+                        "This card signifies the ups and downs of life and the cycles of change.",
+                        "Wheel of Fortune",
+                        true,
                         "Wheel of Fortune represents destiny, cycles, and change.",
-                        "This card signifies the ups and downs of life and the cycles of change.", "Major Arcana");
-        Card Justice = new Card("Justice", "Justice", true,
+                        "Major Arcana",
+                        "X - Wheel of Fortune");
+        Card Justice = new Card(
+                        "This card symbolizes fairness, truth, and karmic balance.",
+                        "Justice",
+                        true,
                         "Justice represents fairness, truth, and balance.",
-                        "This card symbolizes fairness, truth, and karmic balance.", "Major Arcana");
-        Card theHangedMan = new Card("The Hanged Man", "The Hanged Man", true,
-                        "The Hanged Man represents surrender, release, and new perspectives.",
+                        "Major Arcana",
+                        "XI - Justice");
+        Card theHangedMan = new Card(
                         "This card encourages you to let go of control and gain new insights through surrender.",
-                        "Major Arcana");
-        Card Death = new Card("Death", "Death", true,
+                        "The Hanged Man",
+                        true,
+                        "The Hanged Man represents surrender, release, and new perspectives.",
+                        "Major Arcana",
+                        "XII - The Hanged Man");
+        Card Death = new Card(
+                        "This card symbolizes the end of one chapter and the beginning of another.",
+                        "Death",
+                        true,
                         "Death represents endings, transformation, and new beginnings.",
-                        "This card symbolizes the end of one chapter and the beginning of another.", "Major Arcana");
-        Card Temperance = new Card("Temperance", "Temperance", true,
-                        "Temperance represents balance, harmony, and moderation.",
+                        "Major Arcana",
+                        "XIII - Death");
+        Card Temperance = new Card(
                         "This card encourages you to find balance and moderation in all aspects of life.",
-                        "Major Arcana");
-        Card theDevil = new Card("The Devil", "The Devil", true,
+                        "Temperance",
+                        true,
+                        "Temperance represents balance, harmony, and moderation.",
+                        "Major Arcana",
+                        "XIV - Temperance");
+        Card theDevil = new Card(
+                        "This card warns against being trapped by material desires and illusions",
+                        "The Devil",
+                        true,
                         "The Devil represents materialism, bondage, and illusions.",
-                        "This card warns against being trapped by material desires and illusions.", "Major Arcana");
-        Card theTower = new Card("The Tower", "The Tower", true,
-                        "The Tower represents sudden change, upheaval, and revelation.",
+                        "Major Arcana", "XV - The Devil");
+        Card theTower = new Card(
                         "This card signifies the breakdown of old structures and the emergence of new insights.",
-                        "Major Arcana");
-        Card theStar = new Card("The Star", "The Star", true,
+                        "The Tower",
+                        true,
+                        "The Tower represents sudden change, upheaval, and revelation.",
+                        "Major Arcana",
+                        "XVI - The Tower");
+        Card theStar = new Card(
+                        "This card signifies hope, inspiration, and the promise of new beginnings.",
+                        "The Star",
+                        true,
                         "The Star represents hope, inspiration, and renewal.",
-                        "This card signifies hope, inspiration, and the promise of new beginnings.", "Major Arcana");
-        Card theMoon = new Card("The Moon", "The Moon", true,
-                        "The Moon represents intuition, illusion, and the subconscious mind.",
+                        "Major Arcana",
+                        "XVII - The Star");
+        Card theMoon = new Card(
                         "This card symbolizes the exploration of the unconscious and hidden aspects of yourself.",
-                        "Major Arcana");
-        Card theSun = new Card("The Sun", "The Sun", true, "The Sun represents success, joy, and vitality.",
+                        "The Moon",
+                        true,
+                        "The Moon represents intuition, illusion, and the subconscious mind.",
+                        "Major Arcana",
+                        "XVIII - The Moon");
+        Card theSun = new Card(
                         "This card signifies success, happiness, and fulfillment in all areas of life.",
-                        "The Sun");
-        Card Judgement = new Card("Judgement", "Judgement", true,
-                        "Judgement represents awakening, rebirth, and inner calling.",
+                        "The Sun",
+                        true,
+                        "The Sun represents success, joy, and vitality.",
+                        "Major Arcana",
+                        "XIV - The Sun");
+        Card Judgement = new Card(
                         "This card symbolizes a spiritual awakening and the need to answer your inner calling.",
-                        "Judgement");
-        Card theWorld = new Card("The World", "The World", true,
-                        "The World represents completion, fulfillment, and achievement.",
+                        "Judgement",
+                        true,
+                        "Judgement represents awakening, rebirth, and inner calling.",
+                        "Major Arcana",
+                        "XX - Judgement");
+        Card theWorld = new Card(
                         "This card signifies the completion of a cycle and the attainment of goals.",
-                        "Major Arcana");
+                        "The World",
+                        true,
+                        "The World represents completion, fulfillment, and achievement.",
+                        "Major Arcana",
+                        "XXI - The World");
 
         // Suit of Cups cards data
-        Card aceOfCups = new Card("Ace of Cups", "Ace of Cups", false,
+        // Ace of Cups
+        Card aceOfCups = new Card(
+                        "This card often signifies a new phase of emotional growth or a deepening of existing emotional connections",
+                        "Ace of Cups",
+                        false,
                         "The Ace of Cups represents new beginnings, intuition, and emotional fulfillment.",
-                        "This card often signifies a new phase of emotional growth or a deepening of existing emotional connections.",
-                        "Cups");
-        Card twoOfCups = new Card("Two of Cups", "Two of Cups", false,
-                        "The Two of Cups represents partnership, harmony, and mutual attraction.",
-                        "This card signifies a strong emotional bond and cooperation in relationships.", "Cups");
-        Card threeOfCups = new Card("Three of Cups", "Three of Cups", false,
-                        "The Three of Cups represents celebration, friendship, and joy.",
-                        "This card signifies joyful gatherings, shared happiness, and emotional connections.", "Cups");
-        Card fourOfCups = new Card("Four of Cups", "Four of Cups", false,
-                        "The Four of Cups represents contemplation, apathy, and dissatisfaction.",
-                        "This card warns against being stuck in a state of discontentment and encourages introspection.",
-                        "Cups");
-        Card fiveOfCups = new Card("Five of Cups", "Five of Cups", false,
+                        "Cups",
+                        "Ace Of Cups");
+
+        // Two of Cups
+        Card twoOfCups = new Card(
+                        "The Two of Cups represents harmony, unity, and partnership.",
+                        "Two of Cups",
+                        false,
+                        "The Two of Cups signifies a strong bond and mutual support between two people.",
+                        "Cups",
+                        "Two Of Cups");
+
+        // Three of Cups
+        Card threeOfCups = new Card(
+                        "The Three of Cups signifies celebration, friendship, and community.",
+                        "Three of Cups",
+                        false,
+                        "The Three of Cups represents joyous occasions and connections with others.",
+                        "Cups",
+                        "Three Of Cups");
+
+        // Four of Cups
+        Card fourOfCups = new Card(
+                        "The Four of Cups indicates contemplation, withdrawal, and introspection.",
+                        "Four of Cups",
+                        false,
+                        "The Four of Cups suggests taking time to reflect on one's emotions and priorities.",
+                        "Cups",
+                        "Four Of Cups");
+
+        // Five of Cups
+        Card fiveOfCups = new Card(
                         "The Five of Cups represents loss, regret, and disappointment.",
-                        "This card encourages you to acknowledge your feelings of loss and find a way to move forward.",
-                        "Cups");
-        Card sixOfCups = new Card("Six of Cups", "Six of Cups", false,
-                        "The Six of Cups represents nostalgia, childhood memories, and innocence.",
-                        "This card signifies reconnecting with the past and finding joy in simple pleasures.", "Cups");
-        Card sevenOfCups = new Card("Seven of Cups", "Seven of Cups", false,
+                        "Five of Cups",
+                        false,
+                        "The Five of Cups suggests focusing on what remains rather than dwelling on what is lost.",
+                        "Cups",
+                        "Five Of Cups");
+
+        // Six of Cups
+        Card sixOfCups = new Card(
+                        "The Six of Cups symbolizes nostalgia, childhood memories, and innocence.",
+                        "Six of Cups",
+                        false,
+                        "The Six of Cups encourages reconnecting with the past and finding joy in simpler times.",
+                        "Cups",
+                        "Six Of Cups");
+
+        // Seven of Cups
+        Card sevenOfCups = new Card(
                         "The Seven of Cups represents choices, illusions, and fantasy.",
-                        "This card warns against being overwhelmed by choices and encourages discernment.", "Cups");
-        Card eightOfCups = new Card("Eight of Cups", "Eight of Cups", false,
-                        "The Eight of Cups represents walking away, transition, and searching for deeper meaning.",
-                        "This card signifies leaving behind what no longer serves you and embarking on a spiritual journey.",
-                        "Cups");
-        Card nineOfCups = new Card("Nine of Cups", "Nine of Cups", false,
+                        "Seven of Cups",
+                        false,
+                        "The Seven of Cups warns against being seduced by unrealistic dreams and desires.",
+                        "Cups",
+                        "Seven Of Cups");
+
+        // Eight of Cups
+        Card eightOfCups = new Card(
+                        "The Eight of Cups signifies walking away, abandonment, and moving on.",
+                        "Eight of Cups",
+                        false,
+                        "The Eight of Cups suggests leaving behind what no longer serves one's emotional well-being.",
+                        "Cups",
+                        "Eight Of Cups");
+
+        // Nine of Cups
+        Card nineOfCups = new Card(
                         "The Nine of Cups represents contentment, satisfaction, and emotional fulfillment.",
-                        "This card signifies happiness and emotional abundance.", "Cups");
-        Card tenOfCups = new Card("Ten of Cups", "Ten of Cups", false,
-                        "The Ten of Cups represents harmony, family, and happiness.",
-                        "This card signifies emotional fulfillment and blissful relationships within the family.",
-                        "Cups");
-        Card pageOfCups = new Card("Page of Cups", "Page of Cups", false,
-                        "The Page of Cups represents creativity, intuition, and emotional messages.",
-                        "This card signifies a new creative project or the emergence of intuitive insights.", "Cups");
-        Card knightOfCups = new Card("Knight of Cups", "Knight of Cups", false,
-                        "The Knight of Cups represents romance, charm, and emotional pursuit.",
-                        "This card signifies a romantic and imaginative individual who follows their heart.", "Cups");
-        Card queenOfCups = new Card("Queen of Cups", "Queen of Cups", false,
+                        "Nine of Cups",
+                        false,
+                        "The Nine of Cups indicates a sense of emotional abundance and happiness.",
+                        "Cups",
+                        "Nine Of Cups");
+
+        // Ten of Cups
+        Card tenOfCups = new Card(
+                        "The Ten of Cups signifies harmony, happiness, and family bliss.",
+                        "Ten of Cups",
+                        false,
+                        "The Ten of Cups represents the ultimate emotional fulfillment and domestic joy.",
+                        "Cups",
+                        "Ten Of Cups");
+
+        // Page of Cups
+        Card pageOfCups = new Card(
+                        "The Page of Cups represents creativity, intuition, and emotional exploration.",
+                        "Page of Cups",
+                        false,
+                        "The Page of Cups encourages embracing one's artistic or intuitive side.",
+                        "Cups",
+                        "Page Of Cups");
+
+        // Knight of Cups
+        Card knightOfCups = new Card(
+                        "The Knight of Cups symbolizes romance, charm, and imagination.",
+                        "Knight of Cups",
+                        false,
+                        "The Knight of Cups suggests following one's heart and pursuing romantic or artistic endeavors.",
+                        "Cups",
+                        "Knight Of Cups");
+
+        // Queen of Cups
+        Card queenOfCups = new Card(
                         "The Queen of Cups represents compassion, intuition, and emotional stability.",
-                        "This card signifies nurturing and empathetic qualities.", "Cups");
-        Card kingOfCups = new Card("King of Cups", "King of Cups", false,
-                        "The King of Cups represents emotional maturity, wisdom, and calmness.",
-                        "This card signifies someone who is emotionally balanced and empathetic.", "Cups");
+                        "Queen of Cups",
+                        false,
+                        "The Queen of Cups embodies nurturing qualities and deep emotional understanding.",
+                        "Cups",
+                        "Queen Of Cups");
 
-        // Suit of Wands cards data
-        Card aceOfWands = new Card("Ace of Wands", "Ace of Wands", false,
+        // King of Cups
+        Card kingOfCups = new Card(
+                        "The King of Cups signifies emotional maturity, wisdom, and calmness.",
+                        "King of Cups",
+                        false,
+                        "The King of Cups embodies control over emotions and compassionate leadership.",
+                        "Cups",
+                        "King Of Cups");
+
+        // Wands
+        // Ace of Wands
+        Card aceOfWands = new Card(
                         "The Ace of Wands represents inspiration, new beginnings, and potential.",
-                        "This card signifies new opportunities and creative endeavors.", "Wands");
-        Card twoOfWands = new Card("Two of Wands", "Two of Wands", false,
-                        "The Two of Wands represents planning, progress, and decisions.",
-                        "This card signifies making decisions and taking action towards your goals.", "Wands");
-        Card threeOfWands = new Card("Three of Wands", "Three of Wands", false,
-                        "The Three of Wands represents foresight, expansion, and exploration.",
-                        "This card signifies looking ahead and planning for the future.", "Wands");
-        Card fourOfWands = new Card("Four of Wands", "Four of Wands", false,
-                        "The Four of Wands represents celebration, harmony, and homecoming.",
-                        "This card signifies joyful gatherings and a sense of accomplishment.", "Wands");
-        Card fiveOfWands = new Card("Five of Wands", "Five of Wands", false,
-                        "The Five of Wands represents competition, conflict, and struggle.",
-                        "This card signifies challenges and conflicts that arise from differences in opinions or goals.",
-                        "Wands");
-        Card sixOfWands = new Card("Six of Wands", "Six of Wands", false,
+                        "Ace of Wands",
+                        false,
+                        "The Ace of Wands signifies the spark of creative energy and the start of a passionate journey.",
+                        "Wands",
+                        "Ace Of Wands");
+
+        // Two of Wands
+        Card twoOfWands = new Card(
+                        "The Two of Wands symbolizes planning, exploration, and potential.",
+                        "Two of Wands",
+                        false,
+                        "The Two of Wands suggests considering different paths and expanding horizons.",
+                        "Wands",
+                        "Two Of Wands");
+
+        // Three of Wands
+        Card threeOfWands = new Card(
+                        "The Three of Wands represents foresight, leadership, and expansion.",
+                        "Three of Wands",
+                        false,
+                        "The Three of Wands signifies taking initiative and preparing for future opportunities.",
+                        "Wands",
+                        "Three Of Wands");
+
+        // Four of Wands
+        Card fourOfWands = new Card(
+                        "The Four of Wands symbolizes celebration, harmony, and achievement.",
+                        "Four of Wands",
+                        false,
+                        "The Four of Wands represents joyous occasions and a sense of accomplishment.",
+                        "Wands",
+                        "Four Of Wands");
+
+        // Five of Wands
+        Card fiveOfWands = new Card(
+                        "The Five of Wands signifies competition, conflict, and struggle.",
+                        "Five of Wands",
+                        false,
+                        "The Five of Wands suggests facing challenges and overcoming obstacles.",
+                        "Wands",
+                        "Five Of Wands");
+
+        // Six of Wands
+        Card sixOfWands = new Card(
                         "The Six of Wands represents victory, recognition, and success.",
-                        "This card signifies achieving success and receiving recognition for your efforts.", "Wands");
-        Card sevenOfWands = new Card("Seven of Wands", "Seven of Wands", false,
-                        "The Seven of Wands represents courage, perseverance, and standing your ground.",
-                        "This card signifies defending your beliefs and overcoming obstacles.", "Wands");
-        Card eightOfWands = new Card("Eight of Wands", "Eight of Wands", false,
-                        "The Eight of Wands represents swiftness, movement, and rapid changes.",
-                        "This card signifies swift progress and opportunities coming your way.", "Wands");
-        Card nineOfWands = new Card("Nine of Wands", "Nine of Wands", false,
-                        "The Nine of Wands represents resilience, persistence, and inner strength.",
-                        "This card signifies overcoming challenges and continuing to move forward.", "Wands");
-        Card tenOfWands = new Card("Ten of Wands", "Ten of Wands", false,
-                        "The Ten of Wands represents burden, responsibility, and hard work.",
-                        "This card signifies feeling overwhelmed by responsibilities or carrying a heavy burden.",
-                        "Wands");
-        Card pageOfWands = new Card("Page of Wands", "Page of Wands", false,
-                        "The Page of Wands represents enthusiasm, exploration, and new beginnings.",
-                        "This card signifies a new phase of exploration and discovery.", "Wands");
-        Card knightOfWands = new Card("Knight of Wands", "Knight of Wands", false,
+                        "Six of Wands",
+                        false,
+                        "The Six of Wands signifies public acclaim and being recognized for achievements.",
+                        "Wands",
+                        "Six Of Wands");
+
+        // Seven of Wands
+        Card sevenOfWands = new Card(
+                        "The Seven of Wands symbolizes perseverance, determination, and standing one's ground.",
+                        "Seven of Wands",
+                        false,
+                        "The Seven of Wands suggests defending one's position and asserting oneself.",
+                        "Wands",
+                        "Seven Of Wands");
+
+        // Eight of Wands
+        Card eightOfWands = new Card(
+                        "The Eight of Wands represents swiftness, progress, and rapid change.",
+                        "Eight of Wands",
+                        false,
+                        "The Eight of Wands signifies swift developments and forward momentum.",
+                        "Wands",
+                        "Eight Of Wands");
+
+        // Nine of Wands
+        Card nineOfWands = new Card(
+                        "The Nine of Wands symbolizes resilience, perseverance, and inner strength.",
+                        "Nine of Wands",
+                        false,
+                        "The Nine of Wands suggests overcoming challenges and staying resilient.",
+                        "Wands",
+                        "Nine Of Wands");
+
+        // Ten of Wands
+        Card tenOfWands = new Card(
+                        "The Ten of Wands represents burden, responsibility, and overwhelm.",
+                        "Ten of Wands",
+                        false,
+                        "The Ten of Wands signifies carrying a heavy load and feeling overwhelmed.",
+                        "Wands",
+                        "Ten Of Wands");
+
+        // Page of Wands
+        Card pageOfWands = new Card(
+                        "The Page of Wands signifies enthusiasm, exploration, and new opportunities.",
+                        "Page of Wands",
+                        false,
+                        "The Page of Wands encourages embracing new adventures and pursuing passions.",
+                        "Wands",
+                        "Page Of Wands");
+
+        // Knight of Wands
+        Card knightOfWands = new Card(
                         "The Knight of Wands represents action, adventure, and impulsiveness.",
-                        "This card signifies a bold and adventurous individual who pursues their passions.", "Wands");
-        Card queenOfWands = new Card("Queen of Wands", "Queen of Wands", false,
-                        "The Queen of Wands represents confidence, determination, and independence.",
-                        "This card signifies a confident and charismatic leader who is independent and passionate.",
-                        "Wands");
-        Card kingOfWands = new Card("King of Wands", "King of Wands", false,
-                        "The King of Wands represents leadership, vision, and charisma.",
-                        "This card signifies a visionary leader who inspires others with their charisma and passion.",
-                        "Wands");
+                        "Knight of Wands",
+                        false,
+                        "The Knight of Wands suggests pursuing one's goals with passion and energy.",
+                        "Wands",
+                        "Knight Of Wands");
 
-        // Suit of Pentacles cards data
-        Card aceOfPentacles = new Card("Ace of Pentacles", "Ace of Pentacles", false,
-                        "The Ace of Pentacles represents prosperity, new opportunities, and abundance.",
-                        "This card signifies new financial opportunities and the potential for material success.",
-                        "Pentacles");
-        Card twoOfPentacles = new Card("Two of Pentacles", "Two of Pentacles", false,
-                        "The Two of Pentacles represents balance, adaptability, and juggling priorities.",
-                        "This card signifies managing multiple responsibilities and finding harmony in chaos.",
-                        "Pentacles");
-        Card threeOfPentacles = new Card("Three of Pentacles", "Three of Pentacles", false,
+        // Queen of Wands
+        Card queenOfWands = new Card(
+                        "The Queen of Wands symbolizes confidence, independence, and determination.",
+                        "Queen of Wands",
+                        false,
+                        "The Queen of Wands embodies strength and leadership in pursuing one's vision.",
+                        "Wands",
+                        "Queen Of Wands");
+
+        // King of Wands
+        Card kingOfWands = new Card(
+                        "The King of Wands represents charisma, leadership, and vision.",
+                        "King of Wands",
+                        false,
+                        "The King of Wands embodies strong leadership qualities and the ability to inspire others.",
+                        "Wands",
+                        "King Of Wands");
+
+        // Pentacles
+        // Ace of Pentacles
+        Card aceOfPentacles = new Card(
+                        "The Ace of Pentacles symbolizes opportunity, prosperity, and new beginnings.",
+                        "Ace of Pentacles",
+                        false,
+                        "The Ace of Pentacles represents the potential for material and financial success.",
+                        "Pentacles",
+                        "Ace Of Pentacles");
+
+        // Two of Pentacles
+        Card twoOfPentacles = new Card(
+                        "The Two of Pentacles signifies balance, adaptability, and juggling priorities.",
+                        "Two of Pentacles",
+                        false,
+                        "The Two of Pentacles suggests finding harmony amidst life's challenges.",
+                        "Pentacles",
+                        "Two Of Pentacles");
+
+        // Three of Pentacles
+        Card threeOfPentacles = new Card(
                         "The Three of Pentacles represents teamwork, collaboration, and craftsmanship.",
-                        "This card signifies working together with others to achieve a common goal and recognition for your skills.",
-                        "Pentacles");
-        Card fourOfPentacles = new Card("Four of Pentacles", "Four of Pentacles", false,
-                        "The Four of Pentacles represents stability, security, and conservation.",
-                        "This card signifies holding onto your resources and being cautious with your finances.",
-                        "Pentacles");
-        Card fiveOfPentacles = new Card("Five of Pentacles", "Five of Pentacles", false,
-                        "The Five of Pentacles represents hardship, poverty, and financial loss.",
-                        "This card signifies facing tough times and seeking support during difficult situations.",
-                        "Pentacles");
-        Card sixOfPentacles = new Card("Six of Pentacles", "Six of Pentacles", false,
-                        "The Six of Pentacles represents generosity, charity, and giving back.",
-                        "This card signifies sharing your wealth and resources with others and finding balance in giving and receiving.",
-                        "Pentacles");
-        Card sevenOfPentacles = new Card("Seven of Pentacles", "Seven of Pentacles", false,
-                        "The Seven of Pentacles represents patience, perseverance, and long-term vision.",
-                        "This card signifies waiting for results and focusing on long-term goals.", "Pentacles");
-        Card eightOfPentacles = new Card("Eight of Pentacles", "Eight of Pentacles", false,
-                        "The Eight of Pentacles represents dedication, craftsmanship, and skill development.",
-                        "This card signifies working diligently to improve your skills and craftsmanship.",
-                        "Pentacles");
-        Card nineOfPentacles = new Card("Nine of Pentacles", "Nine of Pentacles", false,
-                        "The Nine of Pentacles represents luxury, self-sufficiency, and financial independence.",
-                        "This card signifies enjoying the fruits of your labor and feeling secure and independent.",
-                        "Pentacles");
-        Card tenOfPentacles = new Card("Ten of Pentacles", "Ten of Pentacles", false,
-                        "The Ten of Pentacles represents wealth, inheritance, and family legacy.",
-                        "This card signifies financial security and stability within the family.", "Pentacles");
-        Card pageOfPentacles = new Card("Page of Pentacles", "Page of Pentacles", false,
-                        "The Page of Pentacles represents ambition, opportunities, and practicality.",
-                        "This card signifies a new opportunity for learning and growth in practical matters.",
-                        "Pentacles");
-        Card knightOfPentacles = new Card("Knight of Pentacles", "Knight of Pentacles", false,
-                        "The Knight of Pentacles represents diligence, reliability, and responsibility.",
-                        "This card signifies a focused and disciplined individual who is dedicated to their goals.",
-                        "Pentacles");
-        Card queenOfPentacles = new Card("Queen of Pentacles", "Queen of Pentacles", false,
-                        "The Queen of Pentacles represents nurturing, abundance, and practicality.",
-                        "This card signifies a nurturing and resourceful individual who provides stability and support.",
-                        "Pentacles");
-        Card kingOfPentacles = new Card("King of Pentacles", "King of Pentacles", false,
-                        "The King of Pentacles represents wealth, success, and material abundance.",
-                        "This card signifies a successful and wealthy individual who is grounded and practical.",
-                        "Pentacles");
+                        "Three of Pentacles",
+                        false,
+                        "The Three of Pentacles signifies recognition for hard work and skillful efforts.",
+                        "Pentacles",
+                        "Three Of Pentacles");
 
-        // Suit of Swords cards data
-        Card aceOfSwords = new Card("Ace of Swords", "Ace of Swords", false,
-                        "The Ace of Swords represents clarity, truth, and mental clarity.",
-                        "This card signifies new ideas, mental breakthroughs, and cutting through illusions.",
-                        "Swords");
-        Card twoOfSwords = new Card("Two of Swords", "Two of Swords", false,
-                        "The Two of Swords represents indecision, stalemate, and avoidance.",
-                        "This card signifies a decision that needs to be made or a need to confront a situation.",
-                        "Swords");
-        Card threeOfSwords = new Card("Three of Swords", "Three of Swords", false,
+        // Four of Pentacles
+        Card fourOfPentacles = new Card(
+                        "The Four of Pentacles symbolizes stability, security, and holding onto resources.",
+                        "Four of Pentacles",
+                        false,
+                        "The Four of Pentacles suggests being cautious with finances and clinging to possessions.",
+                        "Pentacles",
+                        "Four Of Pentacles");
+
+        // Five of Pentacles
+        Card fiveOfPentacles = new Card(
+                        "The Five of Pentacles represents financial hardship, poverty, and isolation.",
+                        "Five of Pentacles",
+                        false,
+                        "The Five of Pentacles suggests facing challenges and seeking support during tough times.",
+                        "Pentacles",
+                        "Five Of Pentacles");
+
+        // Six of Pentacles
+        Card sixOfPentacles = new Card(
+                        "The Six of Pentacles symbolizes generosity, charity, and sharing wealth.",
+                        "Six of Pentacles",
+                        false,
+                        "The Six of Pentacles signifies giving back and finding balance in giving and receiving.",
+                        "Pentacles",
+                        "Six Of Pentacles");
+
+        // Seven of Pentacles
+        Card sevenOfPentacles = new Card(
+                        "The Seven of Pentacles represents patience, investment, and long-term growth.",
+                        "Seven of Pentacles",
+                        false,
+                        "The Seven of Pentacles suggests assessing progress and waiting for results.",
+                        "Pentacles",
+                        "Seven Of Pentacles");
+
+        // Eight of Pentacles
+        Card eightOfPentacles = new Card(
+                        "The Eight of Pentacles symbolizes craftsmanship, skill development, and diligence.",
+                        "Eight of Pentacles",
+                        false,
+                        "The Eight of Pentacles signifies honing one's craft and dedication to improvement.",
+                        "Pentacles",
+                        "Eight Of Pentacles");
+
+        // Nine of Pentacles
+        Card nineOfPentacles = new Card(
+                        "The Nine of Pentacles represents abundance, self-sufficiency, and luxury.",
+                        "Nine of Pentacles",
+                        false,
+                        "The Nine of Pentacles signifies enjoying the fruits of labor and independence.",
+                        "Pentacles",
+                        "Nine Of Pentacles");
+
+        // Ten of Pentacles
+        Card tenOfPentacles = new Card(
+                        "The Ten of Pentacles symbolizes wealth, inheritance, and long-term security.",
+                        "Ten of Pentacles",
+                        false,
+                        "The Ten of Pentacles suggests family prosperity and financial legacy.",
+                        "Pentacles",
+                        "Ten Of Pentacles");
+
+        // Page of Pentacles
+        Card pageOfPentacles = new Card(
+                        "The Page of Pentacles represents ambition, studiousness, and practicality.",
+                        "Page of Pentacles",
+                        false,
+                        "The Page of Pentacles suggests learning new skills and focusing on practical goals.",
+                        "Pentacles",
+                        "Page Of Pentacles");
+
+        // Knight of Pentacles
+        Card knightOfPentacles = new Card(
+                        "The Knight of Pentacles symbolizes responsibility, diligence, and reliability.",
+                        "Knight of Pentacles",
+                        false,
+                        "The Knight of Pentacles suggests taking a methodical approach and making steady progress.",
+                        "Pentacles",
+                        "Knight Of Pentacles");
+
+        // Queen of Pentacles
+        Card queenOfPentacles = new Card(
+                        "The Queen of Pentacles represents nurturing, abundance, and practicality.",
+                        "Queen of Pentacles",
+                        false,
+                        "The Queen of Pentacles embodies generosity and taking care of others.",
+                        "Pentacles",
+                        "Queen Of Pentacles");
+
+        // King of Pentacles
+        Card kingOfPentacles = new Card(
+                        "The King of Pentacles symbolizes wealth, success, and financial stability.",
+                        "King of Pentacles",
+                        false,
+                        "The King of Pentacles represents mastery in the material world and prosperity.",
+                        "Pentacles",
+                        "King Of Pentacles");
+
+        // Swords
+        // Ace of Swords
+        Card aceOfSwords = new Card(
+                        "The Ace of Swords symbolizes clarity, truth, and mental breakthroughs.",
+                        "Ace of Swords",
+                        false,
+                        "The Ace of Swords represents new ideas, mental clarity, and cutting through confusion.",
+                        "Swords",
+                        "Ace Of Swords");
+
+        // Two of Swords
+        Card twoOfSwords = new Card(
+                        "The Two of Swords signifies difficult decisions, stalemate, and avoidance.",
+                        "Two of Swords",
+                        false,
+                        "The Two of Swords suggests the need to confront challenges and make choices.",
+                        "Swords",
+                        "Two Of Swords");
+
+        // Three of Swords
+        Card threeOfSwords = new Card(
                         "The Three of Swords represents heartbreak, sorrow, and emotional pain.",
-                        "This card signifies experiencing emotional pain and heartache.", "Swords");
-        Card fourOfSwords = new Card("Four of Swords", "Four of Swords", false,
-                        "The Four of Swords represents rest, recuperation, and relaxation.",
-                        "This card signifies taking a break and finding inner peace and tranquility.", "Swords");
-        Card fiveOfSwords = new Card("Five of Swords", "Five of Swords", false,
-                        "The Five of Swords represents conflict, defeat, and betrayal.",
-                        "This card signifies conflict and tension arising from differing perspectives or betrayal.",
-                        "Swords");
-        Card sixOfSwords = new Card("Six of Swords", "Six of Swords", false,
-                        "The Six of Swords represents transition, moving on, and leaving the past behind.",
-                        "This card signifies moving away from difficult situations and finding a path to healing.",
-                        "Swords");
-        Card sevenOfSwords = new Card("Seven of Swords", "Seven of Swords", false,
-                        "The Seven of Swords represents deception, betrayal, and evasion.",
-                        "This card signifies deceitful behavior or avoiding responsibilities.", "Swords");
-        Card eightOfSwords = new Card("Eight of Swords", "Eight of Swords", false,
-                        "The Eight of Swords represents restriction, confinement, and feeling trapped.",
-                        "This card signifies feeling stuck in a difficult situation and unable to see a way out.",
-                        "Swords");
-        Card nineOfSwords = new Card("Nine of Swords", "Nine of Swords", false,
-                        "The Nine of Swords represents anxiety, fear, and worry.",
-                        "This card signifies experiencing overwhelming anxiety and fear.", "Swords");
-        Card tenOfSwords = new Card("Ten of Swords", "Ten of Swords", false,
-                        "The Ten of Swords represents betrayal, failure, and rock bottom.",
-                        "This card signifies reaching a low point or experiencing a sudden and painful ending.",
-                        "Swords");
-        Card pageOfSwords = new Card("Page of Swords", "Page of Swords", false,
-                        "The Page of Swords represents curiosity, intellect, and new perspectives.",
-                        "This card signifies a thirst for knowledge and a willingness to explore new ideas.", "Swords");
-        Card knightOfSwords = new Card("Knight of Swords", "Knight of Swords", false,
-                        "The Knight of Swords represents action, aggression, and determination.",
-                        "This card signifies taking swift action and pursuing your goals with determination.",
-                        "Swords");
-        Card queenOfSwords = new Card("Queen of Swords", "Queen of Swords", false,
-                        "The Queen of Swords represents clarity, independence, and sharp intellect.",
-                        "This card signifies a strong and independent woman with keen analytical skills.", "Swords");
-        Card kingOfSwords = new Card("King of Swords", "King of Swords", false,
-                        "The King of Swords represents authority, truth, and mental clarity.",
-                        "This card signifies a strong and authoritative leader with sharp intellect and clear communication.",
-                        "Swords");
+                        "Three of Swords",
+                        false,
+                        "The Three of Swords signifies grief, loss, and facing painful truths.",
+                        "Swords",
+                        "Three Of Swords");
+
+        // Four of Swords
+        Card fourOfSwords = new Card(
+                        "The Four of Swords symbolizes rest, recovery, and contemplation.",
+                        "Four of Swords",
+                        false,
+                        "The Four of Swords suggests taking a break and finding peace of mind.",
+                        "Swords",
+                        "Four Of Swords");
+
+        // Five of Swords
+        Card fiveOfSwords = new Card(
+                        "The Five of Swords represents conflict, betrayal, and defeat.",
+                        "Five of Swords",
+                        false,
+                        "The Five of Swords signifies winning at all costs and the aftermath of conflict.",
+                        "Swords",
+                        "Five Of Swords");
+
+        // Six of Swords
+        Card sixOfSwords = new Card(
+                        "The Six of Swords symbolizes transition, moving on, and leaving the past behind.",
+                        "Six of Swords",
+                        false,
+                        "The Six of Swords suggests a journey toward calmer waters and better times.",
+                        "Swords",
+                        "Six Of Swords");
+
+        // Seven of Swords
+        Card sevenOfSwords = new Card(
+                        "The Seven of Swords represents deception, betrayal, and avoidance.",
+                        "Seven of Swords",
+                        false,
+                        "The Seven of Swords suggests being wary of deception and dishonesty.",
+                        "Swords",
+                        "Seven Of Swords");
+
+        // Eight of Swords
+        Card eightOfSwords = new Card(
+                        "The Eight of Swords symbolizes restriction, isolation, and feeling trapped.",
+                        "Eight of Swords",
+                        false,
+                        "The Eight of Swords suggests overcoming obstacles and finding freedom.",
+                        "Swords",
+                        "Eight Of Swords");
+
+        // Nine of Swords
+        Card nineOfSwords = new Card(
+                        "The Nine of Swords represents anxiety, fear, and nightmares.",
+                        "Nine of Swords",
+                        false,
+                        "The Nine of Swords signifies worries and mental anguish.",
+                        "Swords",
+                        "Nine Of Swords");
+
+        // Ten of Swords
+        Card tenOfSwords = new Card(
+                        "The Ten of Swords symbolizes betrayal, loss, and rock bottom.",
+                        "Ten of Swords",
+                        false,
+                        "The Ten of Swords suggests the end of a difficult situation and the dawn of a new beginning.",
+                        "Swords",
+                        "Ten Of Swords");
+
+        // Page of Swords
+        Card pageOfSwords = new Card(
+                        "The Page of Swords represents curiosity, vigilance, and intellectual pursuits.",
+                        "Page of Swords",
+                        false,
+                        "The Page of Swords suggests seeking truth and embracing new ideas.",
+                        "Swords",
+                        "Page Of Swords");
+
+        // Knight of Swords
+        Card knightOfSwords = new Card(
+                        "The Knight of Swords symbolizes action, ambition, and decisiveness.",
+                        "Knight of Swords",
+                        false,
+                        "The Knight of Swords suggests charging forward with determination and courage.",
+                        "Swords",
+                        "Knight Of Swords");
+
+        // Queen of Swords
+        Card queenOfSwords = new Card(
+                        "The Queen of Swords represents independence, intelligence, and clear communication.",
+                        "Queen of Swords",
+                        false,
+                        "The Queen of Swords embodies wisdom and the power of discernment.",
+                        "Swords",
+                        "Queen Of Swords");
+
+        // King of Swords
+        Card kingOfSwords = new Card(
+                        "The King of Swords symbolizes authority, intellect, and logical thinking.",
+                        "King of Swords",
+                        false,
+                        "The King of Swords represents wise decision-making and mental clarity.",
+                        "Swords",
+                        "King Of Swords");
 
         // Constructor or tarotDeck.pushinitialization method to populate the tarotDeck
         // list

@@ -28,8 +28,37 @@ public class Card {
         super();
         this.card_value = card_value;
         this.title = title;
+        this.major = major;
         this.suit = suit;
         this.card_description = card_description;
         this.story = story;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getDescription() {
+        return card_description;
+    }
+
+    public String getValue() {
+        return card_value;
+    }
+
+    public Boolean getMajor() {
+        return major;
+    }
+
+    public String getSuit() {
+        return suit;
+    }
+
+    public String getStory() {
+        return story;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }
