@@ -10,7 +10,6 @@ import jakarta.persistence.Id;
 
 public class Card {
     @Id
-
     private long id;
     public String card_description;
     public String card_value;
@@ -19,11 +18,12 @@ public class Card {
     public String title;
     public String story;
 
-    public Card() {
-        // Default constructor
-    }
-
-    public Card(String card_description, String card_value, Boolean major, String story, String suit,
+    public Card(
+            String card_description,
+            String card_value,
+            Boolean major,
+            String story,
+            String suit,
             String title) {
         super();
         this.card_value = card_value;
