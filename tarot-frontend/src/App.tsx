@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(3)
   function fetchTarotSpread() {
     var myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
@@ -12,13 +12,10 @@ function App() {
       headers: myHeaders,
     }
 
-    fetch(`//127.0.0.1:8080/api/spread/weighted/${count}`, requestOptions)
-      .then((response) => {
-        console.log(response.body)
-        response.json()
-      })
+    fetch(`/api/spread/weighted/${count}`, requestOptions)
+      .then((response) => response.body as ReadableStream<Uint8Array>)
       .then((data) => {
-        debugger
+        console.log(data)
         resolve(data)
       })
       .catch((error) => {
