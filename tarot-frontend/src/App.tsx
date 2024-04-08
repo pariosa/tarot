@@ -15,8 +15,14 @@ function App() {
     fetch(`/api/spread/weighted/${count}`, requestOptions)
       .then((response) => response.body as ReadableStream<Uint8Array>)
       .then((data) => {
-        console.log(data)
-        resolve(data)
+        const reader = data.getReader()
+
+        return reader.read().then(({ value, done }) => {
+          const decodedText = new TextDecoder().decode(value)
+          const jsonData = JSON.parse(decodedText)
+          console.log(jsonData)
+          resolve(jsonData)
+        })
       })
       .catch((error) => {
         reject(error)
