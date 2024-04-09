@@ -32,11 +32,12 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
-.card {
-  padding: 2em;
-}
-
 .read-the-docs {
   color: #888;
+}
+#app{
+ display:fixed;
+  top:0;
+  left:0;
+  position:absolute; */
 }

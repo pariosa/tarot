@@ -122,14 +122,48 @@ body {
 .card,
 .back,
 .front {
-  height: 150px;
-  width: 95px;
+  height: 450px;
+ 
 }
 
 .back,
 .front {
   position: absolute;
   backface-visibility: hidden;
+}
+.reversed {
+  transform: rotateX(180deg) rotateY(180deg);
+
+}
+.card-container{
+display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 400px;
+  grid-template-areas:
+    "image1 image1 image1"
+    "text1 text1 text1";
+}
+.text-1{
+  position:fixed;
+  width:400px;
+  margin:40px auto;
+  margin-top:700px;
+  grid-area: text1;
+  left:10px;
+}
+.image-1{
+  grid-area: text1;
+}
+.card-image {
+  cursor:pointer;
+  width:450px;
+  height: 700px; 
+}
+
+.card {
+  padding: 2em;
+  width:30%;
+
 }
 
 .back {
