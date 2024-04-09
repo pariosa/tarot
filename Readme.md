@@ -46,3 +46,15 @@ localhost:8080/draw/weighted
 ### draw a spread - weighted
 
 localhost:8080/spread/weighted/{number of cards}
+
+## Front-end:
+
+the front end uses a Vite bundler with React-Typescript
+
+### npm install script
+
+cd tarot-frontend && npm install
+
+### run dev server
+
+npm run dev
