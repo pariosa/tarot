@@ -6,15 +6,17 @@ public class CardDTO {
     private String description;
     private boolean reversed;
     private String story;
+    private String card_value;
 
     // Constructors, getters, and setters
 
     // Constructor
-    public CardDTO(String name, String description, boolean reversed, String story) {
+    public CardDTO(String name, String description, boolean reversed, String story, String card_value) {
         this.name = name;
         this.description = description;
         this.reversed = reversed;
         this.story = story;
+        this.card_value = card_value;
     }
 
     // Getters and setters
@@ -46,4 +48,7 @@ public class CardDTO {
         this.reversed = reversed;
     }
 
+    public String getCard_value() {
+        return card_value;
+    }
 }

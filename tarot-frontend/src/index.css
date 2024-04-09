@@ -66,3 +66,111 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#gameBoard{
+  margin: 0 auto;
+}
+@media only screen and (max-width: 640px){
+  #gameBoard{
+    width: 320px;
+  }
+}
+@media only screen and (max-width: 940px) {
+  #gameBoard{
+    width: 640px;
+  }
+}
+@media only screen and (min-width: 940px){
+  #gameBoard{
+    width: 940px;
+  }
+}
+
+
+
+
+.front {
+  background: #333 url('https://i.imgur.com/jjPQrMK.jpg') no-repeat center center / contain;
+}
+
+body {
+  margin: 20px 0;
+  background: #333;
+}
+
+.grid {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  position: relative;
+  transition: all .4s linear;
+  transform-style: preserve-3d;
+  margin: 5px;
+}
+
+.card,
+.back,
+.front {
+  height: 150px;
+  width: 95px;
+}
+
+.back,
+.front {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: #111;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.selected {
+  transform: rotateY(180deg);
+}
+
+.match .front {
+  background: #333;
+}
+
+.selected {
+  border: 1px solid #111;
+}
+
+.match {
+  border: none;
+  background-image: none !important;
+  background: #111;
+}
+
+.bottomBar {
+  display: flex;
+}
+
+.resetButton {
+  background-color: #111;
+  border: 0px solid #111;
+  border-radius: 5px;
+  color: #CCC;
+  width: 90px;
+  margin-left: 10px;
+  text-align: center;
+}
+.resetbutton :hover{
+  cursor: grab;
+}

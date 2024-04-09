@@ -31,6 +31,10 @@ public class TarotStoryElements {
     public String theme;
     public String style;
 
+    public TarotStoryElements() {
+        // Default constructor
+    }
+
     public TarotStoryElements(
             String title,
             String keywords,

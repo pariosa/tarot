@@ -18,6 +18,10 @@ public class Card {
     public String title;
     public String story;
 
+    public Card() {
+        // Default constructor
+    }
+
     public Card(
             String card_description,
             String card_value,

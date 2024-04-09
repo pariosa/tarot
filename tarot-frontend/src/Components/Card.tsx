@@ -6,8 +6,15 @@ export type CardType = {
   description: string
   reversed: boolean
   story: string
+  card_value: string
 }
-export function Card({ name, description, reversed, story }: CardType) {
+export function Card({
+  name,
+  description,
+  reversed,
+  story,
+  card_value,
+}: CardType) {
   const [flipped, setFlipped] = React.useState(false)
   const [isReversed, setIsReversed] = React.useState(false)
   console.log(name)
@@ -21,7 +28,8 @@ export function Card({ name, description, reversed, story }: CardType) {
         {name} - {description}
         <div>{story}</div>
         <div className={`card ${flipped ? 'flipped' : ''}`}>
-          {cardsArray?.find((c) => c.name === name)?.image !== undefined && (
+          {cardsArray?.find((c) => c.name === card_value)?.image !==
+            undefined && (
             <div>
               {' '}
               <img
