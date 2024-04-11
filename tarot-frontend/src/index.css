@@ -155,9 +155,10 @@ display: grid;
   grid-area: text1;
 }
 .card-image {
-  cursor:pointer;
+  cursor: pointer;
   width:450px;
   height: 700px; 
+  border-radius: 2% 2%;
 }
 
 .card {
