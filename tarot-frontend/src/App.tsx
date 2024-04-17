@@ -16,9 +16,9 @@ function App() {
   function fetchTarotSpread() {
     //flip all the cards back when shuffling the deck and drawing a new spread
     setCardsFlipped(true)
-    var myHeaders = new Headers()
+    const myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
-    var requestOptions = {
+    const requestOptions = {
       method: 'GET',
       headers: myHeaders,
     }
@@ -38,18 +38,28 @@ function App() {
       })
   }
   return (
-    <div className='App' id='app'>
+    <div className='App w-full' id='app'>
       <p>
         I want you to enter a number of tarot cards to draw. I will then return
         a list of cards. and let you make a story prompt based on those cards.
       </p>
-      <input
-        type='number'
-        onBlur={(e: any) => setCount(e.target.value)}
-        defaultValue={9}
-      />
+      <div className='flex items-center space-x-2 rounded-md bg-gray-50 p-2'>
+        <input
+          onBlur={(e: any) => setCount(e.target.value)}
+          placeholder='Number of Cards'
+          type='number'
+          className='border-none bg-transparent text-lg text-gray-900 focus:outline-none'
+        />
+        <button className='block'>
+          <div>
+            <i className='fas fa-eye text-lg'></i>
+          </div>
+          <div onClick={() => show()}>
+            <i className='fas fa-eye-slash text-lg'></i>
+          </div>
+        </button>
+      </div>
       <button onClick={() => fetchTarotSpread()}>Draw Cards</button>
-      {/* <button onClick={() => revealThemAll()}>reveal all cards</button> */}
       <CardContainer setCardFlipped={() => {}} cards={cards} />
     </div>
   )

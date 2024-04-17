@@ -6,12 +6,14 @@ export type CardType = {
   description: string
   reversed: boolean
   story: string
+  reversedDescription: string
   card_value: string
   setCardFlipped: (flipped: boolean) => void
 }
 export function Card({
   name,
   description,
+  reversedDescription,
   reversed,
   story,
   card_value,
@@ -27,23 +29,20 @@ export function Card({
     if (cardsArray.find((c) => c.name == card_value)?.image !== undefined) {
       setCardImgSrc(cardsArray.find((c) => c.name == card_value)?.image)
     }
-  })
+  }, [isReversed, reversed, card_value])
   React.useEffect(() => {
     setFlipped(false)
   }, [setCardFlipped])
   console.log('Card value', card_value)
   console.log(cardsArray.find((c) => c.name == card_value))
   return (
-    <div onClick={() => setFlipped(!flipped)} className='card'>
+    <div onClick={() => setFlipped(!flipped)} className='card w-1/5'>
       <div style={{}}>
         <div className={`card ${flipped ? 'flipped' : ''}`}>
           <div
             className='card-image'
             style={{
               display: 'grid',
-              height: '0px',
-              width: '0px',
-              margin: '0 auto',
               //   backgroundSize: 'contain',
               //   backgroundImage: 'url(./src/assets/card-back.png)',
             }}
@@ -56,7 +55,12 @@ export function Card({
           </div>
           {flipped && (
             <div className='text-1'>
-              {name}({card_value}) {isReversed ? 'Reversed' : ''}- {description}
+              {name}({card_value}) {isReversed ? 'Reversed' : ''}-{' '}
+              <p>
+                {isReversed
+                  ? `(Reversed): ${reversedDescription}`
+                  : description}
+              </p>
               <div>{story}</div>
             </div>
           )}

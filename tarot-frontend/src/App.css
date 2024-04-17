@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,9 +9,7 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
+.logo { 
   will-change: filter;
   transition: filter 300ms;
 }
@@ -39,5 +41,5 @@
  display:fixed;
   top:0;
   left:0;
-  position:absolute; */
+  position:absolute; 
 }

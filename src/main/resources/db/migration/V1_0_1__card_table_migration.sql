@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS `card`
     `title` VARCHAR(255) NOT NULL,
     `suit` VARCHAR(255) NOT NULL,
     `card_description` VARCHAR(5000) NOT NULL,
+    `reversed_description` VARCHAR(5000) NOT NULL,
     `story` VARCHAR(2000) NOT NULL,
     `major` BOOLEAN
 )ENGINE=InnoDB DEFAULT CHARSET=UTF8;

@@ -17,6 +17,7 @@ public class Card {
     public String suit;
     public String title;
     public String story;
+    public String reversed_description;
 
     public Card() {
         // Default constructor
@@ -28,7 +29,8 @@ public class Card {
             Boolean major,
             String story,
             String suit,
-            String title) {
+            String title,
+            String reversed_description) {
         super();
         this.card_value = card_value;
         this.title = title;
@@ -36,6 +38,7 @@ public class Card {
         this.suit = suit;
         this.card_description = card_description;
         this.story = story;
+        this.reversed_description = reversed_description;
     }
 
     public long getId() {
@@ -44,6 +47,10 @@ public class Card {
 
     public String getDescription() {
         return card_description;
+    }
+
+    public String getReversedDescription() {
+        return reversed_description;
     }
 
     public String getValue() {

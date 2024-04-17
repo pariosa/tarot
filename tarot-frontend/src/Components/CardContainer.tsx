@@ -8,12 +8,13 @@ export type CardContainerType = {
 export function CardContainer({ cards, setCardFlipped }: CardContainerType) {
   console.log(cards)
   return (
-    <div onClick={() => console.log(cards)} className='card-container'>
+    <div onClick={() => console.log(cards)} className='card-container w-full'>
       {cards?.map((card: CardType) => (
         <Card
           name={card.name}
           description={card.description}
           reversed={card.reversed}
+          reversedDescription={card.reversedDescription}
           card_value={card.card_value}
           story={card.story}
           setCardFlipped={setCardFlipped}

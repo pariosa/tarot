@@ -72,7 +72,7 @@ public class CardController {
             // Simulate random orientation
             boolean reversed = new Random().nextBoolean();
             CardDTO cardDTO = new CardDTO(card.getTitle(), card.getDescription(), reversed, card.getStory(),
-                    card.getValue());
+                    card.getValue(), card.getReversedDescription());
             selectedCards.add(cardDTO);
         }
 
@@ -92,7 +92,7 @@ public class CardController {
             // Simulate random orientation
             boolean reversed = CardDrawHelpers.drawCardWithWeightedProbability();
             CardDTO cardDTO = new CardDTO(card.getTitle(), card.getDescription(), reversed, card.getStory(),
-                    card.getValue());
+                    card.getValue(), card.getReversedDescription());
             selectedCards.add(cardDTO);
         }
 
