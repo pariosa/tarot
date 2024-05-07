@@ -151,7 +151,16 @@ public class TarotStoryElements {
         return climax_description.split(",");
     }
 
+    public String getName() {
+        return title;
+    }
+
     public String getTitle() {
         return title;
     }
+
+    public Object getCardName() {
+        return title;
+    }
+
 }

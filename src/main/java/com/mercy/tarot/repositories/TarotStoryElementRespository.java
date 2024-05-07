@@ -7,5 +7,10 @@ import com.mercy.tarot.models.TarotStoryElements;
 
 @Repository
 public interface TarotStoryElementRespository extends JpaRepository<TarotStoryElements, Long> {
+
+    TarotStoryElements findByTitleIgnoreCase(String title);
+
+    TarotStoryElements findByTitle(String title);
+
     // Repository methods...
 }
