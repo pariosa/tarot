@@ -191,6 +191,94 @@ public class StoryElementSeeder {
                         "Empathy and Compassion, Authenticity and Vulnerability, Unconditional Love, Forgiveness and Healing, Connection and Unity, Self-Exploration and Introspection, Trust and Faith, Gratitude and Appreciation, Generosity and Kindness, Spiritual Growth and Enlightenment",
                         "Emotional Awakening, Love and Relationships, Healing and Redemption, Intuition and Inner Wisdom, Sacrifice and Compassion, Artistic Expression, Spiritual Quest, Community and Connection, Emotional Resilience, Emotional Honesty",
                         "Romanticism: Emphasizing emotion intuition and the beauty of nature reflecting love and emotional fulfillment, Magical Realism: Blending fantastical elements with everyday life to convey the mystical and transformative power of emotions, Sensory Detailing: Using vivid descriptions to evoke emotions and immerse readers in the characters' experiences enhancing intuition and inner wisdom, Symbolism: Employing symbolic imagery to represent emotional states relationships and spiritual connections, Poetic Prose: Crafting lyrical and evocative language to convey love compassion and spiritual growth, Stream of Consciousness: Offering insights into characters' inner thoughts and feelings, Epistolary Form: Using letters diaries or other written correspondence to reveal characters' emotions and relationships, Psychological Realism: Delving into characters' psyches and emotional states with depth and authenticity exploring the complexities of human relationships and personal growth, Narrative Symbolism: Infusing the narrative with symbolic motifs and recurring themes to convey deeper layers of meaning and emotion, Spiritual Allegory: Using allegorical elements to explore themes of spiritual enlightenment divine love and the interconnectedness of all beings");
+
+        // LeslieKnope
+        TarotStoryElements sixOfPentacles = new TarotStoryElements(
+                        "Six Of Pentacles",
+                        "Generosity, Charity, Sharing, Reciprocity, Altruism, Equity, Support, Abundance, Gratitude, Financial Assistance",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null);
+        TarotStoryElements sevenOfPentacles = new TarotStoryElements(
+                        "",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null);
+
+        TarotStoryElements eightOfPentacles = new TarotStoryElements(
+                        "",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null);
+        TarotStoryElements nineOfPentacles = new TarotStoryElements(
+                        "",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null);
+
         TarotStoryElements aceOfWands = new TarotStoryElements(
                         "Ace of Wands",
                         "Inspiration, Creativity, Passion, Energy, New beginnings, Potential, Enthusiasm, Innovation, Courage, Adventure, Initiative, Spontaneity, Drive, Confidence, Action, Leadership, Exploration, Determination, Ambition, Growth",
@@ -238,6 +326,7 @@ public class StoryElementSeeder {
         public void seedDatabase() {
                 // Seed the database
                 tarotStoryElementsDeck.addAll(Arrays.asList(aceOfCups));
+
                 if (tarotStoryElementRepository.count() == 0) {
                         for (TarotStoryElements storyElement : tarotStoryElementsDeck) {
                                 tarotStoryElementRepository.save(storyElement); // Save each card to the story element
