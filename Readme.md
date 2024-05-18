@@ -58,3 +58,14 @@ cd tarot-frontend && npm install
 ### run dev server
 
 npm run dev
+
+### Story Prompt Functions
+
+api route /api/getRandomKeyword
+POST
+body:
+{
+cardNames:"Ace of Cups, The Moon, Ace OfWands, Ace Of Pentacles, Six Of Pentacles, Seven of Swords",
+}
+
+this will return a random "keyword" from a list of all the story elements from the cards present in the cardNames string.

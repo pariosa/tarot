@@ -325,7 +325,9 @@ public class StoryElementSeeder {
 
         public void seedDatabase() {
                 // Seed the database
-                tarotStoryElementsDeck.addAll(Arrays.asList(aceOfCups));
+                tarotStoryElementsDeck
+                                .addAll(Arrays.asList(aceOfCups, aceOfWands, aceOfPentacles, sixOfPentacles, theMoon,
+                                                sevenOfSwords));
 
                 if (tarotStoryElementRepository.count() == 0) {
                         for (TarotStoryElements storyElement : tarotStoryElementsDeck) {
