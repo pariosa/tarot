@@ -22,7 +22,7 @@
 	<properties>
 		<java.version>21</java.version>
 		<flyway.user>root</flyway.user>
-        <flyway.password></flyway.password>
+        <flyway.password>password</flyway.password>
         <flyway.schemas>tarot</flyway.schemas>
 	</properties>
 	<dependencies>
@@ -107,8 +107,11 @@
 					<user>root</user>
 					<password></password>
 					<schemas>
-           				<schema>schemaName</schema>
+           				<schema>tarot</schema>
         			</schemas>
+					<configFiles>
+						<configFile>MyFlywayConf.conf</configFile>
+					</configFiles>
     			</configuration>
 			</plugin>
 		</plugins>

@@ -11,7 +11,6 @@ import jakarta.persistence.Id;
 public class TarotStoryElements {
     @Id
     public String title;
-    public String cardName;
     public String keywords;
     public String main_character_descriptors;
     public String main_character_defecits;
@@ -30,8 +29,8 @@ public class TarotStoryElements {
     public String climax_location;
     public String climax_description;
     public String theme;
-    public String style;
-
+    public String style; 
+    public String card_name;
     public TarotStoryElements() {
         // Default constructor
     }
@@ -56,7 +55,8 @@ public class TarotStoryElements {
             String point_of_view,
             String moral_value,
             String theme,
-            String style) {
+            String style,
+            String card_name) { 
         super();
         this.title = title;
         this.keywords = keywords;
@@ -77,6 +77,7 @@ public class TarotStoryElements {
         this.point_of_view = point_of_view;
         this.moral_value = moral_value;
         this.theme = theme;
+        this.card_name = card_name;
         this.style = style;
     }
 
@@ -161,7 +162,7 @@ public class TarotStoryElements {
     }
 
     public Object getCardName() {
-        return title;
+        return card_name;
     }
 
 }

@@ -23,6 +23,7 @@ public class FiveOfPentacles {
             "",
             "",
             "",
-            "");
+            "",
+            null);
 
 }

@@ -23,6 +23,7 @@ public class SixOfPentacles {
             "",
             "",
             "",
-            "");
+            "",
+            null);
 
 }

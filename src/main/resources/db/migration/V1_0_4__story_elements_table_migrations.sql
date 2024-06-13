@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `tarotstoryelements`
+CREATE TABLE IF NOT EXISTS `TarotStoryElements`
 (
     `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `title` VARCHAR(100) NOT NULL,
@@ -20,5 +20,6 @@ CREATE TABLE IF NOT EXISTS `tarotstoryelements`
     `climax_location` TEXT,
     `climax_description` TEXT,
     `theme` TEXT,
-    `style` TEXT 
+    `style` TEXT,
+    `card_name` TEXT
 )ENGINE=InnoDB DEFAULT CHARSET=UTF8;

@@ -220,7 +220,7 @@ public class StoryController {
         // storyElementRpository.findCardByNameInString(cardNames);
         // }
 
-        @Query("SELECT * FROM tarotstoryelements WHERE LOWER(:title) = LOWER(:title)")
+        @Query("SELECT * FROM TarotStoryElements WHERE LOWER(:title) = LOWER(:title)")
         public TarotStoryElements retrieveByName(@Param("title") String title) {
                 // Assuming you have a method to fetch TarotStoryElements by title from the
                 // database
@@ -255,10 +255,10 @@ public class StoryController {
         // }
 
         @PostMapping("/findByCardNameIn")
-        public Iterable<TarotStoryElements> findByCardNameIn(String cardNames) {
-                System.out.println(cardNames);
+        public Iterable<TarotStoryElements> findByCardNameIn(String card_names) {
+                System.out.println(card_names);
 
-                List<String> cardNameList = Arrays.asList(cardNames.split(", ")); // Split the cardNames string into a
+                List<String> cardNameList = Arrays.asList(card_names.split(", ")); // Split the cardNames string into a
                                                                                   // list of card names
                 List<TarotStoryElements> matchingElements = new ArrayList<>();
 
@@ -277,9 +277,9 @@ public class StoryController {
                 return matchingElements;
         }
 
-        public TarotStoryElements findByName(String cardName) {
-                System.out.println(cardName);
-                TarotStoryElements card = storyElementRpository.findByTitle(cardName);
+        public TarotStoryElements findByName(String card_name) {
+                System.out.println(card_name);
+                TarotStoryElements card = storyElementRpository.findByTitle(card_name);
                 System.out.println(card);
                 return card;
         }

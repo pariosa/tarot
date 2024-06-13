@@ -11,7 +11,7 @@ jdbc:mariadb://localhost:3306/tarot
 
 ## Flyway maven script:
 
-mvn clean flyway:migrate -Dflyway.configFiles=myFlywayConfig.conf
+mvn clean flyway:migrate -Dflyway.configFiles=flyway.conf
 
 ## Maven build script:
 

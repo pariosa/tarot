@@ -15,7 +15,7 @@ public interface TarotStoryElementRespository extends JpaRepository<TarotStoryEl
 
     TarotStoryElements findByTitle(String title);
 
-    TarotStoryElements findByCardName(String title);
+    // TarotStoryElements findByCardName(String title);
 
     // TarotStoryElements findCardByNameInString(String title);
 
