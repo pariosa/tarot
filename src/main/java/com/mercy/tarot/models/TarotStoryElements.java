@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 public class TarotStoryElements {
     @Id
     public String title;
+    public String cardName;
     public String keywords;
     public String main_character_descriptors;
     public String main_character_defecits;
