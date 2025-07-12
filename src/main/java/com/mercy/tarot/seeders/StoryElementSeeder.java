@@ -506,13 +506,154 @@ public class StoryElementSeeder {
                         "Mental Illness, Feminine Repression, Expression vs. Suppression, Beauty and Melancholy, Silence and Survival",
                         "Haunting, Lyrical, Intimate, Symbolic, Gothic-Modern",
                         "Eight of Swords");
+        // hamlet / shinji ikari
+        TarotStoryElements nineOfSwords = new TarotStoryElements(
+                        "Nine of Swords",
+                        "Anxiety, Despair, Guilt, Mental Anguish, Isolation, Fear, Sleeplessness, Regret, Trauma, Self-Persecution",
+                        "Introspective, Intelligent, Sensitive, Guilt-Ridden, Thoughtful, Morally Troubled, Emotionally Fragile, Existential, Philosophical, Burdened",
+                        "Paralyzed by fear, Self-destructive tendencies, Reluctance to act, Haunted by past decisions, Social withdrawal, Overthinking, Victim mentality, Insecurity, Sense of powerlessness",
+                        "Seeking redemption, Understanding one’s role or fate, Overcoming internal demons, Making a morally right decision, Healing from trauma, Gaining clarity through suffering, Escaping self-imposed prison, Rebuilding identity",
+                        "A loved one suffers due to inaction, A vision or dream revealing disturbing truths, A failure with irreversible consequences, A moral crossroads with no clear right choice, Being forced to confront inner fears, A death or tragedy triggers self-examination, A chance to sacrifice for a greater good",
+                        "Empathic, Patient, Introspective, Gentle, Honest, Encouraging, Emotionally resilient, Faithful, Truth-seeking, Cautious",
+                        "Helping confront the past, Offering emotional support, Challenging delusions, Encouraging action, Restoring confidence, Providing perspective, Holding space during breakdowns, Preventing self-harm, Empowering ethical choices, Rebuilding inner strength",
+                        "Overprotective, Too gentle to challenge harmful behaviors, Emotionally overwhelmed, Dismissive of danger, Easily manipulated by guilt, Passive, Naïve belief in redemption, Avoids confrontation, May project their own fears",
+                        "Manipulative, Cold, Dismissive of emotion, Cruel in subtle ways, Derisive, Existentially nihilistic, Ghostlike presence (figurative or literal), Distorted moral compass, Haunting influence",
+                        "Intensify the character's guilt, Force introspection through cruelty or detachment, Gaslight the protagonist into doubt, Exploit mental instability, Dismantle trust, Reinforce paralysis through fear, Serve as a manifestation of inner torment",
+                        "Lacks empathy, Emotionally distant, Unrelenting, Antagonistic without clear motivation, Exploitative, Symbolic of trauma or failure, Resistant to change or connection, Indifferent to consequences",
+                        "Dark Night of the Soul, Suicidal ideation or attempt, Revelation of guilt or complicity, Emotional breakdown, Destruction of something beloved, Confrontation with inner self or a 'ghost' of the past, Failed rescue, Sacrificial redemption, Acceptance of unbearable truth, Epiphany through suffering",
+                        "A dimly lit bedroom where shadows stretch across the walls during sleepless nights, A graveyard or memorial site where the character confronts ghosts of the past, A hospital room echoing with the consequences of failure, An abandoned church filled with broken icons and quiet despair, A mirror-lined hallway where the character sees countless distorted reflections of themselves",
+                        "The climax occurs in a flooded apartment building, symbolic of the character's inner turmoil, where rising water forces them to either drown in regret or fight to live; ghostly memories whisper through the walls, pushing the protagonist to choose between oblivion and painful rebirth",
+                        "War-torn urban ruins, Fog-draped cemeteries, Nighttime rooftops under rain, Claustrophobic hallways, Dreamlike voids, Underworld metaphors (subways, basements), Isolated safehouses, Empty theaters or classrooms, Spaces of former comfort now corrupted, Surreal inner mindscapes",
+                        "First Person Confessional, Third Person Close, Unreliable Narrator, Shifting POV to represent fractured psyche",
+                        "The cost of inaction, The pain of self-awareness, The torment of guilt, The search for redemption through understanding, Emotional resilience born from suffering",
+                        "Guilt and Remorse, Existential Dread, The Long Night of the Soul, Redemption Through Suffering, Illusion vs. Reality, Emotional Isolation, Haunting of the Past, Fear of Self",
+                        "Psychological Drama, Gothic, Surreal Realism, Poetic Horror, Stream of Consciousness, Minimalist Existentialism, Symbolist Allegory",
+                        "Nine of Swords");
+
+        // Prometheus + Kaworu Nagisa
+        TarotStoryElements tenOfSwords = new TarotStoryElements(
+                        "Ten of Swords",
+                        "Betrayal, Ruin, Martyrdom, Cosmic Tragedy, Sacrifice, Endings, Revelation, Catastrophe, Despair, Resurrection",
+                        "Visionary, Self-Sacrificing, Ethereal, Tragic, Enlightened, Alienated, Compassionate, Prophet-like, Stoic, Doomed",
+                        "Overidealistic, Detached from Humanity, Prone to Self-Destruction, Misunderstood, Naively Trusting, Emotionally Isolated, Overwhelmed by Burden, Incapable of Self-Preservation, Symbolically Crucified, Lost in Higher Meaning",
+                        "End the cycle of suffering, Liberate others from systemic harm, Fulfill a sacred mission, Bear the burden of knowledge, Expose ultimate truth, Heal a broken world, Redeem humanity through sacrifice, Accept death to transcend, Ignite spiritual awakening",
+                        "Betrayed by a trusted companion, Witness to mass destruction, Visions of a cosmic doom, Revelation of irreversible fate, Death of a loved one as consequence of inaction, Collapse of a utopian ideal, Chosen for sacrifice by divine or alien force, Survives but at spiritual cost, Intervened upon by fate or Godlike machine",
+                        "Empathetic, Loyal, Suffering Companion, Gentle Voice of Reason, Remnant of Lost Hope, Faithful Witness, Healer, Fellow Martyr, Cosmic Observer, The one who remains",
+                        "Assisting in the sacrifice, Helping unveil hidden truths, Standing by through suffering, Acting as emotional grounding, Providing ancient or spiritual wisdom, Preventing complete annihilation, Offering final kindness, Witnessing the end, Carrying on the message, Mourning and preserving memory",
+                        "Too Human, Bound by Love, Unable to Intervene, Emotionally Fragile, Haunted by Loss, Dependent on the Protagonist, Blinded by Loyalty, Vulnerable to Corruption, Powerless to Stop Fate, Doomed to Remember",
+                        "Ruthless Authority, Betraying Savior, Oppressive System, Blind Faith, Machine God, Cold Scientist, Cosmic Warden, Omniscient Entity, Corrupted Ally, False Prophet",
+                        "Eliminate the anomaly, Preserve order at all costs, Suppress dangerous truth, Control through manipulation, Sacrifice the few for the many, Assert cosmic dominance, Maintain cycle of suffering, Prevent awakening, Isolate the martyr, Destroy the hope",
+                        "Hubris, Cruel Pragmatism, Lack of Compassion, Blinded by Logic, Spiritual Emptiness, Arrogance, Fear of Chaos, Loss of Empathy, Emotional Numbness",
+                        "The protagonist is betrayed by the very force they once trusted, pierced metaphorically or literally by truth; as they lie broken or seemingly destroyed, their sacrifice triggers a world-shifting revelation that changes everything, even in death",
+                        "A cathedral floating in space where sacred rituals are performed by machines, A crumbling monolith on a lunar surface, symbolizing both imprisonment and enlightenment, An ancient orbital station housing forbidden truths, A cruciform machine altar deep in a subterranean vault, A collapsing utopia in the clouds filled with grieving silent figures",
+                        "A slow-motion fall from orbit juxtaposed with memories of love and loss, A hushed conversation before the end as the stars burn out, Final embrace between martyr and witness as the world unravels, Sudden betrayal and transcendental light splitting the sky, Rebirth of consciousness within a shattered body",
+                        "Sterile research sanctum, Post-collapse Earth wasteland, Cosmic cathedrals, Forgotten holy vaults buried beneath alien sands, Fractured realms of psychic memory, Orbiting necropolises, Dreamlike ruins where stars whisper, The shoreline of a primordial sea beneath the moon",
+                        "First Person Dying Voice, Third Person Omniscient Vision, Shifting Perspective Through Time, Fragmented Consciousness, Mythic Epic Narration, Stream of Cosmic Consciousness",
+                        "The price of truth is pain, There is beauty in sacrifice, Hope outlives despair, Transcendence is earned through suffering, The end is a beginning, Suffering has meaning, To die for others is the highest gift, Divinity comes through choice",
+                        "Martyrdom and Resurrection, Cosmic Betrayal, Sacrifice and Revelation, End of Illusions, Final Judgments, Spiritual Ascension, Memory vs. Oblivion, Apotheosis of the Tragic Hero",
+                        "Mythic Tragedy, Cosmic Sci-Fi, Poetic Futurism, Gothic Spiritualism, Techno-Religious Allegory, Dystopian Elegy, Symbolist Stream, Existential Epic",
+                        "Ten of Swords");
+
+        // lisa simpson
+        TarotStoryElements pageOfSwords = new TarotStoryElements(
+                        "Page of Swords", // title
+                        "Curiosity, Intelligence, Vigilance, Communication, Observation, Youthful Energy, Truth-Seeking, Adaptability, Skepticism, Quick-Witted", // keywords
+                        "Inquisitive, Intelligent, Observant, Analytical, Idealistic, Energetic, Courageous, Principled, Talkative, Restless", // main_character_descriptors
+                        "Impulsive, Overthinking, Judgmental, Naive, Argumentative, Anxious, Overly Critical, Impatient, Defensive, Easily Distracted", // main_character_defecits
+                        "Seek knowledge and truth, Challenge injustice, Develop communication skills, Overcome fears, Gain independence, Learn to listen, Advocate for others, Solve problems creatively, Maintain integrity, Adapt to change", // main_character_goals
+                        "Question authority, Speak out against wrongs, Investigate mysteries, Defend the vulnerable, Face fears of failure, Embrace new challenges, Balance curiosity with caution, Form alliances, Accept constructive criticism, Stand firm in beliefs", // call_to_action
+                        "Supportive, Encouraging, Loyal, Insightful, Protective, Creative, Honest, Energetic, Reliable, Thoughtful", // ally_descriptors
+                        "Provide guidance, Encourage learning, Foster curiosity, Offer emotional support, Help manage anxiety, Promote ethical behavior, Assist in communication, Build confidence, Teach patience, Protect from harm", // ally_goals
+                        "Overprotective, Overbearing, Inconsistent, Distracted, Impulsive, Overcritical, Skeptical, Easily frustrated, Cautious, Insecure", // ally_deficits
+                        "Deceptive, Manipulative, Oppressive, Intimidating, Dishonest, Controlling, Suspicious, Rigid, Secretive, Condescending", // enemy_descriptors
+                        "Maintain power through misinformation, Suppress truth, Create division, Exploit vulnerabilities, Manipulate perceptions, Hide motives, Intimidate challengers, Undermine confidence, Enforce conformity, Resist change", // enemy_goals
+                        "Overconfidence, Paranoia, Recklessness, Dishonesty, Isolation, Miscommunication, Stubbornness, Lack of empathy, Over-controlling behavior, Fear of exposure", // enemy_defecits
+                        "Library or Study Room, School Hallway, City Rooftop, Detective’s Office, Busy Urban Street, Forest Clearing, Town Square, Underground Tunnel, Science Lab, Courtroom", // locations
+                        "First Person Limited, Third Person Limited, Multiple Perspectives, Epistolary, Stream of Consciousness, Nonlinear Narrative", // point_of_view
+                        "Pursuit of Truth and Knowledge, Integrity and Justice, Growth Through Learning, Courage to Question Authority, Balance Between Skepticism and Openness, Power of Communication, Overcoming Fear and Anxiety, Embracing Youthful Energy with Wisdom, Value of Curiosity, Ethical Responsibility", // moral_value
+                        "Confrontation, Revelation, Debate, Discovery, Exposure of Lies, Challenge to Authority, Strategic Planning, Turning Point", // climax_event
+                        "University Lecture Hall, City Rooftop, Library, Courtroom, Detective’s Office, School Auditorium", // climax_location
+                        "The protagonist reveals a hidden truth, faces off against an adversary, and gains critical insight that changes their perspective and the course of action", // climax_description
+                        "Coming-of-Age, Mystery, Intellectual Awakening, Social Justice, Moral Dilemmas, Psychological Growth, Overcoming Adversity, Friendship and Alliance, Personal Integrity, Courageous Defiance", // theme
+                        "Realistic, Intellectual, Stream of Consciousness, Epistolary, Third-Person Limited, Coming-of-Age Narrative, Mystery, Bildungsroman, Dialogue-Heavy, Symbolic", // style
+                        "Page of Swords" // card_name
+        );
+        // p. parker / tyrion
+        TarotStoryElements knightOfSwords = new TarotStoryElements(
+                        "Knight of Swords",
+                        "Ambition, Action, Intellect, Bravery, Impulsiveness, Strategy, Determination, Quick Thinking, Recklessness, Wit",
+                        "Intelligent, Quick-witted, Courageous, Determined, Strategic, Impulsive, Loyal, Articulate, Passionate, Problem-solver",
+                        "Impulsive, Reckless, Overconfident, Stubborn, Argumentative, Impatient, Self-doubting, Blunt, Overthinking, Defensive",
+                        "Protect loved ones, Pursue justice, Solve complex problems, Overcome personal doubts, Win battles of wit and strength, Prove self-worth, Lead others in crisis, Adapt quickly to change, Balance heart and mind, Stand up against injustice",
+                        "Charging into action, Making split-second decisions, Engaging in heated debates, Protecting the vulnerable, Solving critical dilemmas, Outwitting enemies, Reconciling conflicting loyalties, Embracing vulnerability, Taking calculated risks, Learning from failures",
+                        "Loyal friends, Trusted advisors, Compassionate mentors, Brave allies, Intellectual equals, Supportive confidants, Encouragers of growth, Strategic partners, Moral compasses, Protective guardians",
+                        "Provide guidance in tough decisions, Encourage balanced thinking, Support personal growth, Offer emotional stability, Assist in planning and strategy, Help manage impulsiveness, Mediate conflicts, Inspire courage, Share wisdom, Foster resilience",
+                        "Overprotective, Overly cautious, Indecisive, Naive, Overwhelmed by responsibility, Emotionally guarded, Stubborn, Overly critical, Reluctant to delegate, Distrustful",
+                        "Arrogant rivals, Manipulative foes, Deceitful enemies, Reckless antagonists, Overconfident challengers, Cynical adversaries, Strategic competitors, Betrayers, Ruthless opportunists, Distractors",
+                        "Undermine plans, Sow discord, Exploit weaknesses, Challenge authority, Spread misinformation, Create chaos, Thwart justice, Manipulate alliances, Drain resources, Incite conflict",
+                        "Deceptive, Treacherous, Ruthless, Calculating, Untrustworthy, Vindictive, Conniving, Aggressive, Cold, Merciless",
+                        "Heroic showdown, Strategic duel, Unexpected betrayal, Crisis requiring quick thinking, Personal sacrifice, Rescue mission, Climactic debate, Reckless battle, Moment of self-discovery, Turning point in leadership",
+                        "Rooftop of a cityscape, Strategy chamber, Council hall, Shadowy alley, Underground tunnels, Public square, Hidden sanctuary, Library at night, Border checkpoint, Inner sanctum",
+                        "A tense rooftop confrontation where strategy and courage collide, followed by a shocking betrayal that forces the protagonist to question their role, culminating in a choice between justice and revenge",
+                        "Urban battlegrounds, Rooftop gardens, Secret lairs, City council chambers, Dark alleys, Subterranean bunkers, Futuristic metropolises, Barricaded classrooms, Rebel safehouses, High-speed chases through crowded markets",
+                        "Third Person Limited, shifting to First Person in key introspective moments",
+                        "Bravery without recklessness, Learning to temper action with thought, Leading through wisdom, Accountability, Trusting others, Intellectual and moral responsibility",
+                        "Justice versus Chaos, Thought versus Action, Impulse versus Responsibility, Identity and Sacrifice, Integrity under Pressure",
+                        "Action-Adventure with Strategic Intrigue, Futuristic Dystopia, Introspective Hero’s Journey, Noir-Drama Fusion",
+                        "Knight of Swords");
+        // lady jessica
+        TarotStoryElements queenOfSwords = new TarotStoryElements(
+                        "Lady Jessica — Queen of Swords",
+                        "Clarity, Independence, Intelligence, Strategy, Perception, Emotional Restraint, Authority, Wisdom, Boundaries, Discipline",
+                        "Regal, Calculating, Disciplined, Fiercely Loyal, Protective, Intelligent, Strategically-Minded, Insightful, Reserved, Ethically Ambiguous",
+                        "Emotionally Guarded, Burdened by Duty, Manipulative, Secretive, Prone to Isolation, Emotionally Repressed, Conflict-Averse, Overly Cautious",
+                        "Protecting Family Legacy, Navigating Political Intrigue, Balancing Duty and Emotion, Upholding Honor and Order, Guiding the Next Generation, Preserving Ancient Knowledge, Defying Institutional Control",
+                        "Loss of a Loved One, Betrayal from Allies, Forced Political Marriage, Revelation of a Hidden Truth, Imminent Threat to Offspring, A Choice Between Heart and Duty, Exile or Banishment, Confrontation with a Former Mentor",
+                        "Wise, Loyal, Strategic, Reserved, Grounded, Respectful of Tradition, Emotionally Balanced, Diplomatic, Spiritually Aware",
+                        "Preserving Tradition, Supporting Succession, Protecting the Protagonist, Offering Hidden Knowledge, Encouraging Self-Mastery, Providing Strategic Counsel, Preventing Self-Destruction, Balancing Rationality with Emotion",
+                        "Overbearing, Cautious to a Fault, Too Rigid with Rules, Slow to Trust, Emotionally Detached, Upholds Harmful Hierarchies, Mistrusts Outsiders",
+                        "Oppressive High Council, Power-Hungry Politician, Ruthless Noblewoman, Betraying Mentor, Espionage Agent, Religious Extremist, Secret Keeper",
+                        "Undermining Legitimacy, Spreading Disinformation, Challenging Lineage, Exploiting Emotional Weakness, Using Tradition as Weapon, Destabilizing Alliances",
+                        "Overconfident, Emotionally Manipulative, Power-Addicted, Stubborn, Detached, Prone to Sacrificing Ethics for Strategy",
+                        "Unveiling of a Forbidden Lineage, Coup Within the Ruling House, Emotional Confession Under Duress, Public Confrontation with Council, Vision of Future Collapse, Sacrificial Political Decision, Escape from Political Execution",
+                        "The Inner Sanctum of a Desert Keep, High Council Chamber on a Distant Planet, Sacred Chamber of Prophecy, Hidden Ancestral Tomb, Crumbling Cathedral in the Sand, Private Chamber of a Seeress",
+                        "In a wind-swept citadel atop ancient ruins, Lady Jessica must stand against the religious order that shaped her and the political empire that seeks to use her. Alone, yet unyielding, she must leverage centuries of hidden knowledge to protect her bloodline and ensure the survival of a prophecy tied to her son.",
+                        "Desert Strongholds, Political Halls, Secret Libraries, Ancestral Temples, War Camps, Sacred Fremen Caves, Ancient Laboratories",
+                        "Third Person Omniscient or Limited — tracking both inner turmoil and outward strategy of a woman who walks the knife’s edge of power and emotion",
+                        "The courage to uphold truth without sacrificing compassion. Trusting reason, but never forsaking heart. The necessity of wisdom in the face of moral ambiguity.",
+                        "Legacy vs. Autonomy, Feminine Power in Patriarchy, Emotional Discipline vs. Suppression, Bloodline and Betrayal, The Price of Strategic Mastery, Duty vs. Love, Matriarchal Wisdom vs. Male-Dominated Order",
+                        "Philosophical Science-Fantasy, Political Thriller, Emotional Drama, Mythic Epic, Tragic Heroine's Journey",
+                        "Queen of Swords");
+        // sherlock and ozymandius
+        public TarotStoryElements kingOfSwords = new TarotStoryElements(
+                        "The Architect of Order",
+                        "Logic, Strategy, Authority, Discipline, Justice, Intellect, Detachment, Leadership, Rationality, Control",
+                        "Brilliant, Strategic, Detached, Composed, Insightful, Calculating, Charismatic, Obsessed with Order, Unshakable, Respected",
+                        "Emotionally Distant, Overconfident, Morally Ambiguous, Manipulative, Obsessive, Arrogant, Trusts Intellect Over Empathy, Secretive, Cold",
+                        "Establish a perfect system of justice, Outwit a hidden adversary, Protect society through foresight, Maintain control over chaos, Expose systemic flaws, Redeem a past failure, Construct a legacy of order",
+                        "A string of murders reveals a hidden conspiracy, A prodigy challenges their worldview, A lost friend returns with dark truths, A system they've built begins to fail, A case forces them to confront their emotions, Their own creation turns against them",
+                        "Loyal, Analytical, Morally Grounded, Cautious, Emotionally Intelligent, Technologically Skilled, Grounded, Patient, Underestimated",
+                        "Challenge his moral rigidity, Serve as the emotional conscience, Assist in uncovering the deeper truth, Offer a human perspective, Protect him from self-destruction, Balance his logic with compassion",
+                        "Skeptical, Prone to Self-Doubt, Lacks Strategic Foresight, Emotionally Reactive, Distrusting of Authority, Unwilling to Compromise, Haunted by Past Mistakes",
+                        "Charismatic Manipulator, Morally Inverted Reflection, Equally Intelligent, Unpredictable, Elusive, Intimate Knowledge of Protagonist, Ruthless, Masked in Respectability",
+                        "Undermine the protagonist's ideals, Reveal hidden hypocrisies in the system, Force protagonist into moral dilemmas, Weaponize truth, Create chaos through order, Dismantle the protagonist’s legacy",
+                        "Hubris, Lack of Empathy, Monomania, Underestimation of Others, Emotional Blind Spots, Moral Detachment, Control Obsession",
+                        "The protagonist’s master plan is exposed and weaponized against them; forced into a final confrontation with their philosophical double, they must choose between justice and personal redemption",
+                        "Abandoned observatory on a cliffside—once the protagonist's refuge, now repurposed as a mind-game trap by the antagonist",
+                        "A symbolic mental duel unfolds amidst mirrors and archives of past cases; the protagonist confronts their darker self and decides whether to destroy or accept it",
+                        "Urban labyrinth, Secret library archives, Rooftop gardens of elite institutions, Memory palaces or dreamscapes, War rooms, Abandoned courthouses, Hidden interrogation rooms, Rain-slicked alleyways",
+                        "Third Person Close or Omniscient with shifting internal monologue between protagonist and antagonist to create a psychological cat-and-mouse dynamic",
+                        "Intelligence alone is not wisdom; true justice requires balance between mind and heart",
+                        "Order vs. Chaos, Justice vs. Control, Intellect vs. Emotion, Hubris and Redemption, Morality in a Corrupt World, Duality of Self",
+                        "Psychological Thriller, Neo-noir, Mystery, Philosophical Crime Drama, Introspective Hero’s Journey",
+                        "King of Swords");
+        // PENTACLES
 
         TarotStoryElements aceOfPentacles = new TarotStoryElements(
                         "Ace of Pentacles",
                         "Prosperity, New beginnings, Material wealth, Abundance, Financial opportunity, Security, Manifestation, Stability, Grounding, Fertility",
                         "",
                         "Materialistic, Greedy, Stubborn, Risk-averse, Inflexible, Short-sighted, Overly cautious, Workaholic, Closed-minded, Selfish",
-
                         "Achieving financial stability, Starting a successful business, Investing wisely for the future, Establishing a secure home, Finding long-term employment, Creating a solid foundation for a project or venture, Building wealth and prosperity, Gaining independence through financial means, Improving material well-being, Manifesting abundance and abundance consciousness",
                         "Inheriting a valuable estate or property, Losing a job and needing to find new employment, Discovering a lucrative investment opportunity, Facing financial hardship and seeking a solution, Receiving a substantial loan or grant, Winning a business competition or contract, Being presented with an offer to collaborate on a profitable project, Finding a hidden treasure or valuable artifact, Receiving an unexpected inheritance or windfall, Being inspired by a successful entrepreneur or mentor",
                         "Resourceful and practical problem solver, Financially savvy and business-minded, Grounded and dependable companion, Expert in matters of wealth and prosperity, Earthy and connected to nature, Loyal friend with a strong work ethic, Skilled craftsman or tradesperson, Visionary entrepreneur with ambitious goals, Generous benefactor or patron, Wise mentor with valuable life experience",
@@ -623,28 +764,147 @@ public class StoryElementSeeder {
                         "Coming-of-age through effort; mastery of self through repetition and resolve",
                         "Hopeful, Shōnen-style, Emotional, Training-arc-heavy, Steady-paced with high emotional payoff",
                         "Eight of Pentacles");
+        // miranda priestly
         TarotStoryElements nineOfPentacles = new TarotStoryElements(
-                        "",
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null);
+                        "Nine of Pentacles",
+                        "Independence, Elegance, Discipline, Self-Sufficiency, Refinement, Solitude, Mastery, Control, Wealth, Achievement",
+                        "Sophisticated, Powerful, Self-possessed, Meticulous, Authoritative, Cultured, Self-made, Composed, Reserved, Perfectionist",
+                        "Emotionally distant, Overly critical, Controlling, Isolated, Intimidating, Unapproachable, Fear of vulnerability, Difficulty with intimacy, Work-obsessed, Resistant to change",
+                        "Maintain power and reputation, Achieve perfection in all endeavors, Protect solitude and autonomy, Cultivate legacy, Guard personal image, Mentor selectively, Preserve exclusivity, Keep personal life private, Build an empire",
+                        "A trusted protégé defies expectations, A public embarrassment threatens her image, An unexpected emotional revelation, A confrontation with a rival, A reminder of past vulnerability, A shifting power dynamic, A choice between control and connection",
+                        "Loyal, Ambitious, Elegant, Underestimated, Hard-working, Subtle, Growing in power, Hungry for approval, Emotionally intuitive, Reluctantly vulnerable",
+                        "To prove themselves, To earn trust and opportunity, To navigate high-stakes environments, To gain power through competence, To rise while maintaining integrity, To balance ambition with compassion, To challenge the status quo",
+                        "Inexperience, Naivety, Oversensitivity, Fear of confrontation, Idolization of power, Ethical rigidity, Identity confusion, Emotional dependence, Misplaced trust, Burnout",
+                        "Challenging, Calculating, Charismatic, Influential, Passive-aggressive, Stylish, Enigmatic, Intimidating, Strategically cruel, Dismissive",
+                        "Disrupt the protagonist’s growth, Maintain dominance in their domain, Undermine emotional vulnerability, Reinforce elitist systems, Protect their own secrets, Weaponize reputation, Demand conformity, Mirror the protagonist’s shadow traits",
+                        "Emotional repression, Power addiction, Fear of irrelevance, Insecurity behind confidence, Obsession with control, Elitism, Isolation, Dependency on external validation, Emotional neglect",
+                        "Public confrontation that exposes personal vulnerability, Protégé outshines the master, A rare moment of emotional honesty, Forced decision between control and connection, Collapse of a carefully curated image, Walking away from the empire built, Confronting loneliness behind success",
+                        "Gala event at a fashion house where masks—both literal and emotional—are worn, Boardroom overlooking the city skyline, stark and symbolic of emotional distance, Private office filled with curated artifacts that conceal history, A fashion show runway where illusions are crafted and dismantled, An opulent but empty penthouse symbolizing loneliness in achievement",
+                        "At the height of a runway show, the protagonist confronts their mentor—demanding acknowledgment and recognition—while the spectacle collapses around them, metaphorically and literally. The confrontation strips away glamor to reveal humanity, choice, and vulnerability. It ends in silence, respect, and separation.",
+                        "Fashion capitols like Paris, Milan, and New York, Lavish office spaces and elite industry events, Exclusive private clubs, High-end designer ateliers, Personal sanctuaries filled with luxury and solitude, Isolated countryside retreats that contrast the city’s intensity",
+                        "Third Person Limited (protégé's POV) to show admiration, intimidation, and slow disillusionment, Interlaced with brief omniscient glimpses into the mentor’s private world to offer emotional nuance without full demystification",
+                        "The value of self-discipline and elegance, The cost of emotional repression, The duality of power and loneliness, The dignity of earned solitude, The risk of vulnerability and the courage it takes",
+                        "Success vs. Fulfillment, Mentor/Protégé Dynamics, Isolation Within Power, Control and Its Consequences, Hidden Humanity, External Image vs. Internal Reality, Femininity and Authority, The Mask of Perfection, Emotional Autonomy",
+                        "Literary Realism, Satire with Elegance, Sharp Dialogue-Driven Prose, Psychological Depth, Corporate Drama, High Fashion Aesthetic with Subtextual Emotion",
+                        "Nine of Pentacles");
+
+        // prospero
+        TarotStoryElements tenOfPentacles = new TarotStoryElements(
+                        "Ten of Pentacles",
+                        "Legacy, Wealth, Ancestry, Tradition, Fulfillment, Inheritance, Lineage, Long-term Success, Wisdom, Completion",
+                        "Wise, Authoritative, Protective, Cultured, Visionary, Scholarly, Mysterious, Patient, Commanding, Strategist",
+                        "Controlling, Isolated, Prideful, Secretive, Emotionally Distant, Vengeful, Detached, Overbearing, Fixated on Legacy, Unyielding",
+                        "Secure familial legacy, Restore lost honor, Pass on knowledge, Maintain dominion, Ensure the safety of successors, Reconcile with the past, Rebuild home or dynasty, Cement their life’s work, Protect bloodline, Establish lasting peace",
+                        "Arrival of heir or student, Return of long-lost family, Revelation of legacy or inheritance, Betrayal within family or order, Discovery of ancient power or truth, Completion of long-term plan, Imminent death or transition, Collapse of old structure, Moment of succession, Confrontation with forgotten past",
+                        "Loyal, Younger generation, Respectful, Gifted, Curious, Spiritually connected, Idealistic, Trustworthy, Reverent, Dedicated",
+                        "Learning from tradition, Honoring ancestors, Carrying forward legacy, Protecting lineage, Rebuilding structure, Mastering an art or discipline, Upholding values, Proving worth, Reuniting family, Ensuring succession",
+                        "Over-reliant on tradition, Naive, Inexperienced, Rigid in thought, Fearful of responsibility, Emotionally dependent, Overwhelmed by legacy, Status-conscious, Hesitant, Idealistically narrow",
+                        "Usurper, Traitorous bloodline, Greedy heirs, Opposing elder figure, Manipulative relative, Political rival, Shadow from the past, Fanatic disciple, Envious outsider, Arcane threat",
+                        "Claim family fortune, Rewrite history, Dismantle established order, Undermine mentor's influence, Infiltrate legacy structure, Destroy or claim heirloom, Replace successor, Expose family secrets, Break ancestral bond",
+                        "Greed, Entitlement, Short-sighted ambition, Lack of reverence, Manipulation through lineage, Disconnection from tradition, Ruthlessness, Pride, Need for control",
+                        "The ceremonial passing of a legacy item (books or staff), Succession ceremony interrupted by sabotage, Final confrontation with an estranged heir, Collapse of the family estate, Revelation of a long-buried family truth, Symbolic destruction of an old structure, Reconciliation with a wronged descendant",
+                        "Ancient Library: A vast archive of wisdom where sacred knowledge is hidden, Crumbling Estate: A family seat in decline that holds secrets of ancestry, Arcane Tower: A place of study and power, now poised for its final ritual, Sacred Grove: A spiritual site connected to family tradition, Sealed Crypt: Where ancestors rest and the past demands justice, Heirloom Chamber: A room that holds a family's most guarded artifacts, Council Hall: Where judgment and inheritance are publicly contested",
+                        "The heir proves worthy and accepts the legacy, The protagonist chooses to end the line and destroy the inheritance, A long-lost descendant returns to claim their right, The mentor sacrifices themselves to protect the future, Ancient magic is released and reshapes the world, The estate is divided among heirs after a moral reckoning",
+                        "Island Sanctuary, Old World Estate, Noble Court, Forgotten Temple, Magical Archive, Ritual Grounds, Family Crypt, Hidden Library, Royal Academy, Intergenerational Estate",
+                        "Third Person Omniscient, Shifting Generational Perspectives, Retrospective First Person, Dual Timeline Structure",
+                        "Honor the past to shape the future, True wealth lies in wisdom passed down, Legacy is not control but trust, Reconciliation is more powerful than dominance, Endings are seeds of new beginnings",
+                        "Legacy and Inheritance, Power and Responsibility, Knowledge vs. Control, Family and Duty, Preservation vs. Evolution, Succession and Trust, Closure and Continuity, Isolation vs. Integration",
+                        "Epic, Mythopoetic, Symbolic Realism, Historical Fantasy, Courtly Drama, Intergenerational Saga, Slow-Burn Revelation, Magical Realism, Renaissance Tragedy",
+                        "Ten of Pentacles");
+        // samwise
+        TarotStoryElements pageOfPentacles = new TarotStoryElements(
+                        "Page of Pentacles",
+                        "Preservation, Quiet Rebellion, Loyalty, Hope, Diligence, Hidden Wisdom, Inner Strength, Memory, Resistance, Groundedness",
+                        "Loyal, Resourceful, Quietly Defiant, Patient, Thoughtful, Devoted, Grounded, Unassuming, Cautiously Curious, Emotionally Resilient",
+                        "Fearful of Authority, Timid, Lacks Formal Power, Overly Submissive, Bound by Tradition, Prone to Self-Doubt, Emotionally Guarded, Risk-Averse, Afraid of Losing What Matters",
+                        "Protect the Last Seed, Uphold a Dying Promise, Guard Forbidden Knowledge, Reclaim the Past, Heal a Wounded World, Plant Hope in Barrenness, Preserve Memory, Serve the Resistance Quietly",
+                        "The Last Library Is Breached, Discovery of a Forbidden Text, Loss of a Mentor, Sabotage of a Preservation Vault, Unexpected Betrayal by a Trusted Ally, Glimpse of the Outside World, Revelation of the World Before",
+                        "Silent Guardian, Underground Healer, Former Scientist Turned Mentor, Wounded Rebel Leader, Faithful Companion, Dissident Archivist, Defector with a Conscience",
+                        "Restore the Natural World, Protect the Innocent, Recover Lost Truths, Safeguard the Archivist’s Work, Shelter the Next Generation, Bear Witness to the Fall, Keep the Flame of Memory Alive, Rebuild Through Roots",
+                        "Emotionally Scarred, Burnt Out, Physically Wounded, World-Weary, Cynical, Haunted by Loss, Mistrustful, Prone to Isolation, Traumatized, Secretive",
+                        "Regime Enforcer, Corporate Machine, Thought Police, Propaganda Minister, Exploiter of Nature, False Revolutionary, Cold Technocrat, Ideologue",
+                        "Erase the Past, Exploit Resources, Dominate the Mind, Silence Resistance, Break the Spirit, Replace History with Control, Burn the Libraries, Engineer Dependence, Suppress Memory, Destroy Hope",
+                        "Arrogance, Over-Rationality, Lack of Empathy, Addiction to Control, Detachment, Nihilism, Lack of Imagination, Rejection of Nature, Cynicism, Intellectual Pride",
+                        "Collapse of the Seed Vault, Revelation of Betrayal, Death of the Last Archivist, Sam Forced to Act Alone, Memory Recovered from a Forbidden Text, Ritual Planting of the Last Tree, Defiance by Living",
+                        "A crumbling underground archive beneath a ruined megacity, a greenhouse bunker built beneath a corporate tower, a scorched earth farmland at the edge of habitable land, a memorial garden that grows from the ashes of resistance fighters, a water-purification facility turned sanctuary",
+                        "Final confrontation as the protagonist risks his life to plant the last living seed while the regime’s drones circle above. The moment is not grand, but it is irreversible. The world will remember this act—if it survives.",
+                        "Subterranean Archives, Wasteland Outposts, Decaying Corporate Arcologies, Shattered Glass Domes, Barren Floodplains, Former Botanical Gardens, Hidden Resistance Greenhouses",
+                        "Third Person Close – quiet internal narration with flashes of memory and guilt. Occasionally switches to archival records and personal logs that build deeper context and emotional gravity.",
+                        "Even when the world forgets, remembrance through action plants the seed for what comes next. True rebellion can be as small as a garden. Hope is what you grow, not what you’re given.",
+                        "Survival as Resistance, Memory as Defiance, Quiet Acts of Rebellion, Earth Against Empire, Restoring the Ruined, Grief Turned to Growth, Solitude as Power",
+                        "Dystopian Eco-Fable, Retro-Futurist Resistance Drama, Slow-Burn Sci-Fi, Poetic Survival Narrative, Allegorical Sci-Fi, Post-Ecological Collapse Myth, Spiritual Agrarian Dystopia",
+                        "Page of Pentacles");
+        // brienne / alphonse / cincinnatus
+        TarotStoryElements knightOfPentacles = new TarotStoryElements(
+                        "Knight of Pentacles",
+                        "Diligence, Responsibility, Honor, Perseverance, Service, Steadfastness, Routine, Loyalty, Duty, Integrity",
+                        "Honorable, Hardworking, Loyal, Cautious, Stoic, Meticulous, Protective, Principled, Reliable, Determined",
+                        "Overly Rigid, Socially Isolated, Emotionally Reserved, Resistant to Change, Obsessive with Duty, Overburdened, Perfectionistic, Self-Sacrificing, Naive in Trust",
+                        "Maintain Moral Code, Protect the Innocent, Fulfill a Sacred Duty, Bring Justice to the Oppressed, Reclaim Lost Honor, Uphold Tradition, Complete a Personal Oath, Provide for Others, Persevere Through Adversity, Earn Respect",
+                        "A call to complete a mission others have abandoned, Witnessing corruption within a system they once believed in, A plea for help from the weak or forgotten, Inheriting an unfinished legacy, Being betrayed by a trusted authority, Discovering that a personal sacrifice was in vain",
+                        "Trustworthy, Strong, Grounded, Honest, Protective, Steady, Encouraging, Insightful, Skilled in Craft or Combat, Quietly Supportive",
+                        "Helping Maintain Structure, Upholding Traditions, Offering Strategic Support, Sharing in the Labor, Encouraging Ethical Action, Holding Each Other Accountable, Bearing Burdens Together, Providing Resources, Shielding from Harm, Offering Loyalty and Respect",
+                        "Too Passive, Overprotective, Avoidant of Conflict, Emotionally Inexpressive, Stubborn in Belief, Limited Worldview, Fearful of Change, Difficulty Letting Go, Overly Attached to Routine, Silent in Crisis",
+                        "Exploitative, Dishonest, Power-Hungry, Corrupt, Manipulative, Wasteful, Entitled, Disloyal, Oppressive, Reckless",
+                        "Undermine Structure, Abuse of Power, Break Tradition, Seduce or Manipulate Protagonist, Drain Resources, Destroy Institutions of Trust, Mock or Shame the Hero’s Principles, Control Through Fear or Convenience, Fracture Alliances",
+                        "Arrogance, Complacency, Moral Bankruptcy, Short-Term Thinking, Betrayal of Core Values, Lack of Vision, Manipulation of Others’ Duty, Reliance on Deception or Bribery, Fear of Exposure",
+                        "The protagonist faces public disgrace after refusing to compromise values, A final duel or tribunal where justice must be upheld despite personal loss, Completion of a long-term vow with great sacrifice, Rescue or redemption of an ally once thought lost, Collapse of an institution the hero once trusted, A symbolic passing of the torch to a younger generation, An act of defiance that inspires a movement, Rejection of an easy path in favor of a harder righteous one, The rebuilding of a ruined sanctuary, A letter or artifact that reveals the truth about the protagonist's legacy",
+                        "An abandoned courthouse turned into a battlefield of ideologies, A fortress buried beneath snow where time stands still, A war-torn village clinging to order, The ruins of an ancient temple guarded by silent monks, A fog-covered valley where forgotten oaths echo, A massive underground city governed by caste and code, A weather-beaten inn at the crossroads of rebel paths, A bureaucratic hall of judgment dripping with corruption, The final field where knights duel in silence, A dusty farmstead kept alive by tradition and resolve",
+                        "Final confrontation at the old capital where justice is both administered and defied, Rescue of a forgotten sibling buried in enemy territory, Refusal to accept a bribe that would buy peace but betray ethics, A trial where silence speaks louder than arguments, Vows renewed under a dying tree where generations have pledged, Burned letters revealing a mentor’s betrayal and the need for forgiveness, The rebuilding of an ancient road as a symbol of restored order",
+                        "Dust-choked frontier towns, Ancient libraries with guarded secrets, Silent mountains holding buried weapons, Forgotten monasteries that whisper forgotten rites, Rotting government archives, Quiet forges echoing with memory, The crypt of broken promises, A family estate maintained by no one but ghosts, The mines where laborers vanish without records, A windmill where time has stopped",
+                        "Third Person Limited, Deep Character Study, Interweaving Flashbacks, Occasional First Person Letters or Logs",
+                        "Duty Above All Else, Integrity in the Face of Corruption, Strength Lies in Consistency, Service is a Noble Path, The Smallest Actions Build the Strongest Foundations, Honor Without Recognition, Protection as Purpose",
+                        "Legacy and Honor, Slow but Steady Progress, Moral Fortitude in Decline, Duty vs. Desire, Endurance Over Speed, Solitude Within Society, Institutional Decay and Personal Renewal, The Quiet Heroism of Service",
+                        "Historical Fiction, Stoic Realism, Gritty Epic, Mythic Slow-Burn, Silent Hero Narrative, Low Magic Medieval, Dystopian Steampunk Honor Tale",
+                        "Knight of Pentacles");
+        // queen of p - marmee march
+        TarotStoryElements queenOfPentacles = new TarotStoryElements(
+                        "Queen of Pentacles",
+                        "Nurturing, Practicality, Abundance, Domesticity, Generosity, Wisdom, Resourcefulness, Earthiness, Comfort, Responsibility",
+                        "Compassionate, Grounded, Patient, Emotionally Wise, Resilient, Devoted, Humble, Practical, Generous, Protective",
+                        "Overburdened, Self-Sacrificing, Avoids Confrontation, Financially Stressed, Emotionally Repressed, Fear of Change, Prone to Worry, Resistant to Help",
+                        "Create a stable home, Raise moral and strong children, Provide emotional and material comfort, Maintain dignity under hardship, Support others' growth, Heal and nurture the wounded, Protect family from instability",
+                        "Loss of income, Family illness, Social or moral crisis, Estrangement of a loved one, Community pressure, Natural disaster or war, Betrayal by a trusted ally, A child in danger, Being forced to choose between duty and self-care",
+                        "Loyal, Kind-hearted, Honest, Gentle, Trustworthy, Emotionally intelligent, Committed, Generous, Humble",
+                        "Support emotional healing, Provide protection, Offer perspective and clarity, Nurture resilience, Reinforce moral compass, Encourage self-worth, Maintain familial or community bonds",
+                        "Overprotectiveness, Martyrdom, Neglecting their own needs, Difficulty adapting to change, Idealism, Inability to let go, Emotional dependency",
+                        "Indifferent authorities, Cold pragmatists, Greedy aristocrats, Disconnected intellectuals, Neglectful figures of power",
+                        "Disrupt moral harmony, Undermine family unity, Exploit vulnerability, Enforce unjust rules, Discredit emotional strength, Force hard pragmatic choices",
+                        "Rigid, Unfeeling, Elitist, Detached, Emotionally dismissive, Authoritarian, Exploitative, Patronizing",
+                        "A devastating house fire, A child falls ill with no access to care, A family betrayal during a harsh winter, Forced relocation due to war or poverty, Death of a partner or child, A moral reckoning within the community",
+                        "A modest farmhouse in rural New England, A small but warm family home filled with handmade goods and memories, A community town hall brimming with tension, A snowy forest on the edge of town representing isolation or transition",
+                        "The protagonist must lead her family through the darkest winter yet, preserving love and dignity when survival is uncertain and trust is fractured. In a single act of sacrifice or fierce protection, she reaffirms her role as the emotional and spiritual backbone of her household.",
+                        "Rural Village, Modest Cottage, Hearth and Kitchen, Market Square, Countryside Path, Sickbed, Local Church, Community Shelter",
+                        "Close Third-Person: Following Marmee’s steady inner thoughts as she processes joy and heartbreak alike, offering warmth and perspective even in bleakness",
+                        "Compassion is a quiet strength; nurturing is radical in the face of adversity; dignity can be preserved even when resources are scarce",
+                        "The quiet heroism of caregiving, Moral leadership through example not authority, Maternal love as resistance, Emotional labor and its cost, Domestic sanctuaries in unstable worlds",
+                        "Literary Realism, Warm Dramatic Tone, Domestic Fiction, Earthy and Humble, Reflective, Grounded in Natural Cycles and Human Emotions",
+                        "Queen of Pentacles");
+
+        // atticus finch + jean valjean
+        TarotStoryElements kingOfPentacles = new TarotStoryElements(
+                        "King of Pentacles",
+                        "Security, Responsibility, Leadership, Integrity, Legacy, Stewardship, Wisdom, Stability, Wealth, Morality",
+                        "Principled, Grounded, Protective, Stoic, Disciplined, Humble, Strategic, Wise, Charismatic in Stillness, Fatherly",
+                        "Emotionally Repressed, Overburdened, Stubborn, Self-Sacrificing, Resistant to Change, Judgmental, Overly Responsible",
+                        "Protect a vulnerable community, Provide a safe legacy, Reconcile justice with mercy, Raise and protect dependents, Maintain order and honor, Mentor the next generation, Atone for a past mistake, Preserve family or institutional stability",
+                        "A corrupt official threatens to tear apart the protagonist's carefully built world, forcing him to act against the very systems he upholds. A child or dependent figure's fate lies in the balance.",
+                        "Loyal, Practical, Soft-Spoken, Grounding, Nurturing, Empathetic, Morally Upright, Cautiously Brave, Self-Sacrificing, Realistic",
+                        "Support legacy building, Protect the innocent, Reinforce core values, Offer emotional wisdom, Encourage compromise, Ground the protagonist during emotional hardship, Provide perspective from a simpler life",
+                        "Emotionally reliant, Risk-averse, Too deferential, Bound by past loyalties, Lacking ambition, Naïve idealist, Emotionally avoidant",
+                        "Corrupt Politician, Ruthless Industrialist, Exploitative Clergyman, Cold Bureaucrat, Charismatic but Immoral Leader",
+                        "Dismantle protagonist's legacy, Exploit moral weaknesses, Erase or rewrite history, Destroy family or institutional bonds, Seduce others with easier paths, Undermine justice systems",
+                        "Overconfidence in control, Narcissism masked by righteousness, Cynical use of power, Resistance to empathy, Lack of moral clarity, Sociopathic calm",
+                        "Moral trial before a public audience, Collapse of protagonist's legal or familial structure, Rescue or sacrifice of a dependent, Public speech or act of courage, Loss or preservation of legacy, Final confrontation with moral opposite",
+                        "Old Courthouse in a segregated town, A weathered rural estate with secret passageways, A prison chapel echoing with hymns, A courthouse steps vigil during a lightning storm",
+                        "The protagonist stands in the ruined halls of justice, delivering a final argument that both redeems and condemns, offering himself as the price for the truth he can no longer bear to keep buried",
+                        "Courtroom, Rural Homestead, Underground Sanctuary, War-torn Village, Prison, Archive Library, Cathedral, Forgotten Town Square",
+                        "Third Person Limited with Occasional Epistolary Interludes",
+                        "Justice must be lived, not just spoken. True authority is measured by quiet sacrifice, not control.",
+                        "Moral Stewardship, Intergenerational Responsibility, Honor vs. Corruption, The Cost of Integrity, Redemptive Leadership",
+                        "Literary Realism with Gothic Undertones and a Somber, Reflective Tone",
+                        "King of Pentacles");
+        // WANDS
 
         TarotStoryElements aceOfWands = new TarotStoryElements(
                         "Ace of Wands",

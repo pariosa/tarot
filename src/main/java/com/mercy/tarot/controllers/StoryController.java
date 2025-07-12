@@ -259,7 +259,7 @@ public class StoryController {
                 System.out.println(card_names);
 
                 List<String> cardNameList = Arrays.asList(card_names.split(", ")); // Split the cardNames string into a
-                                                                                  // list of card names
+                                                                                   // list of card names
                 List<TarotStoryElements> matchingElements = new ArrayList<>();
 
                 Iterable<TarotStoryElements> allElements = storyElementRpository.findAll();
