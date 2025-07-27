@@ -24,7 +24,7 @@ public class DatabaseSeeder {
                         true,
                         "The Fool represents new beginnings, innocence, and spontaneity.",
                         "Major Arcana",
-                        "0 - The Fool",
+                        "The Fool",
                         "Naivety, foolishness, recklessness, lack of responsibility.");
         Card theMagician = new Card(
                         "This card reminds you of your ability to create your reality and harness your skills.",
@@ -32,7 +32,7 @@ public class DatabaseSeeder {
                         true,
                         "The Magician represents manifestation, power, and resourcefulness.",
                         "Major Arcana",
-                        "I -The Magician",
+                        "The Magician",
                         "Manipulation, poor planning, untapped talents.");
         Card theHighPriestess = new Card(
                         "This card encourages you to trust your inner wisdom and explore the depths of your subconscious.",
@@ -40,14 +40,14 @@ public class DatabaseSeeder {
                         true,
                         "The High Priestess represents intuition, mystery, and understanding the subconscious mind.",
                         "Major Arcana",
-                        "II - The High Priestess",
+                        "The High Priestess",
                         "Secrets, disconnected from intuition, withdrawn.");
         Card theEmpress = new Card("This card symbolizes creativity, fertility, and the power of nurturing and growth.",
                         "The Empress",
                         true,
                         "The Empress represents nurturing, abundance, and fertility.",
                         "Major Arcana",
-                        "III - The Empress",
+                        "The Empress",
                         "Dependence, smothering, emptiness, lack of growth.");
         Card theEmperor = new Card(
                         "This card reminds you to take charge of your life and establish a solid foundation for success.",
@@ -55,7 +55,7 @@ public class DatabaseSeeder {
                         true,
                         "The Emperor represents authority, structure, and stability.",
                         "Major Arcana",
-                        "IV - The Emperor",
+                        "The Emperor",
                         "Domination, excessive control, rigidity, inflexibility.");
         Card theHierophant = new Card(
                         "This card encourages you to seek wisdom from spiritual teachings and traditional valuest",
@@ -63,7 +63,7 @@ public class DatabaseSeeder {
                         true,
                         "The Hierophant represents tradition, spirituality, and guidance.",
                         "Major Arcana",
-                        "V - The Hierophant",
+                        "The Hierophant",
                         "Rebellion, breaking conventions, misalignment.");
         Card theLovers = new Card(
                         "This card signifies important decisions regarding love, relationships, and personal values.",
@@ -71,7 +71,7 @@ public class DatabaseSeeder {
                         true,
                         "The Lovers represents love, relationships, and choices.",
                         "Major Arcana",
-                        "VI - The Lovers",
+                        "The Lovers",
                         "Disharmony, imbalance, misaligned values, broken relationships.");
         Card theChariot = new Card(
                         "This card reminds you to stay focused on your goals and overcome obstacles through determination.",
@@ -79,7 +79,7 @@ public class DatabaseSeeder {
                         true,
                         "The Chariot represents determination, willpower, and control.",
                         "Major Arcana",
-                        "VII - The Chariot",
+                        "The Chariot",
                         "Aggression, lack of direction, loss of control, obstacles.");
         Card Strength = new Card(
                         "This card encourages you to tap into your inner strength and overcome challenges with grace.",
@@ -87,7 +87,7 @@ public class DatabaseSeeder {
                         true,
                         "Strength represents courage, inner strength, and resilience.",
                         "Major Arcana",
-                        "VIII - Strength",
+                        "Strength",
                         "Weakness, self-doubt, lack of discipline.");
         Card theHermit = new Card(
                         "This card signifies a period of self-reflection and inner wisdom.",
@@ -95,7 +95,7 @@ public class DatabaseSeeder {
                         true,
                         "The Hermit represents introspection, soul-searching, and inner guidance.",
                         "Major Arcana",
-                        "IX - The Hermit",
+                        "The Hermit",
                         "Loneliness, isolation, lost your way, withdrawal.");
         Card wheelOfFortune = new Card(
                         "This card signifies the ups and downs of life and the cycles of change.",
@@ -103,7 +103,7 @@ public class DatabaseSeeder {
                         true,
                         "Wheel of Fortune represents destiny, cycles, and change.",
                         "Major Arcana",
-                        "X - Wheel of Fortune",
+                        "Wheel of Fortune",
                         "Bad luck, resistance to change, breaking cycles.");
         Card Justice = new Card(
                         "This card symbolizes fairness, truth, and karmic balance.",
@@ -111,7 +111,7 @@ public class DatabaseSeeder {
                         true,
                         "Justice represents fairness, truth, and balance.",
                         "Major Arcana",
-                        "XI - Justice",
+                        "Justice",
                         "Injustice, lack of accountability, dishonesty.");
         Card theHangedMan = new Card(
                         "This card encourages you to let go of control and gain new insights through surrender.",
@@ -119,7 +119,7 @@ public class DatabaseSeeder {
                         true,
                         "The Hanged Man represents surrender, release, and new perspectives.",
                         "Major Arcana",
-                        "XII - The Hanged Man",
+                        "The Hanged Man",
                         "Stalling, needless sacrifice, fear of sacrifice.");
         Card Death = new Card(
                         "This card symbolizes the end of one chapter and the beginning of another.",
@@ -127,7 +127,7 @@ public class DatabaseSeeder {
                         true,
                         "Death represents endings, transformation, and new beginnings.",
                         "Major Arcana",
-                        "XIII - Death",
+                        "Death",
                         "Resistance to change, personal transformation, stagnation.");
         Card Temperance = new Card(
                         "This card encourages you to find balance and moderation in all aspects of life.",
@@ -135,7 +135,7 @@ public class DatabaseSeeder {
                         true,
                         "Temperance represents balance, harmony, and moderation.",
                         "Major Arcana",
-                        "XIV - Temperance",
+                        "Temperance",
                         "Imbalance, excess, lack of long-term vision.");
         Card theDevil = new Card(
                         "This card warns against being trapped by material desires and illusions",
@@ -143,7 +143,7 @@ public class DatabaseSeeder {
                         true,
                         "The Devil represents materialism, bondage, and illusions.",
                         "Major Arcana",
-                        "XV - The Devil",
+                        "The Devil",
                         "Breaking free, reclaiming power, overcoming restrictions.");
         Card theTower = new Card(
                         "This card signifies the breakdown of old structures and the emergence of new insights.",
@@ -151,7 +151,7 @@ public class DatabaseSeeder {
                         true,
                         "The Tower represents sudden change, upheaval, and revelation.",
                         "Major Arcana",
-                        "XVI - The Tower",
+                        "The Tower",
                         "Fear of change, avoiding disaster, delay of destruction.");
         Card theStar = new Card(
                         "This card signifies hope, inspiration, and the promise of new beginnings.",
@@ -159,7 +159,7 @@ public class DatabaseSeeder {
                         true,
                         "The Star represents hope, inspiration, and renewal.",
                         "Major Arcana",
-                        "XVII - The Star",
+                        "The Star",
                         "Disappointment, lack of faith, discouragement.");
         Card theMoon = new Card(
                         "This card symbolizes the exploration of the unconscious and hidden aspects of yourself.",
@@ -167,7 +167,7 @@ public class DatabaseSeeder {
                         true,
                         "The Moon represents intuition, illusion, and the subconscious mind.",
                         "Major Arcana",
-                        "XVIII - The Moon",
+                        "The Moon",
                         "Confusion, fear, misinterpretation, deception.");
         Card theSun = new Card(
                         "This card signifies success, happiness, and fulfillment in all areas of life.",
@@ -175,7 +175,7 @@ public class DatabaseSeeder {
                         true,
                         "The Sun represents success, joy, and vitality.",
                         "Major Arcana",
-                        "XIV - The Sun",
+                        "The Sun",
                         "Negativity, depression, sadness, lack of enthusiasm.");
         Card Judgement = new Card(
                         "This card symbolizes a spiritual awakening and the need to answer your inner calling.",
@@ -183,7 +183,7 @@ public class DatabaseSeeder {
                         true,
                         "Judgement represents awakening, rebirth, and inner calling.",
                         "Major Arcana",
-                        "XX - Judgement",
+                        "Judgement",
                         "Self-doubt, refusal of self-examination, ignoring the call.");
         Card theWorld = new Card(
                         "This card signifies the completion of a cycle and the attainment of goals.",
@@ -191,7 +191,7 @@ public class DatabaseSeeder {
                         true,
                         "The World represents completion, fulfillment, and achievement.",
                         "Major Arcana",
-                        "XXI - The World",
+                        "The World",
                         "Incompletion, no closure, stagnation, needing to achieve more.");
 
         // Suit of Cups cards data

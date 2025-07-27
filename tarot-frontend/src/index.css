@@ -143,9 +143,22 @@ body {
   ". a ."
   ". . .";
 }
-.card-container{
-  left:0px;
-  position:absolute;
+.story-section {
+  margin-top: 40px;
+  padding: 20px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  color: #fff;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.card-container {
+  position: relative;
+  margin: 0 auto 80px auto; /* bottom margin creates spacing after the container */
+  display: grid;
 }
 .card-container-two-vertical{    
   display: grid;

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import { CardType } from './Components/Card'
 import { CardContainer } from './Components/CardContainer'
+import StoryContainer from './Components/StoryContainer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,14 +16,17 @@ function App() {
     setCardsFlipped(false)
   }
   function fetchTarotSpread(num: number) {
-    //flip all the cards back when shuffling the deck and drawing a new spread
+    // Flip all the cards back when shuffling the deck and drawing a new spread
     setCardsFlipped(true)
+
     const myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
+
     const requestOptions = {
       method: 'GET',
       headers: myHeaders,
     }
+
     fetch(`/api/spread/weighted/${num}`, requestOptions)
       .then((response) => response.body as ReadableStream<Uint8Array>)
       .then(async (data) => {
@@ -30,8 +34,15 @@ function App() {
         const { value } = await reader.read()
         const decodedText = new TextDecoder().decode(value)
         const jsonData: CardType[] = JSON.parse(decodedText)
-        console.log(jsonData)
+
+        // Save to state
         setCards(jsonData)
+
+        // Extract names and store in localStorage
+        const cardNames = jsonData.map((card) => card.name)
+        localStorage.setItem('cardsDrawn', JSON.stringify(cardNames))
+
+        console.log(jsonData)
       })
       .catch((error) => {
         console.error(error)
@@ -223,6 +234,7 @@ function App() {
         setCardFlipped={() => {}}
         cards={cards}
       />
+      <StoryContainer />
     </div>
   )
 }

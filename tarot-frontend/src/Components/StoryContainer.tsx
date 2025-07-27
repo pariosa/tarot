@@ -1,0 +1,59 @@
+import * as React from 'react'
+import { useState } from 'react'
+import { TarotStoryElementsDTO } from '../types'
+import StoryPrompt from './StoryPrompt'
+
+const StoryContainer: React.FC = () => {
+  const [storyElements, setStoryElements] =
+    useState<TarotStoryElementsDTO | null>(null)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const handleGenerateStory = async () => {
+    setLoading(true)
+    setError(null)
+
+    try {
+      const raw = localStorage.getItem('cardsDrawn')
+      const cardsDrawn: string[] = raw ? JSON.parse(raw) : []
+
+      if (!Array.isArray(cardsDrawn) || cardsDrawn.length === 0) {
+        setError('No cards drawn.')
+        setLoading(false)
+        return
+      }
+
+      const response = await fetch('/api/getStoryDTO', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cardNames: cardsDrawn.join(', ') }),
+      })
+
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status} ${response.statusText}`)
+      }
+
+      const data: TarotStoryElementsDTO = await response.json()
+      setStoryElements(data)
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Unknown error'
+      setError(message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div className='story-section'>
+      <button onClick={handleGenerateStory} disabled={loading}>
+        {loading ? 'Generating Story...' : 'Turn Reading into Story'}
+      </button>
+
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      {storyElements && <StoryPrompt storyElements={storyElements} />}
+    </div>
+  )
+}
+
+export default StoryContainer
