@@ -1,5 +1,6 @@
 export interface TarotStoryElementsDTO {
   cardValue?: string
+  mainCharacterDescriptors?: StoryField
   mainCharacterDeficit?: StoryField
   mainCharacterGoal?: StoryField
   callToAction?: StoryField
