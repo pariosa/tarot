@@ -29,8 +29,9 @@ public class TarotStoryElements {
     public String climax_location;
     public String climax_description;
     public String theme;
-    public String style; 
+    public String style;
     public String card_name;
+
     public TarotStoryElements() {
         // Default constructor
     }
@@ -56,7 +57,7 @@ public class TarotStoryElements {
             String moral_value,
             String theme,
             String style,
-            String card_name) { 
+            String card_name) {
         super();
         this.title = title;
         this.keywords = keywords;
@@ -77,8 +78,8 @@ public class TarotStoryElements {
         this.point_of_view = point_of_view;
         this.moral_value = moral_value;
         this.theme = theme;
-        this.card_name = card_name;
         this.style = style;
+        this.card_name = card_name;
     }
 
     public String[] getStyles() {

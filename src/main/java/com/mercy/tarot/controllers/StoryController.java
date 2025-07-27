@@ -2,10 +2,14 @@ package com.mercy.tarot.controllers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mercy.tarot.dto.CardNamesRequest;
 import com.mercy.tarot.models.TarotStoryElements;
 import com.mercy.tarot.repositories.TarotStoryElementRespository;
 
@@ -22,7 +27,9 @@ import com.mercy.tarot.repositories.TarotStoryElementRespository;
 @RequestMapping("/api")
 public class StoryController {
 
-        //
+        // Logger
+        private static final Logger logger = LoggerFactory.getLogger(StoryController.class);
+
         private final TarotStoryElementRespository storyElementRpository;
         private Object storyElementsRepository;
 
@@ -32,7 +39,7 @@ public class StoryController {
         }
 
         @PostMapping("/getRandomKeyword")
-        public ResponseEntity<String> getRandomKeyword(@RequestBody String cardNames) {
+        public ResponseEntity<String> getRandomKeyword(@RequestBody CardNamesRequest request) {
                 // Query the database to find TarotStoryElement objects based on card names
                 List<TarotStoryElements> storyElements = this.storyElementRpository.findAll();
                 System.out.println(storyElements.toString());
@@ -50,116 +57,237 @@ public class StoryController {
         }
 
         @PostMapping("/getStoryDTO")
-        public ResponseEntity<String> getStoryPrompt(@RequestBody String cardNames) {
-                List<TiedStoryElements> keywordsTied = new ArrayList<>();
-                List<TiedStoryElements> mainCharacterTraitsTied = new ArrayList<>();
-                List<TiedStoryElements> mainCharacterDefecitsTied = new ArrayList<>();
-                List<TiedStoryElements> mainCharacterGoalsTied = new ArrayList<>();
-                List<TiedStoryElements> callToActionTied = new ArrayList<>();
-                List<TiedStoryElements> allyTraitsTied = new ArrayList<>();
-                List<TiedStoryElements> allyDefecitsTied = new ArrayList<>();
-                List<TiedStoryElements> allyGoalsTied = new ArrayList<>();
-                List<TiedStoryElements> enemyTraitsTied = new ArrayList<>();
-                List<TiedStoryElements> enemyDefecitsTied = new ArrayList<>();
-                List<TiedStoryElements> enemyGoalsTied = new ArrayList<>();
-                List<TiedStoryElements> locationsTied = new ArrayList<>();
-                List<TiedStoryElements> pointOfViewTied = new ArrayList<>();
-                List<TiedStoryElements> moralValueTied = new ArrayList<>();
-                List<TiedStoryElements> climaxEventTied = new ArrayList<>();
-                List<TiedStoryElements> climaxLocationTied = new ArrayList<>();
-                List<TiedStoryElements> climaxDescriptionTied = new ArrayList<>();
-                List<TiedStoryElements> themeTied = new ArrayList<>();
-                List<TiedStoryElements> styleTied = new ArrayList<>();
+        public ResponseEntity<Map<String, Object>> getStoryPrompt(@RequestBody CardNamesRequest request) {
+                try {
+                        // Declare cardNames
+                        String cardNames = request.getCardNames();
 
-                // Split the card names string into a list of card names
-                List<String> cardNameList = Arrays.asList(cardNames.split(", "));
+                        // Split the card names string into a list of card names
+                        List<String> cardNameList = Arrays.stream(cardNames.split(","))
+                                        .map(String::trim)
+                                        .filter(name -> !name.isEmpty())
+                                        .collect(Collectors.toList());
+                        logger.info("Parsed card names: {}", cardNameList);
 
-                // Query the database to find TarotStoryElement objects based on card names
-                // List<TarotStoryElements> storyElements =
-                // this.storyElementRpository.findByCardNameIn(cardNames);
+                        // Query the database to find TarotStoryElement objects based on card names
+                        List<TarotStoryElements> storyElements = this.storyElementRpository.findAll();
+                        logger.info("Retrieved {} story elements from database", storyElements.size());
 
-                List<TarotStoryElements> storyElements = this.storyElementRpository.findAll();
+                        // Create collections to hold story elements with their sources
+                        List<StoryElementWithSource> allKeywords = new ArrayList<>();
+                        List<StoryElementWithSource> allMainCharacterTraits = new ArrayList<>();
+                        List<StoryElementWithSource> allMainCharacterDeficits = new ArrayList<>();
+                        List<StoryElementWithSource> allMainCharacterGoals = new ArrayList<>();
+                        List<StoryElementWithSource> allCallToActions = new ArrayList<>();
+                        List<StoryElementWithSource> allAllyTraits = new ArrayList<>();
+                        List<StoryElementWithSource> allAllyDeficits = new ArrayList<>();
+                        List<StoryElementWithSource> allAllyGoals = new ArrayList<>();
+                        List<StoryElementWithSource> allEnemyTraits = new ArrayList<>();
+                        List<StoryElementWithSource> allEnemyDeficits = new ArrayList<>();
+                        List<StoryElementWithSource> allEnemyGoals = new ArrayList<>();
+                        List<StoryElementWithSource> allLocations = new ArrayList<>();
+                        List<StoryElementWithSource> allPointsOfView = new ArrayList<>();
+                        List<StoryElementWithSource> allMoralValues = new ArrayList<>();
+                        List<StoryElementWithSource> allClimaxEvents = new ArrayList<>();
+                        List<StoryElementWithSource> allClimaxLocations = new ArrayList<>();
+                        List<StoryElementWithSource> allClimaxDescriptions = new ArrayList<>();
+                        List<StoryElementWithSource> allThemes = new ArrayList<>();
+                        List<StoryElementWithSource> allStyles = new ArrayList<>();
 
-                List<TiedStoryElements> newObjectList = new ArrayList<>();
-                for (TarotStoryElements element : storyElements) {
-                        for (String cardName : cardNameList) {
-                                if (element.getCardName().equals(cardName)) {
-                                        Arrays.stream(element.main_character_goals.split(", "))
-                                                        .map(goal -> new TiedStoryElements(goal, cardName))
-                                                        .forEach(mainCharacterGoalsTied::add);
-                                        Arrays.stream(element.main_character_defecits.split(", "))
-                                                        .map(defecit -> new TiedStoryElements(defecit, cardName))
-                                                        .forEach(mainCharacterDefecitsTied::add);
-                                        Arrays.stream(element.main_character_descriptors.split(", "))
-                                                        .map(descriptor -> new TiedStoryElements(descriptor, cardName))
-                                                        .forEach(mainCharacterTraitsTied::add);
-                                        Arrays.stream(element.call_to_action.split(", "))
-                                                        .map(call -> new TiedStoryElements(call, cardName))
-                                                        .forEach(callToActionTied::add);
-                                        Arrays.stream(element.ally_goals.split(", "))
-                                                        .map(goal -> new TiedStoryElements(goal, cardName))
-                                                        .forEach(allyGoalsTied::add);
-                                        Arrays.stream(element.ally_defecits.split(", "))
-                                                        .map(defecit -> new TiedStoryElements(defecit, cardName))
-                                                        .forEach(allyDefecitsTied::add);
-                                        Arrays.stream(element.ally_descriptors.split(", "))
-                                                        .map(descriptor -> new TiedStoryElements(descriptor, cardName))
-                                                        .forEach(allyTraitsTied::add);
-                                        Arrays.stream(element.enemy_goals.split(", "))
-                                                        .map(goal -> new TiedStoryElements(goal, cardName))
-                                                        .forEach(enemyGoalsTied::add);
-                                        Arrays.stream(element.enemy_defecits.split(", "))
-                                                        .map(defecit -> new TiedStoryElements(defecit, cardName))
-                                                        .forEach(enemyDefecitsTied::add);
-                                        Arrays.stream(element.enemy_descriptors.split(", "))
-                                                        .map(descriptor -> new TiedStoryElements(descriptor, cardName))
-                                                        .forEach(enemyTraitsTied::add);
-                                        Arrays.stream(element.locations.split(", "))
-                                                        .map(location -> new TiedStoryElements(location, cardName))
-                                                        .forEach(locationsTied::add);
-                                        Arrays.stream(element.point_of_view.split(", "))
-                                                        .map(point -> new TiedStoryElements(point, cardName))
-                                                        .forEach(pointOfViewTied::add);
-                                        Arrays.stream(element.moral_value.split(", "))
-                                                        .map(moral -> new TiedStoryElements(moral, cardName))
-                                                        .forEach(moralValueTied::add);
-                                        Arrays.stream(element.climax_event.split(", "))
-                                                        .map(climax -> new TiedStoryElements(climax, cardName))
-                                                        .forEach(climaxEventTied::add);
-                                        Arrays.stream(element.climax_location.split(", "))
-                                                        .map(climax -> new TiedStoryElements(climax, cardName))
-                                                        .forEach(climaxLocationTied::add);
-                                        Arrays.stream(element.climax_description.split(", "))
-                                                        .map(climax -> new TiedStoryElements(climax, cardName))
-                                                        .forEach(climaxDescriptionTied::add);
-                                        Arrays.stream(element.theme.split(", "))
-                                                        .map(theme -> new TiedStoryElements(theme, cardName))
-                                                        .forEach(themeTied::add);
-                                        // TiedStoryElements newObject = new TiedStoryElements();
-                                        // newObject.setStoryElement(element);
-                                        // newObject.setCardName(cardName);
-                                        // newObjectList.add(newObject);
+                        // Log any null cardName entries
+                        long nullCardNameCount = storyElements.stream()
+                                        .filter(element -> element.getCardName() == null)
+                                        .count();
+
+                        if (nullCardNameCount > 0) {
+                                logger.warn("Found {} story elements with null card names in database",
+                                                nullCardNameCount);
+                        }
+
+                        // Process each story element from database
+                        for (TarotStoryElements element : storyElements) {
+                                // CRITICAL: Check for null cardName before using it
+                                if (element.getCardName() == null) {
+                                        logger.warn("Skipping element with null card name, title: {}",
+                                                        element.getTitle() != null ? element.getTitle() : "unknown");
+                                        continue; // Skip this element and go to the next one
+                                }
+
+                                // Cast to String since getCardName() returns Object
+                                String elementCardName = (String) element.getCardName();
+
+                                // Check if this element's card is in our request
+                                for (String requestedCard : cardNameList) {
+                                        if (elementCardName.equalsIgnoreCase(requestedCard.trim())) {
+                                                logger.info("Processing story elements for card: {}", elementCardName);
+
+                                                // Add all elements from this card to our collections with source
+                                                // tracking
+                                                if (element.keywords != null) {
+                                                        addElementsWithSource(allKeywords, element.keywords,
+                                                                        elementCardName);
+                                                }
+                                                if (element.main_character_descriptors != null) {
+                                                        addElementsWithSource(allMainCharacterTraits,
+                                                                        element.main_character_descriptors,
+                                                                        elementCardName);
+                                                }
+                                                if (element.main_character_defecits != null) {
+                                                        addElementsWithSource(allMainCharacterDeficits,
+                                                                        element.main_character_defecits,
+                                                                        elementCardName);
+                                                }
+                                                if (element.main_character_goals != null) {
+                                                        addElementsWithSource(allMainCharacterGoals,
+                                                                        element.main_character_goals, elementCardName);
+                                                }
+                                                if (element.call_to_action != null) {
+                                                        addElementsWithSource(allCallToActions, element.call_to_action,
+                                                                        elementCardName);
+                                                }
+                                                if (element.ally_descriptors != null) {
+                                                        addElementsWithSource(allAllyTraits, element.ally_descriptors,
+                                                                        elementCardName);
+                                                }
+                                                if (element.ally_defecits != null) {
+                                                        addElementsWithSource(allAllyDeficits, element.ally_defecits,
+                                                                        elementCardName);
+                                                }
+                                                if (element.ally_goals != null) {
+                                                        addElementsWithSource(allAllyGoals, element.ally_goals,
+                                                                        elementCardName);
+                                                }
+                                                if (element.enemy_descriptors != null) {
+                                                        addElementsWithSource(allEnemyTraits, element.enemy_descriptors,
+                                                                        elementCardName);
+                                                }
+                                                if (element.enemy_defecits != null) {
+                                                        addElementsWithSource(allEnemyDeficits, element.enemy_defecits,
+                                                                        elementCardName);
+                                                }
+                                                if (element.enemy_goals != null) {
+                                                        addElementsWithSource(allEnemyGoals, element.enemy_goals,
+                                                                        elementCardName);
+                                                }
+                                                if (element.locations != null) {
+                                                        addElementsWithSource(allLocations, element.locations,
+                                                                        elementCardName);
+                                                }
+                                                if (element.point_of_view != null) {
+                                                        addElementsWithSource(allPointsOfView, element.point_of_view,
+                                                                        elementCardName);
+                                                }
+                                                if (element.moral_value != null) {
+                                                        addElementsWithSource(allMoralValues, element.moral_value,
+                                                                        elementCardName);
+                                                }
+                                                if (element.climax_event != null) {
+                                                        addElementsWithSource(allClimaxEvents, element.climax_event,
+                                                                        elementCardName);
+                                                }
+                                                if (element.climax_location != null) {
+                                                        addElementsWithSource(allClimaxLocations,
+                                                                        element.climax_location, elementCardName);
+                                                }
+                                                if (element.climax_description != null) {
+                                                        addElementsWithSource(allClimaxDescriptions,
+                                                                        element.climax_description, elementCardName);
+                                                }
+                                                if (element.theme != null) {
+                                                        addElementsWithSource(allThemes, element.theme,
+                                                                        elementCardName);
+                                                }
+                                                if (element.style != null) {
+                                                        addElementsWithSource(allStyles, element.style,
+                                                                        elementCardName);
+                                                }
+
+                                                break; // Found match, move to next element
+                                        }
                                 }
                         }
+
+                        // Now randomly select one item from each collection
+                        Random random = new Random();
+                        Map<String, Object> storyPrompt = new HashMap<>();
+
+                        storyPrompt.put("keyword", getRandomElementWithSource(allKeywords, random));
+                        storyPrompt.put("mainCharacterTrait",
+                                        getRandomElementWithSource(allMainCharacterTraits, random));
+                        storyPrompt.put("mainCharacterDeficit",
+                                        getRandomElementWithSource(allMainCharacterDeficits, random));
+                        storyPrompt.put("mainCharacterGoal", getRandomElementWithSource(allMainCharacterGoals, random));
+                        storyPrompt.put("callToAction", getRandomElementWithSource(allCallToActions, random));
+                        storyPrompt.put("allyTrait", getRandomElementWithSource(allAllyTraits, random));
+                        storyPrompt.put("allyDeficit", getRandomElementWithSource(allAllyDeficits, random));
+                        storyPrompt.put("allyGoal", getRandomElementWithSource(allAllyGoals, random));
+                        storyPrompt.put("enemyTrait", getRandomElementWithSource(allEnemyTraits, random));
+                        storyPrompt.put("enemyDeficit", getRandomElementWithSource(allEnemyDeficits, random));
+                        storyPrompt.put("enemyGoal", getRandomElementWithSource(allEnemyGoals, random));
+                        storyPrompt.put("location", getRandomElementWithSource(allLocations, random));
+                        storyPrompt.put("pointOfView", getRandomElementWithSource(allPointsOfView, random));
+                        storyPrompt.put("moralValue", getRandomElementWithSource(allMoralValues, random));
+                        storyPrompt.put("climaxEvent", getRandomElementWithSource(allClimaxEvents, random));
+                        storyPrompt.put("climaxLocation", getRandomElementWithSource(allClimaxLocations, random));
+                        storyPrompt.put("climaxDescription", getRandomElementWithSource(allClimaxDescriptions, random));
+                        storyPrompt.put("theme", getRandomElementWithSource(allThemes, random));
+                        storyPrompt.put("style", getRandomElementWithSource(allStyles, random));
+
+                        // Add metadata
+                        storyPrompt.put("cardsUsed", cardNameList);
+                        storyPrompt.put("totalElementsFound", allKeywords.size() + allMainCharacterTraits.size() +
+                                        allMainCharacterDeficits.size() + allMainCharacterGoals.size());
+
+                        logger.info("Generated story prompt with {} elements", storyPrompt.size());
+                        return ResponseEntity.ok(storyPrompt);
+
+                } catch (Exception e) {
+                        logger.error("Error generating story prompt: {}", e.getMessage(), e);
+                        return ResponseEntity.status(500).body(Map.of("error", "Failed to generate story prompt"));
                 }
-
-                System.out.println(storyElements.toString());
-                // Extract keywords from TarotStoryElement objects and combine into a list
-                List<String> allKeywords = storyElements.stream()
-                                .flatMap((TarotStoryElements element) -> Arrays.stream(element.getKeywords()))
-                                .collect(Collectors.toList());
-                return ResponseEntity.ok(mainCharacterDefecitsTied.toString());
-
-                // Randomly select one keyword
-
-                // Random random = new Random();
-                // int randomIndex = random.nextInt(allKeywords.size());
-
-                // String randomKeyword = allKeywords.get(randomIndex);
-
-                // return ResponseEntity.ok(randomKeyword);
         }
 
+        // Helper method to add elements with source tracking
+        private void addElementsWithSource(List<StoryElementWithSource> targetList, String elementsString,
+                        String source) {
+                Arrays.stream(elementsString.split(", "))
+                                .map(String::trim)
+                                .filter(element -> !element.isEmpty())
+                                .forEach(element -> targetList.add(new StoryElementWithSource(element, source)));
+        }
+
+        // Helper method to get random element with source information
+        private Map<String, String> getRandomElementWithSource(List<StoryElementWithSource> list, Random random) {
+                if (list.isEmpty()) {
+                        return Map.of(
+                                        "storyElement", "No elements available",
+                                        "source", "Unknown");
+                }
+
+                StoryElementWithSource selected = list.get(random.nextInt(list.size()));
+                return Map.of(
+                                "storyElement", selected.getElement(),
+                                "source", selected.getSource());
+        }
+
+        // Inner class to hold story element with its source
+        private static class StoryElementWithSource {
+                private final String element;
+                private final String source;
+
+                public StoryElementWithSource(String element, String source) {
+                        this.element = element;
+                        this.source = source;
+                }
+
+                public String getElement() {
+                        return element;
+                }
+
+                public String getSource() {
+                        return source;
+                }
+        }
         // @PostMapping("/create-story-element")
         // public ResponseEntity<TarotStoryElements> createStoryElement(@RequestBody
         // String cardNames) {
