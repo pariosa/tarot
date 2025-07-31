@@ -4,10 +4,13 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.extern.slf4j.Slf4j;
 
 @Entity
 @DynamicUpdate
-
+@Slf4j
+@Table(name = "tarotstoryelements")
 public class TarotStoryElements {
     @Id
     public String title;

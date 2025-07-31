@@ -1,17 +1,231 @@
+# Complete application.yml for Tarot Card API with Firebase Authentication
+
 spring:
+  application:
+    name: tarot-card-api
+
+  # Database Configuration
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     password:
-    url: jdbc:mysql://127.0.0.1:3306/tarot
+    url: jdbc:mysql://127.0.0.1:3306/tarot?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
+    hikari:
+      # Connection pool settings for production
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      connection-timeout: 20000
+
+  # JPA/Hibernate Configuration
   jpa:
     properties:
       hibernate:
         show_sql: true
         format_sql: true
-        ddl_auto: create-drop
+        # Change to 'update' for production, 'create-drop' will delete data on restart
+        ddl_auto: update
+        # Enable second level cache
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+    # Show SQL queries in logs
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  # Security Configuration
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # Firebase JWT issuer - replace with your project ID
+          issuer-uri: https://securetoken.google.com/tarot-storytelling
+
+  # Cache Configuration (for Redis if you add it later)
+  cache:
+    type: simple # Change to 'redis' when you add Redis
+    cache-names:
+      - cards
+      - cardsBySuit
+      - dailyCard
+      - readings
+      - users
+
+  # Session management
+  session:
+    store-type: none # Stateless JWT authentication
+
+# Firebase Configuration
+firebase:
+  config-path: firebase-service-account.json
+  project-id: tarot-storytelling
+  # Database URL (optional, only if using Realtime Database)
+  database-url: https://tarot-storytelling-default-rtdb.firebaseio.com/
+
+# Server Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# Management/Actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when-authorized
+      roles: ADMIN
+  info:
+    env:
+      enabled: true
+  metrics:
+    enabled: true
+
+# Application-specific configuration
+app:
+  # Rate limiting settings
+  rate-limit:
+    reading-creation:
+      max-requests: 10
+      window-minutes: 15
+    card-lookup:
+      max-requests: 100
+      window-minutes: 1
+    daily-card:
+      max-requests: 10
+      window-minutes: 5
+
+  # Subscription tiers
+  subscription:
+    free:
+      daily-reading-limit: 3
+    premium:
+      daily-reading-limit: 20
+    unlimited:
+      daily-reading-limit: -1
+
+  # CORS settings
+  cors:
+    allowed-origins:
+      - http://localhost:3000
+      - http://localhost:4200
+      - https://your-frontend-domain.com
+    allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+    allowed-headers: '*'
+    allow-credentials: true
+
+# Logging Configuration
 logging:
   level:
-    org:
+    # Root level
+    root: INFO
+
+    # Your application packages
+    com.mercy.tarot: DEBUG
+
+    # Spring Security (useful for debugging authentication issues)
+    org.springframework.security: INFO
+
+    # Hibernate/JPA
+    org.hibernate:
+      SQL: DEBUG
+      type: TRACE
+      stat: DEBUG
+
+    # Firebase
+    com.google.firebase: INFO
+
+    # HTTP requests (helpful for debugging)
+    org.springframework.web: DEBUG
+
+    # Custom loggers for different concerns
+    SECURITY: INFO
+    BUSINESS: INFO
+    PERFORMANCE: INFO
+    APPLICATION: INFO
+
+  # Log file configuration
+  file:
+    name: logs/tarot-api.log
+    max-size: 50MB
+    max-history: 30
+
+  # Log pattern
+  pattern:
+    console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%X{requestId}] [%X{userId}] %logger{36} - %msg%n'
+
+# Development profile (optional - you can use spring.profiles.active=dev)
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  # Development database settings
+  jpa:
+    properties:
       hibernate:
-        type: trace
+        ddl_auto: create-drop # Recreate schema on each restart
+        show_sql: true
+        format_sql: true
+
+  # Enable H2 console for development (if you want to switch to H2 for testing)
+  h2:
+    console:
+      enabled: false
+
+logging:
+  level:
+    com.mercy.tarot: DEBUG
+    org.springframework.security: DEBUG
+
+---
+# Production profile
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  # Production database settings
+  datasource:
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 10
+
+  jpa:
+    properties:
+      hibernate:
+        ddl_auto: validate # Don't modify schema automatically
+        show_sql: false
+        format_sql: false
+
+  # Production security settings
+  security:
+    require-ssl: true
+
+# Production logging
+logging:
+  level:
+    root: WARN
+    com.mercy.tarot: INFO
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+    org.hibernate.type: WARN
+
+# Production management endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics

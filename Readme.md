@@ -69,3 +69,10 @@ cardNames:"Ace of Cups, The Moon, Ace OfWands, Ace Of Pentacles, Six Of Pentacle
 }
 
 this will return a random "keyword" from a list of all the story elements from the cards present in the cardNames string.
+
+### Authentication configuration
+
+generate a firebase service account json here:
+https://console.firebase.google.com/project/**tarot-project**/settings/serviceaccounts/adminsdk
+and place it here:
+src/main/resources/firebase-service-account.json
