@@ -122,7 +122,7 @@ body {
 .card,
 .back,
 .front {
-  height: 350px;
+  height: auto;
  
 }
 
@@ -143,22 +143,9 @@ body {
   ". a ."
   ". . .";
 }
-.story-section {
-  margin-top: 40px;
-  padding: 20px;
-  background: #1a1a1a;
-  border-radius: 12px;
-  color: #fff;
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-.card-container {
-  position: relative;
-  margin: 0 auto 80px auto; /* bottom margin creates spacing after the container */
-  display: grid;
+.card-container{
+  left:0px;
+  position:absolute;
 }
 .card-container-two-vertical{    
   display: grid;
@@ -251,39 +238,39 @@ body {
   ". . g . .";
 }
 .a{  
-  width:100px; 
-  width:350px; 
+  width:300px; 
+  width:500px; 
   grid-area: a; 
 }
 .b{  
-  width:100px; 
-  width:350px; 
+  width:300px; 
+  width:500px; 
   grid-area: b; 
 }
 .c{  
-  width:100px; 
-  width:450px; 
+  width:300px; 
+  width:500px; 
   grid-area: c; 
 } 
 .d{  
-  width:100px; 
-  width:350px; 
+  width:300px; 
+  width:500px;  
   grid-area: d; 
 }
 .e{  
-  width:100px; 
-  width:350px; 
+  width:300px; 
+  width:500px; 
   grid-area: e; 
 }
 .f{  
-  width:100px; 
-  width:350px; 
+  width:300px; 
+  width:500px; 
   grid-area: f; 
 } 
 .g{ 
   gap: calc(20px + 10%);
-  width:100px; 
-  width:350px; 
+  width:300px; 
+  width:500px; 
   grid-area: g; 
 } 
 .text-1{
@@ -297,13 +284,13 @@ body {
 }
 .card-image {
   cursor: pointer;
-  width:300px;
-  height: 460px; 
+  width:auto;
+  height: auto; 
   border-radius: 2% 2%;
 }
 
 .card {
-
+height:834px;
 }
 
 .back {
