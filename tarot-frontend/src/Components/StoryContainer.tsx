@@ -45,7 +45,11 @@ const StoryContainer: React.FC = () => {
 
   return (
     <div className='story-section'>
-      <button onClick={handleGenerateStory} disabled={loading}>
+      <button
+        className='story-button'
+        onClick={handleGenerateStory}
+        disabled={loading}
+      >
         {loading ? 'Generating Story...' : 'Turn Reading into Story'}
       </button>
 

@@ -100,12 +100,11 @@ button:focus-visible {
 }
 
 body {
-  margin: 20px 0;
+  margin:0px;
   background: #dfdbdb;
 }
 
 .grid {
-  max-width: 960px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -145,28 +144,30 @@ body {
 }
 .card-container{
   left:0px;
-  position:absolute;
-}
+  position:relative;
+  height:auto;
+  padding-top:100px;
+  padding-bottom:300px;
+  background-color:#747bff;
+ }
 .card-container-two-vertical{    
   display: grid;
-  gap: calc(100px + 20%);
+  gap: 2%;
+  min-height:100vh;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: 
   ". a ." 
-  ". b ."  
-  ". . .";
+  ". b .";
 }
 .card-container-two-horizontal{   
   display: grid;
-  gap: calc(75px + 16%);
+  gap: calc(15px + 2%);
   grid-template-areas: 
-  ". . ."
-  "a . b"
-  ". . .";
+  "a . b";
 }
 .card-container-three-story{   
   display: grid;
-    gap: calc(75px + 16%);
+    gap: calc(15px + 2%);
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: 
   ". . ."
@@ -192,7 +193,7 @@ body {
 .card-container-four-cross{ 
   display: grid;
 
-  gap: calc(20px + 10%);
+  gap: calc(20px + 5%);
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: 
   ". a ."  
@@ -201,7 +202,7 @@ body {
 }
 .card-container-five-cross{ 
   display: grid;
-  row-gap: calc(150px + 10%);
+  row-gap:10%;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: 
   ". a ."  
@@ -219,7 +220,7 @@ body {
 
 .card-container-six-david{
   display: grid;
-  row-gap: calc(70px + 10%);
+  row-gap: calc(5px + 2%);
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: 
   " . a  ."
@@ -238,39 +239,38 @@ body {
   ". . g . .";
 }
 .a{  
-  width:300px; 
-  width:500px; 
+  width:200px; 
+  width:420px;  
   grid-area: a; 
 }
 .b{  
-  width:300px; 
-  width:500px; 
+  width:200px; 
+  width:420px; 
   grid-area: b; 
 }
 .c{  
-  width:300px; 
-  width:500px; 
+  width:200px; 
+  width:420px;  
   grid-area: c; 
 } 
 .d{  
-  width:300px; 
-  width:500px;  
+  width:200px; 
+  width:420px; 
   grid-area: d; 
 }
 .e{  
-  width:300px; 
-  width:500px; 
+  width:200px; 
+  width:420px; 
   grid-area: e; 
 }
 .f{  
-  width:300px; 
-  width:500px; 
+  width:200px; 
+  width:420px; 
   grid-area: f; 
 } 
-.g{ 
-  gap: calc(20px + 10%);
-  width:300px; 
-  width:500px; 
+.g{  
+  width:200px; 
+  width:420px; 
   grid-area: g; 
 } 
 .text-1{
@@ -290,7 +290,7 @@ body {
 }
 
 .card {
-height:834px;
+height:705px;
 }
 
 .back {
@@ -337,10 +337,10 @@ height:834px;
 }
 
 .story-section{
-  display: flex;
+  padding:5em;
+  position: relative;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  margin-top: 100vh;
+  text-align: center; 
   margin-bottom: 50px;
 }

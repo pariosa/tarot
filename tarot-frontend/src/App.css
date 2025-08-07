@@ -3,10 +3,8 @@
 @tailwind utilities;
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  
+  margin: 0 auto;  
 }
 
 .logo { 
@@ -38,8 +36,7 @@
   color: #888;
 }
 #app{
- display:fixed;
-  top:0;
-  left:0;
-  position:absolute; 
+ position:relative;
+ left:0px;
+ top:0px;
 }

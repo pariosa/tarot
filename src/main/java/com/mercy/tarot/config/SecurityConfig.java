@@ -38,9 +38,10 @@ public class SecurityConfig {
                         .requestMatchers("/api/public/**").permitAll()
                         .requestMatchers("/api/cards/daily").permitAll()
                         .requestMatchers("/actuator/health").permitAll()
-                        .requestMatchers("/api/spread/weighted/**").permitAll() 
+                        .requestMatchers("/api/spread/weighted/**").permitAll()
                         .requestMatchers("/api/getStoryDTO").permitAll()
-                        
+                        .requestMatchers("api/spread/parallel/weighted/**").permitAll()
+
                         // Private endpoints
                         .requestMatchers("/api/cards/**").hasRole("USER")
                         .requestMatchers("/api/readings/**").hasRole("USER")

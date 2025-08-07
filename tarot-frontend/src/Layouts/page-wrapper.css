@@ -1,0 +1,18 @@
+.header{
+    position:relative;
+    top:0px;
+    height:100px;
+    margin-bottom:10px;
+}
+.page-wrapper{
+    position:relative;
+    top:0px;
+    left:0px;
+    overflow:scroll;
+    scrollbar-width: 10em;
+    max-height:100%;
+    width: 100%;
+    background:#7e638f;
+    color:white;
+    position:fixed;
+}
