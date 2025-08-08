@@ -1,24 +1,31 @@
+// src/router.tsx
 import * as React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import App from '../App'
+import { ProtectedRoute } from '../Components/ProtectedRoute'
 import { AuthLayout } from '../layouts/AuthLayout'
 import { MainLayout } from '../layouts/MainLayout'
 import DailyReadingPage from '../pages/DailyReadingPage'
 import FullReadingPage from '../pages/FullReadingPage'
-import LoginPage from '../pages/Login'
+import LoginPage from '../pages/LoginPage'
+import RegisterPage from '../pages/RegisterPage'
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
-      // Public routes (no layout)
+      // Public routes
       {
         path: 'login',
         element: <LoginPage />,
       },
+      {
+        path: 'register',
+        element: <RegisterPage />,
+      },
 
-      // Protected routes with MainLayout and AuthLayout
+      // Protected routes
       {
         element: <AuthLayout />,
         children: [
@@ -26,28 +33,41 @@ export const router = createBrowserRouter([
             element: <MainLayout />,
             children: [
               {
-                index: true,
-                element: <FullReadingPage />,
+                path: '/',
+                element: (
+                  <ProtectedRoute>
+                    <FullReadingPage />
+                  </ProtectedRoute>
+                ),
               },
               {
                 path: 'home',
-                element: <FullReadingPage />,
+                element: (
+                  <ProtectedRoute>
+                    <FullReadingPage />
+                  </ProtectedRoute>
+                ),
               },
               {
                 path: 'full-reading',
-                element: <FullReadingPage />,
+                element: (
+                  <ProtectedRoute>
+                    <FullReadingPage />
+                  </ProtectedRoute>
+                ),
               },
               {
                 path: 'daily-reading',
-                element: <DailyReadingPage />,
+                element: (
+                  <ProtectedRoute>
+                    <DailyReadingPage />
+                  </ProtectedRoute>
+                ),
               },
-              // Add other protected routes here
             ],
           },
         ],
       },
-
-      // You can add more layout wrappers as needed
     ],
   },
 ])
