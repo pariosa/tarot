@@ -1,6 +1,7 @@
 package com.mercy.tarot.security;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -25,6 +27,11 @@ public class FirebaseAuthenticationFilter extends OncePerRequestFilter {
     private static final Logger log = LoggerFactory.getLogger(FirebaseAuthenticationFilter.class);
 
     private final FirebaseAuthService firebaseAuthService;
+    private final List<String> publicEndpoints = Arrays.asList(
+            "/api/auth/",
+            "/api/public/",
+            "/api/cards/daily",
+            "/actuator/health");
 
     public FirebaseAuthenticationFilter(FirebaseAuthService firebaseAuthService) {
         this.firebaseAuthService = firebaseAuthService;
@@ -36,11 +43,20 @@ public class FirebaseAuthenticationFilter extends OncePerRequestFilter {
             FilterChain filterChain) throws ServletException, IOException {
 
         String requestURI = request.getRequestURI();
-        log.debug("Processing request: {}", requestURI);
+        String method = request.getMethod();
+        log.debug("Processing {} request to: {}", method, requestURI);
 
-        // Skip authentication for public endpoints
+        // Skip authentication for public endpoints and OPTIONS requests
         if (isPublicEndpoint(requestURI)) {
             log.debug("Skipping authentication for public endpoint: {}", requestURI);
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        // Skip authentication if already authenticated (e.g., by
+        // JwtAuthenticationFilter)
+        if (SecurityContextHolder.getContext().getAuthentication() != null) {
+            log.debug("Already authenticated, skipping Firebase authentication");
             filterChain.doFilter(request, response);
             return;
         }
@@ -48,29 +64,33 @@ public class FirebaseAuthenticationFilter extends OncePerRequestFilter {
         try {
             String token = extractTokenFromRequest(request);
 
-            if (token != null && !token.isEmpty()) {
-                User user = firebaseAuthService.verifyTokenAndGetUser(token);
-
-                // Create Spring Security authentication
-                List<SimpleGrantedAuthority> authorities = List.of(
-                        new SimpleGrantedAuthority("ROLE_" + user.getRole().name()));
-
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null,
-                        authorities);
-
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-
-                log.debug("Successfully authenticated user: {}", user.getEmail());
+            if (token == null || token.isEmpty()) {
+                log.warn("No authentication token provided for protected endpoint: {}", requestURI);
+                sendUnauthorizedResponse(response, "Authentication token required");
+                return;
             }
 
-        } catch (Exception e) {
-            log.error("Authentication failed: {}", e.getMessage());
-            SecurityContextHolder.clearContext();
+            User user = firebaseAuthService.verifyTokenAndGetUser(token);
 
-            // Return 401 Unauthorized
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.setContentType("application/json");
-            response.getWriter().write("{\"error\":\"Authentication failed\",\"message\":\"" + e.getMessage() + "\"}");
+            // Create Spring Security authentication with roles
+            List<SimpleGrantedAuthority> authorities = user.getRoles().stream()
+                    .map(role -> new SimpleGrantedAuthority("ROLE_" + role.name()))
+                    .toList();
+
+            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                    user,
+                    null,
+                    authorities);
+
+            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+
+            log.info("Successfully authenticated user: {} with roles: {}", user.getEmail(), authorities);
+
+        } catch (Exception e) {
+            log.error("Authentication failed for request {} {}: {}", method, requestURI, e.getMessage());
+            SecurityContextHolder.clearContext();
+            sendUnauthorizedResponse(response, "Authentication failed: " + e.getMessage());
             return;
         }
 
@@ -82,13 +102,21 @@ public class FirebaseAuthenticationFilter extends OncePerRequestFilter {
         if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
             return bearerToken.substring(7);
         }
-        return null;
+        return request.getParameter("token"); // Fallback to query parameter
     }
 
     private boolean isPublicEndpoint(String requestURI) {
-        // Define your public endpoints here
-        return requestURI.startsWith("/api/public/") ||
-                requestURI.equals("/api/cards/daily") ||
-                requestURI.startsWith("/actuator/health");
+        return publicEndpoints.stream().anyMatch(requestURI::startsWith) ||
+                requestURI.equals("/") ||
+                requestURI.equals("/favicon.ico");
+    }
+
+    private void sendUnauthorizedResponse(HttpServletResponse response, String message) throws IOException {
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.setContentType("application/json");
+        response.getWriter().write(String.format(
+                "{\"error\":\"unauthorized\",\"message\":\"%s\",\"timestamp\":\"%s\"}",
+                message,
+                java.time.Instant.now().toString()));
     }
 }

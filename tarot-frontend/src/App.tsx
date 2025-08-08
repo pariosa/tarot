@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { CardType } from './Components/Card'
-import { PageWrapper } from './Layouts/PageWrapper'
+import { PageWrapper } from './layouts/PageWrapper'
 
 function App() {
   const [count, setCount] = useState<number>(0)

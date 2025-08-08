@@ -15,6 +15,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.mercy.tarot.security.FirebaseAuthenticationFilter;
+import com.mercy.tarot.security.JwtAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -22,9 +23,12 @@ import com.mercy.tarot.security.FirebaseAuthenticationFilter;
 public class SecurityConfig {
 
     private final FirebaseAuthenticationFilter firebaseAuthenticationFilter;
+    private final JwtAuthenticationFilter jwtAuthFilter;
 
-    public SecurityConfig(FirebaseAuthenticationFilter firebaseAuthenticationFilter) {
+    public SecurityConfig(FirebaseAuthenticationFilter firebaseAuthenticationFilter,
+            JwtAuthenticationFilter jwtAuthFilter) {
         this.firebaseAuthenticationFilter = firebaseAuthenticationFilter;
+        this.jwtAuthFilter = jwtAuthFilter;
     }
 
     @Bean
@@ -73,7 +77,8 @@ public class SecurityConfig {
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
                         .anyRequest().authenticated())
-                .addFilterBefore(firebaseAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(firebaseAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

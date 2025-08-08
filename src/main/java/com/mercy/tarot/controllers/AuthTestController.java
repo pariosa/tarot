@@ -32,7 +32,7 @@ public class AuthTestController {
                 "id", user.getId(),
                 "email", user.getEmail(),
                 "name", user.getName(),
-                "role", user.getRole()));
+                "roles", user.getRoles()));
 
         return ResponseEntity.ok(response);
     }

@@ -1,40 +1,53 @@
 import * as React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import App from '../App'
+import { AuthLayout } from '../layouts/AuthLayout'
+import { MainLayout } from '../layouts/MainLayout'
 import DailyReadingPage from '../pages/DailyReadingPage'
 import FullReadingPage from '../pages/FullReadingPage'
 import LoginPage from '../pages/Login'
 
-// Remove the default export since we're using named export
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
-      {
-        index: true, // This makes it the default route when path is just '/'
-        element: <FullReadingPage />,
-      },
-      {
-        path: 'home',
-        element: <FullReadingPage />,
-      },
+      // Public routes (no layout)
       {
         path: 'login',
         element: <LoginPage />,
       },
+
+      // Protected routes with MainLayout and AuthLayout
       {
-        path: 'full-reading',
-        element: <FullReadingPage />,
+        element: <AuthLayout />,
+        children: [
+          {
+            element: <MainLayout />,
+            children: [
+              {
+                index: true,
+                element: <FullReadingPage />,
+              },
+              {
+                path: 'home',
+                element: <FullReadingPage />,
+              },
+              {
+                path: 'full-reading',
+                element: <FullReadingPage />,
+              },
+              {
+                path: 'daily-reading',
+                element: <DailyReadingPage />,
+              },
+              // Add other protected routes here
+            ],
+          },
+        ],
       },
-      {
-        path: 'daily-reading',
-        element: <DailyReadingPage />,
-      },
-      // {
-      //   path: 'profile',
-      //   element: <ProfilePage />, // Remove props here - handle them in ProfilePage component
-      // },
+
+      // You can add more layout wrappers as needed
     ],
   },
 ])

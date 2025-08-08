@@ -1,17 +1,25 @@
 package com.mercy.tarot.models;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import com.mercy.tarot.config.roles.Roles;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -36,8 +44,10 @@ public class User {
     @Column(name = "photo_url")
     private String photoUrl;
 
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
-    private Roles role = Roles.USER;
+    @Column(name = "role")
+    private Set<Roles> roles = new HashSet<>(Collections.singleton(Roles.USER));
 
     @Column(name = "is_active")
     private Boolean isActive = true;
@@ -48,14 +58,24 @@ public class User {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    // Constructors
     public User() {
+        this.roles = new HashSet<>(Collections.singleton(Roles.USER));
     }
 
     public User(String firebaseUid, String email, String name) {
+        this();
         this.firebaseUid = firebaseUid;
         this.email = email;
         this.name = name;
+    }
+
+    // Role management methods
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        for (Roles role : this.roles) {
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.name()));
+        }
+        return authorities;
     }
 
     // Getters and Setters
@@ -99,12 +119,24 @@ public class User {
         this.photoUrl = photoUrl;
     }
 
-    public Roles getRole() {
-        return role;
+    public Set<Roles> getRoles() {
+        return roles;
     }
 
-    public void setRole(Roles role) {
-        this.role = role;
+    public void setRoles(Set<Roles> roles) {
+        this.roles = roles;
+    }
+
+    public void addRole(Roles role) {
+        this.roles.add(role);
+    }
+
+    public void removeRole(Roles role) {
+        this.roles.remove(role);
+    }
+
+    public boolean hasRole(Roles role) {
+        return this.roles.contains(role);
     }
 
     public Boolean getIsActive() {
@@ -153,7 +185,11 @@ public class User {
                 ", firebaseUid='" + firebaseUid + '\'' +
                 ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
-                ", role=" + role +
+                ", roles=" + roles + // Changed from role to roles
+                ", isActive=" + isActive +
+                ", photoUrl='" + photoUrl + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
                 '}';
     }
 }
