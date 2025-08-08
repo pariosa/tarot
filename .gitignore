@@ -34,3 +34,9 @@ build/
 
 ## FIREBASE CONFIG
 src/main/resources/firebase-service-account.json
+
+## LOGS
+# Ignore all log files in logs directory
+logs/*.log
+logs/*.log.*
+logs/*.gz

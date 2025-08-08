@@ -6,14 +6,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,12 +23,12 @@ import com.mercy.tarot.dto.CardNamesRequest;
 import com.mercy.tarot.models.TarotStoryElements;
 import com.mercy.tarot.repositories.TarotStoryElementRespository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api")
 public class StoryController {
-
-        // Logger
-        private static final Logger logger = LoggerFactory.getLogger(StoryController.class);
 
         private final TarotStoryElementRespository storyElementRpository;
         private Object storyElementsRepository;
@@ -36,22 +36,193 @@ public class StoryController {
         @Autowired
         public StoryController(TarotStoryElementRespository storyElementRespository) {
                 this.storyElementRpository = storyElementRespository;
+                log.info("StoryController initialized with repository: {}",
+                                storyElementRespository.getClass().getSimpleName());
         }
+
+        // ========== FREE USER "TASTE" ENDPOINTS ==========
+
+        @GetMapping("/story/location")
+        public ResponseEntity<Map<String, String>> getRandomLocation() {
+                log.info("Random location requested (free user endpoint)");
+                return getRandomStoryElement("location", this::extractLocations);
+        }
+
+        @GetMapping("/story/character-trait")
+        public ResponseEntity<Map<String, String>> getRandomCharacterTrait() {
+                log.info("Random character trait requested (free user endpoint)");
+                return getRandomStoryElement("characterTrait", this::extractMainCharacterTraits);
+        }
+
+        @GetMapping("/story/theme")
+        public ResponseEntity<Map<String, String>> getRandomTheme() {
+                log.info("Random theme requested (free user endpoint)");
+                return getRandomStoryElement("theme", this::extractThemes);
+        }
+
+        @GetMapping("/story/keyword")
+        public ResponseEntity<Map<String, String>> getRandomKeywordEndpoint() {
+                log.info("Random keyword requested (free user endpoint)");
+                return getRandomStoryElement("keyword", this::extractKeywords);
+        }
+
+        @GetMapping("/story/moral-value")
+        public ResponseEntity<Map<String, String>> getRandomMoralValue() {
+                log.info("Random moral value requested (free user endpoint)");
+                return getRandomStoryElement("moralValue", this::extractMoralValues);
+        }
+
+        @GetMapping("/story/point-of-view")
+        public ResponseEntity<Map<String, String>> getRandomPointOfView() {
+                log.info("Random point of view requested (free user endpoint)");
+                return getRandomStoryElement("pointOfView", this::extractPointsOfView);
+        }
+
+        @GetMapping("/story/style")
+        public ResponseEntity<Map<String, String>> getRandomStyle() {
+                log.info("Random style requested (free user endpoint)");
+                return getRandomStoryElement("style", this::extractStyles);
+        }
+
+        @GetMapping("/story/climax-event")
+        public ResponseEntity<Map<String, String>> getRandomClimaxEvent() {
+                log.info("Random climax event requested (free user endpoint)");
+                return getRandomStoryElement("climaxEvent", this::extractClimaxEvents);
+        }
+
+        // ========== HELPER METHOD FOR INDIVIDUAL ELEMENTS ==========
+
+        private ResponseEntity<Map<String, String>> getRandomStoryElement(String elementType,
+                        ElementExtractor extractor) {
+                try {
+                        List<TarotStoryElements> allStoryElements = storyElementRpository.findAll();
+                        log.debug("Retrieved {} story elements for {} extraction",
+                                        allStoryElements.size(), elementType);
+
+                        List<StoryElementWithSource> elements = new ArrayList<>();
+
+                        for (TarotStoryElements element : allStoryElements) {
+                                if (element.getCardName() == null) {
+                                        continue;
+                                }
+                                String cardName = (String) element.getCardName();
+                                extractor.extract(element, elements, cardName);
+                        }
+
+                        if (elements.isEmpty()) {
+                                log.warn("No {} elements found in database", elementType);
+                                return ResponseEntity.ok(Map.of(
+                                                "element", "No " + elementType + " available",
+                                                "source", "Unknown",
+                                                "type", elementType));
+                        }
+
+                        // Use ThreadLocalRandom for better performance
+                        StoryElementWithSource selected = elements.get(
+                                        ThreadLocalRandom.current().nextInt(elements.size()));
+
+                        Map<String, String> response = Map.of(
+                                        "element", selected.getElement(),
+                                        "source", selected.getSource(),
+                                        "type", elementType);
+
+                        log.debug("Selected {} '{}' from card '{}'", elementType,
+                                        selected.getElement(), selected.getSource());
+                        return ResponseEntity.ok(response);
+
+                } catch (Exception e) {
+                        log.error("Error getting random {}: {}", elementType, e.getMessage(), e);
+                        return ResponseEntity.status(500).body(Map.of(
+                                        "error", "Failed to get random " + elementType,
+                                        "type", elementType));
+                }
+        }
+
+        // ========== ELEMENT EXTRACTORS ==========
+
+        @FunctionalInterface
+        private interface ElementExtractor {
+                void extract(TarotStoryElements element, List<StoryElementWithSource> targetList, String cardName);
+        }
+
+        private void extractLocations(TarotStoryElements element, List<StoryElementWithSource> targetList,
+                        String cardName) {
+                if (element.locations != null) {
+                        addElementsWithSource(targetList, element.locations, cardName);
+                }
+        }
+
+        private void extractMainCharacterTraits(TarotStoryElements element, List<StoryElementWithSource> targetList,
+                        String cardName) {
+                if (element.main_character_descriptors != null) {
+                        addElementsWithSource(targetList, element.main_character_descriptors, cardName);
+                }
+        }
+
+        private void extractThemes(TarotStoryElements element, List<StoryElementWithSource> targetList,
+                        String cardName) {
+                if (element.theme != null) {
+                        addElementsWithSource(targetList, element.theme, cardName);
+                }
+        }
+
+        private void extractKeywords(TarotStoryElements element, List<StoryElementWithSource> targetList,
+                        String cardName) {
+                if (element.keywords != null) {
+                        addElementsWithSource(targetList, element.keywords, cardName);
+                }
+        }
+
+        private void extractMoralValues(TarotStoryElements element, List<StoryElementWithSource> targetList,
+                        String cardName) {
+                if (element.moral_value != null) {
+                        addElementsWithSource(targetList, element.moral_value, cardName);
+                }
+        }
+
+        private void extractPointsOfView(TarotStoryElements element, List<StoryElementWithSource> targetList,
+                        String cardName) {
+                if (element.point_of_view != null) {
+                        addElementsWithSource(targetList, element.point_of_view, cardName);
+                }
+        }
+
+        private void extractStyles(TarotStoryElements element, List<StoryElementWithSource> targetList,
+                        String cardName) {
+                if (element.style != null) {
+                        addElementsWithSource(targetList, element.style, cardName);
+                }
+        }
+
+        private void extractClimaxEvents(TarotStoryElements element, List<StoryElementWithSource> targetList,
+                        String cardName) {
+                if (element.climax_event != null) {
+                        addElementsWithSource(targetList, element.climax_event, cardName);
+                }
+        }
+
+        // ========== EXISTING ENDPOINTS (IMPROVED) ==========
 
         @PostMapping("/getRandomKeyword")
         public ResponseEntity<String> getRandomKeyword(@RequestBody CardNamesRequest request) {
+                log.info("Legacy random keyword endpoint called");
                 // Query the database to find TarotStoryElement objects based on card names
                 List<TarotStoryElements> storyElements = this.storyElementRpository.findAll();
-                System.out.println(storyElements.toString());
+                log.debug("Retrieved {} story elements for keyword extraction", storyElements.size());
+
                 // Extract keywords from TarotStoryElement objects and combine into a list
                 List<String> allKeywords = storyElements.stream()
                                 .flatMap((TarotStoryElements element) -> Arrays.stream(element.getKeywords()))
                                 .collect(Collectors.toList());
-                // Randomly select one keyword
-                Random random = new Random();
-                int randomIndex = random.nextInt(allKeywords.size());
 
-                String randomKeyword = allKeywords.get(randomIndex);
+                if (allKeywords.isEmpty()) {
+                        log.warn("No keywords found in database");
+                        return ResponseEntity.ok("No keywords available");
+                }
+
+                // Use ThreadLocalRandom for better performance
+                String randomKeyword = allKeywords.get(ThreadLocalRandom.current().nextInt(allKeywords.size()));
+                log.debug("Selected random keyword: {}", randomKeyword);
 
                 return ResponseEntity.ok(randomKeyword);
         }
@@ -61,17 +232,18 @@ public class StoryController {
                 try {
                         // Declare cardNames
                         String cardNames = request.getCardNames();
+                        log.info("Story prompt requested for cards: {}", cardNames);
 
                         // Split the card names string into a list of card names
                         List<String> cardNameList = Arrays.stream(cardNames.split(","))
                                         .map(String::trim)
                                         .filter(name -> !name.isEmpty())
                                         .collect(Collectors.toList());
-                        logger.info("Parsed card names: {}", cardNameList);
+                        log.debug("Parsed card names: {}", cardNameList);
 
                         // Query the database to find TarotStoryElement objects based on card names
                         List<TarotStoryElements> storyElements = this.storyElementRpository.findAll();
-                        logger.info("Retrieved {} story elements from database", storyElements.size());
+                        log.debug("Retrieved {} story elements from database", storyElements.size());
 
                         // Create collections to hold story elements with their sources
                         List<StoryElementWithSource> allKeywords = new ArrayList<>();
@@ -100,15 +272,17 @@ public class StoryController {
                                         .count();
 
                         if (nullCardNameCount > 0) {
-                                logger.warn("Found {} story elements with null card names in database",
+                                log.warn("Found {} story elements with null card names in database",
                                                 nullCardNameCount);
                         }
+
+                        int matchedCards = 0;
 
                         // Process each story element from database
                         for (TarotStoryElements element : storyElements) {
                                 // CRITICAL: Check for null cardName before using it
                                 if (element.getCardName() == null) {
-                                        logger.warn("Skipping element with null card name, title: {}",
+                                        log.trace("Skipping element with null card name, title: {}",
                                                         element.getTitle() != null ? element.getTitle() : "unknown");
                                         continue; // Skip this element and go to the next one
                                 }
@@ -119,7 +293,8 @@ public class StoryController {
                                 // Check if this element's card is in our request
                                 for (String requestedCard : cardNameList) {
                                         if (elementCardName.equalsIgnoreCase(requestedCard.trim())) {
-                                                logger.info("Processing story elements for card: {}", elementCardName);
+                                                log.debug("Processing story elements for card: {}", elementCardName);
+                                                matchedCards++;
 
                                                 // Add all elements from this card to our collections with source
                                                 // tracking
@@ -207,8 +382,10 @@ public class StoryController {
                                 }
                         }
 
-                        // Now randomly select one item from each collection
-                        Random random = new Random();
+                        log.info("Matched {} cards from request, generating story elements", matchedCards);
+
+                        // Now randomly select one item from each collection using ThreadLocalRandom
+                        Random random = ThreadLocalRandom.current();
                         Map<String, Object> storyPrompt = new HashMap<>();
 
                         storyPrompt.put("keyword", getRandomElementWithSource(allKeywords, random));
@@ -235,21 +412,29 @@ public class StoryController {
 
                         // Add metadata
                         storyPrompt.put("cardsUsed", cardNameList);
+                        storyPrompt.put("cardsMatched", matchedCards);
                         storyPrompt.put("totalElementsFound", allKeywords.size() + allMainCharacterTraits.size() +
                                         allMainCharacterDeficits.size() + allMainCharacterGoals.size());
 
-                        logger.info("Generated story prompt with {} elements", storyPrompt.size());
+                        log.info("Generated complete story prompt with {} elements for {} matched cards",
+                                        storyPrompt.size() - 3, matchedCards); // -3 for metadata
                         return ResponseEntity.ok(storyPrompt);
 
                 } catch (Exception e) {
-                        logger.error("Error generating story prompt: {}", e.getMessage(), e);
+                        log.error("Error generating story prompt: {}", e.getMessage(), e);
                         return ResponseEntity.status(500).body(Map.of("error", "Failed to generate story prompt"));
                 }
         }
 
+        // ========== HELPER METHODS ==========
+
         // Helper method to add elements with source tracking
         private void addElementsWithSource(List<StoryElementWithSource> targetList, String elementsString,
                         String source) {
+                if (elementsString == null || elementsString.trim().isEmpty()) {
+                        return;
+                }
+
                 Arrays.stream(elementsString.split(", "))
                                 .map(String::trim)
                                 .filter(element -> !element.isEmpty())
@@ -288,68 +473,36 @@ public class StoryController {
                         return source;
                 }
         }
-        // @PostMapping("/create-story-element")
-        // public ResponseEntity<TarotStoryElements> createStoryElement(@RequestBody
-        // String cardNames) {
-        // // Split the comma-separated string into an array of card names
-        // String[] cardNameArray = cardNames.split(",");
 
-        // // Create a new TarotStoryElements object
-        // TarotStoryElements element = new TarotStoryElements();
-        // System.out.println(cardNameArray.toString());
-        // // Iterate over the card names and set the name field of the element
-        // for (String cardName : cardNameArray) {
-        // // element.setName(cardName);
-        // // Perform any other operations you need to set other fields of the element
-        // }
-
-        // // Save the element to the database (assuming you have a repository)
-        // TarotStoryElements savedElement = storyElementRepository.save(element);
-
-        // return ResponseEntity.ok(savedElement);
-        // }
+        // ========== EXISTING METHODS (KEPT FOR COMPATIBILITY) ==========
 
         @PostMapping("/retrieve")
         public ResponseEntity<TarotStoryElements> retrieveByNamne(@RequestBody TarotStoryElements element) {
+                log.debug("Retrieve by name requested for: {}", element.getName());
                 TarotStoryElements foundElement = storyElementRpository.findByTitle(element.getName());
                 if (foundElement == null) {
+                        log.warn("Story element not found with name: {}", element.getName());
                         return ResponseEntity.notFound().build();
                 }
+                log.debug("Found story element: {}", foundElement.getTitle());
                 return ResponseEntity.ok(foundElement);
         }
 
         @PostMapping("/find-by-name")
         public ResponseEntity<TarotStoryElements> findByName(@RequestBody TarotStoryElements element) {
+                log.debug("Find by name requested for: {}", element.getName());
                 TarotStoryElements foundElement = storyElementRpository.findByTitle(element.getName());
                 if (foundElement == null) {
+                        log.warn("Story element not found with name: {}", element.getName());
                         return ResponseEntity.notFound().build();
                 }
+                log.debug("Found story element: {}", foundElement.getTitle());
                 return ResponseEntity.ok(foundElement);
         }
 
-        // @Query("SELECT e FROM TarotStoryElements e WHERE e.cardName IN :cardNames")
-        // List<TarotStoryElements> findByCardNameInArray(@Param("cardNames")
-        // List<String> cardNames) {
-        // return (List<TarotStoryElements>)
-        // storyElementRpository.findCardByNameIn(cardNames);
-        // }
-
-        // @Query("SELECT e FROM TarotStoryElements e WHERE e.cardName IN :cardNames")
-        // List<TarotStoryElements> findByCardNameIn(@Param("cardNames") String
-        // cardNames) {
-        // return (List<TarotStoryElements>)
-        // storyElementRpository.findCardByNameIn(cardNames);
-        // }
-
-        // @Query("SELECT e FROM TarotStoryElements e WHERE e.cardName IN :cardNames")
-        // List<TarotStoryElements> findByCardNameInStringQuery(@Param("cardNames")
-        // String cardNames) {
-        // return (List<TarotStoryElements>)
-        // storyElementRpository.findCardByNameInString(cardNames);
-        // }
-
         @Query("SELECT * FROM TarotStoryElements WHERE LOWER(:title) = LOWER(:title)")
         public TarotStoryElements retrieveByName(@Param("title") String title) {
+                log.debug("Retrieve by name query for title: {}", title);
                 // Assuming you have a method to fetch TarotStoryElements by title from the
                 // database
                 TarotStoryElements foundElement = ((TarotStoryElementRespository) this.storyElementsRepository)
@@ -357,34 +510,9 @@ public class StoryController {
                 return foundElement;
         }
 
-        // @PostMapping("/findByCardNameInString2")
-        // public Iterable<TarotStoryElements> findByCardNameInString(String cardNames)
-        // {
-        // System.out.println(cardNames);
-
-        // List<String> cardNameList = Arrays.asList(cardNames.split(", ")); // Split
-        // the cardNames string into a
-        // // list of card names
-        // List<TarotStoryElements> matchingElements = new ArrayList<>();
-
-        // Iterable<TarotStoryElements> allElements = storyElementRpository.findAll();
-
-        // System.out.println(allElements.toString());
-
-        // for (TarotStoryElements entity : allElements) {
-        // // Perform operations on each entity
-        // System.out.println(entity.toString());
-        // if (cardNameList.contains(entity.getCardName())) {
-        // matchingElements.add(entity);
-        // }
-        // }
-
-        // return matchingElements;
-        // }
-
         @PostMapping("/findByCardNameIn")
         public Iterable<TarotStoryElements> findByCardNameIn(String card_names) {
-                System.out.println(card_names);
+                log.debug("Find by card names requested: {}", card_names);
 
                 List<String> cardNameList = Arrays.asList(card_names.split(", ")); // Split the cardNames string into a
                                                                                    // list of card names
@@ -392,23 +520,19 @@ public class StoryController {
 
                 Iterable<TarotStoryElements> allElements = storyElementRpository.findAll();
 
-                System.out.println(allElements.toString());
-
                 for (TarotStoryElements entity : allElements) {
-                        // Perform operations on each entity
-                        System.out.println(entity.toString());
                         if (cardNameList.contains(entity.getCardName())) {
                                 matchingElements.add(entity);
                         }
                 }
 
+                log.debug("Found {} matching elements for card names: {}", matchingElements.size(), card_names);
                 return matchingElements;
         }
 
         public TarotStoryElements findByName(String card_name) {
-                System.out.println(card_name);
+                log.debug("Find by name method called for: {}", card_name);
                 TarotStoryElements card = storyElementRpository.findByTitle(card_name);
-                System.out.println(card);
                 return card;
         }
 }
