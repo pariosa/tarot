@@ -1,12 +1,13 @@
 package com.mercy.tarot.seeders;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import com.mercy.tarot.config.roles.Roles;
 import com.mercy.tarot.models.User;
 import com.mercy.tarot.repositories.UserRepository;
 
-// Example data seeder
+@Component
 public class UserSeeder implements CommandLineRunner {
 
     private final UserRepository userRepository;

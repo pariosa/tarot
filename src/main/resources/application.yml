@@ -57,7 +57,12 @@ spring:
   # Session management
   session:
     store-type: none # Stateless JWT authentication
-
+# JWT Configuration
+jwt:
+  secret: 2A74i1CreFJ2OAjxwtzcGJ7D5mJC5yxzdIDM4SmYqb4= # Generate a strong secret (min 256 bits)
+  expiration: 86400000 # 24 hours in milliseconds
+  issuer: tarot-card-api # Your application name
+  audience: tarot-app # Your client application name
 # Firebase Configuration
 firebase:
   config-path: firebase-service-account.json
