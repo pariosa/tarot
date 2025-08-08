@@ -1,6 +1,7 @@
 // src/hooks/useAuth.ts
 import {
   User as FirebaseUser,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -8,7 +9,7 @@ import {
   signOut,
 } from 'firebase/auth'
 import { useEffect, useState } from 'react'
-import { auth, googleProvider } from '../firebaseConfig'
+import { auth } from '../firebaseConfig'
 import { User } from '../types/User'
 
 export const useAuth = () => {
@@ -21,18 +22,21 @@ export const useAuth = () => {
   const getBackendToken = async (firebaseToken: string) => {
     try {
       const response = await fetch('/api/auth/token', {
+        // Use proxy path
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ token: firebaseToken }),
+        body: JSON.stringify({ idToken: firebaseToken }),
+        credentials: 'include', // Important for cookies/sessions
       })
 
-      if (!response.ok) throw new Error('Failed to get backend token')
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.message || 'Failed to get backend token')
+      }
 
-      const data = await response.json()
-      localStorage.setItem('jwtToken', data.token)
-      return data.token
+      return await response.json()
     } catch (error) {
       console.error('Token exchange failed:', error)
       throw error
@@ -143,17 +147,37 @@ export const useAuth = () => {
 
   const loginWithGoogle = async () => {
     try {
-      const userCredential = await signInWithPopup(auth, googleProvider)
-      const token = await userCredential.user.getIdToken()
-      const backendToken = await getBackendToken(token)
-      setToken(backendToken)
-      return backendToken
+      const provider = new GoogleAuthProvider()
+      const result = await signInWithPopup(auth, provider)
+
+      // Get the ID token directly from the credential
+      const credential = GoogleAuthProvider.credentialFromResult(result)
+      const firebaseToken = credential?.idToken
+
+      if (!firebaseToken) {
+        throw new Error('No ID token available')
+      }
+
+      // Exchange with backend
+      const backendResponse = await fetch('/api/auth/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: firebaseToken }),
+      })
+
+      if (!backendResponse.ok) {
+        throw new Error('Backend token exchange failed')
+      }
+
+      const { jwt } = await backendResponse.json()
+      return jwt
     } catch (error) {
-      console.error('Google login failed:', error)
+      console.error('Authentication failed:', error)
       throw error
     }
   }
-
   const registerWithEmail = async (
     email: string,
     password: string,
@@ -183,6 +207,28 @@ export const useAuth = () => {
       throw error
     }
   }
+  const exchangeToken = async (user: User) => {
+    try {
+      const idToken = await user.getIdToken()
+      const response = await fetch('/api/auth/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${idToken}`,
+        },
+        body: JSON.stringify({ token: idToken }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Token exchange failed')
+      }
+
+      return await response.json()
+    } catch (error) {
+      console.error('Token exchange error:', error)
+      throw error
+    }
+  }
 
   const logout = async () => {
     try {
@@ -201,6 +247,7 @@ export const useAuth = () => {
     firebaseUser,
     token,
     loading,
+    exchangeToken,
     register, // Now exposed in the return value
     loginWithEmail,
     loginWithGoogle,

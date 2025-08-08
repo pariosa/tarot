@@ -1,5 +1,6 @@
 package com.mercy.tarot.controllers;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +40,22 @@ public class AuthController {
             return ResponseEntity.ok(new AuthResponse(jwtToken, "Login successful"));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new AuthResponse(null, "Authentication failed: " + e.getMessage()));
+        }
+    }
+
+    @PostMapping("/token")
+    public ResponseEntity<AuthResponse> exchangeToken(@RequestBody AuthRequest authRequest) {
+        try {
+            // Verify Firebase token and get user
+            User user = firebaseAuthService.verifyTokenAndGetUser(authRequest.getIdToken());
+
+            // Generate JWT token
+            String jwtToken = jwtTokenService.generateToken(user);
+
+            return ResponseEntity.ok(new AuthResponse(jwtToken, "Token exchange successful"));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new AuthResponse(null, "Token exchange failed: " + e.getMessage()));
         }
     }
 
