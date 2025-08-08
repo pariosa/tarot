@@ -93,7 +93,9 @@ button:focus-visible {
 }
 
 
-
+.reversed img{
+  transform: rotateX(180deg) rotateY(180deg);
+}
 
 .front {
   background: #333 url('https://i.imgur.com/jjPQrMK.jpg') no-repeat center center / contain;
@@ -285,6 +287,8 @@ body {
 .card-image {
   cursor: pointer;
   width:auto;
+  height: auto; 
+  max-width: 100%; /* Ensures image doesn't overflow its parent container */
   height: auto; 
   border-radius: 2% 2%;
 }

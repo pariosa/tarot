@@ -15,3 +15,4 @@ export const LoginPage: FC<ILoginPageProps> = () => {
     </div>
   )
 }
+export default LoginPage

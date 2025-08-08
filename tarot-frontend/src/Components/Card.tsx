@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { cardsArray } from '../CardHelper'
-
 import './HolographicStyles.css'
+
 export type CardType = {
   name: string
   description: string
@@ -12,6 +12,7 @@ export type CardType = {
   num: number
   setCardFlipped: (flipped: boolean) => void
 }
+
 export function Card({
   name,
   description,
@@ -26,78 +27,47 @@ export function Card({
   const [flipped, setFlipped] = React.useState(false)
   const [isReversed, setIsReversed] = React.useState(false)
   const [cardImgSrc, setCardImgSrc] = React.useState<string | undefined>('')
-  console.log(name)
-  console.log()
+
   React.useEffect(() => {
     setIsReversed(reversed)
     if (cardsArray.find((c) => c.name == card_value)?.image !== undefined) {
       setCardImgSrc(cardsArray.find((c) => c.name == card_value)?.image)
     }
   }, [isReversed, reversed, card_value])
+
   React.useEffect(() => {
     setFlipped(false)
   }, [setCardFlipped])
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-empty-pattern
-  const onMouseOver = ({}: React.MouseEventHandler<HTMLDivElement>) => {
-    const perspectiveEl = document.getElementsByClassName(
-      'perspective-0'
-    )[0] as unknown as HTMLElement
 
-    const perspectiveEl0 = document.getElementsByClassName(
-      'perspective-1'
-    )[0] as unknown as HTMLElement
-    const perspectiveEl1 = document.getElementsByClassName(
-      'perspective-2'
-    )[0] as unknown as HTMLElement
+  React.useEffect(() => {
+    const perspectiveElements = [
+      ...document.getElementsByClassName('perspective-0'),
+      ...document.getElementsByClassName('perspective-1'),
+      ...document.getElementsByClassName('perspective-2'),
+      ...document.getElementsByClassName('perspective-3'),
+      ...document.getElementsByClassName('perspective-4'),
+      ...document.getElementsByClassName('perspective-5'),
+      ...document.getElementsByClassName('perspective-6'),
+    ] as HTMLElement[]
 
-    const perspectiveEl2 = document.getElementsByClassName(
-      'perspective-3'
-    )[0] as unknown as HTMLElement
+    const hoverListener = (event: MouseEvent) => {
+      const parent = event.currentTarget as HTMLElement
+      if (!parent) return
 
-    const perspectiveEl3 = document.getElementsByClassName(
-      'perspective-4'
-    )[0] as unknown as HTMLElement
-
-    const perspectiveEl4 = document.getElementsByClassName(
-      'perspective-5'
-    )[0] as unknown as HTMLElement
-
-    const perspectiveEl5 = document.getElementsByClassName(
-      'perspective-6'
-    )[0] as unknown as HTMLElement
-
-    const perspectiveEl6 = document.getElementsByClassName(
-      'perspective-7'
-    )[0] as unknown as HTMLElement
-
-    const hoverListener = ({ currentTarget, clientX, clientY }: MouseEvent) => {
-      const parent = currentTarget as HTMLElement
-      console.log(`parent`, parent)
-      if (!parent) {
-        return
-      }
-      const cardEl = parent.getElementsByClassName(
-        'card'
-      )[0] as unknown as HTMLElement
-      console.log(`cardEl`, cardEl)
+      const cardEl = parent.getElementsByClassName('card')[0] as HTMLElement
       const specularEl = parent.getElementsByClassName(
         'specular'
-      )[0] as unknown as HTMLElement
-      if (!perspectiveEl || !cardEl || !specularEl) {
-        return
-      }
-      if (!currentTarget) {
-        return
-      }
-      const current = currentTarget as HTMLElement
-      const rect = current.getBoundingClientRect()
-      const x = clientX - rect.left
-      const y = clientY - rect.top
+      )[0] as HTMLElement
+
+      if (!cardEl || !specularEl) return
+
+      const rect = parent.getBoundingClientRect()
+      const x = event.clientX - rect.left
+      const y = event.clientY - rect.top
 
       const xDirection = x / rect.width <= 0.5 ? -1 : 1
       const yDirection = y / rect.height <= 0.5 ? 1 : -1
-      console.log(`x`, yDirection)
-      console.log(`y`, yDirection)
+
       cardEl.style.setProperty('--rotateX', `${yDirection * 15}deg`)
       cardEl.style.setProperty('--rotateY', `${xDirection * 15}deg`)
 
@@ -120,29 +90,20 @@ export function Card({
 
       specularEl.style.setProperty('--top', `${yDirection === 1 ? 0 : -50}%`)
     }
-    const mouseOutListener = (event: EventListenerOrEventListenerObject) => {
-      const parent = event.currentTarget.parent
-      if (!parent) {
-        return
-      }
-      console.log(`parent`, parent)
-      const cardEl = parent.getElementsByClassName(
-        'card'
-      )[0] as unknown as HTMLElement
-      console.log(`cardEl`, cardEl)
+
+    const mouseOutListener = (event: MouseEvent) => {
+      const parent = event.currentTarget as HTMLElement
+      if (!parent) return
+
+      const cardEl = parent.getElementsByClassName('card')[0] as HTMLElement
       const specularEl = parent.getElementsByClassName(
         'specular'
-      )[0] as unknown as HTMLElement
-      if (!perspectiveEl || !cardEl || !specularEl) {
-        return
-      }
-      if (!event.currentTarget) {
-        return
-      }
+      )[0] as HTMLElement
+
+      if (!cardEl || !specularEl) return
 
       cardEl.style.setProperty('--rotateX', `0`)
       cardEl.style.setProperty('--rotateY', `0`)
-      console.log(`event from perspective EL`, event)
       cardEl.style.setProperty('--box-shadow-offset-x-1', '0px')
       cardEl.style.setProperty('--box-shadow-offset-y-1', '20px')
       cardEl.style.setProperty('--box-shadow-offset-x-2', '0px')
@@ -151,45 +112,33 @@ export function Card({
       specularEl.style.setProperty('--top', '-25%')
     }
 
-    perspectiveEl.addEventListener('mouseout', mouseOutListener)
-    perspectiveEl.addEventListener('mousemove', hoverListener)
-    perspectiveEl0.addEventListener('mouseout', mouseOutListener)
-    perspectiveEl0.addEventListener('mousemove', hoverListener)
-    perspectiveEl1.addEventListener('mouseout', mouseOutListener)
-    perspectiveEl1.addEventListener('mousemove', hoverListener)
-    perspectiveEl2.addEventListener('mouseout', mouseOutListener)
-    perspectiveEl2.addEventListener('mousemove', hoverListener)
-    perspectiveEl3.addEventListener('mouseout', mouseOutListener)
-    perspectiveEl3.addEventListener('mousemove', hoverListener)
-    perspectiveEl4.addEventListener('mouseout', mouseOutListener)
-    perspectiveEl4.addEventListener('mousemove', hoverListener)
-    perspectiveEl5.addEventListener('mouseout', mouseOutListener)
-    perspectiveEl5.addEventListener('mousemove', hoverListener)
-    perspectiveEl6.addEventListener('mouseout', mouseOutListener)
-    perspectiveEl6.addEventListener('mousemove', hoverListener)
-  }
+    perspectiveElements.forEach((el) => {
+      el.addEventListener('mousemove', hoverListener)
+      el.addEventListener('mouseout', mouseOutListener)
+    })
 
-  console.log('Card value', card_value)
-  console.log(cardsArray.find((c) => c.name == card_value))
+    return () => {
+      perspectiveElements.forEach((el) => {
+        el.removeEventListener('mousemove', hoverListener)
+        el.removeEventListener('mouseout', mouseOutListener)
+      })
+    }
+  }, [])
+
   return (
     <div onClick={() => setFlipped(!flipped)} className={`${nums[num]}`}>
       <div className='demo'>
-        <div
-          className={`perspective perspective-${num}`}
-          onMouseOver={onMouseOver}
-        >
-          <div className={`${nums[num]} card ${flipped ? 'flipped' : ''}`}>
-            <div
-              className='card-image'
-              style={{
-                display: 'grid',
-              }}
-            >
+        <div className={`perspective perspective-${num}`}>
+          <div
+            className={`${nums[num]} card ${reversed ? 'reversed' : ''} ${
+              flipped ? 'flipped' : ''
+            }`}
+          >
+            <div className='card-image' style={{ display: 'grid' }}>
               <img
                 src={flipped ? cardImgSrc : './src/assets/card-back.png'}
                 className={`card-image image1q card-image`}
               />
-
               <div className='photo'></div>
               <div className='specular'></div>
             </div>

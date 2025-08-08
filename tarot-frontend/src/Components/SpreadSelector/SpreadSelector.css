@@ -1,0 +1,103 @@
+.spread-selector-container {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .spread-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .count-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .count-control label {
+    font-weight: 500;
+    color: #4a5568;
+  }
+  
+  .count-input {
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    width: 60px;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .draw-button {
+    padding: 0.5rem 1rem;
+    background-color: #6b46c1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .draw-button:hover {
+    background-color: #553c9a;
+  }
+  
+  .spread-buttons-container h3 {
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-size: 1rem;
+  }
+  
+  .spread-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .spread-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 80px;
+  }
+  
+  .spread-button:hover {
+    border-color: #cbd5e0;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .spread-button.active {
+    background-color: #edf2f7;
+    border-color: #a0aec0;
+    font-weight: 500;
+  }
+  
+  .spread-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .spread-label {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+  }
+  
+  .spread-count {
+    font-size: 0.75rem;
+    color: #718096;
+  }

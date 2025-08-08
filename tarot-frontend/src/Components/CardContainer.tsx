@@ -33,3 +33,4 @@ export function CardContainer({
     </div>
   )
 }
+export default CardContainer
