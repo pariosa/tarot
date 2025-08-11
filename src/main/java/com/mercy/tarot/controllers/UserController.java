@@ -1,48 +1,109 @@
 package com.mercy.tarot.controllers;
 
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mercy.tarot.dto.UserRegistrationDTO;
+import com.mercy.tarot.dto.UserProfileDTO;
+import com.mercy.tarot.exceptions.ResourceNotFoundException;
 import com.mercy.tarot.models.User;
-import com.mercy.tarot.repositories.UserRepository;
+import com.mercy.tarot.service.UserService;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody UserRegistrationDTO registrationDto) {
-        // Check if user already exists
-        if (userRepository.findByFirebaseUid(registrationDto.getFirebaseUid()).isPresent()) {
-            return ResponseEntity.badRequest().build();
+    @GetMapping("/me")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    public ResponseEntity<UserProfileDTO> getCurrentUser(Authentication authentication) {
+        try {
+            User currentUser = (User) authentication.getPrincipal();
+            UserProfileDTO profileDto = new UserProfileDTO(
+                    currentUser.getId(),
+                    currentUser.getName(),
+                    currentUser.getEmail(),
+                    currentUser.getRoles().stream().map(Enum::name).collect(Collectors.toSet()));
+            return ResponseEntity.ok(profileDto);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-
-        User user = new User();
-        user.setFirebaseUid(registrationDto.getFirebaseUid());
-        user.setEmail(registrationDto.getEmail());
-        user.setName(registrationDto.getName());
-        user.setIsActive(true);
-
-        User savedUser = userRepository.save(user);
-        return ResponseEntity.ok(savedUser);
     }
 
-    @GetMapping("/{firebaseUid}")
-    public ResponseEntity<User> getUser(@PathVariable String firebaseUid) {
-        return userRepository.findByFirebaseUid(firebaseUid)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    @PutMapping("/me")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    public ResponseEntity<UserProfileDTO> updateCurrentUser(
+            Authentication authentication,
+            @RequestBody UserProfileDTO updateDto) {
+        try {
+            User updatedUser = userService.updateUser(updateDto).orElse(null);
+
+            UserProfileDTO profileDto = new UserProfileDTO(
+                    updatedUser.getId(),
+                    updatedUser.getName(),
+                    updatedUser.getEmail(),
+                    updatedUser.getRoles().stream().map(Enum::name).collect(Collectors.toSet()));
+            return ResponseEntity.ok(profileDto);
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @GetMapping("/check-email")
+    public ResponseEntity<Map<String, Boolean>> checkEmailExists(@RequestParam String email) {
+        boolean exists = userService.findByEmail(email).isPresent();
+        return ResponseEntity.ok(Map.of("exists", exists));
+    }
+
+    @PostMapping("/{userId}/roles")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> addRole(@PathVariable Long userId, @RequestBody String roleName) {
+        try {
+            User updatedUser = userService.addRoleToUser(userId, roleName);
+            return ResponseEntity.ok(updatedUser);
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @GetMapping("/{userId}")
+    @PreAuthorize("hasRole('ADMIN') or (hasRole('USER') and @userService.isCurrentUser(authentication.principal, #userId))")
+    public ResponseEntity<UserProfileDTO> getUserById(@PathVariable Long userId) {
+        try {
+            User user = userService.findById(userId)
+                    .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+            UserProfileDTO profileDto = new UserProfileDTO(
+                    user.getId(),
+                    user.getName(),
+                    user.getEmail(),
+                    user.getRoles().stream().map(Enum::name).collect(Collectors.toSet()));
+            return ResponseEntity.ok(profileDto);
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

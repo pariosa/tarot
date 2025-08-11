@@ -14,19 +14,20 @@ export default defineConfig(({ mode }: UserConfig) => {
     server: {
       proxy: {
         '/api': {
-          target: 'http://localhost:8080', // Remove /api from target
+          target: 'http://localhost:8080',
           changeOrigin: true,
-          secure: false, // Add this for local development
-          rewrite: (path: string) => path.replace(/^\/api/, ''),
+          secure: false,
+          rewrite: (path) => path.replace(/^\/api/, ''),
           headers: {
-            Connection: 'keep-alive', // Important for Firebase auth
+            'Cross-Origin-Opener-Policy': 'same-origin-allow-popups',
+            'Cross-Origin-Embedder-Policy': 'unsafe-none',
           },
         },
       },
-    },
-    headers: {
-      'Cross-Origin-Opener-Policy': 'same-origin-allow-popups',
-      'Cross-Origin-Embedder-Policy': 'require-corp',
+      headers: {
+        'Cross-Origin-Opener-Policy': 'same-origin-allow-popups',
+        'Cross-Origin-Embedder-Policy': 'unsafe-none',
+      },
     },
   }
 })

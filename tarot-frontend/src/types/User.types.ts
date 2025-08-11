@@ -1,5 +1,8 @@
 // src/types/User.ts
 export interface User {
+  status: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  user: any
   id: string
   firebaseUid: string
   email: string

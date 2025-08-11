@@ -1,17 +1,12 @@
--- For MySQL/MariaDB
+-- Updated users table without firebase_uid
 CREATE TABLE users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    firebase_uid VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,  -- Added for password storage
     name VARCHAR(255),
     photo_url TEXT,
-    is_active TINYINT(1) DEFAULT 1,
+    is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONSTRAINT uk_users_firebase_uid UNIQUE (firebase_uid),
-    CONSTRAINT uk_users_email UNIQUE (email)
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Indexes
-CREATE INDEX idx_users_firebase_uid ON users(firebase_uid);
-CREATE INDEX idx_users_email ON users(email);

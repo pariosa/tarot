@@ -59,7 +59,7 @@ spring:
     store-type: none # Stateless JWT authentication
 # JWT Configuration
 jwt:
-  secret: 2A74i1CreFJ2OAjxwtzcGJ7D5mJC5yxzdIDM4SmYqb4= # Generate a strong secret (min 256 bits)
+  secret: szbr763j3rPv9xQTOriICoee6xH5u+TwsX1R8+u7XmN4HNnQMhYpgsLmJU1nQBK9 # Generate a strong secret (min 256 bits)
   expiration: 86400000 # 24 hours in milliseconds
   issuer: tarot-card-api # Your application name
   audience: tarot-app # Your client application name

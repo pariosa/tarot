@@ -20,18 +20,18 @@ public class UserSeeder implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (userRepository.count() == 0) {
             // Regular user
-            User user = new User("firebase-uid-1", "user@example.com", "Regular User");
+            User user = new User("regular@example.com", "abc123456!", "Regular User");
             user.setPhotoUrl("https://example.com/user.jpg");
             userRepository.save(user);
 
             // Premium user
-            User premiumUser = new User("firebase-uid-2", "premium@example.com", "Premium User");
+            User premiumUser = new User("premium@gmail.com", "preemiepassword1", "Premium User");
             premiumUser.addRole(Roles.PREMIUM);
             premiumUser.setPhotoUrl("https://example.com/premium.jpg");
             userRepository.save(premiumUser);
 
             // Admin user
-            User admin = new User("firebase-uid-3", "admin@example.com", "Admin User");
+            User admin = new User("admin@example.com", "admin123456", "Admin User");
             admin.addRole(Roles.ADMIN);
             admin.setPhotoUrl("https://example.com/admin.jpg");
             userRepository.save(admin);

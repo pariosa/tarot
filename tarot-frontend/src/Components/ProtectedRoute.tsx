@@ -1,10 +1,10 @@
 // src/components/ProtectedRoute.tsx
 import * as React from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
-import { useAuthContext } from '../hooks/useAuthContext'
+import { useAuth } from '../hooks/useAuth'
 
 export const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
-  const { user, loading } = useAuthContext()
+  const { user, loading } = useAuth()
   const location = useLocation()
 
   if (loading) {

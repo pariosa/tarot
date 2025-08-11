@@ -11,9 +11,11 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.mercy.tarot.config.roles.Roles;
 
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -23,22 +25,23 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "BIGINT UNSIGNED") // Explicit type definition
+    @Column(name = "id", columnDefinition = "BIGINT UNSIGNED")
     private Long id;
-
-    @Column(name = "firebase_uid", unique = true, nullable = false)
-    private String firebaseUid;
 
     @Column(unique = true, nullable = false)
     private String email;
+
+    @Column(nullable = false)
+    private String password;
 
     private String name;
 
@@ -47,6 +50,7 @@ public class User {
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
+    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "role")
     private Set<Roles> roles = new HashSet<>(Collections.singleton(Roles.USER));
 
@@ -65,20 +69,46 @@ public class User {
         this.roles = new HashSet<>(Collections.singleton(Roles.USER));
     }
 
-    public User(String firebaseUid, String email, String name) {
+    public User(String email, String password, String name) {
         this();
-        this.firebaseUid = firebaseUid;
         this.email = email;
+        this.password = password;
         this.name = name;
     }
 
-    // Role management methods
+    // UserDetails methods
+    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
         for (Roles role : this.roles) {
             authorities.add(new SimpleGrantedAuthority("ROLE_" + role.name()));
         }
         return authorities;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return isActive;
     }
 
     // Getters and Setters
@@ -90,20 +120,20 @@ public class User {
         this.id = id;
     }
 
-    public String getFirebaseUid() {
-        return firebaseUid;
-    }
-
-    public void setFirebaseUid(String firebaseUid) {
-        this.firebaseUid = firebaseUid;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -173,22 +203,22 @@ public class User {
         if (o == null || getClass() != o.getClass())
             return false;
         User user = (User) o;
-        return Objects.equals(firebaseUid, user.firebaseUid);
+        return Objects.equals(id, user.id) &&
+                Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firebaseUid);
+        return Objects.hash(id, email);
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", firebaseUid='" + firebaseUid + '\'' +
                 ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
-                ", roles=" + roles + // Changed from role to roles
+                ", roles=" + roles +
                 ", isActive=" + isActive +
                 ", photoUrl='" + photoUrl + '\'' +
                 ", createdAt=" + createdAt +

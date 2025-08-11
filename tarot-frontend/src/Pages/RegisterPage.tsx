@@ -1,9 +1,6 @@
-import { FirebaseError } from 'firebase/app'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
 import * as React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { auth } from '../firebaseConfig'
 import { useAuth } from '../hooks/useAuth'
 
 export const RegisterPage = () => {
@@ -15,6 +12,7 @@ export const RegisterPage = () => {
   })
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+
   const { register } = useAuth()
   const navigate = useNavigate()
 
@@ -44,46 +42,20 @@ export const RegisterPage = () => {
     setIsLoading(true)
 
     try {
-      // 1. Create Firebase user
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
+      const result = await register(
         formData.email,
-        formData.password
-      )
-      // Get the Firebase token
-      const firebaseToken = await userCredential.user.getIdToken()
-
-      // 2. Create user in your JPA backend
-      await register(
-        {
-          firebaseUid: userCredential.user.uid,
-          email: formData.email,
-          name: formData.name,
-        },
-        firebaseToken // Second argument
+        formData.password,
+        formData.name
       )
 
-      navigate('/home')
-    } catch (err) {
-      let errorMessage = 'Failed to register'
-
-      if (err instanceof FirebaseError) {
-        switch (err.code) {
-          case 'auth/email-already-in-use':
-            errorMessage = 'Email already in use'
-            break
-          case 'auth/invalid-email':
-            errorMessage = 'Invalid email address'
-            break
-          case 'auth/weak-password':
-            errorMessage = 'Password is too weak'
-            break
-          default:
-            errorMessage = err.message
-        }
+      if (result.success) {
+        navigate('/home') // Redirect on successful registration
+      } else {
+        setError(result.message || 'Registration failed')
       }
-
-      setError(errorMessage)
+    } catch (err) {
+      console.error('Registration error:', err)
+      setError(err instanceof Error ? err.message : 'Registration failed')
     } finally {
       setIsLoading(false)
     }
@@ -183,8 +155,6 @@ export const RegisterPage = () => {
                 value={formData.password}
                 onChange={handleChange}
               />
-              {/* Optional: Add password strength indicator */}
-              {/* <PasswordStrengthIndicator password={formData.password} /> */}
             </div>
 
             <div>

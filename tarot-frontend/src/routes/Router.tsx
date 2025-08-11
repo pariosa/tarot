@@ -1,9 +1,8 @@
-// src/router.tsx
+// src/routes/router.tsx
 import * as React from 'react'
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import App from '../App'
 import { ProtectedRoute } from '../Components/ProtectedRoute'
-import { AuthLayout } from '../layouts/AuthLayout'
 import { MainLayout } from '../layouts/MainLayout'
 import DailyReadingPage from '../pages/DailyReadingPage'
 import FullReadingPage from '../pages/FullReadingPage'
@@ -15,7 +14,49 @@ export const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
-      // Public routes
+      // Auth routes (unprotected)
+
+      // Main routes (protected)
+      {
+        path: '/',
+        element: <MainLayout />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to='/home' replace />,
+          },
+          {
+            path: 'home',
+            element: (
+              <ProtectedRoute>
+                <FullReadingPage />
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'full-reading',
+            element: (
+              <ProtectedRoute>
+                <FullReadingPage />
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'daily-reading',
+            element: (
+              <ProtectedRoute>
+                <DailyReadingPage />
+              </ProtectedRoute>
+            ),
+          },
+        ],
+      },
+
+      // Public reading route
+      {
+        path: 'reading',
+        element: <FullReadingPage />,
+      },
       {
         path: 'login',
         element: <LoginPage />,
@@ -25,49 +66,11 @@ export const router = createBrowserRouter([
         element: <RegisterPage />,
       },
 
-      // Protected routes
-      {
-        element: <AuthLayout />,
-        children: [
-          {
-            element: <MainLayout />,
-            children: [
-              {
-                path: '/',
-                element: (
-                  <ProtectedRoute>
-                    <FullReadingPage />
-                  </ProtectedRoute>
-                ),
-              },
-              {
-                path: 'home',
-                element: (
-                  <ProtectedRoute>
-                    <FullReadingPage />
-                  </ProtectedRoute>
-                ),
-              },
-              {
-                path: 'full-reading',
-                element: (
-                  <ProtectedRoute>
-                    <FullReadingPage />
-                  </ProtectedRoute>
-                ),
-              },
-              {
-                path: 'daily-reading',
-                element: (
-                  <ProtectedRoute>
-                    <DailyReadingPage />
-                  </ProtectedRoute>
-                ),
-              },
-            ],
-          },
-        ],
-      },
+      // Redirect for old /login path
+      // {
+      //   path: 'login',
+      //   element: <Navigate to='/auth/login' replace />,
+      // },
     ],
   },
 ])

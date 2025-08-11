@@ -1,5 +1,9 @@
+
 package com.mercy.tarot.config.roles;
 
 public enum Roles {
-    USER, ADMIN, PREMIUM
+    USER,
+    ADMIN,
+    PREMIUM,
+    MODERATOR;
 }

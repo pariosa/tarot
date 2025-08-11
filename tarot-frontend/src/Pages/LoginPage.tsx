@@ -4,14 +4,14 @@ import { FirebaseError } from 'firebase/app'
 import * as React from 'react'
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
-import { useAuthContext } from '../hooks/useAuthContext'
+import { useAuth } from '../hooks/useAuth'
 
 export function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const { loginWithEmail, loginWithGoogle } = useAuthContext()
+  const { login } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -23,7 +23,7 @@ export function LoginPage() {
     setIsLoading(true)
 
     try {
-      await loginWithEmail(email, password)
+      await login(email, password)
       navigate(from, { replace: true })
     } catch (err) {
       let errorMessage = 'Login failed'
@@ -52,15 +52,6 @@ export function LoginPage() {
       setError(errorMessage)
     } finally {
       setIsLoading(false)
-    }
-  }
-
-  const handleGoogleLogin = async () => {
-    try {
-      await loginWithGoogle()
-      navigate(from, { replace: true })
-    } catch (err) {
-      setError('Google login failed. Please try again.')
     }
   }
 
@@ -175,18 +166,6 @@ export function LoginPage() {
                 Or continue with
               </span>
             </div>
-          </div>
-
-          <div className='mt-6 grid grid-cols-1 gap-3'>
-            <button
-              onClick={handleGoogleLogin}
-              className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
-            >
-              <svg className='w-5 h-5' fill='currentColor' viewBox='0 0 24 24'>
-                <path d='M12.545 10.239v3.821h5.445c-0.712 2.315-2.647 3.972-5.445 3.972-3.332 0-6.033-2.701-6.033-6.032s2.701-6.032 6.033-6.032c1.498 0 2.866 0.549 3.921 1.453l2.814-2.814c-1.786-1.664-4.153-2.675-6.735-2.675-5.522 0-10 4.477-10 10s4.478 10 10 10c8.396 0 10-7.524 10-10 0-0.668-0.068-1.324-0.182-1.972h-9.818z' />
-              </svg>
-              <span className='ml-2'>Sign in with Google</span>
-            </button>
           </div>
         </div>
 

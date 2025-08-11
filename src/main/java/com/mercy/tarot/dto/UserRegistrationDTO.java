@@ -1,21 +1,18 @@
 package com.mercy.tarot.dto;
 
 public class UserRegistrationDTO {
-    private String firebaseUid;
+    private String password;
     private String email;
     private String name;
 
     // Getters and setters
-    public String getFirebaseUid() {
-        return firebaseUid;
-    }
-
-    public void setFirebaseUid(String firebaseUid) {
-        this.firebaseUid = firebaseUid;
-    }
 
     public String getEmail() {
         return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setEmail(String email) {

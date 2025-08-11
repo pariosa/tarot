@@ -10,11 +10,9 @@ import com.mercy.tarot.models.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findByFirebaseUid(String firebaseUid);
-
     Optional<User> findByEmail(String email);
 
-    boolean existsByFirebaseUid(String firebaseUid);
-
     boolean existsByEmail(String email);
+
+    boolean existsByEmailAndIdNot(String email, Long id);
 }

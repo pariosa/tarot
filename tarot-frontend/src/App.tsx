@@ -2,12 +2,15 @@ import * as React from 'react'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { CardType } from './Components/Card'
+import { useAuth } from './hooks/useAuth'
 import { PageWrapper } from './layouts/PageWrapper'
 
 function App() {
   const [count, setCount] = useState<number>(0)
   const [cards, setCards] = useState<CardType[]>([])
   const [activeSpreadType, setActiveSpreadType] = useState<string>('none')
+
+  const { authFetch } = useAuth()
 
   const setCardsFlipped = (flipped: boolean) => {
     console.log('setCardFlipped', flipped)
@@ -19,10 +22,7 @@ function App() {
     const myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
 
-    fetch(`api/spread/parallel/weighted/${num}`, {
-      method: 'GET',
-      headers: myHeaders,
-    })
+    authFetch(`/spread/parallel/weighted/${num}`)
       .then((response) => response.body as ReadableStream<Uint8Array>)
       .then(async (data) => {
         const reader = data.getReader()

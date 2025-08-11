@@ -1,26 +1,29 @@
 // src/pages/ProfilePage.tsx
 import * as React from 'react'
 import { useEffect, useState } from 'react'
-import { useAuthContext } from '../hooks/useAuthContext'
-import { useApi } from '../services/api'
-import { User } from '../types/User' // Import the User interface
+import { useAuth } from '../hooks/useAuth'
+import api from '../services/api' // Make sure you have an api instance configured
+import { User } from '../types/User.types' // Import the User interface
 
 export const ProfilePage = () => {
-  const { user, logout } = useAuthContext()
-  const api = useApi()
+  const { user, logout } = useAuth()
   const [profile, setProfile] = useState<User | null>(user || null)
   const [isEditing, setIsEditing] = useState(false)
   const [formData, setFormData] = useState({
-    name: user?.name || '', // Changed from 'fullname' to 'name'
+    name: user?.name || '',
     email: user?.email || '',
   })
 
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await api.get<User>('/users/me')
+        const response = await api.users.getMe()
         if (response.data) {
           setProfile(response.data)
+          setFormData({
+            name: response.data.name || '',
+            email: response.data.email || '',
+          })
         }
       } catch (error) {
         console.error('Failed to fetch profile:', error)
@@ -30,7 +33,7 @@ export const ProfilePage = () => {
     if (user && !profile) {
       fetchProfile()
     }
-  }, [user, profile, api])
+  }, [user, profile])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -40,7 +43,7 @@ export const ProfilePage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const response = await api.put<User>('/users/me', formData)
+      const response = await api.users.updateMe(formData)
       if (response.data) {
         setProfile(response.data)
         setIsEditing(false)
@@ -105,7 +108,7 @@ export const ProfilePage = () => {
         <div className='space-y-4'>
           <div>
             <h2 className='text-lg font-medium'>Name</h2>
-            <p>{profile?.name}</p> {/* Changed from 'fullname' to 'name' */}
+            <p>{profile?.name}</p>
           </div>
           <div>
             <h2 className='text-lg font-medium'>Email</h2>

@@ -1,72 +1,74 @@
 package com.mercy.tarot.controllers;
 
+import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mercy.tarot.dto.AuthRequest;
-import com.mercy.tarot.dto.AuthResponse;
+import com.mercy.tarot.dto.LoginRequest;
+import com.mercy.tarot.dto.LoginResponse;
+import com.mercy.tarot.dto.UserRegistrationDTO;
 import com.mercy.tarot.models.User;
-import com.mercy.tarot.service.FirebaseAuthService;
 import com.mercy.tarot.service.JwtTokenService;
+import com.mercy.tarot.service.UserService;
 
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private final FirebaseAuthService firebaseAuthService;
+    private final AuthenticationManager authenticationManager;
     private final JwtTokenService jwtTokenService;
+    private final UserService userService;
 
-    public AuthController(FirebaseAuthService firebaseAuthService,
-            JwtTokenService jwtTokenService) {
-        this.firebaseAuthService = firebaseAuthService;
+    public AuthController(AuthenticationManager authenticationManager,
+            JwtTokenService jwtTokenService, UserService userService) {
+        this.authenticationManager = authenticationManager;
         this.jwtTokenService = jwtTokenService;
+        this.userService = userService;
+
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> registerUser(@RequestBody UserRegistrationDTO registrationDto) {
+        try {
+            // Check if user already exists
+            if (userService.findByEmail(registrationDto.getEmail()).isPresent()) {
+                return ResponseEntity
+                        .badRequest()
+                        .body(Map.of("message", "Error: Email is already in use!"));
+            }
+            // Create new user
+            User user = userService.registerUser(registrationDto);
+
+            return ResponseEntity.ok(Map.of(
+                    "message", "User registered successfully!",
+                    "userId", user.getId()));
+        } catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("message", "Error during registration: " + e.getMessage()));
+        }
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest authRequest) {
-        try {
-            // Use your existing service to verify token and get user
-            User user = firebaseAuthService.verifyTokenAndGetUser(authRequest.getIdToken());
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        loginRequest.getEmail(),
+                        loginRequest.getPassword()));
 
-            // Generate JWT token for your backend
-            String jwtToken = jwtTokenService.generateToken(user);
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String token = jwtTokenService.generateToken(userDetails);
 
-            return ResponseEntity.ok(new AuthResponse(jwtToken, "Login successful"));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new AuthResponse(null, "Authentication failed: " + e.getMessage()));
-        }
+        return ResponseEntity.ok(new LoginResponse(token));
     }
 
-    @PostMapping("/token")
-    public ResponseEntity<AuthResponse> exchangeToken(@RequestBody AuthRequest authRequest) {
-        try {
-            // Verify Firebase token and get user
-            User user = firebaseAuthService.verifyTokenAndGetUser(authRequest.getIdToken());
-
-            // Generate JWT token
-            String jwtToken = jwtTokenService.generateToken(user);
-
-            return ResponseEntity.ok(new AuthResponse(jwtToken, "Token exchange successful"));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(new AuthResponse(null, "Token exchange failed: " + e.getMessage()));
-        }
-    }
-
-    @GetMapping("/validate")
-    public ResponseEntity<Boolean> validateToken(@RequestHeader("Authorization") String authHeader) {
-        try {
-            String token = authHeader.substring(7); // Remove "Bearer " prefix
-            jwtTokenService.validateToken(token);
-            return ResponseEntity.ok(true);
-        } catch (Exception e) {
-            return ResponseEntity.ok(false);
-        }
-    }
 }
