@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth'
 
 export function ProtectedRoute({
   children,
-}: PropsWithChildren<{ ReactNode: unknown }>) {
+}: PropsWithChildren<{ children: unknown }>) {
   const { isAuthenticated } = useAuth()
 
   if (!isAuthenticated) {

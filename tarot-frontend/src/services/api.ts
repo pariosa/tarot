@@ -48,7 +48,9 @@ export interface StoryElementRequest {
   climaxEvent?: string
   keyword?: string
 }
-
+export interface CardNamesRequest {
+  cardNames: string
+}
 // Create axios instance
 const createApiInstance = (): AxiosInstance => {
   const instance = axios.create({
@@ -177,8 +179,11 @@ const apiService = {
       api.get('/api/story/climax-event'),
     getRandomKeyword: (): Promise<AxiosResponse<string>> =>
       api.get('/api/story/random-keyword'),
-    getStoryDTO: (): Promise<AxiosResponse<any>> =>
-      api.get('/api/story/getStoryDTO'),
+
+    // FIXED: Now accepts data parameter and sends it to the correct endpoint
+    getStoryDTO: (data: CardNamesRequest): Promise<AxiosResponse<any>> =>
+      api.post('/getStoryDTO', data), // Note: endpoint path updated to match your Spring Boot controller
+
     fullReading: (data: StoryElementRequest): Promise<AxiosResponse<any>> =>
       api.post('/api/story/full-reading', data),
     completeElement: (data: StoryElementRequest): Promise<AxiosResponse<any>> =>

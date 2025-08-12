@@ -3,3 +3,703 @@
 2025-08-12 00:32:39.067 [SpringApplicationShutdownHook] DEBUG [] [] o.h.type.spi.TypeConfiguration$Scope - Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@20b87615] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@3d2b8e]
 2025-08-12 00:32:39.091 [SpringApplicationShutdownHook] INFO  [] [] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-08-12 00:32:39.101 [SpringApplicationShutdownHook] INFO  [] [] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-12 08:23:54.278 [main] INFO  [] [] com.mercy.tarot.TarotApplication - Starting TarotApplication v0.0.5-SNAPSHOT using Java 21.0.2 with PID 39049 (/Users/w0xy/code/tarot/target/tarot-0.0.5-SNAPSHOT.jar started by w0xy in /Users/w0xy/code/tarot)
+2025-08-12 08:23:54.282 [main] DEBUG [] [] com.mercy.tarot.TarotApplication - Running with Spring Boot v3.2.4, Spring v6.1.5
+2025-08-12 08:23:54.285 [main] INFO  [] [] com.mercy.tarot.TarotApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-12 08:23:56.415 [main] INFO  [] [] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-12 08:23:56.548 [main] INFO  [] [] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 113 ms. Found 3 JPA repository interfaces.
+2025-08-12 08:23:58.504 [main] INFO  [] [] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-12 08:23:58.541 [main] INFO  [] [] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-12 08:23:58.542 [main] INFO  [] [] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-08-12 08:23:58.651 [main] INFO  [] [] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-12 08:23:58.651 [main] INFO  [] [] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4147 ms
+2025-08-12 08:23:59.260 [main] INFO  [] [] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-12 08:23:59.971 [main] INFO  [] [] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@712e787e
+2025-08-12 08:23:59.977 [main] INFO  [] [] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-12 08:24:00.381 [main] INFO  [] [] org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://127.0.0.1:3306/tarot (MySQL 8.3)
+2025-08-12 08:24:00.456 [main] WARN  [] [] o.f.c.i.database.base.Database - Flyway upgrade recommended: MySQL 8.3 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2025-08-12 08:24:00.704 [main] INFO  [] [] o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.157s)
+2025-08-12 08:24:00.764 [main] INFO  [] [] o.f.core.internal.command.DbMigrate - Current version of schema `tarot`: 1.0.6
+2025-08-12 08:24:00.786 [main] INFO  [] [] o.f.core.internal.command.DbMigrate - Schema `tarot` is up to date. No migration necessary.
+2025-08-12 08:24:00.929 [main] INFO  [] [] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-12 08:24:01.200 [main] INFO  [] [] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.CR1
+2025-08-12 08:24:01.365 [main] INFO  [] [] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-12 08:24:01.598 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BasicTypeReference@44eb2452
+2025-08-12 08:24:01.599 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BasicTypeReference@44eb2452
+2025-08-12 08:24:01.600 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BasicTypeReference@44eb2452
+2025-08-12 08:24:01.600 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.BasicTypeReference@31940704
+2025-08-12 08:24:01.601 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.NumericBooleanConverter -> org.hibernate.type.BasicTypeReference@31940704
+2025-08-12 08:24:01.601 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.BasicTypeReference@e07b4db
+2025-08-12 08:24:01.601 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.TrueFalseConverter -> org.hibernate.type.BasicTypeReference@e07b4db
+2025-08-12 08:24:01.601 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.BasicTypeReference@76b305e1
+2025-08-12 08:24:01.602 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.YesNoConverter -> org.hibernate.type.BasicTypeReference@76b305e1
+2025-08-12 08:24:01.602 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.BasicTypeReference@6be766d1
+2025-08-12 08:24:01.602 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.BasicTypeReference@6be766d1
+2025-08-12 08:24:01.602 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.BasicTypeReference@6be766d1
+2025-08-12 08:24:01.603 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BasicTypeReference@7adae08e
+2025-08-12 08:24:01.603 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BasicTypeReference@7adae08e
+2025-08-12 08:24:01.603 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BasicTypeReference@7adae08e
+2025-08-12 08:24:01.603 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration binary_wrapper -> org.hibernate.type.BasicTypeReference@49c83262
+2025-08-12 08:24:01.604 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.BasicTypeReference@49c83262
+2025-08-12 08:24:01.604 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration image -> org.hibernate.type.BasicTypeReference@273aaab7
+2025-08-12 08:24:01.604 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BasicTypeReference@77bb916f
+2025-08-12 08:24:01.605 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BasicTypeReference@77bb916f
+2025-08-12 08:24:01.605 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.BasicTypeReference@5a48d186
+2025-08-12 08:24:01.605 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_blob_wrapper -> org.hibernate.type.BasicTypeReference@521ba38f
+2025-08-12 08:24:01.606 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.BasicTypeReference@2086d469
+2025-08-12 08:24:01.606 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.BasicTypeReference@2086d469
+2025-08-12 08:24:01.606 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.BasicTypeReference@2086d469
+2025-08-12 08:24:01.607 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.BasicTypeReference@b1d19ff
+2025-08-12 08:24:01.608 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration int -> org.hibernate.type.BasicTypeReference@b1d19ff
+2025-08-12 08:24:01.608 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.BasicTypeReference@b1d19ff
+2025-08-12 08:24:01.608 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.BasicTypeReference@17c53dfb
+2025-08-12 08:24:01.609 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.BasicTypeReference@17c53dfb
+2025-08-12 08:24:01.610 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.BasicTypeReference@17c53dfb
+2025-08-12 08:24:01.610 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.BasicTypeReference@184de357
+2025-08-12 08:24:01.610 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.BasicTypeReference@184de357
+2025-08-12 08:24:01.611 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.BasicTypeReference@184de357
+2025-08-12 08:24:01.612 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.BasicTypeReference@efe49ab
+2025-08-12 08:24:01.612 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.BasicTypeReference@efe49ab
+2025-08-12 08:24:01.612 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.BasicTypeReference@efe49ab
+2025-08-12 08:24:01.613 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BasicTypeReference@6dcf7b6a
+2025-08-12 08:24:01.613 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BasicTypeReference@6dcf7b6a
+2025-08-12 08:24:01.614 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BasicTypeReference@53dba9cd
+2025-08-12 08:24:01.614 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BasicTypeReference@53dba9cd
+2025-08-12 08:24:01.614 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration character -> org.hibernate.type.BasicTypeReference@247bbfba
+2025-08-12 08:24:01.614 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration char -> org.hibernate.type.BasicTypeReference@247bbfba
+2025-08-12 08:24:01.615 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.BasicTypeReference@247bbfba
+2025-08-12 08:24:01.616 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration character_nchar -> org.hibernate.type.BasicTypeReference@5834198f
+2025-08-12 08:24:01.616 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration string -> org.hibernate.type.BasicTypeReference@4eb63dc8
+2025-08-12 08:24:01.617 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.BasicTypeReference@4eb63dc8
+2025-08-12 08:24:01.617 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration nstring -> org.hibernate.type.BasicTypeReference@402d6012
+2025-08-12 08:24:01.621 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.BasicTypeReference@395281c2
+2025-08-12 08:24:01.622 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.BasicTypeReference@395281c2
+2025-08-12 08:24:01.623 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.BasicTypeReference@395281c2
+2025-08-12 08:24:01.623 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.BasicTypeReference@41d20f06
+2025-08-12 08:24:01.623 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration text -> org.hibernate.type.BasicTypeReference@3e753289
+2025-08-12 08:24:01.624 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration ntext -> org.hibernate.type.BasicTypeReference@1573e8a5
+2025-08-12 08:24:01.624 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.BasicTypeReference@38022758
+2025-08-12 08:24:01.625 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.BasicTypeReference@38022758
+2025-08-12 08:24:01.625 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration nclob -> org.hibernate.type.BasicTypeReference@69f9b561
+2025-08-12 08:24:01.625 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.NClob -> org.hibernate.type.BasicTypeReference@69f9b561
+2025-08-12 08:24:01.627 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.BasicTypeReference@7e8f23ad
+2025-08-12 08:24:01.627 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob_char_array -> org.hibernate.type.BasicTypeReference@7433ca19
+2025-08-12 08:24:01.628 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob_character_array -> org.hibernate.type.BasicTypeReference@5d221b20
+2025-08-12 08:24:01.628 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_nclob -> org.hibernate.type.BasicTypeReference@79d4ff58
+2025-08-12 08:24:01.628 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_nclob_character_array -> org.hibernate.type.BasicTypeReference@7ec13984
+2025-08-12 08:24:01.629 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_nclob_char_array -> org.hibernate.type.BasicTypeReference@14485747
+2025-08-12 08:24:01.629 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration Duration -> org.hibernate.type.BasicTypeReference@59fea5f5
+2025-08-12 08:24:01.630 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Duration -> org.hibernate.type.BasicTypeReference@59fea5f5
+2025-08-12 08:24:01.630 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration LocalDateTime -> org.hibernate.type.BasicTypeReference@78eafad
+2025-08-12 08:24:01.631 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDateTime -> org.hibernate.type.BasicTypeReference@78eafad
+2025-08-12 08:24:01.631 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration LocalDate -> org.hibernate.type.BasicTypeReference@70f4abc1
+2025-08-12 08:24:01.631 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDate -> org.hibernate.type.BasicTypeReference@70f4abc1
+2025-08-12 08:24:01.631 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration LocalTime -> org.hibernate.type.BasicTypeReference@26d028f7
+2025-08-12 08:24:01.632 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalTime -> org.hibernate.type.BasicTypeReference@26d028f7
+2025-08-12 08:24:01.634 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTime -> org.hibernate.type.BasicTypeReference@a2df0d5
+2025-08-12 08:24:01.634 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.BasicTypeReference@a2df0d5
+2025-08-12 08:24:01.635 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@782cc5fa
+2025-08-12 08:24:01.635 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@2dd3d39d
+2025-08-12 08:24:01.636 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTime -> org.hibernate.type.BasicTypeReference@ae3c140
+2025-08-12 08:24:01.636 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetTime -> org.hibernate.type.BasicTypeReference@ae3c140
+2025-08-12 08:24:01.637 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTimeUtc -> org.hibernate.type.BasicTypeReference@6f2d3391
+2025-08-12 08:24:01.637 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTimeWithTimezone -> org.hibernate.type.BasicTypeReference@71b0289b
+2025-08-12 08:24:01.637 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@42cc420b
+2025-08-12 08:24:01.638 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTime -> org.hibernate.type.BasicTypeReference@563172d3
+2025-08-12 08:24:01.638 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.BasicTypeReference@563172d3
+2025-08-12 08:24:01.639 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@5086623f
+2025-08-12 08:24:01.639 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@20027c44
+2025-08-12 08:24:01.639 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration date -> org.hibernate.type.BasicTypeReference@7eae55
+2025-08-12 08:24:01.640 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.BasicTypeReference@7eae55
+2025-08-12 08:24:01.640 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration time -> org.hibernate.type.BasicTypeReference@5d84e363
+2025-08-12 08:24:01.642 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.BasicTypeReference@5d84e363
+2025-08-12 08:24:01.642 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.BasicTypeReference@3ef0e576
+2025-08-12 08:24:01.642 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.BasicTypeReference@3ef0e576
+2025-08-12 08:24:01.643 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.BasicTypeReference@3ef0e576
+2025-08-12 08:24:01.644 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.BasicTypeReference@da34eb0
+2025-08-12 08:24:01.645 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.BasicTypeReference@da34eb0
+2025-08-12 08:24:01.646 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.BasicTypeReference@da34eb0
+2025-08-12 08:24:01.646 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.BasicTypeReference@785a4557
+2025-08-12 08:24:01.647 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration calendar_time -> org.hibernate.type.BasicTypeReference@2bf3ec4
+2025-08-12 08:24:01.647 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration instant -> org.hibernate.type.BasicTypeReference@3b5da0b0
+2025-08-12 08:24:01.647 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Instant -> org.hibernate.type.BasicTypeReference@3b5da0b0
+2025-08-12 08:24:01.648 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration uuid -> org.hibernate.type.BasicTypeReference@2c9cafa5
+2025-08-12 08:24:01.651 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.BasicTypeReference@2c9cafa5
+2025-08-12 08:24:01.652 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration pg-uuid -> org.hibernate.type.BasicTypeReference@2c9cafa5
+2025-08-12 08:24:01.653 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.BasicTypeReference@6c6379c
+2025-08-12 08:24:01.654 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.BasicTypeReference@7df4709e
+2025-08-12 08:24:01.654 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration class -> org.hibernate.type.BasicTypeReference@2bfa17b0
+2025-08-12 08:24:01.654 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.BasicTypeReference@2bfa17b0
+2025-08-12 08:24:01.655 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.BasicTypeReference@625264ed
+2025-08-12 08:24:01.659 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration Currency -> org.hibernate.type.BasicTypeReference@625264ed
+2025-08-12 08:24:01.661 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.BasicTypeReference@625264ed
+2025-08-12 08:24:01.661 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.BasicTypeReference@559fd5ec
+2025-08-12 08:24:01.662 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.BasicTypeReference@559fd5ec
+2025-08-12 08:24:01.662 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.BasicTypeReference@bb12f41
+2025-08-12 08:24:01.662 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.io.Serializable -> org.hibernate.type.BasicTypeReference@bb12f41
+2025-08-12 08:24:01.663 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.BasicTypeReference@708dfe10
+2025-08-12 08:24:01.663 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.BasicTypeReference@708dfe10
+2025-08-12 08:24:01.663 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration ZoneOffset -> org.hibernate.type.BasicTypeReference@18989e0
+2025-08-12 08:24:01.663 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.ZoneOffset -> org.hibernate.type.BasicTypeReference@18989e0
+2025-08-12 08:24:01.664 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration url -> org.hibernate.type.BasicTypeReference@2a120c88
+2025-08-12 08:24:01.664 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.BasicTypeReference@2a120c88
+2025-08-12 08:24:01.665 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration vector -> org.hibernate.type.BasicTypeReference@285bf5ac
+2025-08-12 08:24:01.665 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration row_version -> org.hibernate.type.BasicTypeReference@3739f3c9
+2025-08-12 08:24:01.676 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration object -> org.hibernate.type.JavaObjectType@481ed95c
+2025-08-12 08:24:01.677 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.JavaObjectType@481ed95c
+2025-08-12 08:24:01.679 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration null -> org.hibernate.type.NullType@1e471884
+2025-08-12 08:24:01.681 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.BasicTypeReference@27261190
+2025-08-12 08:24:01.681 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.BasicTypeReference@6e46891d
+2025-08-12 08:24:01.681 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.BasicTypeReference@48632f69
+2025-08-12 08:24:01.681 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.BasicTypeReference@5fde1d64
+2025-08-12 08:24:01.682 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.BasicTypeReference@5350ab17
+2025-08-12 08:24:01.682 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar_time -> org.hibernate.type.BasicTypeReference@984de01
+2025-08-12 08:24:01.682 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.BasicTypeReference@58cda03f
+2025-08-12 08:24:01.682 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.BasicTypeReference@7757a37f
+2025-08-12 08:24:02.279 [main] INFO  [] [] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-12 08:24:02.665 [main] DEBUG [] [] o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@9f2fe2e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@4dd4965a)
+2025-08-12 08:24:02.665 [main] DEBUG [] [] o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@79273a4f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@4e26987b)
+2025-08-12 08:24:02.667 [main] DEBUG [] [] o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@50bb1c1f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@39342614)
+2025-08-12 08:24:02.667 [main] DEBUG [] [] o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7981963f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@31e3c34)
+2025-08-12 08:24:02.667 [main] DEBUG [] [] o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@b4d83ac) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@13d10057)
+2025-08-12 08:24:02.668 [main] DEBUG [] [] o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@66944c7c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@14993306)
+2025-08-12 08:24:02.668 [main] DEBUG [] [] o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@73ae82da) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6866e740)
+2025-08-12 08:24:02.668 [main] DEBUG [] [] o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2cd5b19c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7109b603)
+2025-08-12 08:24:02.668 [main] DEBUG [] [] o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@76b642aa) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@29b5e7db)
+2025-08-12 08:24:02.672 [main] DEBUG [] [] o.h.t.d.jdbc.spi.JdbcTypeRegistry - addDescriptor(NCharTypeDescriptor) replaced previous registration(CharTypeDescriptor)
+2025-08-12 08:24:02.672 [main] DEBUG [] [] o.h.t.d.jdbc.spi.JdbcTypeRegistry - addDescriptor(NVarcharTypeDescriptor) replaced previous registration(VarcharTypeDescriptor)
+2025-08-12 08:24:02.673 [main] DEBUG [] [] o.h.t.d.jdbc.spi.JdbcTypeRegistry - addDescriptor(LongNVarcharTypeDescriptor) replaced previous registration(LongVarcharTypeDescriptor)
+2025-08-12 08:24:02.680 [main] DEBUG [] [] o.h.t.d.jdbc.spi.JdbcTypeRegistry - addDescriptor(NClobTypeDescriptor(DEFAULT)) replaced previous registration(ClobTypeDescriptor(DEFAULT))
+2025-08-12 08:24:02.680 [main] DEBUG [] [] o.h.t.d.jdbc.spi.JdbcTypeRegistry - addDescriptor(2005, ClobTypeDescriptor(STREAM_BINDING)) replaced previous registration(ClobTypeDescriptor(DEFAULT))
+2025-08-12 08:24:02.688 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration null -> org.hibernate.type.NullType@586486c
+2025-08-12 08:24:02.689 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Type registration key [null] overrode previous entry : `org.hibernate.type.NullType@1e471884`
+2025-08-12 08:24:02.701 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.DurationType -> basicType@1(java.time.Duration,3015)
+2025-08-12 08:24:02.701 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration Duration -> basicType@1(java.time.Duration,3015)
+2025-08-12 08:24:02.702 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Duration -> basicType@1(java.time.Duration,3015)
+2025-08-12 08:24:02.710 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.OffsetDateTimeType -> basicType@2(java.time.OffsetDateTime,3003)
+2025-08-12 08:24:02.711 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTime -> basicType@2(java.time.OffsetDateTime,3003)
+2025-08-12 08:24:02.711 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> basicType@2(java.time.OffsetDateTime,3003)
+2025-08-12 08:24:02.711 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.ZonedDateTimeType -> basicType@3(java.time.ZonedDateTime,3003)
+2025-08-12 08:24:02.711 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTime -> basicType@3(java.time.ZonedDateTime,3003)
+2025-08-12 08:24:02.712 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> basicType@3(java.time.ZonedDateTime,3003)
+2025-08-12 08:24:02.714 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.OffsetTimeType -> basicType@4(java.time.OffsetTime,3007)
+2025-08-12 08:24:02.715 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTime -> basicType@4(java.time.OffsetTime,3007)
+2025-08-12 08:24:02.715 [main] DEBUG [] [] o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetTime -> basicType@4(java.time.OffsetTime,3007)
+2025-08-12 08:24:02.718 [main] DEBUG [] [] o.h.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@7a274521] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@2fa47368]
+2025-08-12 08:24:05.878 [main] INFO  [] [] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-12 08:24:05.881 [main] DEBUG [] [] o.h.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@7a274521] to SessionFactoryImplementor [org.hibernate.internal.SessionFactoryImpl@2a6871ad]
+2025-08-12 08:24:05.890 [main] TRACE [] [] o.h.type.spi.TypeConfiguration$Scope - Handling #sessionFactoryCreated from [org.hibernate.internal.SessionFactoryImpl@2a6871ad] for TypeConfiguration
+2025-08-12 08:24:05.891 [main] INFO  [] [] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-12 08:24:06.126 [main] DEBUG [] [] o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=false]
+2025-08-12 08:24:06.853 [main] DEBUG [] [] c.m.t.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-08-12 08:24:07.030 [main] INFO  [] [] c.m.tarot.controllers.CardController - CardController initialized with cardRepository: $Proxy139
+2025-08-12 08:24:07.220 [main] INFO  [] [] c.m.t.controllers.StoryController - StoryController initialized with repository: $Proxy140
+2025-08-12 08:24:07.307 [main] WARN  [] [] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-12 08:24:07.886 [main] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - 35 mappings in 'requestMappingHandlerMapping'
+2025-08-12 08:24:08.044 [main] DEBUG [] [] o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-08-12 08:24:08.170 [main] INFO  [] [] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7200702, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3eb29382, org.springframework.security.web.context.SecurityContextHolderFilter@4a5e0faf, org.springframework.security.web.header.HeaderWriterFilter@33a0b857, org.springframework.web.filter.CorsFilter@209baf91, org.springframework.security.web.authentication.logout.LogoutFilter@38a3c078, com.mercy.tarot.security.JwtAuthenticationFilter@6aa85fcf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@73cd3b8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6421d85c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e1d3188, org.springframework.security.web.session.SessionManagementFilter@6e49863e, org.springframework.security.web.access.ExceptionTranslationFilter@62a78446, org.springframework.security.web.access.intercept.AuthorizationFilter@1695f7cb]
+2025-08-12 08:24:08.362 [main] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-08-12 08:24:08.440 [main] DEBUG [] [] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-08-12 08:24:08.802 [main] INFO  [] [] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-08-12 08:24:08.961 [main] INFO  [] [] com.mercy.tarot.TarotApplication - Started TarotApplication in 16.209 seconds (process running for 18.102)
+2025-08-12 08:24:09.648 [main] DEBUG [] [] org.hibernate.SQL - select count(*) from users u1_0
+2025-08-12 08:24:09.691 [main] DEBUG [] [] org.hibernate.SQL - select count(*) from card c1_0
+2025-08-12 08:24:09.704 [main] DEBUG [] [] org.hibernate.SQL - select count(*) from tarotstoryelements tse1_0
+2025-08-12 08:24:09.846 [main] DEBUG [] [] org.hibernate.SQL - select count(*) from users u1_0
+2025-08-12 08:24:57.478 [http-nio-8080-exec-1] INFO  [] [] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-12 08:24:57.487 [http-nio-8080-exec-1] INFO  [] [] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-12 08:24:57.491 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-08-12 08:24:57.492 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-08-12 08:24:57.492 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-08-12 08:24:57.520 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@59d8a968
+2025-08-12 08:24:57.522 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@57e83608
+2025-08-12 08:24:57.523 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-08-12 08:24:57.524 [http-nio-8080-exec-1] INFO  [] [] o.s.web.servlet.DispatcherServlet - Completed initialization in 35 ms
+2025-08-12 08:24:58.238 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2025-08-12 08:24:58.244 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.AuthController#login(LoginRequest)
+2025-08-12 08:24:58.461 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [LoginRequest[email=ariosa@gmail.com, password=Innit2012!]]
+2025-08-12 08:24:59.035 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:24:59.398 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:24:59.671 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:25:00.109 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:25:00.114 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [LoginResponse[token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiYXJpb3NhQGdtYWlsLmN (truncated)...]
+2025-08-12 08:25:00.148 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:25:09.286 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:25:09.298 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:25:09.302 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:25:09.319 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:25:09.320 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2025-08-12 08:25:09.321 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.AuthController#login(LoginRequest)
+2025-08-12 08:25:09.324 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [LoginRequest[email=ariosa@gmail.com, password=Innit2012!]]
+2025-08-12 08:25:09.330 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:25:09.342 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:25:09.345 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:25:09.500 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:25:09.501 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [LoginResponse[token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiYXJpb3NhQGdtYWlsLmN (truncated)...]
+2025-08-12 08:25:09.504 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:25:20.602 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:25:20.689 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:25:20.708 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:25:20.827 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:25:20.833 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:25:20.834 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:25:20.858 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:25:20.931 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:25:20.996 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:25:20.997 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@c94bb1e]
+2025-08-12 08:25:21.007 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:25:21.024 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:25:21.037 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:25:21.045 [http-nio-8080-exec-8] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:25:21.076 [http-nio-8080-exec-8] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:25:21.078 [http-nio-8080-exec-8] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:25:21.079 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:25:21.084 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:25:21.098 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:25:21.107 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:25:21.108 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@506246cc]
+2025-08-12 08:25:21.111 [http-nio-8080-exec-8] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:30:09.849 [http-nio-8080-exec-3] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:30:09.938 [http-nio-8080-exec-3] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:30:09.955 [http-nio-8080-exec-3] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:30:09.968 [http-nio-8080-exec-3] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:30:09.973 [http-nio-8080-exec-3] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:30:09.975 [http-nio-8080-exec-3] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:30:09.994 [http-nio-8080-exec-3] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:30:10.004 [http-nio-8080-exec-3] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:30:10.015 [http-nio-8080-exec-3] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:30:10.019 [http-nio-8080-exec-3] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@2a62dea5]
+2025-08-12 08:30:10.029 [http-nio-8080-exec-3] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:30:10.048 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:30:10.057 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:30:10.059 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:30:10.107 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:30:10.114 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:30:10.117 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:30:10.189 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:30:10.341 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:30:10.482 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:30:10.484 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@19c88820]
+2025-08-12 08:30:10.493 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:31:25.287 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:31:25.332 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:31:25.544 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:31:25.636 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:31:25.639 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:31:25.640 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:31:25.652 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:31:25.674 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:31:25.716 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:31:25.718 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@4de87c0d]
+2025-08-12 08:31:25.725 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:31:25.758 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:31:25.766 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:31:25.790 [http-nio-8080-exec-8] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:31:25.806 [http-nio-8080-exec-8] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:31:25.807 [http-nio-8080-exec-8] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:31:25.807 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:31:25.810 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:31:25.856 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:31:25.860 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:31:25.861 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@591817b6]
+2025-08-12 08:31:25.862 [http-nio-8080-exec-8] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:31:29.993 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:31:30.011 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:31:30.017 [http-nio-8080-exec-1] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:31:30.033 [http-nio-8080-exec-1] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:31:30.033 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:31:30.034 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:31:30.038 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:31:30.061 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:31:30.070 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:31:30.071 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@34d904e]
+2025-08-12 08:31:30.074 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:31:30.100 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:31:30.113 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:31:30.115 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:31:30.146 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:31:30.147 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:31:30.147 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:31:30.150 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:31:30.152 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:31:30.251 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:31:30.252 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@f94f931]
+2025-08-12 08:31:30.254 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:31:32.655 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:31:32.676 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:31:32.681 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:31:32.725 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:31:32.729 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2025-08-12 08:31:32.731 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.AuthController#login(LoginRequest)
+2025-08-12 08:31:32.745 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [LoginRequest[email=ariosa@gmail.com, password=Innit2012!]]
+2025-08-12 08:31:32.762 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:31:32.770 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:31:32.804 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:31:32.955 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:31:32.956 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [LoginResponse[token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiYXJpb3NhQGdtYWlsLmN (truncated)...]
+2025-08-12 08:31:32.958 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:35:22.693 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:22.732 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:22.741 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:35:22.766 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:35:22.768 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:35:22.775 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:35:22.786 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:22.830 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:22.840 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:35:22.869 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@2399bc0c]
+2025-08-12 08:35:22.878 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:35:22.895 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:22.899 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:22.972 [http-nio-8080-exec-5] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:35:22.993 [http-nio-8080-exec-5] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:35:22.994 [http-nio-8080-exec-5] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:35:22.995 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:35:22.998 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:23.030 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:23.032 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:35:23.033 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@2e49e6e9]
+2025-08-12 08:35:23.035 [http-nio-8080-exec-5] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:35:23.527 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:23.708 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:23.790 [http-nio-8080-exec-7] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:35:23.804 [http-nio-8080-exec-7] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:35:24.227 [http-nio-8080-exec-7] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2025-08-12 08:35:24.228 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.AuthController#login(LoginRequest)
+2025-08-12 08:35:24.231 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [LoginRequest[email=ariosa@gmail.com, password=Innit2012!]]
+2025-08-12 08:35:24.236 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:25.026 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:25.028 [http-nio-8080-exec-7] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:35:25.142 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:35:25.143 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [LoginResponse[token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiYXJpb3NhQGdtYWlsLmN (truncated)...]
+2025-08-12 08:35:25.144 [http-nio-8080-exec-7] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:35:25.339 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:25.365 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:25.371 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:35:25.386 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:35:25.388 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:35:25.388 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:35:25.391 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:25.531 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:25.535 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:35:25.535 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@6405787b]
+2025-08-12 08:35:25.538 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:35:37.301 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:37.375 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:37.388 [http-nio-8080-exec-8] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:35:37.426 [http-nio-8080-exec-8] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:35:37.431 [http-nio-8080-exec-8] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:35:37.433 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:35:37.441 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:37.472 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:37.480 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:35:37.483 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@4219a7d0]
+2025-08-12 08:35:37.487 [http-nio-8080-exec-8] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:35:37.506 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:37.515 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:37.519 [http-nio-8080-exec-1] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:35:37.545 [http-nio-8080-exec-1] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:35:37.546 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:35:37.547 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:35:37.550 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:37.567 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:37.569 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:35:37.570 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@7cbc393f]
+2025-08-12 08:35:37.571 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:35:38.921 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:38.925 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:38.933 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:35:38.956 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:35:38.957 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2025-08-12 08:35:38.958 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.AuthController#login(LoginRequest)
+2025-08-12 08:35:38.969 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [LoginRequest[email=ariosa@gmail.com, password=Innit2012!]]
+2025-08-12 08:35:38.971 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:38.984 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:38.985 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:35:39.059 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:35:39.060 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [LoginResponse[token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiYXJpb3NhQGdtYWlsLmN (truncated)...]
+2025-08-12 08:35:39.061 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:35:39.094 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:39.098 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:39.099 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:35:39.113 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:35:39.115 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:35:39.116 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:35:39.118 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:35:39.120 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:35:39.132 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:35:39.133 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@6aa54890]
+2025-08-12 08:35:39.133 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:38:00.140 [HikariPool-1 housekeeper] WARN  [] [] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s720ms), soft-evicting connections from pool.
+2025-08-12 08:39:26.301 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:39:26.359 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:39:26.376 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:39:26.405 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:39:26.409 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:39:26.409 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:39:26.420 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:39:26.431 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:39:26.437 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:39:26.439 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@7ed66076]
+2025-08-12 08:39:26.450 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:39:26.475 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:39:26.495 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:39:26.497 [http-nio-8080-exec-5] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:39:26.563 [http-nio-8080-exec-5] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:39:26.564 [http-nio-8080-exec-5] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:39:26.564 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:39:26.567 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:39:26.589 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:39:26.593 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:39:26.594 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@4e58c488]
+2025-08-12 08:39:26.596 [http-nio-8080-exec-5] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:39:27.220 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:39:27.285 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:39:27.289 [http-nio-8080-exec-7] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:39:27.330 [http-nio-8080-exec-7] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:39:27.332 [http-nio-8080-exec-7] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2025-08-12 08:39:27.343 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.AuthController#login(LoginRequest)
+2025-08-12 08:39:27.347 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [LoginRequest[email=ariosa@gmail.com, password=Innit2012!]]
+2025-08-12 08:39:27.354 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:39:27.392 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:39:27.486 [http-nio-8080-exec-7] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:39:27.617 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:39:27.625 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [LoginResponse[token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiYXJpb3NhQGdtYWlsLmN (truncated)...]
+2025-08-12 08:39:27.633 [http-nio-8080-exec-7] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:39:27.805 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:39:27.825 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:39:27.835 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:39:27.860 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:39:27.861 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:39:27.862 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:39:27.865 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:39:27.882 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:39:27.918 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:39:27.919 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@1f91b623]
+2025-08-12 08:39:27.922 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:40:49.588 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:40:49.668 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:40:49.691 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:40:49.728 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:40:49.739 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:40:49.744 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:40:49.756 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:40:49.839 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:40:49.844 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:40:49.846 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@562a58af]
+2025-08-12 08:40:49.852 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:40:49.875 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:40:49.878 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:40:49.898 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:40:49.933 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:40:49.986 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:40:49.986 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:40:49.990 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:40:49.993 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:40:50.000 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:40:50.001 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@4bb0ffe6]
+2025-08-12 08:40:50.008 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:40:50.306 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:40:50.379 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:40:50.421 [http-nio-8080-exec-10] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:40:50.529 [http-nio-8080-exec-10] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:40:50.546 [http-nio-8080-exec-10] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2025-08-12 08:40:50.547 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.AuthController#login(LoginRequest)
+2025-08-12 08:40:50.574 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [LoginRequest[email=ariosa@gmail.com, password=Innit2012!]]
+2025-08-12 08:40:50.622 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:40:50.661 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:40:50.663 [http-nio-8080-exec-10] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:40:50.792 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:40:50.793 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [LoginResponse[token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiYXJpb3NhQGdtYWlsLmN (truncated)...]
+2025-08-12 08:40:50.798 [http-nio-8080-exec-10] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:40:50.883 [http-nio-8080-exec-3] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:40:50.900 [http-nio-8080-exec-3] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:40:50.934 [http-nio-8080-exec-3] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:40:50.976 [http-nio-8080-exec-3] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:40:50.977 [http-nio-8080-exec-3] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:40:50.978 [http-nio-8080-exec-3] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:40:50.981 [http-nio-8080-exec-3] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:40:50.994 [http-nio-8080-exec-3] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:40:51.002 [http-nio-8080-exec-3] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:40:51.002 [http-nio-8080-exec-3] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@7eaa9025]
+2025-08-12 08:40:51.127 [http-nio-8080-exec-3] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:41:37.675 [http-nio-8080-exec-4] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 08:41:37.917 [http-nio-8080-exec-5] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 08:41:38.961 [http-nio-8080-exec-7] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 08:41:39.555 [http-nio-8080-exec-6] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 08:41:43.683 [http-nio-8080-exec-8] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 08:41:43.711 [http-nio-8080-exec-1] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 08:41:45.685 [http-nio-8080-exec-9] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 08:41:45.769 [http-nio-8080-exec-2] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 08:41:57.875 [http-nio-8080-exec-4] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 08:41:57.893 [http-nio-8080-exec-5] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 08:42:11.814 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:42:11.852 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:42:11.870 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:42:11.893 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:42:11.894 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/spread/parallel/weighted/4", parameters={}
+2025-08-12 08:42:11.894 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.CardController#getSpreadParallelWeighted(int)
+2025-08-12 08:42:12.053 [http-nio-8080-exec-6] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle requested for 4 cards
+2025-08-12 08:42:12.054 [http-nio-8080-exec-6] DEBUG [] [] c.m.tarot.controllers.CardController - Getting 4 random cards with weighted reversal using parallel shuffle
+2025-08-12 08:42:12.280 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select c1_0.id,c1_0.card_description,c1_0.card_value,c1_0.major,c1_0.reversed_description,c1_0.story,c1_0.suit,c1_0.title from card c1_0
+2025-08-12 08:42:14.759 [http-nio-8080-exec-6] DEBUG [] [] c.m.tarot.controllers.CardController - Retrieved 78 total cards from repository for parallel weighted shuffle
+2025-08-12 08:42:14.760 [http-nio-8080-exec-6] DEBUG [] [] c.m.tarot.controllers.CardController - Starting parallel shuffle for 78 cards
+2025-08-12 08:42:14.761 [http-nio-8080-exec-6] DEBUG [] [] c.m.tarot.controllers.CardController - Using 8 threads with segment size: 9
+2025-08-12 08:42:14.838 [http-nio-8080-exec-6] DEBUG [] [] c.m.tarot.controllers.CardController - Parallel shuffle completed in 77ms for 78 cards
+2025-08-12 08:42:14.842 [http-nio-8080-exec-6] DEBUG [] [] c.m.tarot.controllers.CardController - Selecting 4 cards with parallel weighted reversal (requested: 4, available: 78)
+2025-08-12 08:42:14.862 [http-nio-8080-exec-6] INFO  [] [] c.m.tarot.controllers.CardController - Successfully generated 4 weighted reversal cards using parallel shuffle
+2025-08-12 08:42:14.863 [http-nio-8080-exec-6] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle completed - 4 cards drawn
+2025-08-12 08:42:14.950 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:42:14.951 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.mercy.tarot.dto.CardDTO@776d1f7f, com.mercy.tarot.dto.CardDTO@32742888, com.mercy.tarot.dto.Car (truncated)...]
+2025-08-12 08:42:14.989 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:42:20.498 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:42:20.509 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:42:20.517 [http-nio-8080-exec-1] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:42:20.544 [http-nio-8080-exec-1] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:42:20.545 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/spread/parallel/weighted/5", parameters={}
+2025-08-12 08:42:20.546 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.CardController#getSpreadParallelWeighted(int)
+2025-08-12 08:42:20.548 [http-nio-8080-exec-1] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle requested for 5 cards
+2025-08-12 08:42:20.549 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Getting 5 random cards with weighted reversal using parallel shuffle
+2025-08-12 08:42:20.578 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select c1_0.id,c1_0.card_description,c1_0.card_value,c1_0.major,c1_0.reversed_description,c1_0.story,c1_0.suit,c1_0.title from card c1_0
+2025-08-12 08:42:20.598 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Retrieved 78 total cards from repository for parallel weighted shuffle
+2025-08-12 08:42:20.599 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Starting parallel shuffle for 78 cards
+2025-08-12 08:42:20.599 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Using 8 threads with segment size: 9
+2025-08-12 08:42:20.603 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Parallel shuffle completed in 4ms for 78 cards
+2025-08-12 08:42:20.624 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Selecting 5 cards with parallel weighted reversal (requested: 5, available: 78)
+2025-08-12 08:42:20.625 [http-nio-8080-exec-1] INFO  [] [] c.m.tarot.controllers.CardController - Successfully generated 5 weighted reversal cards using parallel shuffle
+2025-08-12 08:42:20.625 [http-nio-8080-exec-1] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle completed - 5 cards drawn
+2025-08-12 08:42:20.625 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:42:20.634 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.mercy.tarot.dto.CardDTO@4d73698c, com.mercy.tarot.dto.CardDTO@4cd103b2, com.mercy.tarot.dto.Car (truncated)...]
+2025-08-12 08:42:20.637 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:42:28.833 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:42:28.840 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:42:28.854 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:42:28.922 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:42:28.923 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/spread/parallel/weighted/7", parameters={}
+2025-08-12 08:42:28.924 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.CardController#getSpreadParallelWeighted(int)
+2025-08-12 08:42:28.924 [http-nio-8080-exec-2] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle requested for 7 cards
+2025-08-12 08:42:28.925 [http-nio-8080-exec-2] DEBUG [] [] c.m.tarot.controllers.CardController - Getting 7 random cards with weighted reversal using parallel shuffle
+2025-08-12 08:42:28.931 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select c1_0.id,c1_0.card_description,c1_0.card_value,c1_0.major,c1_0.reversed_description,c1_0.story,c1_0.suit,c1_0.title from card c1_0
+2025-08-12 08:42:28.963 [http-nio-8080-exec-2] DEBUG [] [] c.m.tarot.controllers.CardController - Retrieved 78 total cards from repository for parallel weighted shuffle
+2025-08-12 08:42:28.963 [http-nio-8080-exec-2] DEBUG [] [] c.m.tarot.controllers.CardController - Starting parallel shuffle for 78 cards
+2025-08-12 08:42:28.963 [http-nio-8080-exec-2] DEBUG [] [] c.m.tarot.controllers.CardController - Using 8 threads with segment size: 9
+2025-08-12 08:42:28.965 [http-nio-8080-exec-2] DEBUG [] [] c.m.tarot.controllers.CardController - Parallel shuffle completed in 2ms for 78 cards
+2025-08-12 08:42:28.965 [http-nio-8080-exec-2] DEBUG [] [] c.m.tarot.controllers.CardController - Selecting 7 cards with parallel weighted reversal (requested: 7, available: 78)
+2025-08-12 08:42:28.974 [http-nio-8080-exec-2] INFO  [] [] c.m.tarot.controllers.CardController - Successfully generated 7 weighted reversal cards using parallel shuffle
+2025-08-12 08:42:28.974 [http-nio-8080-exec-2] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle completed - 7 cards drawn
+2025-08-12 08:42:28.975 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:42:28.976 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.mercy.tarot.dto.CardDTO@4e80181d, com.mercy.tarot.dto.CardDTO@c1f520b, com.mercy.tarot.dto.Card (truncated)...]
+2025-08-12 08:42:28.978 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:42:32.504 [http-nio-8080-exec-3] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:42:32.513 [http-nio-8080-exec-3] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:42:32.517 [http-nio-8080-exec-3] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:42:32.552 [http-nio-8080-exec-3] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:42:32.554 [http-nio-8080-exec-3] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/story/getStoryDTO", parameters={}
+2025-08-12 08:42:32.577 [http-nio-8080-exec-3] DEBUG [] [] o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-12 08:42:32.662 [http-nio-8080-exec-3] DEBUG [] [] o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2025-08-12 08:42:32.732 [http-nio-8080-exec-3] DEBUG [] [] o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/story/getStoryDTO.]
+2025-08-12 08:42:32.733 [http-nio-8080-exec-3] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+2025-08-12 08:42:32.909 [http-nio-8080-exec-3] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 08:46:58.208 [http-nio-8080-exec-7] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2025-08-12 08:46:58.221 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.AuthController#login(LoginRequest)
+2025-08-12 08:46:58.284 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [LoginRequest[email=ariosa@gmail.com, password=Innit2012!]]
+2025-08-12 08:46:58.350 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:46:58.448 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:46:58.462 [http-nio-8080-exec-7] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:46:58.588 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:46:58.589 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [LoginResponse[token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiYXJpb3NhQGdtYWlsLmN (truncated)...]
+2025-08-12 08:46:58.594 [http-nio-8080-exec-7] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:46:58.659 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:46:58.685 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:46:58.686 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:46:58.737 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:46:58.740 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 08:46:58.740 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 08:46:58.768 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:46:58.779 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:46:58.794 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:46:58.794 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@29f33dff]
+2025-08-12 08:46:58.799 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 08:47:02.891 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 08:47:02.895 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 08:47:02.909 [http-nio-8080-exec-1] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 08:47:02.952 [http-nio-8080-exec-1] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 08:47:02.953 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/spread/parallel/weighted/3", parameters={}
+2025-08-12 08:47:02.954 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.CardController#getSpreadParallelWeighted(int)
+2025-08-12 08:47:02.956 [http-nio-8080-exec-1] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle requested for 3 cards
+2025-08-12 08:47:02.956 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Getting 3 random cards with weighted reversal using parallel shuffle
+2025-08-12 08:47:02.969 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select c1_0.id,c1_0.card_description,c1_0.card_value,c1_0.major,c1_0.reversed_description,c1_0.story,c1_0.suit,c1_0.title from card c1_0
+2025-08-12 08:47:03.033 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Retrieved 78 total cards from repository for parallel weighted shuffle
+2025-08-12 08:47:03.034 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Starting parallel shuffle for 78 cards
+2025-08-12 08:47:03.035 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Using 8 threads with segment size: 9
+2025-08-12 08:47:03.037 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Parallel shuffle completed in 3ms for 78 cards
+2025-08-12 08:47:03.037 [http-nio-8080-exec-1] DEBUG [] [] c.m.tarot.controllers.CardController - Selecting 3 cards with parallel weighted reversal (requested: 3, available: 78)
+2025-08-12 08:47:03.037 [http-nio-8080-exec-1] INFO  [] [] c.m.tarot.controllers.CardController - Successfully generated 3 weighted reversal cards using parallel shuffle
+2025-08-12 08:47:03.038 [http-nio-8080-exec-1] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle completed - 3 cards drawn
+2025-08-12 08:47:03.039 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 08:47:03.039 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.mercy.tarot.dto.CardDTO@29b32f, com.mercy.tarot.dto.CardDTO@1aa750da, com.mercy.tarot.dto.CardD (truncated)...]
+2025-08-12 08:47:03.041 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 09:00:44.519 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 09:00:44.703 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 09:00:44.767 [http-nio-8080-exec-10] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 09:00:44.836 [http-nio-8080-exec-10] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 09:00:44.876 [http-nio-8080-exec-10] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/story/getStoryDTO", parameters={}
+2025-08-12 09:00:44.895 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-12 09:00:45.198 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2025-08-12 09:00:45.207 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/story/getStoryDTO.]
+2025-08-12 09:00:45.216 [http-nio-8080-exec-10] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+2025-08-12 09:00:45.231 [http-nio-8080-exec-10] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 09:11:24.136 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2025-08-12 09:11:24.176 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.AuthController#login(LoginRequest)
+2025-08-12 09:11:24.316 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [LoginRequest[email=ariosa@gmail.com, password=Innit2012!]]
+2025-08-12 09:11:24.649 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 09:11:25.498 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 09:11:25.550 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 09:11:25.750 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 09:11:25.755 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [LoginResponse[token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiYXJpb3NhQGdtYWlsLmN (truncated)...]
+2025-08-12 09:11:25.778 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 09:11:26.057 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 09:11:26.141 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 09:11:26.154 [http-nio-8080-exec-5] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 09:11:26.210 [http-nio-8080-exec-5] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 09:11:26.213 [http-nio-8080-exec-5] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-12 09:11:26.215 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-12 09:11:26.220 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 09:11:26.228 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 09:11:26.239 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 09:11:26.239 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@2a975a71]
+2025-08-12 09:11:26.243 [http-nio-8080-exec-5] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 09:11:28.696 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 09:11:28.711 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 09:11:28.736 [http-nio-8080-exec-7] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 09:11:29.035 [http-nio-8080-exec-7] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 09:11:29.045 [http-nio-8080-exec-7] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/spread/parallel/weighted/3", parameters={}
+2025-08-12 09:11:29.051 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.CardController#getSpreadParallelWeighted(int)
+2025-08-12 09:11:29.071 [http-nio-8080-exec-7] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle requested for 3 cards
+2025-08-12 09:11:29.072 [http-nio-8080-exec-7] DEBUG [] [] c.m.tarot.controllers.CardController - Getting 3 random cards with weighted reversal using parallel shuffle
+2025-08-12 09:11:29.204 [http-nio-8080-exec-7] DEBUG [] [] org.hibernate.SQL - select c1_0.id,c1_0.card_description,c1_0.card_value,c1_0.major,c1_0.reversed_description,c1_0.story,c1_0.suit,c1_0.title from card c1_0
+2025-08-12 09:11:29.547 [http-nio-8080-exec-7] DEBUG [] [] c.m.tarot.controllers.CardController - Retrieved 78 total cards from repository for parallel weighted shuffle
+2025-08-12 09:11:29.547 [http-nio-8080-exec-7] DEBUG [] [] c.m.tarot.controllers.CardController - Starting parallel shuffle for 78 cards
+2025-08-12 09:11:29.547 [http-nio-8080-exec-7] DEBUG [] [] c.m.tarot.controllers.CardController - Using 8 threads with segment size: 9
+2025-08-12 09:11:31.038 [http-nio-8080-exec-7] DEBUG [] [] c.m.tarot.controllers.CardController - Parallel shuffle completed in 1491ms for 78 cards
+2025-08-12 09:11:31.041 [http-nio-8080-exec-7] DEBUG [] [] c.m.tarot.controllers.CardController - Selecting 3 cards with parallel weighted reversal (requested: 3, available: 78)
+2025-08-12 09:11:31.042 [http-nio-8080-exec-7] INFO  [] [] c.m.tarot.controllers.CardController - Successfully generated 3 weighted reversal cards using parallel shuffle
+2025-08-12 09:11:31.043 [http-nio-8080-exec-7] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle completed - 3 cards drawn
+2025-08-12 09:11:31.071 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-12 09:11:31.176 [http-nio-8080-exec-7] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.mercy.tarot.dto.CardDTO@2fe7307c, com.mercy.tarot.dto.CardDTO@ec0cfd4, com.mercy.tarot.dto.Card (truncated)...]
+2025-08-12 09:11:31.212 [http-nio-8080-exec-7] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-12 09:11:33.889 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-12 09:11:33.948 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-12 09:11:34.045 [http-nio-8080-exec-8] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-12 09:11:34.080 [http-nio-8080-exec-8] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-12 09:11:34.082 [http-nio-8080-exec-8] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/getStoryDTO", parameters={}
+2025-08-12 09:11:34.084 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-12 09:11:34.117 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2025-08-12 09:11:34.130 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource getStoryDTO.]
+2025-08-12 09:11:34.133 [http-nio-8080-exec-8] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+2025-08-12 09:11:34.139 [http-nio-8080-exec-8] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-12 09:12:03.809 [SpringApplicationShutdownHook] INFO  [] [] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-12 09:12:03.833 [SpringApplicationShutdownHook] TRACE [] [] o.h.type.spi.TypeConfiguration$Scope - Handling #sessionFactoryClosed from [org.hibernate.internal.SessionFactoryImpl@2a6871ad] for TypeConfiguration
+2025-08-12 09:12:03.833 [SpringApplicationShutdownHook] DEBUG [] [] o.h.type.spi.TypeConfiguration$Scope - Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@ad038cc] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@2a6871ad]
+2025-08-12 09:12:03.839 [SpringApplicationShutdownHook] INFO  [] [] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-12 09:12:03.849 [SpringApplicationShutdownHook] INFO  [] [] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
