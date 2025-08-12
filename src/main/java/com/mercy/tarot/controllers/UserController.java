@@ -27,6 +27,8 @@ public class UserController {
 
     private final UserService userService;
 
+    private final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(UserController.class);
+
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -35,15 +37,31 @@ public class UserController {
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<UserProfileDTO> getCurrentUser(Authentication authentication) {
         try {
-            User currentUser = (User) authentication.getPrincipal();
+            if (authentication == null || !authentication.isAuthenticated()) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            }
+
+            // Get the username from authentication
+            String username = authentication.getName();
+
+            // Load the full user details from your service
+            User currentUser = userService.findByEmail(username)
+                    .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
             UserProfileDTO profileDto = new UserProfileDTO(
                     currentUser.getId(),
                     currentUser.getName(),
                     currentUser.getEmail(),
-                    currentUser.getRoles().stream().map(Enum::name).collect(Collectors.toSet()));
+                    currentUser.getRoles().stream()
+                            .map(Enum::name)
+                            .collect(Collectors.toSet()));
+
             return ResponseEntity.ok(profileDto);
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.notFound().build();
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            logger.error("Error getting current user", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useState } from 'react'
-import { useAuth } from '../hooks/useAuth'
+import apiService from '../services/api'
 import { TarotStoryElementsDTO } from '../types'
 import StoryPrompt from './StoryPrompt'
 
@@ -9,7 +9,6 @@ const StoryContainer: React.FC = () => {
     useState<TarotStoryElementsDTO | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
-  const { authFetch } = useAuth() // Get the authFetch function from your auth context
 
   const handleGenerateStory = async () => {
     setLoading(true)
@@ -26,7 +25,7 @@ const StoryContainer: React.FC = () => {
       }
 
       // Using authFetch instead of regular fetch
-      const response = await authFetch('/getStoryDTO', {
+      const response = await apiService.story.getStoryDTO({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

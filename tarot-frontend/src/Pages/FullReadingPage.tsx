@@ -25,7 +25,11 @@ export function FullReadingPage() {
     handleSpreadTypeChange,
     setCount,
   } = useOutletContext<AppContextType>()
+  const context = useOutletContext<AppContextType>()
 
+  if (!context) {
+    return <div>Loading or error message...</div>
+  }
   return (
     <div className='w-full' id='app'>
       <SpreadSelector

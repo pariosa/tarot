@@ -1,25 +1,28 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // src/context/AuthContext.tsx
 import * as React from 'react'
 import {
   ReactNode,
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useState,
 } from 'react'
+import apiService from '../services/api'
 import { User } from '../types/User.types'
 
 interface AuthContextType {
   user: User | null
   loading: boolean
   token: string | null
-  authFetch: (url: string, options?: RequestInit) => Promise<Response>
+  isAuthenticated: boolean
   register: (
     email: string,
     password: string,
     name: string
   ) => Promise<AuthResult>
-  login: (email: string, password: string) => Promise<void>
+  login: (email: string, password: string) => Promise<LoginResponse>
   logout: () => Promise<void>
   checkAuth: () => Promise<void>
 }
@@ -30,7 +33,10 @@ interface AuthResult {
   user?: User
 }
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/api'
+interface LoginResponse {
+  token: string
+  user: User
+}
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
@@ -38,68 +44,38 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const [token, setToken] = useState<string | null>(null)
-  // Check authentication status on initial load
+
+  // Constants
+  const AUTH_TOKEN_KEY = 'tarot_app_auth_token'
+  const isAuthenticated = !!token && !!user
+
+  // Initialize auth state
   useEffect(() => {
     checkAuth()
   }, [])
-  useEffect(() => {
-    const storedToken = localStorage.getItem('jwt')
-    if (storedToken) {
-      validateToken(storedToken)
-    } else {
-      setLoading(false)
-    }
-  }, [])
-  const validateToken = async (token: string) => {
-    try {
-      const response = await fetch(`${API_URL}/auth/validate`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
 
-      if (response.ok) {
-        const userData = await response.json()
-        setUser(userData)
-        setToken(token)
-      } else {
-        logout()
-      }
-    } catch (error) {
-      logout()
-    } finally {
-      setLoading(false)
-    }
-  }
-  const checkAuth = async () => {
+  // Core authentication functions
+  const checkAuth = useCallback(async () => {
     try {
-      const token = localStorage.getItem('jwt')
-      if (!token) {
+      setLoading(true)
+      const storedToken = localStorage.getItem(AUTH_TOKEN_KEY)
+
+      if (!storedToken) {
         setLoading(false)
         return
       }
 
-      const response = await fetch(`${API_URL}/auth/me`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-
-      if (response.ok) {
-        const userData = await response.json()
-        setUser(userData)
-      } else {
-        localStorage.removeItem('jwt')
-        setUser(null)
-      }
+      // Verify token by fetching user data
+      const response = await apiService.users.getMe()
+      setUser(response.data)
+      setToken(storedToken)
     } catch (error) {
-      console.error('Authentication check failed:', error)
-      localStorage.removeItem('jwt')
-      setUser(null)
+      console.error('Auth check failed:', error)
+      await logout()
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
 
   const register = async (
     email: string,
@@ -108,16 +84,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   ): Promise<AuthResult> => {
     try {
       // Check if email exists
-      const emailCheck = await fetch(
-        `${API_URL}/users/check-email?email=${encodeURIComponent(email)}`
-      )
-
-      if (!emailCheck.ok) {
-        throw new Error('Email check failed')
-      }
-
-      const emailData = await emailCheck.json()
-      if (emailData.exists) {
+      const emailExists = await apiService.users.checkEmailExists(email)
+      if (emailExists) {
         return {
           success: false,
           message: 'Email already registered',
@@ -125,21 +93,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
 
       // Register new user
-      const registerResponse = await fetch(`${API_URL}/auth/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password, name }),
+      const response = await apiService.auth.register({
+        email,
+        password,
+        name,
       })
+      const { token, user } = response.data
 
-      if (!registerResponse.ok) {
-        const errorData = await registerResponse.json()
-        throw new Error(errorData.message || 'Registration failed')
-      }
-
-      const { token, user } = await registerResponse.json()
-      localStorage.setItem('jwt', token)
+      localStorage.setItem(AUTH_TOKEN_KEY, token)
+      setToken(token)
       setUser(user)
 
       return {
@@ -147,42 +109,28 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         message: 'Registration successful',
         user,
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Registration error:', error)
       return {
         success: false,
-        message: error instanceof Error ? error.message : 'Registration failed',
+        message: error.response?.data?.message || 'Registration failed',
       }
     }
   }
-  const authFetch = async (url: string, options: RequestInit = {}) => {
-    const headers = {
-      ...options.headers,
-      Authorization: `Bearer ${token}`,
-    }
 
-    return fetch(`${API_URL}${url}`, { ...options, headers })
-  }
-
-  const login = async (email: string, password: string): Promise<void> => {
+  const login = async (
+    email: string,
+    password: string
+  ): Promise<LoginResponse> => {
     try {
-      const response = await fetch(`${API_URL}/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      })
+      const response = await apiService.auth.login({ email, password })
+      const { token, user } = response.data
 
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.message || 'Login failed')
-      }
-
-      const { token, user } = await response.json()
-      localStorage.setItem('jwt', token)
+      localStorage.setItem(AUTH_TOKEN_KEY, token)
       setToken(token)
       setUser(user)
+
+      return { token, user }
     } catch (error) {
       console.error('Login error:', error)
       throw error
@@ -191,27 +139,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const logout = async (): Promise<void> => {
     try {
-      // Optional: Call backend logout if needed
-      await fetch(`${API_URL}/auth/logout`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        },
-      })
+      // Only attempt backend logout if we have a token
+      if (token) {
+        await apiService.auth.logout()
+      }
     } catch (error) {
       console.error('Logout error:', error)
     } finally {
-      localStorage.removeItem('jwt')
+      localStorage.removeItem(AUTH_TOKEN_KEY)
+      setToken(null)
       setUser(null)
     }
   }
 
+  // Context value
   const value = {
     user,
     loading,
-    register,
     token,
-    authFetch,
+    isAuthenticated,
+    register,
     login,
     logout,
     checkAuth,

@@ -23,7 +23,9 @@ export function LoginPage() {
     setIsLoading(true)
 
     try {
-      await login(email, password)
+      const { token, user } = await login(email, password)
+      console.log('Login successful, token:', token)
+      console.log('user', user)
       navigate(from, { replace: true })
     } catch (err) {
       let errorMessage = 'Login failed'

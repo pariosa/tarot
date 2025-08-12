@@ -1,20 +1,14 @@
-// src/components/ProtectedRoute.tsx
 import * as React from 'react'
-import { Navigate, useLocation } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 
-export const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
-  const { user, loading } = useAuth()
-  const location = useLocation()
+export function ProtectedRoute() {
+  const { isAuthenticated } = useAuth()
 
-  if (loading) {
-    return <div>Loading...</div> // Or a nice loading spinner
+  if (!isAuthenticated) {
+    return <Navigate to='/login' />
   }
 
-  if (!user) {
-    return <Navigate to='/login' state={{ from: location }} replace />
-  }
-
-  return children
+  // This forwards the context from the parent Outlet
+  return <Outlet />
 }
-export default ProtectedRoute

@@ -21,109 +21,128 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.mercy.tarot.security.JwtAuthenticationFilter;
 
+import jakarta.servlet.http.HttpServletResponse;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
-    private final UserDetailsService userDetailsService;
+        private final JwtAuthenticationFilter jwtAuthenticationFilter;
+        private final UserDetailsService userDetailsService;
 
-    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter,
-            UserDetailsService userDetailsService) {
-        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-        this.userDetailsService = userDetailsService;
-    }
+        private final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(SecurityConfig.class);
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .csrf(AbstractHttpConfigurer::disable)
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(authz -> authz
-                        // Public endpoints
-                        .requestMatchers(
-                                "/api/auth/**",
-                                "/api/users",
-                                "/actuator/health",
-                                "/api/users/check-email**",
-                                "/api/public/**",
-                                "/api/cards/daily",
-                                "/api/spread/weighted/**",
-                                "/api/spread/parallel/weighted/**",
-                                "/api/draw/parallel",
-                                "/api/draw/parallel/weighted",
-                                "/api/story/location",
-                                "/api/story/character-trait",
-                                "/api/story/theme",
-                                "/api/story/keyword",
-                                "/api/story/moral-value",
-                                "/api/story/point-of-view",
-                                "/api/story/style",
-                                "/api/story/climax-event",
-                                "/api/getStoryDTO",
-                                "/api/getRandomKeyword")
-                        .permitAll()
+        public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter,
+                        UserDetailsService userDetailsService) {
+                this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+                this.userDetailsService = userDetailsService;
+        }
 
-                        // User role endpoints
-                        .requestMatchers(
-                                "/api/cards/**",
-                                "/api/readings/**",
-                                "/api/spread/parallel/**",
-                                "/api/users/me",
-                                "/api/users/**")
-                        .hasRole("USER")
+        @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+                http
+                                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                                .csrf(AbstractHttpConfigurer::disable)
+                                .headers(headers -> headers
+                                                .httpStrictTransportSecurity(hsts -> hsts
+                                                                .includeSubDomains(true)
+                                                                .preload(true)
+                                                                .maxAgeInSeconds(31536000))
+                                                .contentSecurityPolicy(csp -> csp
+                                                                .policyDirectives("default-src 'self'"))
+                                                .frameOptions(frame -> frame
+                                                                .sameOrigin()))
+                                .sessionManagement(session -> session
+                                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                                .authorizeHttpRequests(authz -> authz
+                                                // Public endpoints
+                                                .requestMatchers(
+                                                                "/api/auth/**",
+                                                                "/api/users",
+                                                                "/actuator/health",
+                                                                "/api/users/check-email**",
+                                                                "/api/public/**",
+                                                                "/api/cards/daily",
+                                                                "/api/spread/weighted/**",
+                                                                "/api/spread/parallel/weighted/**",
+                                                                "/api/draw/parallel",
+                                                                "/api/draw/parallel/weighted",
+                                                                "/api/story/location",
+                                                                "/api/story/character-trait",
+                                                                "/api/story/theme",
+                                                                "/api/story/keyword",
+                                                                "/api/story/moral-value",
+                                                                "/api/story/point-of-view",
+                                                                "/api/story/style",
+                                                                "/api/story/climax-event",
+                                                                "/api/getStoryDTO",
+                                                                "/api/getRandomKeyword")
+                                                .permitAll()
 
-                        // Premium role endpoints
-                        .requestMatchers(
-                                "/api/story/full-reading/**",
-                                "/api/story/complete-element/**")
-                        .hasRole("PREMIUM")
+                                                // User role endpoints
+                                                .requestMatchers(
+                                                                "/api/cards/**",
+                                                                "/api/readings/**",
+                                                                "/api/spread/parallel/**",
+                                                                "/api/users/me",
+                                                                "/api/users/**")
+                                                .hasRole("USER")
 
-                        // Admin role endpoints
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                                                // Premium role endpoints
+                                                .requestMatchers(
+                                                                "/api/story/full-reading/**",
+                                                                "/api/story/complete-element/**")
+                                                .hasRole("PREMIUM")
 
-                        .anyRequest().authenticated())
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                                                // Admin role endpoints
+                                                .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
-        return http.build();
-    }
+                                                .anyRequest().authenticated())
+                                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                                .exceptionHandling(exception -> exception
+                                                .authenticationEntryPoint((request, response, authException) -> {
+                                                        log.error("Authentication error: {}",
+                                                                        authException.getMessage());
+                                                        response.setContentType("application/json");
+                                                        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                                                        response.getWriter().write(
+                                                                        "{\"error\":\"Unauthorized\",\"message\":\"Invalid or missing authentication token\"}");
+                                                }));
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of(
-                "http://localhost:5173", // Your local frontend
-                "https://yourproductiondomain.com" // Production domain
-        ));
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
-        configuration.setAllowedHeaders(List.of(
-                "Authorization",
-                "Content-Type",
-                "X-Requested-With",
-                "Accept",
-                "Origin",
-                "Access-Control-Request-Method",
-                "Access-Control-Request-Headers"));
-        configuration.setExposedHeaders(List.of(
-                "Access-Control-Allow-Origin",
-                "Access-Control-Allow-Credentials"));
-        configuration.setAllowCredentials(true);
-        configuration.setMaxAge(3600L); // 1 hour cache
+                return http.build();
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
+        }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+        @Bean
+        CorsConfigurationSource corsConfigurationSource() {
+                CorsConfiguration configuration = new CorsConfiguration();
+                configuration.setAllowedOrigins(List.of(
+                                "http://localhost:5173",
+                                "https://yourproductiondomain.com"));
+                configuration.setAllowedMethods(List.of("*"));
+                configuration.setAllowedHeaders(List.of("*"));
+                configuration.setExposedHeaders(List.of(
+                                "Authorization",
+                                "Content-Disposition",
+                                "Content-Type",
+                                "Access-Control-Allow-Origin",
+                                "Access-Control-Allow-Credentials"));
+                configuration.setAllowCredentials(true);
+                configuration.setMaxAge(3600L);
 
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
-    }
+                UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+                source.registerCorsConfiguration("/**", configuration);
+                return source;
+        }
+
+        @Bean
+        public PasswordEncoder passwordEncoder() {
+                return new BCryptPasswordEncoder();
+        }
+
+        @Bean
+        public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+                return config.getAuthenticationManager();
+        }
+
 }

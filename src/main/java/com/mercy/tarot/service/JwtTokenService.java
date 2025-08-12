@@ -1,12 +1,17 @@
 package com.mercy.tarot.service;
 
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -18,26 +23,37 @@ import io.jsonwebtoken.security.Keys;
 
 @Service
 public class JwtTokenService {
+    private static final Logger logger = LoggerFactory.getLogger(JwtTokenService.class);
+    private final Key secretKey;
+    private final long jwtExpirationMs;
 
-    private static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60; // 5 hours in seconds
-    private final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    public JwtTokenService(
+            @Value("${jwt.secret}") String secret,
+            @Value("${jwt.expiration}") long jwtExpirationMs) {
+        this.secretKey = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
+        this.jwtExpirationMs = jwtExpirationMs;
+    }
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("roles", userDetails.getAuthorities().stream()
+        List<String> roles = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.toList()));
-        return doGenerateToken(claims, userDetails.getUsername());
-    }
+                .collect(Collectors.toList());
 
-    private String doGenerateToken(Map<String, Object> claims, String subject) {
+        claims.put("roles", roles);
+
         return Jwts.builder()
                 .setClaims(claims)
-                .setSubject(subject)
+                .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
-                .signWith(secretKey)
+                .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationMs))
+                .signWith(secretKey, SignatureAlgorithm.HS256)
                 .compact();
+    }
+
+    private Key getSigningKey() {
+        byte[] keyBytes = secretKey.getEncoded();
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
     public String getUsername(String token) {

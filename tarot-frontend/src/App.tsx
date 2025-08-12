@@ -2,41 +2,35 @@ import * as React from 'react'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { CardType } from './Components/Card'
-import { useAuth } from './hooks/useAuth'
 import { PageWrapper } from './layouts/PageWrapper'
+import apiService from './services/api'
 
 function App() {
   const [count, setCount] = useState<number>(0)
   const [cards, setCards] = useState<CardType[]>([])
   const [activeSpreadType, setActiveSpreadType] = useState<string>('none')
 
-  const { authFetch } = useAuth()
-
   const setCardsFlipped = (flipped: boolean) => {
     console.log('setCardFlipped', flipped)
   }
 
-  function fetchTarotSpread(num: number) {
+  async function fetchTarotSpread(num: number) {
     setCardsFlipped(true)
 
     const myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
 
-    authFetch(`/spread/parallel/weighted/${num}`)
-      .then((response) => response.body as ReadableStream<Uint8Array>)
-      .then(async (data) => {
-        const reader = data.getReader()
-        const { value } = await reader.read()
-        const decodedText = new TextDecoder().decode(value)
-        const jsonData: CardType[] = JSON.parse(decodedText)
-
-        setCards(jsonData)
-        localStorage.setItem(
-          'cardsDrawn',
-          JSON.stringify(jsonData.map((card) => card.name))
-        )
-      })
-      .catch(console.error)
+    try {
+      const response = await apiService.spread.weightedParallelSpread(num)
+      const jsonData: CardType[] = response.data // Axios stores data in `.data`
+      setCards(jsonData)
+      localStorage.setItem(
+        'cardsDrawn',
+        JSON.stringify(jsonData.map((card) => card.name))
+      )
+    } catch (error) {
+      console.error('Failed to fetch tarot spread:', error)
+    }
   }
 
   const handleSpreadTypeChange = (value: string, count: number) => {

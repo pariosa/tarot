@@ -2,6 +2,8 @@ package com.mercy.tarot.security;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,6 +25,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtTokenService jwtTokenService;
     private final UserDetailsService userDetailsService;
 
+    private final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class); // Initialize the logger
+
     public JwtAuthenticationFilter(JwtTokenService jwtTokenService,
             UserDetailsService userDetailsService) {
         this.jwtTokenService = jwtTokenService;
@@ -42,28 +46,31 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
-        final String token = authHeader.substring(7);
-
         try {
-            if (jwtTokenService.validateToken(token,
-                    userDetailsService.loadUserByUsername(jwtTokenService.getUsername(token)))) {
-                String username = jwtTokenService.getUsername(token);
+            final String token = authHeader.substring(7);
+            String username = jwtTokenService.getUsername(token);
 
-                if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                    UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                // Add detailed validation
+                if (jwtTokenService.validateToken(token, userDetails)) {
+                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                             userDetails,
                             null,
                             userDetails.getAuthorities());
 
-                    authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                    SecurityContextHolder.getContext().setAuthentication(authToken);
+                    authentication.setDetails(
+                            new WebAuthenticationDetailsSource().buildDetails(request));
+
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                    logger.info("Authenticated user: {}", username);
                 }
             }
         } catch (Exception e) {
-            logger.error("Cannot set user authentication", e);
-            SecurityContextHolder.clearContext();
+            logger.error("Cannot set authentication:", e);
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid token");
+            return; // Important to stop filter chain
         }
 
         filterChain.doFilter(request, response);
