@@ -16,6 +16,25 @@ type AppContextType = {
 }
 
 export function FullReadingPage() {
+  const context = useOutletContext<AppContextType>()
+
+  // Handle case where context is not available
+  if (!context) {
+    console.error('FullReadingPage: Outlet context is not available')
+    return (
+      <div className='flex items-center justify-center min-h-screen'>
+        <div className='text-center'>
+          <h2 className='text-xl font-semibold text-gray-800 mb-2'>
+            Loading...
+          </h2>
+          <p className='text-gray-600'>
+            Setting up your tarot reading experience
+          </p>
+        </div>
+      </div>
+    )
+  }
+
   const {
     count,
     cards,
@@ -24,12 +43,8 @@ export function FullReadingPage() {
     fetchTarotSpread,
     handleSpreadTypeChange,
     setCount,
-  } = useOutletContext<AppContextType>()
-  const context = useOutletContext<AppContextType>()
+  } = context
 
-  if (!context) {
-    return <div>Loading or error message...</div>
-  }
   return (
     <div className='w-full' id='app'>
       <SpreadSelector

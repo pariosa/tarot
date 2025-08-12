@@ -123,16 +123,31 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     password: string
   ): Promise<LoginResponse> => {
     try {
-      const response = await apiService.auth.login({ email, password })
-      const { token, user } = response.data
+      // Get token from login
+      const loginResponse = await apiService.auth.login({ email, password })
+      const { token } = loginResponse.data
 
+      if (!token) {
+        throw new Error('No token received from server')
+      }
+
+      // Store token first so subsequent API calls are authenticated
       localStorage.setItem(AUTH_TOKEN_KEY, token)
       setToken(token)
+
+      // Now fetch user data with the token
+      const userResponse = await apiService.users.getMe()
+      const user = userResponse.data
+
       setUser(user)
 
       return { token, user }
     } catch (error) {
       console.error('Login error:', error)
+      // Clean up on error
+      localStorage.removeItem(AUTH_TOKEN_KEY)
+      setToken(null)
+      setUser(null)
       throw error
     }
   }
