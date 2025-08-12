@@ -182,7 +182,7 @@ const apiService = {
 
     // FIXED: Now accepts data parameter and sends it to the correct endpoint
     getStoryDTO: (data: CardNamesRequest): Promise<AxiosResponse<any>> =>
-      api.post('/getStoryDTO', data), // Note: endpoint path updated to match your Spring Boot controller
+      api.post('api/story/getStoryDTO', data), // Note: endpoint path updated to match your Spring Boot controller
 
     fullReading: (data: StoryElementRequest): Promise<AxiosResponse<any>> =>
       api.post('/api/story/full-reading', data),
