@@ -16,7 +16,7 @@
 	</parent>
 	<groupId>com.mercy</groupId>
 	<artifactId>tarot</artifactId>
-	<version>0.0.5-SNAPSHOT</version>
+	<version>0.0.7-SNAPSHOT</version>
 	<name>tarot</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

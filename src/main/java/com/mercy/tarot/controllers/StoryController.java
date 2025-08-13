@@ -227,7 +227,7 @@ public class StoryController {
                 return ResponseEntity.ok(randomKeyword);
         }
 
-        @PostMapping("/getStoryDTO")
+        @PostMapping("/story/getStoryDTO")
         public ResponseEntity<Map<String, Object>> getStoryPrompt(@RequestBody CardNamesRequest request) {
                 try {
                         // Declare cardNames
