@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import { AxiosError } from 'axios'
 import * as React from 'react'
 import { useState } from 'react'
@@ -21,7 +20,6 @@ const StoryContainer: React.FC = () => {
       const cardsDrawn: string[] = raw ? JSON.parse(raw) : []
 
       console.log('Cards from localStorage:', cardsDrawn) // Debug log
-      debugger
       if (!Array.isArray(cardsDrawn) || cardsDrawn.length === 0) {
         setError('No cards drawn. Please draw cards first.')
         setLoading(false)
@@ -37,8 +35,6 @@ const StoryContainer: React.FC = () => {
 
       // Call your API service - this should match your endpoint structure
       const response = await apiService.story.getStoryDTO(requestPayload)
-      // eslint-disable-next-line no-debugger
-      debugger
       console.log('API response:', response) // Debug log
 
       // Assuming your API service returns response.data like your other endpoints

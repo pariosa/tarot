@@ -321,7 +321,7 @@ public class StoryElementSeeder {
                         "The Hermit");
         // fae valentine / anansi
 
-        TarotStoryElements theWheelOfFortune = new TarotStoryElements(
+        TarotStoryElements wheelOfFortune = new TarotStoryElements(
                         "The Wheel of Fortune",
                         "Fate, Cycles, Chance, Karma, Transformation, Adaptation, Luck, Destiny, Chaos, Opportunity",
                         "Clever, Improvisational, Elusive, Charismatic, Mysterious, Restless, Opportunistic, Independent, Magnetic, Unpredictable",
@@ -343,6 +343,7 @@ public class StoryElementSeeder {
                         "Cycles of fortune and loss, the chaos of identity, chance as a spiritual force, survival through improvisation, rewriting one's story through wit luck and cunning, escaping fate by leaning into it",
                         "Neo-noir, Afro-futurist trickster tale, speculative space-western, magical realist crime drama, cyber-mythological caper",
                         "The Wheel of Fortune");
+
         // Justice - phoenix wright/ antigone / portia
         TarotStoryElements justice = new TarotStoryElements(
                         "Justice",
@@ -436,6 +437,29 @@ public class StoryElementSeeder {
                         "Psychological thriller, Philosophical drama, Stoic realism, Meditative narrative, Introspective storytelling",
                         "Temperance");
 
+        // delores dei, florence nightengale
+        TarotStoryElements star = new TarotStoryElements(
+                        "The Star",
+                        "Painful hope, Brutal compassion, Exhausted light, Unbroken idealism, Guiding through damage, Sacred exhaustion, Healing as warfare, The cost of being a beacon, Revolutionary patience, Science as salvation",
+                        "The wounded healer, The saint who hates sainthood, The statistician of suffering, The light that burns itself, The reluctant messiah, The one who stays at bedsides, The revolution's tired face, The nurse with battlefield eyes, The woman who remembers every name",
+                        "Secretly doubts her impact, Bleeds light for others, Measures herself in unsaved lives, Terrified of failing devotees, Wears exhaustion like armor, Hoards others' pain, Mistakes suffering for purpose, The star closest to burning out",
+                        "Prove care can change systems, Make science a radical act, Outlast all plagues and wars, Turn every wound into data, Keep the light lit through darkest nights, Let your hands stay gentle, Document what no one sees, Die mid-sentence about reforms",
+                        "The star's light shows blood on your sleeves, The hospital tent becomes a cathedral, The graph reveals what prayers couldn't, The dying hand grips your pen, The revolution needs your tired face",
+                        "Grateful but demanding patients, Fellow exhausted idealists, Reluctant institutional allies, Students who'll continue the work, The ghosts of those you failed, The ones who document your decline",
+                        "Force you to sleep occasionally, Translate your rage into policy, Remember your humanity, Take the night shift when you sway, Prove you've already saved worlds",
+                        "Worship your exhaustion, Mistake your pain for holiness, Fear your moments of doubt, Become what you'd heal, Fail to relieve your burden",
+                        "War profiteers, Willfully ignorant leaders, Those who romanticize suffering, The healthy who judge, The systems that resist change, Your own aging body, The light that could consume you",
+                        "Extinguish your hope, Make compassion seem naive, Bury your research, Turn patients against you, Prove science can't heal souls, Break you with bureaucracy",
+                        "Terrified of true care, Addicted to easy despair, Blind to incremental progress, Overestimate grand gestures, Underestimate your worn hands",
+                        "The star becomes a supernova, The final chart gets published posthumously, The light stays lit through sheer will, Your name becomes a verb for caring, The dying smile at your exhausted face",
+                        "Overflowing hospital wards, Moonlit triage tents, Data-covered walls, The desk where revolutions were drafted, The exact spot hope refused to die, The star's reflection in medicine cabinets",
+                        "Your bloodstained notes become scripture, The light flickers but won't go out, The star is brightest when you stop seeing it, The hands that healed now need healing, The last candle outlives the storm",
+                        "Improvised clinics, Archive rooms of case studies, The alley where you secretly smoked, The bridge between war zones, The window where you watched dawns, The chair no one else sits in",
+                        "First person exhausted—stream of clinical focus, Third person historical—myth in real-time, Choral—overlapping patient voices, Cinematic—closeups on trembling hands still working, Epistolary—medical notes with personal margins",
+                        "The cost of light is bearing witness, True care documents as it comforts, The star closest to burning out shines truest, Your fatigue is the blueprint, They'll call you saint to avoid your challenge",
+                        "Science as sacred, Data as compassion, The weight of being a symbol, Radical tenderness, Exhaustion as revolutionary act",
+                        "Blood-ink on charts, Flickering lantern light, Star reflections in medicine bottles, Smudged eyewear imprints, Coffee rings around life-saving calculations, The exact shade of pre-dawn you know too well",
+                        "The Star");
         TarotStoryElements aceOfSwords = new TarotStoryElements(
                         "Ace of Swords",
                         "Clarity, Truth, Mental clarity, Insight, Power, Justice, Intelligence, Victory, Ambition, Determination, Focus, Revelation, Mental strength, Cutting through illusions, Clear communication, Mental breakthroughs, New ideas, Mental prowess, Precision, Sharpness, Decision-making, Analytical thinking, Mental agility",
@@ -765,28 +789,29 @@ public class StoryElementSeeder {
                         "King of Swords");
         // PENTACLES
 
+        // Rimuru Tempest
         TarotStoryElements aceOfPentacles = new TarotStoryElements(
                         "Ace of Pentacles",
-                        "Prosperity, New beginnings, Material wealth, Abundance, Financial opportunity, Security, Manifestation, Stability, Grounding, Fertility",
-                        "",
-                        "Materialistic, Greedy, Stubborn, Risk-averse, Inflexible, Short-sighted, Overly cautious, Workaholic, Closed-minded, Selfish",
-                        "Achieving financial stability, Starting a successful business, Investing wisely for the future, Establishing a secure home, Finding long-term employment, Creating a solid foundation for a project or venture, Building wealth and prosperity, Gaining independence through financial means, Improving material well-being, Manifesting abundance and abundance consciousness",
-                        "Inheriting a valuable estate or property, Losing a job and needing to find new employment, Discovering a lucrative investment opportunity, Facing financial hardship and seeking a solution, Receiving a substantial loan or grant, Winning a business competition or contract, Being presented with an offer to collaborate on a profitable project, Finding a hidden treasure or valuable artifact, Receiving an unexpected inheritance or windfall, Being inspired by a successful entrepreneur or mentor",
-                        "Resourceful and practical problem solver, Financially savvy and business-minded, Grounded and dependable companion, Expert in matters of wealth and prosperity, Earthy and connected to nature, Loyal friend with a strong work ethic, Skilled craftsman or tradesperson, Visionary entrepreneur with ambitious goals, Generous benefactor or patron, Wise mentor with valuable life experience",
-                        "Building a successful business empire, Establishing financial security and stability, Creating a sustainable and self-sufficient lifestyle, Cultivating a thriving garden or farm, Investing in real estate ventures, Launching a lucrative entrepreneurial project, Providing support and resources for community development, Achieving recognition and respect in the professional world, Fostering a sense of abundance and prosperity for others, Manifesting long-term goals through disciplined effort",
-                        "Materialistic tendencies, Greediness, Stubbornness, Overcautiousness, Inflexibility, Workaholism, Selfishness, Lack of vision, Impulsiveness, Lack of gratitude",
-                        "Corrupt business mogul, Land developer, Blackmailer, Hoarder, Fraudster, Tax evader, Identity thief, Pyramid scheme operator, Embezzler, Slumlord",
-                        "Amass wealth and power, Control lucrative industries, Establish a monopoly, Build a financial empire, Achieve status and prestige, Create chaos in financial markets, Expand influence, Hoard wealth, Obtain exclusive ownership, Ensure personal prosperity",
-                        "Greed-driven obsession, Ruthless pursuit of profit, Inability to recognize value, Stubborn refusal to adapt, Over-reliance on tangible assets, Fear of losing wealth, Lack of empathy, Arrogance, Inability to find fulfillment, Willingness to betray",
-                        " Betrayal by a trusted partner, Successful acquisition of a deal, Sudden loss of wealth, Unforeseen inheritance, Corruption scandal, Unexpected economic downturn, Redemption through generosity, Conflict over ownership, Establishment of a new venture",
-                        "Ancient Manor House - Reveals protagonist's family history, Grand Bankruptcy Court - Protagonist's legal battle, Prosperous Marketplace - Secures a lucrative deal, Abandoned Mine - Discovers valuable artifact, Rural Farmland - Finds solace, Opulent Gala Event - Asserts dominance, Bustling Financial District - Navigates negotiations, Desolate Pawn Shop - Parts with possessions, Luxurious Country Club - High-stakes tournament, Renowned Art Gallery - Showcases rare collection",
-                        "Inheritance Revelation - Newfound wealth, Financial Ruin Averted - Secures financial future, Business Success - Launches enterprise, Treasure Unearthed - Overcomes struggles, Farm Revitalization - Symbolizes growth, Social Ascendancy - Cement status, Financial Triumph - Emerges victorious, Sacrificial Loss - Learns value, Elite Victory - Proves worthiness, Artistic Legacy - Leaves lasting impact",
-                        "Grand Estate - Symbolizes wealth, Bustling Marketplace - Commerce and opportunity, Fertile Farmland - Signifies growth, Luxurious Resort - Reflects indulgence, Financial District - Epitomizes ambition, Historic Bank - Symbolizes stability, Gala Ballroom - Represents social status, Ancient Temple - Signifies wisdom, Artisan's Workshop - Embodies creativity, Hidden Treasure Trove - Represents hidden potential",
-                        "First-Person Singular, Reflective - Experiencing emotions deeply, Second-Person Narrative, Introspective - Addressing the reader directly, Third-Person Limited, Empathetic - Focusing on the protagonist's thoughts and feelings, Stream of Consciousness, Intimate - Delving into the protagonist's mind, Epistolary Format, Expressive - Presenting the story through letters or diary entries, Multiple Perspectives, Interconnected - Alternating between different characters' points of view, Narrative Poetry, Evocative - Using lyrical language and vivid imagery, Symbolic Realism, Allegorical - Depicting everyday events with symbolic significance, Magical Realism, Enchanting - Infusing the narrative with elements of magic, Dramatic Monologue, Cathartic - Allowing the protagonist to speak directly",
-                        "Empathy and Compassion, Authenticity and Vulnerability, Unconditional Love, Forgiveness and Healing, Connection and Unity, Self-Exploration and Introspection, Trust and Faith, Gratitude and Appreciation, Generosity and Kindness, Spiritual Growth and Enlightenment",
-                        "Emotional Awakening, Love and Relationships, Healing and Redemption, Intuition and Inner Wisdom, Sacrifice and Compassion, Artistic Expression, Spiritual Quest, Community and Connection, Emotional Resilience, Emotional Honesty",
-                        "Romanticism: Emphasizing emotion intuition and the beauty of nature reflecting love and emotional fulfillment, Magical Realism: Blending fantastical elements with everyday life to convey the mystical and transformative power of emotions, Sensory Detailing: Using vivid descriptions to evoke emotions and immerse readers in the characters' experiences enhancing intuition and inner wisdom, Symbolism: Employing symbolic imagery to represent emotional states relationships and spiritual connections, Poetic Prose: Crafting lyrical and evocative language to convey love compassion and spiritual growth, Stream of Consciousness: Offering insights into characters' inner thoughts and feelings, Epistolary Form: Using letters diaries or other written correspondence to reveal characters' emotions and relationships, Psychological Realism: Delving into characters' psyches and emotional states with depth and authenticity exploring the complexities of human relationships and personal growth, Narrative Symbolism: Infusing the narrative with symbolic motifs and recurring themes to convey deeper layers of meaning and emotion, Spiritual Allegory: Using allegorical elements to explore themes of spiritual enlightenment divine love and the interconnectedness of all beings",
-                        "Love, Romance, Compassion, Forgiveness, Healing, Trust, Generosity, Kindness, Authenticity, Empathy");
+                        "Limitless potential, Economic genesis, Nation-building, Diplomatic alchemy, Monster prosperity, Strategic generosity, Infinite treasury, Sustainable growth, Opportunity incarnate, Divine entrepreneurship",
+                        "Charismatic slime sovereign, Monster economist, Barrier-breaking trader, Spiritual-material hybrid, Unlimited potential vessel, Jura Forest's architect, Friendship-as-currency dealer, Magic-industrial revolutionary, Benevolent opportunist, The coin that multiplies itself",
+                        "Overestimates others' ethics, Blind to inflation risks, Creates dependency, Softpower overextension, Naive to economic warfare, Trusts systems too quickly, Hoards problems with solutions, Currency loses meaning",
+                        "Forge monster-human economic unity, Make Tempest the world's wallet, Turn magic into infrastructure, Weaponize prosperity, Out-invest all kingdoms, Prove coexistence profitable, Bankroll revolutions subtly, Redefine value itself",
+                        "The first coin bears your slime mark, The merchant caravan breaches racial borders, The dungeon loot becomes national treasury, The rival king requests your bankers, The pentacle glows with dragon energy",
+                        "Loyal merchant captains, Goblin engineers, Dwarf craftsmen in debt, Dragon-backed accountants, Former bandits turned clerks, Spirit-bound auditors, Monster mathemagicians, Your own clones as tellers",
+                        "Translate monster values to markets, Launder your reputation through trade, Convert enemies via compound interest, Make bribes look like investments, Hide wars in balance sheets, Teach capitalism to dragons",
+                        "Enable reckless expansion, Mistake liquidity for power, Worship GDP over lives, Become what you industrialized against, Fear your own economic gravity",
+                        "Racial purist merchants, Gold-hoarding dragons, Anti-monster protectionists, Zero-sum economists, Currency manipulators, The church of poverty, Your own unchecked growth, The system you created",
+                        "Crash your magic markets, Provoke monster inflation, Steal your coin designs, Enforce human economic supremacy, Make generosity seem weak, Sabotage cross-species supply lines",
+                        "Terrified of your liquidity, Addicted to old wealth systems, Blind to cooperative models, Overestimate gold's power, Underestimate slime economics",
+                        "The first Tempest note becomes global reserve, The stock exchange operates in your slime, The pentacle births a new economic deity, The Great Merchant Council kneels, Poverty ends where your borders begin",
+                        "Floating trade hub, Monster mint headquarters, Inter-species bazaar, Dungeon conversion site, Dragon-hoard-turned-bank, The desk where you remade currency",
+                        "Your slime absorbs a kingdom's debt, The coin replicates infinitely in your palm, The poorest monster buys a castle, Economic laws rewrite around you, The pentacle becomes a national seal",
+                        "Goblin-run storefronts, Magical assembly lines, Bank vaults with living doors, Merchant council chambers, Tax offices in hot springs, The alley where you first traded",
+                        "First person analytical—stream of economic visions, Third person awe—observing your system's growth, Choral—overlapping merchant languages, Cinematic—time-lapses of infrastructure blooming, Ledger-style with magical footnotes",
+                        "True power flows like currency, Generosity is the highest ROI, Systems outlive swords, Make friends not customers, Even dragons respect good credit",
+                        "Wealth as living energy, Diplomacy through trade, Post-scarcity morality, Infinite growth paradox, The weight of being the bank",
+                        "Slime-embedded coins, Floating accounting runes, Self-filling contracts, Ever-growing treasure piles, Magic-circuit gold veins, Your face on every denomination",
+                        "Ace of Pentacles");
         // haruihi OHSHC
         TarotStoryElements twoOfPentacles = new TarotStoryElements(
                         "Two of Pentacles",
@@ -810,6 +835,78 @@ public class StoryElementSeeder {
                         "Duality, Identity, Choice, Emotional Labor, Social Roles, Class Conflict, Found Family",
                         "Romantic comedy-drama, whimsical yet introspective, with surreal humor and sincere emotional core",
                         "Two of Pentacles");
+        // team 7
+        TarotStoryElements threeOfPentacles = new TarotStoryElements(
+                        // Title
+                        "Three of Pentacles",
+                        "Creative collaboration, Master-apprentice dynamics, Structural harmony, Complementary skills, Trial by fire, Vision meeting execution, Craftsmanship, Legacy-building, Creative tension, Synergistic growth, Architectural alchemy, Team-based innovation",
+                        "Visionary architect, Unconventional mentor, Brash but talented protege, Precision specialist, Adaptive problem-solver, Bridge between ideals and reality, Reluctant team player, Alchemist of mismatched talents, Demanding perfectionist, Radical traditionalist",
+                        "Perfectionist frustrations, Clashing methodologies, Undeveloped potential, Overreliance on raw talent, Impatient with fundamentals, Blind to others' strengths, Fear of being overshadowed, Struggles with shared credit, Destructive competitiveness, Paralysis by over-innovation",
+                        "Merge innovation with tradition, Forge unique team language, Build structures that outlast creators, Turn conflict into creative fuel, Elevate each member's weaknesses, Craft something no individual could, Lay foundations for future masters, Prove unorthodox methods, Create harmony from discord, Establish new design paradigms",
+                        "The blueprint reveals missing pieces only teamwork can solve, The unstable foundation demands immediate triage, The third nail bends but must hold, The client arrives to inspect unfinished work, The rival team's shadow looms over the project, The materials demand unconventional solutions",
+                        "Demanding but fair clients, Veteran craftsmen with tricks of the trade, Rival teams pushing everyone's limits, Material suppliers with unexpected wisdom, Unexpected consultants with niche expertise, Former students now peers, Critical but invested observers, Competition that inspires greatness",
+                        "Provide calibrated challenges, Translate vision into actionable steps, Mediate creative clashes, Preserve core integrity while innovating, Document the collaborative process, Prepare the team for greater works, Reveal hidden connections between disciplines, Prevent individual brilliance from overshadowing the collective work",
+                        "Overprotective of their roles, Hoard trade secrets as power, Mistake harshness for effective teaching, Underestimate youthful innovation, Fear being rendered obsolete, Overcorrect others' mistakes, Project their own failures, Become possessive of proteges",
+                        "Short-sighted commissioners, Cheap imitators cutting corners, Disruptive saboteurs, Arrogant lone wolves, Bureaucratic stiflers, Perfection-paralyzed critics, Ghosts of failed collaborations, Systems valuing speed over craft",
+                        "Exploit team fractures, Devalue apprentice contributions, Rush unfinished work to market, Prioritize profit over lasting craft, Erase individual creative signatures, Standardize unique visions into blandness, Prove collaboration weakens results, Isolate team members from each other",
+                        "Terrified of true innovation, Addicted to outdated methods, Blind to emerging talent, Overcompensating for their own failures, Threatened by collective brilliance, Incapable of creative compromise, Mistake complexity for depth, Worship only finished products never process",
+                        "Drafting tables at dawn, Scaffolding amid natural beauty, Crisis point mid-construction, Client presentation under pressure, Rooftop with panoramic vision, Workshop of repurposed mistakes, Organic material depots, Apprentice-etched walls, Tea-stained blueprint archives, Whispering-gallery construction sites",
+                        "First person rotating between team members, Third person documentary observing creative friction, Architectural sketch narration with margin notes, Choral overlapping specialist jargon, Cinematic slow motion of pivotal collaboration, Epistolary through worksite correspondence",
+                        "True mastery builds platforms for others to stand on, The flaw held in common becomes the greatest strength, Innovation needs tradition as its foundation, The third perspective reconciles all apparent opposites, What lasts was never made by one hand alone, Creative tension forges unbreakable bonds, The apprentice's question improves the master's design, Materials speak truth to arrogant designers, Harmony emerges from seeming discord, Every joint bears the signature of its maker",
+                        "The third pentacle clicks into perfect alignment, The flawed joint becomes the structure's signature feature, The critics' silence becomes the loudest praise, The apprentices surpass the master's original draft, The structure sings when tested by natural forces, The rival team's leader requests apprenticeship",
+                        "Final beam placement ceremony, Make-or-break load test site, Client's unexpected inspection, Competition judging platform, Master's private review chamber, Natural disaster testing ground, Gallery of comparative designs, The exact point where three disciplines intersect",
+                        "Three hands simultaneously steady the cornerstone, The intentional flaw reveals its purpose under pressure, The master's single nod conveys more than words, The rival's scoff turns to stunned silence, The imperfect detail makes the work timeless, The materials themselves seem to celebrate the union",
+                        "Vision versus execution, Individual genius versus collective craft, Organic growth through constraint, The alchemy of complementary flaws, Teaching as ultimate collaborative act, Structures as frozen music, The ethics of creative credit, Innovation within tradition's framework",
+                        "Ink-wash over precise grid paper, Sawdust swirling in golden light beams, Fingerprint-smudged prototypes, Interlocking joint close-ups, Shadow-and-substance blueprints, Animated construction sequences, Chalk diagrams on rough stone, Watercolor perspectives over technical lines",
+                        "Three of Pentacles");
+
+        // ebenezer scrooge / inuyasha
+        TarotStoryElements fourOfPentacles = new TarotStoryElements(
+                        "Four of Pentacles",
+                        "Possessive control, Defensive hoarding, Fearful guarding, Material armor, Emotional fortresses, Stagnant security, Frozen wealth, Crippling self-preservation",
+                        "Coin-clutching miser, Armored sentimentalist, Wounded treasure-guard, Isolation architect, Suspicious hoarder, Comfort-obsessed recluse, Trauma-hardened keeper, Possession-obsessed ghost",
+                        "Confuses control with security, Terrified of scarcity, Hoards worthless protections, Values objects over people, Paralyzed by past loss, Mistrusts all generosity, Sees thieves everywhere, Turns gold into prison bars",
+                        "Protect what little remains, Build higher fortress walls, Prove self-sufficiency, Keep ghosts at bay with wealth, Never be vulnerable again, Turn relics into armor, Outlast all potential thieves, Make the vault impregnable",
+                        "The fourth pentacle burns your palm but won't be dropped, The debt collector's shadow darkens your door, The winter wind howls through your empty halls, The lock clicks shut behind you for the last time, The treasure chest becomes your coffin",
+                        "Worried accountants, Failed interventionists, Conditional benefactors, Fellow hoarders, Nostalgia peddlers, Security consultants, Paranoid kindred spirits, Profit-minded enablers",
+                        "Break through your defenses, Prove generosity won't kill you, Show the cost of isolation, Offer risky alternatives, Plant seeds of doubt about your system, Protect you from your own traps",
+                        "Enable your pathology, Profit from your fear, Mistake your hoard for strength, Feed your suspicion, Isolate you further, Treat your trauma as eccentricity",
+                        "Thieves both real and imagined, Reckless spendthrifts, Demanding relatives, Cheerful altruists, System reformers, Your younger self's ghost, Time itself, The rust that eats your locks",
+                        "Pry open your vaults, Redistribute your hoard, Prove your fears unfounded, Make sharing seem wise, Turn your treasures against you, Expose your protections as prisons",
+                        "Terrified of their own emptiness, Addicted to others' dependence, Blind to systemic solutions, Overcompensating for ancient wounds, Secretly envy your freedom",
+                        "The fourth pentacle shatters in your grip, The vault door seals you inside, Your treasure transforms to dust in your hands, The chain around your heart snaps inward, Your younger self weeps at your fortress",
+                        "Counting house at midnight, Vault-tomb hybrid, Frozen feast table for one, Mansion's hollow center, Museum of unused treasures, Banker's nightmare bedroom, Childhood home in ruins",
+                        "Your grip tightens as the coins draw blood, The chains you forged now constrict your chest, The single candle reveals what money can't buy, Your reflection ages decades in the gold's surface, The lock clicks forever behind you",
+                        "Gilded cages, Barred counting rooms, Overstuffed memory chests, Ice-covered fountains, Empty inheritance halls, Fortress foundations cracking, Shrines to lost opportunities",
+                        "First person paranoid—stream of financial anxieties, Third person gothic—observing your slow petrification, Choral—overlapping creditor voices, Cinematic—slow zoom on whitening knuckles, Epistolary—unsigned wills and codicils",
+                        "What you hold tightly holds you tighter, Gold makes poor armor against time, Every fortress is eventually a tomb, The thing you protect yourself from is already inside, No lock keeps out regret",
+                        "Possession as loss, Control as trap, Sentimentality as stagnation, The poverty of wealth, Frozen time, The illusion of safety",
+                        "Tarnished gold leaf, Blood-rusted coins, Frost-veined vault doors, Cobwebbed chandeliers, Cracked porcelain under glass, Fading ledger ink",
+                        "Four of Pentacles");
+
+        // Ken Kaneki (Tokyo Ghoul) or the Lost Generation of Artists and Writers after
+        TarotStoryElements fiveOfPentacles = new TarotStoryElements(
+                        "Five of Pentacles",
+                        "Material exile, Spiritual abandonment, Scarred belonging, Necessary outcasts, Frozen potential, Institutional failure, Creative starvation, Unseen suffering, Hollowed communities, Survival shame",
+                        "Bandaged wanderer, Excommunicated visionary, Hungry artist, Self-destructive savant, Unwilling heretic, System's damaged collateral, Trauma-bonded exile, Unmourned casualty, Half-rejected hybrid, Walking triage case",
+                        "Internalized exclusion, Addicted to suffering, Mistakes isolation for independence, Haunted by former comforts, Terrified of fragile connections, Wears damage as identity, Cannot recognize safe harbors, Bites the hands that might feed",
+                        "Prove survival is enough, Forge art from hunger, Protect fellow outcasts, Document institutional cruelty, Find beauty in ruins, Turn exile into freedom, Make the unseen visible, Outlast the winter of neglect",
+                        "The fifth pentacle glows faintly in the gutter, The church doors lock as you approach, Your breath fogs the gallery windows, The last bridge burns behind you, The hospital discharges you into the storm",
+                        "Fellow wounded travelers, Guilty survivors, Underground patrons, Radical healers, War-weary chroniclers, Unlicensed truth-tellers, Expelled kindred spirits, The ghosts of your former self",
+                        "Share meager resources, Preserve dangerous truths, Create alternative shelters, Witness without flinching, Translate suffering into art, Remind you of your humanity, Steal warmth where possible",
+                        "Compete for scraps, Infect others with despair, Mistake complicity for survival, Loathe their own reflections in you, Become what the system expects",
+                        "Polite exclusionists, Comfortable bystanders, Aesthetic poverty tourists, Bureaucratic euthanizers, Spiritual gatekeepers, The myth of meritocracy, The ghost of pre-war norms",
+                        "Enforce your invisibility, Weaponize your hunger, Commodify your suffering, Criminalize your survival, Pathologize your resistance, Erase your documentation",
+                        "Terrified of contamination, Addicted to normalcy, Blind to systemic violence, Overestimate their own resilience, Secretly fear becoming you",
+                        "The fifth pentacle dissolves in the rain, The last shelter rejects your kind, Your masterpiece fuels their furnace, The war memorial excludes your wounds, The hospital bed becomes a coffin",
+                        "Freezing alley behind institutions, Abandoned artist studios, Overcrowded charity lines, Rain-slicked exclusion zones, Burnt-out literary cafes, Rooftops overlooking warm windows",
+                        "Your breath fogs the glass of those inside, The rejection letter blows away in the wind, Your blood stains the unpublished manuscript, The church candlelight doesn't reach your steps, The fifth wound never stops aching",
+                        "Train yard flophouses, Defaced war memorials, Closed archive basements, Storm drain artist colonies, Boarded-up avant-garde theaters, Overgrown veteran hospital gardens",
+                        "First person fractured—body and mind disintegrating, Third person detached—sociological observation, Choral—overlapping exile testimonies, Cinematic—steadycam through institutional indifference, Epistolary—unsent letters to lost selves",
+                        "Exile reveals society's hidden architecture, Hunger sharpens vision but starves the soul, The most vital art blooms in forbidden soil, No winter lasts forever but some never thaw, The fifth wound teaches what comfort never could",
+                        "Material vs. spiritual poverty, The cost of belonging, Creativity born of deprivation, Institutionalized exclusion, The outsider as truth-teller",
+                        "Blood-ink on cheap paper, Frostbitten manuscript edges, Flickering light through barred windows, Smudged charcoal on newsprint, Rain-warped identity papers, Stained bandage textures",
+                        "Five of Pentacles");
 
         // leslie knope
         TarotStoryElements sixOfPentacles = new TarotStoryElements(
@@ -1258,6 +1355,171 @@ public class StoryElementSeeder {
                         "Pain as programming, Burden as identity, The illusion of necessity, Synthetic suffering, The last broken back, Inevitable vs. intentional collapse",
                         "Cracked hydraulic textures, Flickering containment fluids, Overload warning lights, Distorted umbilical cabling, Blood mixing with coolant, Industrial decay gradients",
                         "Ten of Wands");
+        // Chise Hatori (The Ancient Magus' Bride
+        TarotStoryElements pageOfWands = new TarotStoryElements(
+                        "Page of Wands",
+                        "Awakening potential, Untamed magic, First sparks of destiny, Unstable gifts, Childlike wonder, Dangerous curiosity, Instinctive power, The call to adventure, Raw spiritual sensitivity, Emerging self-worth",
+                        "Fledgling mage, Magical conduit, Trauma-scarred apprentice, Supernatural empath, Reluctant chosen one, Instinctive spellweaver, Fairy-touched orphan, Alchemical vessel, The sleeper awakening, Brimming with unformed power",
+                        "Overwhelmed by abilities, Self-sacrificial tendencies, Blind to own worth, Terrified of the fire within, Naive to dangers, Attracts supernatural predators, Power leaks unpredictably, Confuses pain with purpose",
+                        "Master the storm inside, Prove your right to exist, Translate pain into magic, Find home in your own skin, Turn curses into gifts, Protect others like you, Discover why you were chosen, Outgrow your tragic origins",
+                        "The wand flares in untrained hands, The grimoire opens to the wrong page, The fairy ring activates unexpectedly, Your hair turns to living flame, The shadows whisper your true name",
+                        "Unconventional mentors, Fellow magical misfits, Protective familiars, Ancient spirits who test you, Wounded healers, Former victims turned allies, The monsters who love you",
+                        "Ground your wild magic, Teach without crushing, Provide safe experimentation, Reveal your hidden strengths, Intervene when you self-sacrifice, Remember your human needs",
+                        "Project their own failures, Fear your rapid growth, Hoard knowledge as power, Mistake control for teaching, Underestimate your resilience",
+                        "Magic thieves, Supernatural purists, Those who'd exploit your gifts, Your own darkest thoughts, The past that claims you, The ordinary world's rejection, The cold iron of doubt",
+                        "Steal your spark, Force your power's evolution, Bind you to their agenda, Make magic seem curse, Isolate you from guides, Prove you're better off powerless",
+                        "Terrified of raw potential, Addicted to orderly systems, Blind to your uniqueness, Overcompensating for their own limitations, Envious of your natural gifts",
+                        "The wand chooses you properly, The first true spell sings through you, Your tears become healing elixirs, The ancient ones bow to your spark, Your trauma transforms into talisman",
+                        "Overgrown magical workshops, Misty crossroads at dawn, Living libraries, Cottage with too many eyes, Flower-filled ruins where magic pools, The border between human and fae",
+                        "Your hands glow with unintended power, The wrong words summon unexpected allies, Your reflection winks back differently, The wand grows roots in your grip, Your scream becomes a spell",
+                        "Rustic apothecary shelves, Cursed auction houses, Moonlit summoning circles, Hospital rooms that remember magic, Train stations between worlds, Attics full of singing relics",
+                        "First person raw—stream of magical consciousness, Third person folkloric—like a fairy tale being written, Cinematic—closeups on transforming eyes/hands, Choral—whispers of spirits and spells, Diary entries with creeping enchantment",
+                        "Your wounds make you receptive, The dangerous gift is still a gift, Magic loves the broken-open, You're not a tool but a gardener, The first spark contains the whole fire",
+                        "Trauma as alchemy, Belonging as self-creation, Power as responsibility, The price of awakening, Loneliness as magical conductor",
+                        "Bioluminescent ink, Living-vine borders, Flickering candlelight in jars, Skin with glowing runes, Watercolor magic circles, Petrified flowers coming back to life",
+                        "Page of Wands");
+
+        // amelia airhearrt and joseph joestar
+        TarotStoryElements knightOfWands = new TarotStoryElements(
+                        "Knight of Wands",
+                        "Reckless courage, Daring escapes, Charismatic leadership, Improvised brilliance, Restless momentum, Flashy tactics, Competitive fire, Unorthodox strategies, Magnetic danger, Joyous defiance",
+                        "Daredevil pioneer, Smirking tactician, Uncontainable showman, Fast-talking escape artist, Rule-breaking navigator, Lightning-in-a-bottle charmer, Crisis-born genius, The plan that shouldn't work, Thrill-seeking teacher, Laughing in the face of gravity",
+                        "Overestimates luck, Leaves allies struggling to keep up, Creates unnecessary drama, Addicted to the next horizon, Terrified of being grounded, Wins battles but loses maps, Inspires then disappears, Confuses motion for progress",
+                        "Prove the impossible possible, Turn recklessness into strategy, Outmaneuver superior forces, Make every exit dramatic, Laugh while rewriting the rules, Leave them craving your return, Turn enemies into audiences, Make danger look irresistible",
+                        "The fuel gauge hits empty mid-stunt, The rope snaps during your escape, The crowd gasps as you wink, The opponent realizes they're part of your show, The knight's pennant catches fire mid-charge",
+                        "Long-suffering crew, Fellow adrenaline junkies, Reluctant admirers, Former rivals now allies, Starstruck apprentices, Mechanics who enable madness, The ones who clean up your miracles",
+                        "Ground you just enough, Document your legend, Provide emergency exits, Translate genius into teachable moments, Reign in your worst impulses, Make sure someone survives your lessons",
+                        "Enable your worst habits, Live vicariously too dangerously, Mistake your luck for skill, Fail to call you out, Become collateral damage",
+                        "By-the-book traditionalists, Humorless authoritarians, Jealous rivals, Those you've upstaged, Gravity itself, The boring future, Predictability, The one challenge you can't outrun",
+                        "Clip your wings, Make your style seem foolish, Force you to play their game, Ground you permanently, Prove chaos has limits, Turn audiences against you",
+                        "Terrified of your freedom, Addicted to control, Blind to unorthodox solutions, Overcompensating for their own dullness, Secretly envy your flair",
+                        "The impossible maneuver becomes textbook, Your greatest stunt saves everyone but you, The crowd's roar drowns out the crash, The rival kneels with a grin, The empty fuel tank was part of the plan",
+                        "Cockpit at the edge of a storm, High-wire act over ruins, Cliffside chase scenes, Improvised racetracks, Border checkpoints mid-explosion, The moment before freefall",
+                        "Your goggles reflect the fireball, The broken propellor becomes a weapon, The fake-out reveals your masterstroke, The radio cuts out as you laugh, The knight's banner plants defiantly in enemy territory",
+                        "Smoke-filled hangars, Sabotaged racetracks, Cliff-edge landing strips, High-society galas turned chaos, Ancient ruins repurposed as obstacle courses, The bar where all daredevils eventually meet",
+                        "First person adrenaline—breathless monologue mid-stunt, Third person sports commentary style, Cinematic—Dutch angles during pivots, Choral—overlapping gasps and cheers, Epistolary—cockpit recordings with static gaps",
+                        "Boldness makes its own luck, The best strategy looks like madness, Leave them wanting more but never less, True freedom risks everything, Even gravity respects style",
+                        "Momentum as currency, Chaos as weapon, Charisma as armor, The showman's paradox, Calculated recklessness, The escape artist's code",
+                        "Streaking combustion trails, Smeared goggles in motion, Vibrant scarf in hurricane winds, Cigarette dangling mid-freefall, Blueprints with coffee-ring calculations, Shattered stopwatches",
+                        "Knight of Wands");
+        // integra hellsing indira ghandi
+        TarotStoryElements queenOfWands = new TarotStoryElements(
+                        "Queen of Wands",
+                        "Unshakable authority, Strategic ferocity, Charismatic command, Unconventional power structures, Ruthless vision, Political theater, Controlled fire, Masterful delegation, Sovereign will, Phoenix-like resilience",
+                        "Cigar-smoking strategist, Iron-willed reformer, Vampire-taming aristocrat, Crisis-hardened leader, Untouchable negotiator, The woman who outplayed the patriarchy, War-room chessmaster, Unblinking executor of will, Tradition-defying heir, The last light in dark institutions",
+                        "Trusts few absolutely, Sees pawns before people, Burns too bright for others, Terrified of perceived weakness, Haunted by dynastic expectations, Confuses isolation with strength, Demands impossible loyalty, Leaves scorched earth",
+                        "Maintain absolute control, Forge legacy through fire, Prove women rule differently, Turn monsters into weapons, Outmaneuver archaic systems, Survive all betrayals, Make obedience feel like privilege, Die on your feet",
+                        "The throne room doors blast open mid-crisis, The cigarette glows as plans solidify, The vampire kneels without being asked, The parliament holds its breath, The queen's shadow outlasts the castle",
+                        "Lethal proteges, Ruthless secretkeepers, Monster allies, Compromised idealists, Former rivals turned assets, The few who've earned 'trust', Dynastic ghosts, The servants who truly rule",
+                        "Execute impossible orders, Translate your vision into action, Anticipate your unspoken needs, Cleanse weak links quietly, Maintain the myth of your invincibility, Die beautifully for the cause",
+                        "Mistake loyalty for friendship, Enable your isolation, Fear your changing strategies, Become what you'd destroy, Fail the final test",
+                        "Sexist bureaucrats, Weak-willed successors, False reformers, The monsters you refuse to leash, Outdated traditions, Your own aging body, The people's fickle love, The heir who disappoints",
+                        "Break your will publicly, Leash your power to their agenda, Prove emotion a weakness, Turn your weapons against you, Make you doubt your instincts, Expose the woman behind the myth",
+                        "Terrified of female power, Addicted to orderly succession, Blind to evolving threats, Overestimate their control over you, Secretly crave your approval",
+                        "The cigarette stubs out in blood, The castle burns but your chair stands, The last bullet has your initials, The monster finally says 'yes mother', The crown fits better over scars",
+                        "Smoke-filled war rooms, Midnight coronation chambers, Bombed-out government halls, Private arsenals, Balconies overlooking riots, The desk where history was signed",
+                        "You exhale smoke as the coup collapses, The pen pauses mid-death warrant, The heels click decisively on marble, The portrait watches your successor fail, The last stand becomes your masterpiece",
+                        "Hereditary estates turned headquarters, Blackened treaty-signing rooms, Secret monster kennels, Press conference gallows, Family crypts repurposed as armories, The border where you drew the line",
+                        "First person imperious—no contractions, Third person historical—like a documentary, Cinematic—low angles looking up, Choral—overlapping loyalties and lies, Epistolary—red-stamped orders with wine stains",
+                        "Power is never given—only taken and held, The crown is heavy because it's forged from resistance, Sometimes the monster is the best weapon, To rule is to stand alone by choice, They'll call you ruthless until they need your fire",
+                        "Sovereignty as performance, Femininity as tactical weapon, The burden of vision, Controlled versus wild fire, The queen's gambit",
+                        "Crimson-and-gold damask, Cigar smoke curling like crowns, Bloodstained treaty seals, Shattered chandelier light, Monogrammed weapons, Fire-reflecting spectacles",
+                        "Queen of Wands");
+
+        TarotStoryElements kingOfWands = new TarotStoryElements(
+                        "King of Wands",
+                        "Charismatic command, Calculated gambles, Inspiring sacrifice, Ruthless vision, Frontline authority, Unshakable resolve, Strategic showmanship, Victory through will, Controlled inferno, The burden of foresight",
+                        "One-armed strategist, Smiling tyrant, Suicide-charge leader, Chessmaster warrior, Flame-eyed decider, The speech that wins lost battles, The king who fights in the mud, The man who makes martyrs, The cost-calculating idealist, The sword that directs armies",
+                        "Treats lives as chess pieces, Addicted to the next gamble, Terrified of being wrong, Haunted by dead subordinates, Wears leadership like armor, Confuses sacrifice for purpose, Leaves survivors guilt-ridden, The smile hides calculations",
+                        "Turn tides with words alone, Make death meaningful, Outthink godlike foes, Forge weapons from hopelessness, Prove will outlasts titans, Let tactics become legend, Carry all sins willingly, Die at the perfect moment",
+                        "The war room erupts as you stand, The sword points where none would dare go, The suicidal plan becomes gospel, The king takes the vanguard, The final charge begins with your scream",
+                        "Devoted executioners, Willing martyrs, Sharp-eyed scouts, Rival commanders turned believers, The inheritors of your will, Chroniclers of your legend, The one who questions you usefully",
+                        "Translate vision into orders, Die beautifully for the narrative, Rein in your worst impulses, Remember the human cost, Prepare your successor, Carry your unspoken doubts",
+                        "Worship the myth too much, Fail to adapt post-victory, Fear your evolving strategies, Become what you'd destroy, Misunderstand the man behind tactics",
+                        "Cautious bureaucrats, Moralistic critics, Overwhelming titans, The soldiers you can't inspire, The peace that renders you obsolete, Your own aging body, The ideal that outgrows you",
+                        "Break your soldiers' faith, Prove your tactics cruel, Make sacrifice meaningless, Isolate you from the front, Turn your charisma against you, Expose the cost of victory",
+                        "Terrified of true conviction, Addicted to comfortable war, Blind to evolving battlefields, Overestimate their control, Secretly envy your resolve",
+                        "The charge succeeds as you fall, The crown passes mid-battle, The speech becomes scripture, The king's corpse rallies the living, The gambit's full cost is revealed",
+                        "Smoke-filled strategy tents, Bloodied parade grounds, Cliff-edge command posts, The exact spot the tide turned, The table where you moved human pieces, The empty space where you stood last",
+                        "Your severed arm still points forward, The smile fades as plans solidify, The king fights without his crown, The map burns where you touched it, The final order is your name",
+                        "Regimental headquarters, Secret war rooms, Mass grave overlooks, Academy halls where you taught, The road where vanguards assembled, The desk with unfinished letters",
+                        "First person tactical—stream of battlefield calculus, Third person legendary—myth in the making, Cinematic—wide shots of lone commander, Choral—overlapping last words of fallen, Epistolary—orders with blood smudges",
+                        "True leadership is measured in graves, Conviction moves more than armies, The king's place is where morale breaks, Some gambits cost exactly one life too many, Your greatest lie was making it look easy",
+                        "Theater of command, Necessary sacrifices, The weight of crowns, Charisma as weapon, Victory's true cost, The mask of certainty",
+                        "Blood-inked battle plans, Smoke-obscured medals, Notched command swords, Firelight on war maps, Shattered strategy models, The chair no one else dares fill",
+                        "King of Wands");
+
+        // CUPS
+        // william wordsworth
+        TarotStoryElements aceOfCups = new TarotStoryElements(
+                        "Ace of Cups",
+                        "Emotional epiphany, Poetic awakening, Divine overflow, Unfiltered wonder, Healing waters, Mystical connection, Heart's first language, Sacred receptivity, Childhood vision, Nature's baptism",
+                        "Dawn-eyed poet, Barefoot mystic, Brook-chasing child, Overflowing vessel, Unshielded heart, God-intoxicated wanderer, Wordless feeling's scribe, Transparent medium, Untamed perceiver, Solitude's lover",
+                        "Drowns in sensation, Lacks emotional armor, Overflows boundaries, Confuses intensity for truth, Terrified of numbness, Haunted by fading visions, Loses self in flow, Neglects material needs",
+                        "Capture the uncapturable, Become nature's scribe, Keep the heart always first-light new, Baptize the mundane, Translate ecstasy into form, Pour without emptying, Remember the child's eye, Make feeling immortal",
+                        "The cup spills its first pure drop, The mountain spring names you, The lark's song cracks the sky open, The daffodils demand witness, The world whispers its secret name",
+                        "Rustic guides, Fellow ecstatics, Silent shepherds, Reckless artists, Receptive children, Unspoiled landscapes, Ancestral springs, The ghost of your untamed self",
+                        "Catch your overflow, Ground your flights, Name your visions, Protect your vulnerability, Remember when you forget, Translate for the numb, Keep the waters clear",
+                        "Envy your access, Fear your intensity, Try to meter your flow, Distract you from presence, Mistake your depth for madness",
+                        "Cynical sophisticates, Emotional vampires, Deadening routines, Frozen hearts, Wordless feeling's thieves, Dull interpreters, The weight of the literal, Overanalyzing critics",
+                        "Pollute your springs, Make wonder seem childish, Chain perception to utility, Interrupt your receptivity, Prove feeling dangerous, Steal your daffodils",
+                        "Terrified of raw emotion, Addicted to distortion, Blind to nature's tongue, Overcompensate for their own numbness, Worship only the container never the flow",
+                        "The cup becomes a fountain, The poem writes itself through you, The child leads you home, The ordinary transforms utterly, The first love returns undimmed",
+                        "Lakes at first light, Forgotten forest springs, Daffodil-thick valleys, Moonlit pasture gates, Abandoned shepherd huts, Mist-chased mountain tops",
+                        "Your hands tremble holding nothing but light, The waters rise to meet your lips, The lark's song becomes your pulse, The cup overflows without emptying, The world breathes you in",
+                        "Wordsworthian landscapes, Unpaved wandering paths, Overgrown churchyards, Hidden childhood haunts, Solitary cloud-watching hills, River sources where myths begin",
+                        "First person ecstatic—unpunctuated perception, Third person lyrical—nature observing you, Choral—overlapping natural voices, Cinematic—dolly zooms into moments, Epistolary—unsigned love letters to the world",
+                        "To see is to create anew, The heart's overflow is the world's survival, Childhood's vision is the only true sight, What pours through you belongs to no one, The cup is always full for those who kneel",
+                        "Perception as worship, Emotion as radical truth, Nature as living scripture, The sacred ordinary, Solitude as communion, Untranslatable joy",
+                        "Watercolor transparency, Ink dispersing in spring water, Gilt-edged cloud reflections, Dappled sunlight through leaves, Unfixed pigment running, Dawn's first unbroken light",
+                        "Ace of Cups");
+        TarotStoryElements twoOfCups = new TarotStoryElements(
+                        "Two of Cups",
+                        "Alchemical partnership, Transformative trust, Radical acceptance, Shared purpose, Emotional catalysis, Love as discovery, Bonds that transmute pain, Complementary healing, Laboratory of the heart, Unlikely equilibrium",
+                        "Obsessive truth-seeker, Wounded but brilliant partner, Unconditional believer, Emotionally armored outcast, Gentle catalyst, Fierce protector of vulnerabilities, Mutual redemption agent, Light in each other's darkness",
+                        "Fear of contamination, Overwhelming intensity, Terrified of being truly seen, Confuses sacrifice for love, Haunted by past failures, Risks self-destruction for discovery, Loses boundaries in connection, Paralysis when separated",
+                        "Transmute pain into knowledge, Love without fixing, Share radioactive truths, Forge bonds stronger than curses, Create safe space for monstrosity, Prove connection conquers isolation, Find universes in shared glances, Outlast all half-lives",
+                        "The two cups glow with dangerous light, The lab notebook fills with love equations, The curse cracks under unconditional gaze, The shared meal becomes sacrament, The isolation chamber becomes a wedding chapel",
+                        "Fellow rejected researchers, Broken but believing family, Unexpected scientific allies, Former rivals turned collaborators, Those who remember your before/after, Guardians of your shared legacy, The next generation you inspire",
+                        "Protect your fragile bond, Document the transformation, Remind you of separate identities, Filter toxic projections, Celebrate small healings, Prepare for backlash, Bear witness to the impossible",
+                        "Fear your radical connection, Try to replicate your alchemy, Project their loneliness, Underestimate the bond's strength, Overestimate their understanding",
+                        "Prejudiced institutions, Superstitious fear-mongers, Emotional contaminators, Jealous observers, The ghosts of past failures, The weight of others' expectations, The lure of old isolation",
+                        "Separate you for your 'safety', Discredit your shared truth, Weaponize your past wounds, Make love seem naive, Prove vulnerability fatal, Turn your lab into a cage",
+                        "Terrified of true intimacy, Addicted to others' brokenness, Blind to transformative power, Overestimate control, Underestimate love's half-life",
+                        "The two cups become one vessel, The final equation balances because of love, The last chain shatters under mutual gaze, The shared discovery eclipses all solitude, The laboratory blooms with unexpected life",
+                        "Midnight research labs, Overgrown family gardens, Makeshift radiation shelters, Cherry blossom viewing spots, Kitchen tables turned confessionals, The exact point where two disciplines meet",
+                        "Hands touch through protective gloves, The notebook margins fill with love notes, The monster is loved before being seen, The poison becomes medicine in shared hands, The two cups overflow simultaneously",
+                        "Cluttered home laboratories, Flower-filled university courtyards, Isolated countryside cabins, Hospital rooms turned safe spaces, Rooftops where truths were whispered, The first place you both felt understood",
+                        "First person alternating—dual narratives merging, Third person clinical—observing emotional chemistry, Choral—overlapping voices of supporters and doubters, Cinematic—closeups on trembling hands almost touching, Laboratory journal style with margin notes",
+                        "True discovery requires shared risk, Love is the ultimate catalyst, The most dangerous elements become safe in trust, To be known is to be transformed, No curse survives unconditional acceptance",
+                        "Alchemy of affection, Vulnerability as strength, Partnership as rebellion, Love's half-life, Emotional radioactivity, The balancing of opposites",
+                        "Glowing liquid in beakers, Fading bruise-like shadows dissolving, Cherry petals suspended in water, Intertwined protective gear, Two sets of footprints in radioactive dust, Shared breath in cold air",
+                        "Two of Cups");
+
+        // three muses or light music club from k-on
+        TarotStoryElements threeOfCups = new TarotStoryElements(
+                        "Three of Cups",
+                        "Sisterly joy, Creative synergy, Unbreakable bonds, Shared euphoria, Harmonious celebration, Innocent revelry, Emotional abundance, Youthful nostalgia, Unspoken understanding, Musical catharsis",
+                        "Radiant muse, Clumsy enthusiast, Deadpan harmonizer, The glue holding chaos together, Tea-loving optimist, Silent but supportive witness, The one who remembers the lyrics, Unexpected virtuoso, The heart that orchestrates joy",
+                        "Fears growing apart, Overlooks quiet members, Spills drinks on sheet music, Laughs during serious moments, Avoids hard conversations, Clings to fleeting youth, Prioritizes fun over growth, Sometimes misses cues",
+                        "Preserve this perfect moment, Turn friendship into art, Make memories that outlast youth, Find harmony in chaos, Celebrate each other's quirks, Keep the music playing forever, Build a world just for three, Let joy be the rebellion",
+                        "The third cup overflows onto the lyrics notebook, The wrong chord becomes your signature sound, The audience joins your unplanned encore, The sunset turns your practice room gold, The quietest member takes the solo",
+                        "Indulgent teachers, Fellow art club rivals, Nostalgic alumni, The barista who fuels your sessions, Parents who don't understand but smile, The cat that naps on your amps, Imaginary fans, Your future selves watching",
+                        "Record your imperfect sessions, Provide the snacks for inspiration, Gently push your boundaries, Remind you to tune occasionally, Protect this sacred space, Be the audience you need",
+                        "Enable your procrastination, Overlook the shy one's talent, Fear the passage of time, Mistake nostalgia for growth, Hesitate to challenge each other",
+                        "Strict schedules, Artistic elitists, The real world looming, Broken guitar strings, Graduation deadlines, Creativity's inner critic, The fear of being forgotten",
+                        "Separate you for 'maturity', Devalue your simple joys, Force premature professionalism, Make music feel like work, Break up the band with reality",
+                        "Terrified of pure joy, Addicted to suffering for art, Blind to communal magic, Overcomplicate simplicity, Envy your effortless bond",
+                        "The third cup clinks in perfect unison, The forgotten song resurfaces exactly when needed, The crowd sings lyrics you haven't written yet, The quietest laugh becomes your anthem, The light stays on in the clubroom forever",
+                        "Sunlit clubrooms, Cherry blossom-lined walkways, Cramped concert stages, Convenience store snack runs, Rooftops at golden hour, The bench where you first harmonized",
+                        "Three heads leaning together over sheet music, The shared microphone passing seamlessly, The accidental perfect chord progression, The tea cup that never empties, The unplanned hug that says everything",
+                        "Instrument-strewn floors, Lyric-covered chalkboards, Overstuffed clubroom sofas, The bakery that knows your order, Backstage areas too small for three, The streetlight that guides you home",
+                        "First person rotating—each member's perspective, Third person documentary—capturing fleeting youth, Choral—overlapping laughter and melodies, Cinematic—warm filters on mundane moments, Epistolary—passed notebook confessions",
+                        "Simple joy is the highest art, Harmony requires no perfection, What we create together saves us, The third friend makes the magic, Play like no one is listening—because they aren't yet",
+                        "Friendship as creative fuel, Nostalgia in real time, Imperfect harmony, Youthful rebellion through joy, The alchemy of three",
+                        "Watercolor music notes, Smudged pencil lyrics, Steaming teacup halos, Sunset-through-window textures, Intertwined microphone cords, Polaroid-style memory flashes",
+                        "Three of Cups");
+
         TarotStoryElements pageOfCups = new TarotStoryElements(
                         "Page of Cups",
                         "Innocence, Creativity, Emotional Awakening, Sensitivity, Intuition, Playfulness, Kindness, Imagination, Vulnerability, Surprise",
@@ -1287,38 +1549,32 @@ public class StoryElementSeeder {
                                 aceOfWands, aceOfPentacles, twoOfPentacles,
                                 twoOfWands,
                                 threeOfWands, fourOfWands,
-                                fiveOfWands, sixOfWands,
-                                sevenOfWands,
-                                eightOfWands, nineOfWands, tenOfWands,
-                                // pageOfWands, knightOfWands,
-                                // aceOfCups,
-                                // twoOfCups, threeOfCups, fourOfCups, fiveOfCups, sixOfCups, sevenOfCups,
+                                fiveOfWands, sixOfWands, sevenOfWands, eightOfWands, nineOfWands, tenOfWands,
+                                // pageOfWands, knightOfWands, queenOfWands, kingOfWands,
+                                aceOfCups, twoOfCups, threeOfCups,
+                                // fourOfCups, fiveOfCups, sixOfCups, sevenOfCups,
                                 // eightOfCups, nineOfCups, tenOfCups,
                                 pageOfCups,
                                 // knightOfCups, queenOfCups, kingOfCups,
-                                // pageOfWands, knightOfWands, queenOfWands, kingOfWands,
-
-                                aceOfPentacles, twoOfPentacles,
-                                // threeOfPentacles,
-                                // fourOfPentacles, fiveOfPentacles,
+                                aceOfPentacles,
+                                twoOfPentacles,
+                                threeOfPentacles,
+                                fourOfPentacles,
+                                fiveOfPentacles,
                                 sixOfPentacles, sevenOfPentacles, eightOfPentacles, nineOfPentacles,
                                 tenOfPentacles, tenOfPentacles,
-
                                 pageOfPentacles, knightOfPentacles, queenOfPentacles, kingOfPentacles,
-
                                 aceOfSwords, twoOfSwords, threeOfSwords,
                                 fourOfSwords, fiveOfSwords, sixOfSwords, sevenOfSwords, eightOfSwords, nineOfSwords,
                                 tenOfSwords,
-                                pageOfSwords, knightOfSwords, queenOfSwords, kingOfSwords, // threeOfPentacles,
-                                                                                           // fourOfPentacles,
-                                                                                           // fiveOfPentacles,
+                                pageOfSwords, knightOfSwords, queenOfSwords, kingOfSwords,
                                 theFool, theMagician, theHighPriestess, theEmpress, theEmperor,
                                 theHierophant, theLovers, theChariot, strength, theHermit,
-                                // wheelOfFortune,
+                                wheelOfFortune,
                                 justice, theHangedMan, death, temperance,
                                 // theDevil,
                                 theTower,
-                                // theStar,
+                                star,
                                 theMoon, theSun
                 // judgement, theWorld
                 ));

@@ -8,6 +8,7 @@ import DailyReadingPage from '../pages/DailyReadingPage'
 import FullReadingPage from '../pages/FullReadingPage'
 import LoginPage from '../pages/LoginPage'
 import RegisterPage from '../pages/RegisterPage'
+import { StoryElementsPage } from '../pages/StoryElementsPage'
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute>
                 <DailyReadingPage />
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'story-elements',
+            element: (
+              <ProtectedRoute>
+                <StoryElementsPage />
               </ProtectedRoute>
             ),
           },
