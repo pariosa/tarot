@@ -162,11 +162,3 @@ generate a firebase service account json here:
 https://console.firebase.google.com/project/**tarot-project**/settings/serviceaccounts/adminsdk
 and place it here:
 src/main/resources/firebase-service-account.json
-
-```
-
-```
-
-```
-
-```
