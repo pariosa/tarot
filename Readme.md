@@ -19,7 +19,7 @@ mvn clean install
 
 ## Java execution script:
 
-java -jar target/tarot-0.0.5-SNAPSHOT.jar
+java -jar target/tarot-0.0.7-SNAPSHOT.jar
 
 ## Tarot endpoints
 
