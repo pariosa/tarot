@@ -37,7 +37,7 @@ A high-performance, full-stack application designed for authentic tarot readings
 
 whether for personal insight or integration into spiritual apps, this API delivers **authentic, high-performance tarot readings with modern tech.**
 
-[Explore Endpoints](#tarot-endpoints) | [Front End Configuration](#front-end-conifigureation) | [Story Prompting](#story-prompt-functions)
+[Explore Endpoints](#tarot-endpoints) | [Front End Configuration](#front-end-configuration) | [Story Prompting](#story-prompt-functions)
 
 ---
 
@@ -135,7 +135,9 @@ curl -X GET "http://localhost:8080/api/draw" \
   -H "Authorization: Bearer {token}"
 ```
 
-## Front End Conifigureation
+## Front End Configuration
+
+configure .env with the .env.example if you are using fierebase to authenticate
 
 ### npm install script
 
@@ -147,12 +149,111 @@ npm run dev
 
 ### Story Prompt Functions
 
-api route /api/getRandomKeyword
+#### endpoint
+
+    /api/story/getStoryDTO
+
+#### Request
+
 POST
 body:
+
+```json
 {
-cardNames:"Ace of Cups, The Moon, Ace OfWands, Ace Of Pentacles, Six Of Pentacles, Seven of Swords",
+  "cardNames": "The High Priestess, Three Of Swords, Ten Of Pentacles, The Sun"
 }
+```
+
+#### Response
+
+```json
+{
+  "mainCharacterDeficit": {
+    "source": "Three of Swords",
+    "storyElement": "Impulsive"
+  },
+  "allyGoal": {
+    "source": "Ten of Pentacles",
+    "storyElement": "Protecting lineage"
+  },
+  "climaxLocation": {
+    "source": "Ten of Pentacles",
+    "storyElement": "Sealed Crypt: Where ancestors rest and the past demands justice"
+  },
+  "enemyTrait": {
+    "source": "The High Priestess",
+    "storyElement": "Rigid"
+  },
+  "cardsMatched": 4,
+  "climaxDescription": {
+    "source": "Three of Swords",
+    "storyElement": "where Rue must face the version of her who never healed—truth and tears finally surface"
+  },
+  "allyTrait": {
+    "source": "The Sun",
+    "storyElement": "Honest"
+  },
+  "pointOfView": {
+    "source": "The Sun",
+    "storyElement": "First Person Joyful – Narrated with light and hopeful inner dialogue"
+  },
+  "mainCharacterGoal": {
+    "source": "The Sun",
+    "storyElement": "Spreading joy or optimism"
+  },
+  "callToAction": {
+    "source": "Ten of Pentacles",
+    "storyElement": "Confrontation with forgotten past"
+  },
+  "cardsUsed": [
+    "The High Priestess",
+    "Three Of Swords",
+    "Ten Of Pentacles",
+    "The Sun"
+  ],
+  "allyDeficit": {
+    "source": "The Sun",
+    "storyElement": "Jealous of protagonist's success"
+  },
+  "climaxEvent": {
+    "source": "The Sun",
+    "storyElement": "A truth revealed in public"
+  },
+  "mainCharacterTrait": {
+    "source": "Three of Swords",
+    "storyElement": "Honest"
+  },
+  "enemyDeficit": {
+    "source": "Ten of Pentacles",
+    "storyElement": "Need for control"
+  },
+  "totalElementsFound": 139,
+  "enemyGoal": {
+    "source": "The Sun",
+    "storyElement": "Isolate protagonist"
+  },
+  "location": {
+    "source": "The High Priestess",
+    "storyElement": "Dreamscapes"
+  },
+  "theme": {
+    "source": "The Sun",
+    "storyElement": "Celebration of Life: Embracing joy"
+  },
+  "style": {
+    "source": "Ten of Pentacles",
+    "storyElement": "Symbolic Realism"
+  },
+  "keyword": {
+    "source": "The High Priestess",
+    "storyElement": "Secrets"
+  },
+  "moralValue": {
+    "source": "Three of Swords",
+    "storyElement": "but it can help"
+  }
+}
+```
 
 this will return a random "keyword" from a list of all the story elements from the cards present in the cardNames string.
 
