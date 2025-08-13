@@ -1,10 +1,10 @@
 # Tarot
 
-# Tarot API - Professional Documentation
+A modern Java tarot reading service api.
 
 ## Introduction
 
-Welcome to the **Tarot API**, a high-performance, full-stack application designed for authentic tarot readings with modern scalability. Built on **Java Spring Boot** with a **React TypeScript (Vite)** frontend, this API delivers **secure, multi-threaded card shuffling algorithms** and **weighted probability reversals** for personalized readings.
+A high-performance, full-stack application designed for authentic tarot readings with modern scalability. Built on **Java Spring Boot** with a **React TypeScript (Vite)** frontend, this API delivers **secure, multi-threaded card shuffling algorithms** and **weighted probability reversals** for personalized readings.
 
 ### Key Features
 
@@ -35,9 +35,9 @@ Welcome to the **Tarot API**, a high-performance, full-stack application designe
 
 ---
 
-**Get started today**—whether for personal insight or integration into spiritual apps, this API delivers **authentic, high-performance tarot readings with modern tech.**
+whether for personal insight or integration into spiritual apps, this API delivers **authentic, high-performance tarot readings with modern tech.**
 
-[Explore Endpoints](#endpoints) | [View GitHub Repo](#github) | [API Demo](#demo)
+[Explore Endpoints](#tarot-endpoints) | [Front End Configuration](#front-end-conifigureation) | [Story Prompting](#story-prompt-functions)
 
 ---
 
@@ -75,35 +75,67 @@ mvn clean install
 
 java -jar target/tarot-0.0.7-SNAPSHOT.jar
 
-## Tarot endpoints
+## Tarot Endpoints
 
-### card by id
+### Authentication & User Management
 
-localhost:8080/api/card/{id}
+| Endpoint                 | Method         | Description                               | Access |
+| ------------------------ | -------------- | ----------------------------------------- | ------ |
+| `/api/auth/**`           | POST           | Authentication endpoints (login/register) | Public |
+| `/api/users`             | POST           | User registration                         | Public |
+| `/api/users/check-email` | GET            | Check if email is available               | Public |
+| `/api/users/me`          | GET            | Get current user profile                  | USER   |
+| `/api/users/**`          | GET/PUT/DELETE | User management                           | USER   |
 
-### spread of cards
+### Card Operations
 
-localhost:8080/api/spread/{number between 0 and 78}
+| Endpoint                                   | Method | Description                            | Access |
+| ------------------------------------------ | ------ | -------------------------------------- | ------ |
+| `/api/card/{id}`                           | GET    | Get card by ID                         | USER   |
+| `/api/cards/daily`                         | GET    | Get daily card                         | Public |
+| `/api/draw`                                | GET    | Draw single random card                | USER   |
+| `/api/draw/weighted`                       | GET    | Draw card with 70% upright probability | USER   |
+| `/api/draw/parallel`                       | GET    | Draw card using parallel shuffle       | USER   |
+| `/api/draw/parallel/weighted`              | GET    | Parallel weighted draw                 | USER   |
+| `/api/spread/{numCards}`                   | GET    | Draw spread (1-78 cards)               | USER   |
+| `/api/spread/weighted/{numCards}`          | GET    | Weighted spread (70% upright)          | Public |
+| `/api/spread/parallel/{numCards}`          | GET    | Parallel shuffled spread               | USER   |
+| `/api/spread/parallel/weighted/{numCards}` | GET    | Parallel weighted spread               | Public |
 
-### draw a single card
+### Story Generation Elements
 
-localhost:8080/api/draw
+| Endpoint                             | Method | Description                            | Access  |
+| ------------------------------------ | ------ | -------------------------------------- | ------- |
+| `/api/story/location`                | GET    | Random story location                  | Public  |
+| `/api/story/character-trait`         | GET    | Random character trait                 | Public  |
+| `/api/story/theme`                   | GET    | Random story theme                     | Public  |
+| `/api/story/keyword`                 | GET    | Random story keyword                   | Public  |
+| `/api/story/moral-value`             | GET    | Random moral value                     | Public  |
+| `/api/story/point-of-view`           | GET    | Random POV style                       | Public  |
+| `/api/story/style`                   | GET    | Random writing style                   | Public  |
+| `/api/story/climax-event`            | GET    | Random climax event                    | Public  |
+| `/api/story/complete-element`        | GET    | Complete story element set             | PREMIUM |
+| `/api/story/full-reading/{numCards}` | GET    | Full story reading with interpretation | PREMIUM |
+| `/api/getStoryDTO`                   | GET    | Get complete story DTO                 | Public  |
+| `/api/getRandomKeyword`              | GET    | Get random keyword                     | Public  |
 
-## Weighted endpoints
+### System Endpoints
 
-weighted to have 70% probability to not be reversed
+| Endpoint           | Method | Description              | Access |
+| ------------------ | ------ | ------------------------ | ------ |
+| `/actuator/health` | GET    | Application health check | Public |
+| `/api/public/**`   | GET    | Public API endpoints     | Public |
 
-### draw a card - weighted
+## Usage Examples
 
-localhost:8080/draw/weighted
+### Basic Card Draw
 
-### draw a spread - weighted
+```bash
+curl -X GET "http://localhost:8080/api/draw" \
+  -H "Authorization: Bearer {token}"
+```
 
-localhost:8080/spread/weighted/{number of cards}
-
-## Front-end:
-
-the front end uses a Vite bundler with React-Typescript
+## Front End Conifigureation
 
 ### npm install script
 
@@ -130,6 +162,10 @@ generate a firebase service account json here:
 https://console.firebase.google.com/project/**tarot-project**/settings/serviceaccounts/adminsdk
 and place it here:
 src/main/resources/firebase-service-account.json
+
+```
+
+```
 
 ```
 
