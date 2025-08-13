@@ -661,3 +661,190 @@ Consider defining a bean of type 'org.springframework.mail.javamail.JavaMailSend
 2025-08-13 13:59:15.118 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
 2025-08-13 13:59:15.119 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{mainCharacterDeficit={source=Three of Swords, storyElement=Impulsive}, allyGoal={source=Ten of Pent (truncated)...]
 2025-08-13 13:59:15.122 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:40:46.358 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:40:47.807 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:40:47.975 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:40:48.042 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:40:48.053 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-13 14:40:48.055 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-13 14:40:48.085 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:40:48.099 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:40:48.169 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:40:48.173 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@4e588eac]
+2025-08-13 14:40:48.292 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:40:48.327 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:40:48.372 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:40:48.377 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:40:48.464 [http-nio-8080-exec-6] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:40:48.465 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-13 14:40:48.465 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-13 14:40:48.469 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:40:48.600 [http-nio-8080-exec-6] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:40:48.628 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:40:48.629 [http-nio-8080-exec-6] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@35dd816c]
+2025-08-13 14:40:48.630 [http-nio-8080-exec-6] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:40:50.857 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:40:50.922 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:40:50.950 [http-nio-8080-exec-8] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:40:50.983 [http-nio-8080-exec-8] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:40:50.993 [http-nio-8080-exec-8] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2025-08-13 14:40:50.996 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.AuthController#login(LoginRequest)
+2025-08-13 14:40:51.095 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [LoginRequest[email=ariosa@gmail.com, password=Innit2012!]]
+2025-08-13 14:40:51.106 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:40:51.131 [http-nio-8080-exec-8] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:40:51.133 [http-nio-8080-exec-8] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:40:51.588 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:40:51.592 [http-nio-8080-exec-8] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [LoginResponse[token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiYXJpb3NhQGdtYWlsLmN (truncated)...]
+2025-08-13 14:40:51.597 [http-nio-8080-exec-8] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:40:51.725 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:40:51.744 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:40:51.778 [http-nio-8080-exec-10] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:40:51.849 [http-nio-8080-exec-10] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:40:51.852 [http-nio-8080-exec-10] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-13 14:40:52.091 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-13 14:40:52.095 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:40:52.139 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:40:52.143 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:40:52.228 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@2ab2de1e]
+2025-08-13 14:40:52.246 [http-nio-8080-exec-10] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:40:55.283 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:40:55.343 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:40:55.363 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:40:55.395 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:40:55.395 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/spread/parallel/weighted/4", parameters={}
+2025-08-13 14:40:55.397 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.CardController#getSpreadParallelWeighted(int)
+2025-08-13 14:40:55.402 [http-nio-8080-exec-9] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle requested for 4 cards
+2025-08-13 14:40:55.402 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Getting 4 random cards with weighted reversal using parallel shuffle
+2025-08-13 14:40:55.454 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select c1_0.id,c1_0.card_description,c1_0.card_value,c1_0.major,c1_0.reversed_description,c1_0.story,c1_0.suit,c1_0.title from card c1_0
+2025-08-13 14:40:56.000 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Retrieved 78 total cards from repository for parallel weighted shuffle
+2025-08-13 14:40:56.001 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Starting parallel shuffle for 78 cards
+2025-08-13 14:40:56.002 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Using 8 threads with segment size: 9
+2025-08-13 14:40:56.036 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Parallel shuffle completed in 35ms for 78 cards
+2025-08-13 14:40:56.036 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Selecting 4 cards with parallel weighted reversal (requested: 4, available: 78)
+2025-08-13 14:40:56.037 [http-nio-8080-exec-9] INFO  [] [] c.m.tarot.controllers.CardController - Successfully generated 4 weighted reversal cards using parallel shuffle
+2025-08-13 14:40:56.037 [http-nio-8080-exec-9] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle completed - 4 cards drawn
+2025-08-13 14:40:56.040 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:40:56.044 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.mercy.tarot.dto.CardDTO@31b0fa38, com.mercy.tarot.dto.CardDTO@46899ba, com.mercy.tarot.dto.Card (truncated)...]
+2025-08-13 14:40:56.052 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:40:58.494 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:40:58.521 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:40:58.523 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:40:58.564 [http-nio-8080-exec-4] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:40:58.567 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/story/getStoryDTO", parameters={}
+2025-08-13 14:40:58.568 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.StoryController#getStoryPrompt(CardNamesRequest)
+2025-08-13 14:40:58.574 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [CardNamesRequest{cardNames='Eight Of Swords, Death, Eight Of Cups, Six Of Cups'}]
+2025-08-13 14:40:58.575 [http-nio-8080-exec-4] INFO  [] [] c.m.t.controllers.StoryController - Story prompt requested for cards: Eight Of Swords, Death, Eight Of Cups, Six Of Cups
+2025-08-13 14:40:58.577 [http-nio-8080-exec-4] DEBUG [] [] c.m.t.controllers.StoryController - Parsed card names: [Eight Of Swords, Death, Eight Of Cups, Six Of Cups]
+2025-08-13 14:40:58.620 [http-nio-8080-exec-4] DEBUG [] [] org.hibernate.SQL - select tse1_0.title,tse1_0.ally_defecits,tse1_0.ally_descriptors,tse1_0.ally_goals,tse1_0.call_to_action,tse1_0.card_name,tse1_0.climax_description,tse1_0.climax_event,tse1_0.climax_location,tse1_0.enemy_defecits,tse1_0.enemy_descriptors,tse1_0.enemy_goals,tse1_0.keywords,tse1_0.locations,tse1_0.main_character_defecits,tse1_0.main_character_descriptors,tse1_0.main_character_goals,tse1_0.moral_value,tse1_0.point_of_view,tse1_0.style,tse1_0.theme from tarotstoryelements tse1_0
+2025-08-13 14:40:58.702 [http-nio-8080-exec-4] DEBUG [] [] c.m.t.controllers.StoryController - Retrieved 44 story elements from database
+2025-08-13 14:40:58.706 [http-nio-8080-exec-4] WARN  [] [] c.m.t.controllers.StoryController - Found 2 story elements with null card names in database
+2025-08-13 14:40:58.706 [http-nio-8080-exec-4] DEBUG [] [] c.m.t.controllers.StoryController - Processing story elements for card: Eight of Swords
+2025-08-13 14:40:58.714 [http-nio-8080-exec-4] DEBUG [] [] c.m.t.controllers.StoryController - Processing story elements for card: Death
+2025-08-13 14:40:58.718 [http-nio-8080-exec-4] INFO  [] [] c.m.t.controllers.StoryController - Matched 2 cards from request, generating story elements
+2025-08-13 14:40:58.727 [http-nio-8080-exec-4] INFO  [] [] c.m.t.controllers.StoryController - Generated complete story prompt with 19 elements for 2 matched cards
+2025-08-13 14:40:58.730 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:40:58.733 [http-nio-8080-exec-4] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{mainCharacterDeficit={source=Death, storyElement=Emotionally Guarded}, allyGoal={source=Death, stor (truncated)...]
+2025-08-13 14:40:58.738 [http-nio-8080-exec-4] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:41:57.111 [http-nio-8080-exec-2] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-13 14:41:57.331 [http-nio-8080-exec-6] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-13 14:42:03.515 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:42:03.549 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:42:03.558 [http-nio-8080-exec-10] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:42:03.611 [http-nio-8080-exec-10] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:42:03.613 [http-nio-8080-exec-10] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-13 14:42:03.629 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-13 14:42:03.641 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:42:03.648 [http-nio-8080-exec-10] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:42:03.653 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:42:03.679 [http-nio-8080-exec-10] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@54672959]
+2025-08-13 14:42:03.685 [http-nio-8080-exec-10] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:42:03.730 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:42:03.744 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:42:03.749 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:42:03.795 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:42:03.795 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/users/me", parameters={}
+2025-08-13 14:42:03.795 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.UserController#getCurrentUser(Authentication)
+2025-08-13 14:42:03.828 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:42:03.840 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:42:03.851 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:42:03.852 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.mercy.tarot.dto.UserProfileDTO@5c97aab]
+2025-08-13 14:42:03.854 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:42:05.113 [http-nio-8080-exec-1] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-13 14:42:05.142 [http-nio-8080-exec-4] ERROR [] [] c.mercy.tarot.config.SecurityConfig - Authentication error: Full authentication is required to access this resource
+2025-08-13 14:42:32.650 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:42:32.668 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:42:32.678 [http-nio-8080-exec-5] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:42:32.741 [http-nio-8080-exec-5] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:42:32.743 [http-nio-8080-exec-5] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/spread/parallel/weighted/6", parameters={}
+2025-08-13 14:42:32.748 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.CardController#getSpreadParallelWeighted(int)
+2025-08-13 14:42:32.757 [http-nio-8080-exec-5] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle requested for 6 cards
+2025-08-13 14:42:32.757 [http-nio-8080-exec-5] DEBUG [] [] c.m.tarot.controllers.CardController - Getting 6 random cards with weighted reversal using parallel shuffle
+2025-08-13 14:42:32.772 [http-nio-8080-exec-5] DEBUG [] [] org.hibernate.SQL - select c1_0.id,c1_0.card_description,c1_0.card_value,c1_0.major,c1_0.reversed_description,c1_0.story,c1_0.suit,c1_0.title from card c1_0
+2025-08-13 14:42:32.919 [http-nio-8080-exec-5] DEBUG [] [] c.m.tarot.controllers.CardController - Retrieved 78 total cards from repository for parallel weighted shuffle
+2025-08-13 14:42:32.920 [http-nio-8080-exec-5] DEBUG [] [] c.m.tarot.controllers.CardController - Starting parallel shuffle for 78 cards
+2025-08-13 14:42:32.920 [http-nio-8080-exec-5] DEBUG [] [] c.m.tarot.controllers.CardController - Using 8 threads with segment size: 9
+2025-08-13 14:42:32.929 [http-nio-8080-exec-5] DEBUG [] [] c.m.tarot.controllers.CardController - Parallel shuffle completed in 9ms for 78 cards
+2025-08-13 14:42:32.929 [http-nio-8080-exec-5] DEBUG [] [] c.m.tarot.controllers.CardController - Selecting 6 cards with parallel weighted reversal (requested: 6, available: 78)
+2025-08-13 14:42:32.931 [http-nio-8080-exec-5] INFO  [] [] c.m.tarot.controllers.CardController - Successfully generated 6 weighted reversal cards using parallel shuffle
+2025-08-13 14:42:32.931 [http-nio-8080-exec-5] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle completed - 6 cards drawn
+2025-08-13 14:42:32.936 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:42:32.977 [http-nio-8080-exec-5] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.mercy.tarot.dto.CardDTO@52d245fc, com.mercy.tarot.dto.CardDTO@13cf00f2, com.mercy.tarot.dto.Car (truncated)...]
+2025-08-13 14:42:32.983 [http-nio-8080-exec-5] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:43:03.489 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:43:03.502 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:43:03.511 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:43:03.603 [http-nio-8080-exec-2] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:43:03.605 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/story/getStoryDTO", parameters={}
+2025-08-13 14:43:03.606 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.StoryController#getStoryPrompt(CardNamesRequest)
+2025-08-13 14:43:03.619 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [CardNamesRequest{cardNames='Seven Of Cups, Temperance, Ace Of Pentacles, Queen Of Wands, Wheel of Fo (truncated)...]
+2025-08-13 14:43:03.631 [http-nio-8080-exec-2] INFO  [] [] c.m.t.controllers.StoryController - Story prompt requested for cards: Seven Of Cups, Temperance, Ace Of Pentacles, Queen Of Wands, Wheel of Fortune, Six Of Swords
+2025-08-13 14:43:03.632 [http-nio-8080-exec-2] DEBUG [] [] c.m.t.controllers.StoryController - Parsed card names: [Seven Of Cups, Temperance, Ace Of Pentacles, Queen Of Wands, Wheel of Fortune, Six Of Swords]
+2025-08-13 14:43:03.654 [http-nio-8080-exec-2] DEBUG [] [] org.hibernate.SQL - select tse1_0.title,tse1_0.ally_defecits,tse1_0.ally_descriptors,tse1_0.ally_goals,tse1_0.call_to_action,tse1_0.card_name,tse1_0.climax_description,tse1_0.climax_event,tse1_0.climax_location,tse1_0.enemy_defecits,tse1_0.enemy_descriptors,tse1_0.enemy_goals,tse1_0.keywords,tse1_0.locations,tse1_0.main_character_defecits,tse1_0.main_character_descriptors,tse1_0.main_character_goals,tse1_0.moral_value,tse1_0.point_of_view,tse1_0.style,tse1_0.theme from tarotstoryelements tse1_0
+2025-08-13 14:43:03.772 [http-nio-8080-exec-2] DEBUG [] [] c.m.t.controllers.StoryController - Retrieved 44 story elements from database
+2025-08-13 14:43:03.774 [http-nio-8080-exec-2] WARN  [] [] c.m.t.controllers.StoryController - Found 2 story elements with null card names in database
+2025-08-13 14:43:03.775 [http-nio-8080-exec-2] DEBUG [] [] c.m.t.controllers.StoryController - Processing story elements for card: Six of Swords
+2025-08-13 14:43:03.778 [http-nio-8080-exec-2] DEBUG [] [] c.m.t.controllers.StoryController - Processing story elements for card: Temperance
+2025-08-13 14:43:03.781 [http-nio-8080-exec-2] INFO  [] [] c.m.t.controllers.StoryController - Matched 2 cards from request, generating story elements
+2025-08-13 14:43:03.782 [http-nio-8080-exec-2] INFO  [] [] c.m.t.controllers.StoryController - Generated complete story prompt with 19 elements for 2 matched cards
+2025-08-13 14:43:03.788 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:43:03.790 [http-nio-8080-exec-2] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{mainCharacterDeficit={source=Temperance, storyElement=Hesitant}, allyGoal={source=Six of Swords, st (truncated)...]
+2025-08-13 14:43:03.793 [http-nio-8080-exec-2] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:44:49.103 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:44:49.132 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:44:49.152 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:44:49.197 [http-nio-8080-exec-9] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:44:49.199 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - GET "/api/spread/parallel/weighted/5", parameters={}
+2025-08-13 14:44:49.201 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.CardController#getSpreadParallelWeighted(int)
+2025-08-13 14:44:49.206 [http-nio-8080-exec-9] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle requested for 5 cards
+2025-08-13 14:44:49.206 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Getting 5 random cards with weighted reversal using parallel shuffle
+2025-08-13 14:44:49.220 [http-nio-8080-exec-9] DEBUG [] [] org.hibernate.SQL - select c1_0.id,c1_0.card_description,c1_0.card_value,c1_0.major,c1_0.reversed_description,c1_0.story,c1_0.suit,c1_0.title from card c1_0
+2025-08-13 14:44:49.273 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Retrieved 78 total cards from repository for parallel weighted shuffle
+2025-08-13 14:44:49.274 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Starting parallel shuffle for 78 cards
+2025-08-13 14:44:49.274 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Using 8 threads with segment size: 9
+2025-08-13 14:44:49.287 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Parallel shuffle completed in 13ms for 78 cards
+2025-08-13 14:44:49.287 [http-nio-8080-exec-9] DEBUG [] [] c.m.tarot.controllers.CardController - Selecting 5 cards with parallel weighted reversal (requested: 5, available: 78)
+2025-08-13 14:44:49.287 [http-nio-8080-exec-9] INFO  [] [] c.m.tarot.controllers.CardController - Successfully generated 5 weighted reversal cards using parallel shuffle
+2025-08-13 14:44:49.287 [http-nio-8080-exec-9] INFO  [] [] c.m.tarot.controllers.CardController - Weighted card spread with parallel shuffle completed - 5 cards drawn
+2025-08-13 14:44:49.292 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:44:49.320 [http-nio-8080-exec-9] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.mercy.tarot.dto.CardDTO@796e5b7b, com.mercy.tarot.dto.CardDTO@d7580f5, com.mercy.tarot.dto.Card (truncated)...]
+2025-08-13 14:44:49.325 [http-nio-8080-exec-9] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-13 14:45:20.658 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.name,u1_0.password,u1_0.photo_url,u1_0.updated_at from users u1_0 where u1_0.email=?
+2025-08-13 14:45:20.676 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+2025-08-13 14:45:20.685 [http-nio-8080-exec-1] INFO  [] [] c.m.t.s.CustomUserDetailsService - User found: User{id=4, email='ariosa@gmail.com', name='Peter Ariosa', roles=[USER], isActive=true, photoUrl='null', createdAt=2025-08-11T01:02:45, updatedAt=2025-08-11T01:02:45}
+2025-08-13 14:45:20.749 [http-nio-8080-exec-1] INFO  [] [] c.m.t.s.JwtAuthenticationFilter - Authenticated user: ariosa@gmail.com
+2025-08-13 14:45:20.752 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - POST "/api/story/getStoryDTO", parameters={}
+2025-08-13 14:45:20.752 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.mercy.tarot.controllers.StoryController#getStoryPrompt(CardNamesRequest)
+2025-08-13 14:45:20.757 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [CardNamesRequest{cardNames='The Fool, Queen Of Cups, Page Of Pentacles, Knight Of Cups, Justice'}]
+2025-08-13 14:45:20.763 [http-nio-8080-exec-1] INFO  [] [] c.m.t.controllers.StoryController - Story prompt requested for cards: The Fool, Queen Of Cups, Page Of Pentacles, Knight Of Cups, Justice
+2025-08-13 14:45:20.766 [http-nio-8080-exec-1] DEBUG [] [] c.m.t.controllers.StoryController - Parsed card names: [The Fool, Queen Of Cups, Page Of Pentacles, Knight Of Cups, Justice]
+2025-08-13 14:45:20.770 [http-nio-8080-exec-1] DEBUG [] [] org.hibernate.SQL - select tse1_0.title,tse1_0.ally_defecits,tse1_0.ally_descriptors,tse1_0.ally_goals,tse1_0.call_to_action,tse1_0.card_name,tse1_0.climax_description,tse1_0.climax_event,tse1_0.climax_location,tse1_0.enemy_defecits,tse1_0.enemy_descriptors,tse1_0.enemy_goals,tse1_0.keywords,tse1_0.locations,tse1_0.main_character_defecits,tse1_0.main_character_descriptors,tse1_0.main_character_goals,tse1_0.moral_value,tse1_0.point_of_view,tse1_0.style,tse1_0.theme from tarotstoryelements tse1_0
+2025-08-13 14:45:20.835 [http-nio-8080-exec-1] DEBUG [] [] c.m.t.controllers.StoryController - Retrieved 44 story elements from database
+2025-08-13 14:45:20.835 [http-nio-8080-exec-1] WARN  [] [] c.m.t.controllers.StoryController - Found 2 story elements with null card names in database
+2025-08-13 14:45:20.836 [http-nio-8080-exec-1] DEBUG [] [] c.m.t.controllers.StoryController - Processing story elements for card: Page of Pentacles
+2025-08-13 14:45:20.847 [http-nio-8080-exec-1] DEBUG [] [] c.m.t.controllers.StoryController - Processing story elements for card: The Fool
+2025-08-13 14:45:20.852 [http-nio-8080-exec-1] DEBUG [] [] c.m.t.controllers.StoryController - Processing story elements for card: Justice
+2025-08-13 14:45:20.854 [http-nio-8080-exec-1] INFO  [] [] c.m.t.controllers.StoryController - Matched 3 cards from request, generating story elements
+2025-08-13 14:45:20.858 [http-nio-8080-exec-1] INFO  [] [] c.m.t.controllers.StoryController - Generated complete story prompt with 19 elements for 3 matched cards
+2025-08-13 14:45:20.868 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2025-08-13 14:45:20.871 [http-nio-8080-exec-1] DEBUG [] [] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{mainCharacterDeficit={source=Justice, storyElement=Vulnerable to Manipulation}, allyGoal={source=Th (truncated)...]
+2025-08-13 14:45:20.879 [http-nio-8080-exec-1] DEBUG [] [] o.s.web.servlet.DispatcherServlet - Completed 200 OK

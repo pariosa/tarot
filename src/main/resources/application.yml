@@ -4,10 +4,10 @@ spring:
   application:
     name: tarot-card-api
   mail:
-    host: smtp.gmail.com
+    host: smtp.mailersend.com
     port: 587
-    username: your-gmail-address
-    password: your-gmail-password
+    username: MS_WxTDtK@test-r6ke4n15d13gon12.mlsender.net
+    password: mssp.47OSanz.7dnvo4dw1orl5r86.YPQqZp9
     properties:
       mail:
         smtp:
