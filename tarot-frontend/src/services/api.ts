@@ -105,8 +105,24 @@ const apiService = {
       api.post('/api/auth/register', data),
     validate: (): Promise<AxiosResponse<void>> => api.get('/api/auth/validate'),
     logout: (): Promise<AxiosResponse<void>> => api.post('/api/auth/logout'),
-  },
 
+    // Password reset endpoints
+    forgotPassword: (data: {
+      email: string
+    }): Promise<AxiosResponse<{ message: string }>> =>
+      api.post('/api/auth/forgot-password', data),
+    validateResetToken: (
+      token: string
+    ): Promise<AxiosResponse<{ valid: boolean; message: string }>> =>
+      api.get(
+        `/api/auth/validate-reset-token?token=${encodeURIComponent(token)}`
+      ),
+    resetPassword: (data: {
+      token: string
+      newPassword: string
+    }): Promise<AxiosResponse<{ message: string }>> =>
+      api.post('/api/auth/reset-password', data),
+  },
   // User endpoints
   users: {
     create: (data: UserRegistrationDTO): Promise<AxiosResponse<User>> =>

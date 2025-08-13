@@ -5,8 +5,11 @@ import App from '../App'
 import { ProtectedRoute } from '../Components/ProtectedRoute'
 import { MainLayout } from '../layouts/MainLayout'
 import DailyReadingPage from '../pages/DailyReadingPage'
+import ForgotPasswordPage from '../pages/ForgotPasswordPage'
 import FullReadingPage from '../pages/FullReadingPage'
+import HomePage from '../pages/HomePage'
 import LoginPage from '../pages/LoginPage'
+import PasswordResetPage from '../pages/PasswordResetPage'
 import RegisterPage from '../pages/RegisterPage'
 import { StoryElementsPage } from '../pages/StoryElementsPage'
 
@@ -14,9 +17,23 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+
     children: [
       // Auth routes (unprotected)
-
+      {
+        path: '/home',
+        element: <HomePage />,
+        children: [
+          {
+            path: 'login',
+            element: <LoginPage />,
+          },
+          {
+            path: 'register',
+            element: <RegisterPage />,
+          },
+        ],
+      },
       // Main routes (protected)
       {
         path: '/',
@@ -61,11 +78,6 @@ export const router = createBrowserRouter([
         ],
       },
 
-      // Public reading route
-      {
-        path: 'reading',
-        element: <FullReadingPage />,
-      },
       {
         path: 'login',
         element: <LoginPage />,
@@ -74,7 +86,14 @@ export const router = createBrowserRouter([
         path: 'register',
         element: <RegisterPage />,
       },
-
+      {
+        path: 'forgot-password',
+        element: <ForgotPasswordPage />,
+      },
+      {
+        path: 'reset-password',
+        element: <PasswordResetPage />,
+      },
       // Redirect for old /login path
       // {
       //   path: 'login',
