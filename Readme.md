@@ -131,7 +131,7 @@ java -jar target/tarot-0.0.7-SNAPSHOT.jar
 ### Basic Card Draw
 
 ```bash
-curl -X GET "http://localhost:8080/api/draw" \
+curl -X GET "http://localhost:8080/api/draw"
   -H "Authorization: Bearer {token}"
 ```
 
