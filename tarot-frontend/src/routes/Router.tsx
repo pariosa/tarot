@@ -3,6 +3,7 @@ import * as React from 'react'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import App from '../App'
 import { ProtectedRoute } from '../Components/ProtectedRoute'
+import StoryContainer from '../Components/StoryContainer'
 import { MainLayout } from '../layouts/MainLayout'
 import DailyReadingPage from '../pages/DailyReadingPage'
 import ForgotPasswordPage from '../pages/ForgotPasswordPage'
@@ -72,6 +73,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute>
                 <StoryElementsPage />
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'story',
+            element: (
+              <ProtectedRoute>
+                <StoryContainer />
               </ProtectedRoute>
             ),
           },

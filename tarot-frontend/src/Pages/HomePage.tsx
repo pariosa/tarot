@@ -21,10 +21,28 @@ const HomePage = () => {
                 <>
                   <span className='text-white'>Welcome, {user?.name}</span>
                   <Link
-                    to='/readings'
+                    to='/daily-reading'
                     className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium transition-colors'
                   >
-                    My Readings
+                    Daily Card
+                  </Link>
+                  <Link
+                    to='/full-reading'
+                    className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium transition-colors'
+                  >
+                    Do a Reading
+                  </Link>
+                  <Link
+                    to='/story'
+                    className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium transition-colors'
+                  >
+                    Story About Reading
+                  </Link>
+                  <Link
+                    to='/logout'
+                    className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium transition-colors'
+                  >
+                    logout
                   </Link>
                 </>
               ) : (
