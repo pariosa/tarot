@@ -62,25 +62,28 @@ public class SecurityConfig {
                                                                 "/actuator/health",
                                                                 "/api/users/check-email**",
                                                                 "/api/public/**",
-                                                                "/api/cards/daily",
-                                                                "/api/spread/weighted/**",
-                                                                "/api/spread/parallel/weighted/**",
+
+                                                                "/api/draw",
                                                                 "/api/draw/parallel",
                                                                 "/api/draw/parallel/weighted",
+
+                                                                "/api/getRandomKeyword")
+                                                .permitAll()
+
+                                                // User role endpoints
+                                                .requestMatchers(
                                                                 "/api/story/location",
                                                                 "/api/story/character-trait",
+                                                                "/api/getStoryDTO",
+
                                                                 "/api/story/theme",
                                                                 "/api/story/keyword",
                                                                 "/api/story/moral-value",
                                                                 "/api/story/point-of-view",
                                                                 "/api/story/style",
                                                                 "/api/story/climax-event",
-                                                                "/api/getStoryDTO",
-                                                                "/api/getRandomKeyword")
-                                                .permitAll()
-
-                                                // User role endpoints
-                                                .requestMatchers(
+                                                                "/api/spread/weighted/**",
+                                                                "/api/spread/parallel/weighted/**",
                                                                 "/api/cards/**",
                                                                 "/api/readings/**",
                                                                 "/api/spread/parallel/**",

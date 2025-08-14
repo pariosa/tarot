@@ -23,7 +23,7 @@ const DailyReadingPage = () => {
     setLoading(true)
     setError(null)
     try {
-      const response = await fetch('/api/cards/daily')
+      const response = await fetch('/api/draw')
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }

@@ -74,9 +74,30 @@ const HomePage = () => {
               Discover Your Path
             </h2>
             <p className='text-xl text-purple-200 mb-8 max-w-2xl mx-auto'>
-              Unlock the wisdom of the cards with our mystical tarot reading
-              experience. Get personalized insights and guidance for your
-              journey ahead.
+              <ul className='space-x-2 space-y-6'>
+                <li>
+                  Unlock the wisdom of the cards with a tarot spread, or daily
+                  card reading.
+                </li>
+
+                <li>
+                  Get a randomized story, seeded by your tarot reading to help
+                  you draw insights and guidance for your journey ahead.
+                </li>
+
+                <li>
+                  Stuck writing a story? get key concepts, keywords, plot
+                  devices, and character attributes from your tarot reading, to
+                  enhance and enrich your writing processs.
+                </li>
+                <li>
+                  building generative story elements into your game or creative
+                  project? try applying to access to our API!{' '}
+                  <Link to={'https://github.com/pariosa/tarot'}>
+                    Check out the documentation
+                  </Link>
+                </li>
+              </ul>
             </p>
 
             {!isAuthenticated && (
@@ -156,7 +177,7 @@ const HomePage = () => {
                   </h4>
                   <p className='text-purple-200 mb-2'>
                     Transform your tarot readings into personalized stories with
-                    our new AI-powered narrative feature.
+                    our generative story prompt narrative feature.
                   </p>
                   <span className='text-sm text-purple-300'>January 2025</span>
                 </div>
@@ -175,22 +196,6 @@ const HomePage = () => {
                     methods for more accurate readings.
                   </p>
                   <span className='text-sm text-purple-300'>December 2024</span>
-                </div>
-              </div>
-            </div>
-
-            <div className='bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6'>
-              <div className='flex items-start space-x-4'>
-                <div className='text-2xl'>🔐</div>
-                <div>
-                  <h4 className='text-lg font-semibold text-white mb-2'>
-                    Improved Security
-                  </h4>
-                  <p className='text-purple-200 mb-2'>
-                    Enhanced authentication and password reset features for
-                    better account security.
-                  </p>
-                  <span className='text-sm text-purple-300'>January 2025</span>
                 </div>
               </div>
             </div>
