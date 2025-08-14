@@ -15,7 +15,10 @@ export function StoryElementsPage() {
 
   const fetchElement = async (type: string, endpoint: string) => {
     // Add new element with loading state
-    setElements((prev) => [...prev, { type, value: '', loading: true }])
+    setElements((prev) => [
+      ...prev,
+      { type, source: '', element: '', loading: true },
+    ])
 
     setIsAnimating(true)
 

@@ -81,7 +81,7 @@ export function Navigation() {
                   onClick={() => {
                     apiService.auth.logout()
                   }}
-                  className='block px-4 py-2 text-blue-700 hover:bg-blue-50 hover:text-blue-900'
+                  className='block px-4 py-2 text-blue-700 hover:bg-blue-50 hover:text-blue-900 cursor-pointer'
                 >
                   <span className='mr-2'>🚪</span> Logout
                 </div>

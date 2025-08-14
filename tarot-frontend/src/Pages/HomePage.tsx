@@ -44,7 +44,7 @@ const HomePage = () => {
                     onClick={() => {
                       apiService.auth.logout()
                     }}
-                    className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium transition-colors mouse-pointer'
+                    className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium transition-colors cursor-pointer'
                   >
                     logout
                   </div>
