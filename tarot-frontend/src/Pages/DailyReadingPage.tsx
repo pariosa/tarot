@@ -77,7 +77,7 @@ const DailyReadingPage = () => {
             </button>
           </div>
         ) : card ? (
-          <div className='bg-white rounded-2xl shadow-xl overflow-hidden max-w-2xl mx-auto'>
+          <div className='bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl shadow-xl overflow-hidden max-w-2xl mx-auto'>
             <div className='bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white text-center'>
               <h2 className='text-3xl font-bold mb-2'>
                 {!cardFlipped && (
@@ -94,7 +94,7 @@ const DailyReadingPage = () => {
                 )}
               </p>
             </div>
-            <div className='pt-20 pl-28 background-black'>
+            <div className='pt-6 pb-24 pl-28 background-black'>
               <Card
                 name={card.name}
                 num={0}
@@ -107,7 +107,7 @@ const DailyReadingPage = () => {
               />
             </div>
 
-            <div className='p-8'>
+            <div className='p-8 bg-white  '>
               <div className='mb-6'>
                 <h3 className='text-xl font-semibold mb-3 text-gray-800'>
                   Meaning

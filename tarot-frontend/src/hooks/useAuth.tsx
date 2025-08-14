@@ -85,7 +85,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       // Check if email exists
       const emailExists = await apiService.users.checkEmailExists(email)
-      if (emailExists) {
+      if (emailExists.data.exists) {
         return {
           success: false,
           message: 'Email already registered',
