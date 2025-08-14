@@ -4,7 +4,8 @@ import api from '../services/api' // Adjust import path as needed
 
 type StoryElement = {
   type: string
-  value: string
+  source: string
+  element: string
   loading: boolean
 }
 
@@ -44,7 +45,7 @@ export function StoryElementsPage() {
         const lastIndex = updated.length - 1
         updated[lastIndex] = {
           ...updated[lastIndex],
-          value: newValue,
+          source: newValue,
           loading: false,
         }
         return updated
@@ -56,7 +57,8 @@ export function StoryElementsPage() {
         const lastIndex = updated.length - 1
         updated[lastIndex] = {
           ...updated[lastIndex],
-          value: 'Failed to load. Try again!',
+          source: 'Failed to load. Try again!',
+          element: '',
           loading: false,
         }
         return updated
@@ -185,7 +187,7 @@ export function StoryElementsPage() {
                           </div>
                         </div>
                       ) : (
-                        <p className='mt-1 text-gray-700'>{element.value}</p>
+                        <p className='mt-1 text-gray-700'>{element.element}</p>
                       )}
                     </div>
                     {!element.loading && (

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
+import apiService from '../services/api'
 
 // Using standard anchor tags for navigation - replace with your routing solution
 const HomePage = () => {
@@ -38,12 +39,15 @@ const HomePage = () => {
                   >
                     Story About Reading
                   </Link>
-                  <Link
-                    to='/logout'
-                    className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium transition-colors'
+
+                  <div
+                    onClick={() => {
+                      apiService.auth.logout()
+                    }}
+                    className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium transition-colors mouse-pointer'
                   >
                     logout
-                  </Link>
+                  </div>
                 </>
               ) : (
                 <>
@@ -122,7 +126,7 @@ const HomePage = () => {
         {/* Features Section */}
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'>
           <h3 className='text-3xl font-bold text-white text-center mb-12'>
-            Why Choose Mystic Tarot?
+            Features
           </h3>
 
           <div className='grid md:grid-cols-3 gap-8'>

@@ -1,5 +1,7 @@
 import * as React from 'react'
 import { useEffect, useState } from 'react'
+import { Card } from '../Components/Card'
+import apiService from '../services/api'
 
 // Define the CardDTO interface to match your Java DTO
 interface CardDTO {
@@ -8,7 +10,7 @@ interface CardDTO {
   reversed: boolean
   story: string
   card_value: string
-  reversed_description: string
+  reversedDescription: string
 }
 
 // Define the response type for your API endpoint
@@ -18,16 +20,17 @@ const DailyReadingPage = () => {
   const [card, setCard] = useState<CardDTO | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
+  const [cardFlipped, setCardFlipped] = useState<boolean>(false)
 
   const fetchDailyCard = async (): Promise<void> => {
     setLoading(true)
     setError(null)
     try {
-      const response = await fetch('/api/draw')
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+      const response = await apiService.cards.getDailyCard()
+      if (!response.status) {
+        throw new Error(`HTTP error! status: ${response}`)
       }
-      const data: ApiResponse = await response.json()
+      const data: ApiResponse = await response.data
       if (!data || data.length === 0) {
         throw new Error('No card data received')
       }
@@ -76,18 +79,41 @@ const DailyReadingPage = () => {
         ) : card ? (
           <div className='bg-white rounded-2xl shadow-xl overflow-hidden max-w-2xl mx-auto'>
             <div className='bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white text-center'>
-              <h2 className='text-3xl font-bold mb-2'>{card.name}</h2>
+              <h2 className='text-3xl font-bold mb-2'>
+                {!cardFlipped && (
+                  <>
+                    {card.name} {card.reversed ? '(Reversed)' : ''}
+                  </>
+                )}
+              </h2>
               <p className='text-purple-100'>
-                {card.reversed ? '(Reversed)' : ''} {card.card_value}
+                {cardFlipped ? (
+                  <div></div>
+                ) : (
+                  'Click the card to reveal the image'
+                )}
               </p>
             </div>
+            <div className='pt-20 pl-28 background-black'>
+              <Card
+                name={card.name}
+                num={0}
+                setCardFlipped={setCardFlipped}
+                description={card.description}
+                reversed={card.reversed}
+                reversedDescription={card.reversedDescription}
+                card_value={card.card_value}
+                story={card.story}
+              />
+            </div>
+
             <div className='p-8'>
               <div className='mb-6'>
                 <h3 className='text-xl font-semibold mb-3 text-gray-800'>
                   Meaning
                 </h3>
                 <p className='text-gray-600 leading-relaxed'>
-                  {card.reversed ? card.reversed_description : card.description}
+                  {card.reversed ? card.reversedDescription : card.description}
                 </p>
               </div>
               {card.story && (

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
+import apiService from '../../services/api'
 
 export function Navigation() {
   const isLoggedIn = true // This would come from your auth state
@@ -25,12 +26,21 @@ export function Navigation() {
         </li>
         <li>
           <Link
+            to='/story'
+            className='flex items-center px-4 py-2 text-blue-800 hover:bg-blue-100 rounded-lg transition-colors duration-200'
+          >
+            <span className='mr-2'>✨</span>Story Prompt (fron reading)
+          </Link>
+        </li>
+        <li>
+          <Link
             to='/daily-reading'
             className='flex items-center px-4 py-2 text-blue-800 hover:bg-blue-100 rounded-lg transition-colors duration-200'
           >
             <span className='mr-2'>✨</span> Daily Reading
           </Link>
         </li>
+
         <li>
           <Link
             to='/story-elements'
@@ -67,12 +77,14 @@ export function Navigation() {
                 >
                   <span className='mr-2'>👤</span> My Profile
                 </Link>
-                <Link
-                  to='/logout'
+                <div
+                  onClick={() => {
+                    apiService.auth.logout()
+                  }}
                   className='block px-4 py-2 text-blue-700 hover:bg-blue-50 hover:text-blue-900'
                 >
                   <span className='mr-2'>🚪</span> Logout
-                </Link>
+                </div>
               </div>
             </div>
           </li>

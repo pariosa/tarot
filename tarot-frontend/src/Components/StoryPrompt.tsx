@@ -20,6 +20,9 @@ const cardColors: Record<string, string> = {
   'Nine Of Cups': '#154360',
   'Ten Of Cups': '#0e3c60',
   'Page Of Cups': '#6495ed',
+  'Knight Of Cups': '#7b68ee',
+  'Queen Of Cups': '#9370db',
+  'King Of Cups': '#7b68ee',
 
   // 🟥 Swords
   'Ace Of Swords': '#e74c3c',
@@ -32,6 +35,10 @@ const cardColors: Record<string, string> = {
   'Eight Of Swords': '#78281f',
   'Nine Of Swords': '#943126',
   'Ten Of Swords': '#b22222',
+  'Page Of Swords': '#e74c3c',
+  'Knight Of Swords': '#cb4335',
+  'Queen Of Swords': '#c0392b',
+  'King Of Swords': '#a93226',
 
   // 🟩 Pentacles
   'Ace Of Pentacles': '#27ae60',
@@ -45,6 +52,9 @@ const cardColors: Record<string, string> = {
   'Nine Of Pentacles': '#17a589',
   'Ten Of Pentacles': '#1abc9c',
   'Page Of Pentacles': '#48c9b0',
+  'Knight Of Pentacles': '#2ecc71',
+  'Queen Of Pentacles': '#27ae60',
+  'King Of Pentacles': '#229954',
 
   // 🟫 Wands
   'Ace Of Wands': '#d35400',
@@ -58,6 +68,9 @@ const cardColors: Record<string, string> = {
   'Nine Of Wands': '#cd853f',
   'Ten Of Wands': '#deb887',
   'Page Of Wands': '#f4a460',
+  'Knight Of Wands': '#f1c40f',
+  'Queen Of Wands': '#d35400',
+  'King Of Wands': '#ba4a00',
 
   // 🌟 Major Arcana
   'The Fool': '#f1c40f',

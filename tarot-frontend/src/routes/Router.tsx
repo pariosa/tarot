@@ -11,6 +11,7 @@ import FullReadingPage from '../pages/FullReadingPage'
 import HomePage from '../pages/HomePage'
 import LoginPage from '../pages/LoginPage'
 import PasswordResetPage from '../pages/PasswordResetPage'
+import { ProfilePage } from '../pages/ProfilePage'
 import RegisterPage from '../pages/RegisterPage'
 import { StoryElementsPage } from '../pages/StoryElementsPage'
 
@@ -84,6 +85,14 @@ export const router = createBrowserRouter([
               </ProtectedRoute>
             ),
           },
+          {
+            path: '/profile',
+            element: (
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            ),
+          },
         ],
       },
 
@@ -103,6 +112,7 @@ export const router = createBrowserRouter([
         path: 'reset-password',
         element: <PasswordResetPage />,
       },
+
       // Redirect for old /login path
       // {
       //   path: 'login',

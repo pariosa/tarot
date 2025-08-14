@@ -142,8 +142,7 @@ const apiService = {
 
   // Card endpoints
   cards: {
-    getDailyCard: (): Promise<AxiosResponse<any>> =>
-      api.get('/api/cards/daily'),
+    getDailyCard: (): Promise<AxiosResponse<any>> => api.get('/api/draw'),
     getAllCards: (): Promise<AxiosResponse<any[]>> => api.get('/api/cards'),
     getCardById: (id: number): Promise<AxiosResponse<any>> =>
       api.get(`/api/cards/${id}`),
