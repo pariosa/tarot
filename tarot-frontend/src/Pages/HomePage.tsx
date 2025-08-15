@@ -39,31 +39,53 @@ const HomePage = () => {
                   >
                     Story About Reading
                   </Link>
-
-                  <div
-                    onClick={() => {
-                      apiService.auth.logout()
-                    }}
-                    className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium transition-colors cursor-pointer'
-                  >
-                    logout
-                  </div>
+                  <li className='relative group list-none'>
+                    <button className='bg-purple-600 hover:bg-purple-700 flex items-center px-4 py-2 text-white rounded-lg transition-colors duration-200'>
+                      <span className='mr-2'>🧙‍♂️</span> Profile
+                      <svg
+                        className='w-4 h-4 ml-1'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2}
+                          d='M19 9l-7 7-7-7'
+                        />
+                      </svg>
+                    </button>
+                    <div className='absolute right-0 mt-2 w-48 bg-purple-600 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10 border border-blue-100'>
+                      <div className='py-1'>
+                        <Link
+                          to='/profile'
+                          className='block bg-purple-700 px-4 py-2 text-white hover:bg-blue-500'
+                        >
+                          <span className='mr-2'>👤</span> My Profile
+                        </Link>
+                        <div
+                          onClick={() => {
+                            apiService.auth.logout()
+                          }}
+                          className='block bg-purple-700 px-4 py-2 text-white hover:bg-blue-500 cursor-pointer'
+                        >
+                          <span className='mr-2'>🚪</span> Logout
+                        </div>
+                      </div>
+                    </div>
+                  </li>
                 </>
               ) : (
-                <>
+                <li>
                   <Link
                     to='/login'
-                    className='text-white hover:text-purple-200 px-3 py-2 rounded-md font-medium transition-colors'
+                    className='flex items-center px-4 py-2 text-blue-800 hover:bg-blue-100 rounded-lg transition-colors duration-200'
                   >
-                    Sign In
+                    <span className='mr-2'>🔑</span> Login
                   </Link>
-                  <Link
-                    to='/register'
-                    className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md font-medium transition-colors'
-                  >
-                    Get Started
-                  </Link>
-                </>
+                </li>
               )}
             </nav>
           </div>

@@ -10,6 +10,7 @@ import ForgotPasswordPage from '../pages/ForgotPasswordPage'
 import FullReadingPage from '../pages/FullReadingPage'
 import HomePage from '../pages/HomePage'
 import LoginPage from '../pages/LoginPage'
+import PasswordChangePage from '../pages/PasswordChangePage'
 import PasswordResetPage from '../pages/PasswordResetPage'
 import { ProfilePage } from '../pages/ProfilePage'
 import RegisterPage from '../pages/RegisterPage'
@@ -92,6 +93,10 @@ export const router = createBrowserRouter([
                 <ProfilePage />
               </ProtectedRoute>
             ),
+          },
+          {
+            path: 'change-password',
+            element: <PasswordChangePage />,
           },
         ],
       },

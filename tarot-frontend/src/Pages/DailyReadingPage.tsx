@@ -22,9 +22,13 @@ const DailyReadingPage = () => {
   const [error, setError] = useState<string | null>(null)
   const [cardFlipped, setCardFlipped] = useState<boolean>(false)
 
+  useEffect(() => {
+    setCardFlipped(false)
+  }, [])
   const fetchDailyCard = async (): Promise<void> => {
     setLoading(true)
     setError(null)
+    setCardFlipped(false)
     try {
       const response = await apiService.cards.getDailyCard()
       if (!response.status) {
@@ -80,10 +84,12 @@ const DailyReadingPage = () => {
           <div className='bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl shadow-xl overflow-hidden max-w-2xl mx-auto'>
             <div className='bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white text-center'>
               <h2 className='text-3xl font-bold mb-2'>
-                {!cardFlipped && (
+                {cardFlipped ? (
                   <>
                     {card.name} {card.reversed ? '(Reversed)' : ''}
                   </>
+                ) : (
+                  'Your Daily Reading'
                 )}
               </h2>
               <p className='text-purple-100'>
@@ -94,7 +100,10 @@ const DailyReadingPage = () => {
                 )}
               </p>
             </div>
-            <div className='pt-6 pb-24 pl-28 background-black'>
+            <div
+              className='pt-6 pb-24 pl-28 background-black'
+              onClick={() => setCardFlipped(!cardFlipped)}
+            >
               <Card
                 name={card.name}
                 num={0}
@@ -108,22 +117,31 @@ const DailyReadingPage = () => {
             </div>
 
             <div className='p-8 bg-white  '>
-              <div className='mb-6'>
-                <h3 className='text-xl font-semibold mb-3 text-gray-800'>
-                  Meaning
-                </h3>
-                <p className='text-gray-600 leading-relaxed'>
-                  {card.reversed ? card.reversedDescription : card.description}
-                </p>
-              </div>
-              {card.story && (
-                <div className='mb-6'>
-                  <h3 className='text-xl font-semibold mb-3 text-gray-800'>
-                    Story
-                  </h3>
-                  <p className='text-gray-600 leading-relaxed'>{card.story}</p>
-                </div>
+              {cardFlipped && (
+                <>
+                  <div className='mb-6'>
+                    <h3 className='text-xl font-semibold mb-3 text-gray-800'>
+                      Meaning
+                    </h3>
+                    <p className='text-gray-600 leading-relaxed'>
+                      {card.reversed
+                        ? card.reversedDescription
+                        : card.description}
+                    </p>
+                  </div>
+                  {card.story && (
+                    <div className='mb-6'>
+                      <h3 className='text-xl font-semibold mb-3 text-gray-800'>
+                        Story
+                      </h3>
+                      <p className='text-gray-600 leading-relaxed'>
+                        {card.story}
+                      </p>
+                    </div>
+                  )}
+                </>
               )}
+
               <button
                 onClick={fetchDailyCard}
                 className='w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-lg font-medium hover:from-purple-700 hover:to-indigo-700 transition-colors'

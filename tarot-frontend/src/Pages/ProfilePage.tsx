@@ -1,6 +1,7 @@
 // src/pages/ProfilePage.tsx
 import * as React from 'react'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import api from '../services/api' // Make sure you have an api instance configured
 import { User } from '../types/User.types' // Import the User interface
@@ -120,6 +121,14 @@ export const ProfilePage = () => {
           >
             Edit Profile
           </button>
+          <Link to={'/change-password'}>
+            <button
+              onClick={() => {}}
+              className='ml-4 px-4 py-2 bg-green-600 text-white rounded-md'
+            >
+              Change Password
+            </button>
+          </Link>
           <button
             onClick={logout}
             className='ml-4 px-4 py-2 bg-red-600 text-white rounded-md'
