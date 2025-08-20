@@ -95,7 +95,7 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'change-password',
+            path: '/change-password',
             element: <PasswordChangePage />,
           },
         ],

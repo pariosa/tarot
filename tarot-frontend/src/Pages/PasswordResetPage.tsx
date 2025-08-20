@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import apiService from '../services/api'
+import api from '../services/api'
 
 const ResetPasswordPage = () => {
   const [token, setToken] = useState('')
@@ -30,7 +30,7 @@ const ResetPasswordPage = () => {
 
   const validateToken = async (tokenToValidate: string) => {
     try {
-      const response = await apiService.auth.validateResetToken(tokenToValidate)
+      const response = await api.auth.validateResetToken(tokenToValidate)
       console.log('Token validation response:', response)
       setIsTokenValid(response.data.valid)
       if (!response.data.valid) {
@@ -68,7 +68,7 @@ const ResetPasswordPage = () => {
     setLoading(true)
 
     try {
-      const response = await apiService.auth.resetPassword({
+      const response = await api.auth.resetPassword({
         token,
         newPassword,
       })

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// src/api.ts
+// src/services/api.ts
 import axios, {
   AxiosInstance,
   AxiosResponse,
@@ -50,6 +50,20 @@ export interface StoryElementRequest {
 }
 export interface CardNamesRequest {
   cardNames: string
+}
+export interface PasswordResetTokenResponse {
+  token: string
+  expiryDate: string // ISO string from Java LocalDateTime
+}
+
+export interface ResetPasswordRequest {
+  token: string
+  newPassword: string
+}
+
+export interface PasswordResetResponse {
+  success: boolean
+  message: string
 }
 // Create axios instance
 const createApiInstance = (): AxiosInstance => {
@@ -107,6 +121,20 @@ const apiService = {
     logout: (): Promise<AxiosResponse<void>> => api.post('/api/auth/logout'),
 
     // Password reset endpoints
+    // In your auth endpoints
+    issueAuthedPasswordResetToken: (
+      email: string
+    ): Promise<AxiosResponse<PasswordResetTokenResponse>> =>
+      api.post(
+        `/api/auth/issue-authed-user-password-reset-token?email=${encodeURIComponent(
+          email
+        )}`
+      ),
+
+    resetPassword: (
+      data: ResetPasswordRequest
+    ): Promise<AxiosResponse<PasswordResetResponse>> =>
+      api.post('/api/auth/reset-password', data),
     forgotPassword: (data: {
       email: string
     }): Promise<AxiosResponse<{ message: string }>> =>
@@ -117,11 +145,6 @@ const apiService = {
       api.get(
         `/api/auth/validate-reset-token?token=${encodeURIComponent(token)}`
       ),
-    resetPassword: (data: {
-      token: string
-      newPassword: string
-    }): Promise<AxiosResponse<{ message: string }>> =>
-      api.post('/api/auth/reset-password', data),
   },
   // User endpoints
   users: {

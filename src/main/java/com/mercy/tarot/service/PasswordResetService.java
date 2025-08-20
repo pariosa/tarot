@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mercy.tarot.exceptions.ResourceNotFoundException;
 import com.mercy.tarot.models.PasswordResetToken;
 import com.mercy.tarot.models.User;
 import com.mercy.tarot.repositories.PasswordResetTokenRepository;
@@ -68,6 +69,30 @@ public class PasswordResetService {
         logger.info("Password reset initiated for user: {}", user.getEmail());
     }
 
+    public String createPasswordResetTokenForAuthenticatedUser(String email) {
+        Optional<User> userOptional = userService.findByEmail(email);
+
+        if (userOptional.isEmpty()) {
+            throw new ResourceNotFoundException("User not found with email: " + email);
+        }
+
+        User user = userOptional.get();
+
+        // Delete any existing tokens for this user
+        tokenRepository.deleteByUser(user);
+
+        // Generate secure random token
+        String token = generateSecureToken();
+        LocalDateTime expiryDate = LocalDateTime.now().plusHours(TOKEN_VALIDITY_HOURS);
+
+        // Save token
+        PasswordResetToken resetToken = new PasswordResetToken(token, user, expiryDate);
+        tokenRepository.save(resetToken);
+
+        logger.info("Password reset token generated for authenticated user: {}", user.getEmail());
+        return token;
+    }
+
     public boolean resetPassword(String token, String newPassword) {
         Optional<PasswordResetToken> tokenOptional = tokenRepository.findByToken(token);
 
@@ -101,7 +126,7 @@ public class PasswordResetService {
         return tokenOptional.isPresent() && tokenOptional.get().isValid();
     }
 
-    private String generateSecureToken() {
+    public String generateSecureToken() {
         byte[] tokenBytes = new byte[32];
         secureRandom.nextBytes(tokenBytes);
         return Base64.getUrlEncoder().withoutPadding().encodeToString(tokenBytes);

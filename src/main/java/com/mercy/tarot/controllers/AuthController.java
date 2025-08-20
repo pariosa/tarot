@@ -1,10 +1,12 @@
 package com.mercy.tarot.controllers;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,9 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mercy.tarot.dto.ForgotPasswordRequest;
 import com.mercy.tarot.dto.LoginRequest;
 import com.mercy.tarot.dto.LoginResponse;
+import com.mercy.tarot.dto.PasswordResetTokenResponse;
 import com.mercy.tarot.dto.ResetPasswordRequest;
 import com.mercy.tarot.dto.UserRegistrationDTO;
+import com.mercy.tarot.exceptions.ResourceNotFoundException;
+import com.mercy.tarot.models.PasswordResetToken;
 import com.mercy.tarot.models.User;
+import com.mercy.tarot.repositories.PasswordResetTokenRepository;
 import com.mercy.tarot.service.JwtTokenService;
 import com.mercy.tarot.service.PasswordResetService;
 import com.mercy.tarot.service.UserService;
@@ -36,17 +42,19 @@ public class AuthController {
     private final JwtTokenService jwtTokenService;
     private final UserService userService;
     private final PasswordResetService passwordResetService;
+    private final PasswordResetTokenRepository passwordResetTokenRepository;
 
     Logger logger = org.slf4j.LoggerFactory.getLogger(AuthController.class);
 
     public AuthController(AuthenticationManager authenticationManager,
             JwtTokenService jwtTokenService, UserService userService,
-            PasswordResetService passwordResetService) {
+            PasswordResetService passwordResetService, PasswordResetTokenRepository passwordResetTokenRepository) {
+
         this.authenticationManager = authenticationManager;
         this.jwtTokenService = jwtTokenService;
         this.userService = userService;
         this.passwordResetService = passwordResetService;
-
+        this.passwordResetTokenRepository = passwordResetTokenRepository;
     }
 
     @PostMapping("/register")
@@ -69,6 +77,38 @@ public class AuthController {
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(Map.of("message", "Error during registration: " + e.getMessage()));
         }
+    }
+
+    @PostMapping("/issue-authed-user-password-reset-token")
+    public ResponseEntity<PasswordResetTokenResponse> issueAuthedUserPasswordResetToken(
+            Authentication authentication, @RequestParam String email) {
+
+        // Get the username from authentication
+        String username = authentication.getName();
+
+        // Verify the authenticated user matches the requested email
+        User currentUser = userService.findByEmail(username)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+        if (!currentUser.getEmail().equals(email)) {
+            throw new AccessDeniedException("You can only request tokens for your own account");
+        }
+
+        // Generate secure token using your existing service
+        String resetToken = passwordResetService.generateSecureToken();
+
+        // Create expiry date (matching your service's logic)
+        LocalDateTime expiryDate = LocalDateTime.now().plusHours(1);
+
+        // Delete any existing tokens for this user
+        passwordResetTokenRepository.deleteByUser(currentUser);
+
+        // Create and save the password reset token
+        PasswordResetToken tokenEntity = new PasswordResetToken(resetToken, currentUser, expiryDate);
+        passwordResetTokenRepository.save(tokenEntity);
+
+        // Return the token response
+        return ResponseEntity.ok(new PasswordResetTokenResponse(resetToken, expiryDate));
     }
 
     @PostMapping("/login")
