@@ -62,6 +62,7 @@ public class SecurityConfig {
                                                                 "/actuator/health",
                                                                 "/api/users/check-email**",
                                                                 "/api/public/**",
+                                                                "/api/auth/change-password",
 
                                                                 "/api/draw",
                                                                 "/api/draw/parallel",

@@ -32,6 +32,7 @@ import com.mercy.tarot.service.JwtTokenService;
 import com.mercy.tarot.service.PasswordResetService;
 import com.mercy.tarot.service.UserService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @RestController
@@ -112,10 +113,46 @@ public class AuthController {
     }
 
     @PostMapping("/change-password")
-    public ResponseEntity<PasswordResetTokenResponse> changePassword(@RequestParam String token,
-            @RequestParam String currentPassword, @RequestParam String newPassword) {
-        passwordResetService.resetPassword(token, newPassword);
-        return ResponseEntity.ok(new PasswordResetTokenResponse(token, LocalDateTime.now()));
+    public ResponseEntity<?> changePassword(
+            Authentication authentication,
+            HttpServletRequest request,
+            @RequestBody(required = false) Map<String, String> requestBody,
+            @RequestParam(required = false) String token,
+            @RequestParam(required = false) String currentPassword,
+            @RequestParam(required = false) String newPassword) {
+
+        logger.info("=== DEBUG CHANGE PASSWORD ===");
+        logger.info("Authentication: {}", authentication != null ? authentication.getName() : "null");
+        logger.info("Request body: {}", requestBody);
+        logger.info("Query params - token: {}, currentPassword: {}, newPassword: {}",
+                token, currentPassword != null ? "[PRESENT]" : "null",
+                newPassword != null ? "[PRESENT]" : "null");
+        logger.info("Authorization header: {}", request.getHeader("Authorization"));
+        logger.info("Request URI: {}", request.getRequestURI());
+        logger.info("============================");
+
+        if (authentication == null || !authentication.isAuthenticated()) {
+            logger.error("User not authenticated");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "User not authenticated"));
+        }
+
+        try {
+            String userEmail = authentication.getName();
+            logger.info("Authenticated user: {}", userEmail);
+
+            // For now, just return success to verify authentication works
+            return ResponseEntity.ok(Map.of(
+                    "message", "Authentication successful",
+                    "user", userEmail,
+                    "hasRequestBody", requestBody != null,
+                    "hasQueryParams", token != null || currentPassword != null || newPassword != null));
+
+        } catch (Exception e) {
+            logger.error("Error in change password", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", e.getMessage()));
+        }
     }
 
     @PostMapping("/login")

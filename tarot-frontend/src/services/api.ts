@@ -14,6 +14,15 @@ export interface ApiResponse<T> {
   statusText: string
 }
 
+export interface ChangePasswordRequest {
+  currentPassword: string
+  newPassword: string
+}
+
+// Response type (the backend returns this format)
+export interface ChangePasswordResponse {
+  message: string
+}
 // Define your DTOs
 export interface UserRegistrationDTO {
   firebaseUid?: string
@@ -130,6 +139,10 @@ const apiService = {
           email
         )}`
       ),
+    changePassword: (
+      data: ChangePasswordRequest
+    ): Promise<AxiosResponse<{ message: string }>> =>
+      api.post('/api/auth/change-password', data),
 
     resetPassword: (
       data: ResetPasswordRequest

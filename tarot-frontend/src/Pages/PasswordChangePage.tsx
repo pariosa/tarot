@@ -1,6 +1,7 @@
 import axios from 'axios'
 import * as React from 'react'
 import { useState } from 'react'
+import apiService from '../services/api'
 
 const PasswordChangePage = () => {
   const [activeMethod, setActiveMethod] = useState('direct') // 'direct' or 'email'
@@ -49,7 +50,7 @@ const PasswordChangePage = () => {
 
     try {
       // Replace with your API service call
-      const response = await fetch('/api/auth/change-password', {
+      const response = await apiService.auth.changePassword({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
