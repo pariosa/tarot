@@ -111,6 +111,13 @@ public class AuthController {
         return ResponseEntity.ok(new PasswordResetTokenResponse(resetToken, expiryDate));
     }
 
+    @PostMapping("/change-password")
+    public ResponseEntity<PasswordResetTokenResponse> changePassword(@RequestParam String token,
+            @RequestParam String currentPassword, @RequestParam String newPassword) {
+        passwordResetService.resetPassword(token, newPassword);
+        return ResponseEntity.ok(new PasswordResetTokenResponse(token, LocalDateTime.now()));
+    }
+
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(

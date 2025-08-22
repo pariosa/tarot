@@ -75,7 +75,7 @@ public class SecurityConfig {
                                                                 "/api/story/location",
                                                                 "/api/story/character-trait",
                                                                 "/api/getStoryDTO",
-
+                                                                "/api/auth/change-password",
                                                                 "/api/story/theme",
                                                                 "/api/story/keyword",
                                                                 "/api/story/moral-value",
